@@ -28,6 +28,8 @@ public class CardBag {
 
     /**
      * 每天记忆的新卡数量
+     * <p>要求值不小于 {@code 1}
+     * <p>注意：对这一项的修改在次日生效
      */
     private int dailyNewCardNum = 20;
 
