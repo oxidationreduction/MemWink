@@ -1,72 +1,189 @@
 package com.MemWink.Data;
 
-import com.MemWink.Data.CardBag.Card;
 import com.MemWink.Data.CardBag.*;
-import com.MemWink.Data.CardBag.MemStateConstants;
-
 import java.awt.*;
-import java.util.Date;
+import java.io.*;
+import java.util.*;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
+/**
+ * 数据中心
+ * <p>管理所有卡包，并负责磁盘I/O，所有数据由此获取</p>
+ * @author Liu Hongyu
+ * @version 1.0
+ */
 public class DataManager {
-    public static void main(String[] args) {
-        CardBag testBag = new CardBag("test bag", Color.CYAN, 1);
-        testBag.addCard("1 Front", "1 Back", true, MemStateConstants.newCard, false, "");
-        testBag.addCard("2 Front", "2 Back", true, MemStateConstants.newCard, false, "");
-        testBag.addCard("3 Front", "3 Back", true, MemStateConstants.reinforce1, false, "");
-        testBag.addCard("4 Front", "4 Back", true, MemStateConstants.stage_one, false, "");
+    /**
+     * 所有卡包
+     */
+    private static List<CardBag> cardBags = new ArrayList<>();
 
-        Timer timer = new Timer();
-        final int[] time = {0};
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                List<CategorizedCard> cards = testBag.getCardNeedReview();
-                int time = 0;
-                while (time < 7) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    System.out.print(new Date().toString() + "-> 1 : ");
-                    for (CategorizedCard i : cards) {
-                        System.out.print(i.getFront() + ", ");
-                    }
-                    System.out.println();
-                    time++;
-                }
+    /**
+     * 所有卡包的名字
+     * <p>卡包不允许重名</p>
+     */
+    private static List<String> cardBagNames = new ArrayList<>();
 
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-
-                cards = testBag.getCardNeedReview();
-                CategorizedCard newCard = cards.get(0);
-                newCard.setMemState(MemStateConstants.reinforce1);
-                testBag.updateCard(newCard);
-
-                time = 0;
-                while (time < 10) {
-                    cards = testBag.getCardNeedReview();
-                    System.out.print(new Date().toString() + "-> 2 : ");
-                    for (CategorizedCard i : cards) {
-                        System.out.print(i.getFront() + ", ");
-                    }
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    System.out.println();
-                    time++;
-                }
-                Thread.currentThread().stop();
+    /**
+     * 构造器
+     * <p>采用单例设计模式，因此为 {@code private} 类型</p>
+     * <p>初始化时涉及到磁盘I/O</p>
+     */
+    private DataManager() {
+        try {
+            FileInputStream fileInputStream = new FileInputStream("App/dataBank/card_bag_name.txt");
+            ObjectInputStream tool = new ObjectInputStream(fileInputStream);
+            cardBagNames = (List<String>) tool.readObject();
+            for (String i : cardBagNames) {
+                cardBags.add(CardBag.openCardBag(i));
             }
-        }, 0);
+        } catch (IOException | ClassNotFoundException e) {
+            saveCardBagName();
+        }
+    }
+
+    /**
+     * 初始化数据中心
+     */
+    public static void init() {
+        new DataManager();
+    }
+
+    /**
+     * 获取所有卡包
+     * @return 卡包列表
+     */
+    public static List<CardBag> getCardBags() {
+        return cardBags;
+    }
+
+    /**
+     * 添加新卡包
+     * @param name 卡包名
+     * @param color 颜色
+     * @param dailyNewCardNum 每日新卡数量
+     * @return 操作状态，参见 {@link DataManagerStatus}
+     */
+    public static int addCardBag(String name, Color color, int dailyNewCardNum) {
+        if (dailyNewCardNum < 1) {
+            return DataManagerStatus.DAILY_NEW_CARD_NUM_ERR;
+        }
+        for (CardBag i : cardBags) {
+            if (Objects.equals(i.getName(), name)) {
+                return DataManagerStatus.DUPLICATE_CARD_BAG_NAME;
+            }
+        }
+        CardBag newCardBag = new CardBag(name, color, dailyNewCardNum);
+        cardBags.add(newCardBag);
+        cardBagNames.add(name);
+        if (CardBag.saveCardBag(newCardBag)) {
+            saveCardBagName();
+        } else {
+            throw new RuntimeException("Card Bag Save Failed.");
+        }
+
+        return DataManagerStatus.NORMAL;
+    }
+
+    /**
+     * 删除卡包
+     * @param name 卡包名
+     * @return 操作状态，参见 {@link DataManagerStatus}
+     */
+    public static int delCardBag(String name) {
+        for (CardBag i : cardBags) {
+            if (Objects.equals(i.getName(), name)) {
+                cardBags.remove(i);
+                new File("App/dataBank/" + name).delete();
+                cardBagNames.remove(name);
+                saveCardBagName();
+                return DataManagerStatus.NORMAL;
+            }
+        }
+        return DataManagerStatus.NO_SUCH_CARD_BAG;
+    }
+
+    /**
+     * 重命名卡包
+     * @param oldName 旧名
+     * @param newName 新名
+     * @return 操作状态，参见 {@link DataManagerStatus}
+     */
+    public static int changeCardBagName(String oldName, String newName) {
+        if (Objects.equals(newName, "")) {
+            return DataManagerStatus.NO_SUCH_CARD_BAG;
+        }
+        for (CardBag i : cardBags) {
+            if (Objects.equals(i.getName(), oldName)) {
+                i.setName(newName);
+                File oldFile = new File("App/dataBank/" + oldName);
+                File newFile = new File("App/dataBank/" + newName);
+                if (oldFile.exists()) {
+                    if (!oldFile.renameTo(newFile)) {
+                        throw new RuntimeException("Rename Failed.");
+                    }
+                }
+                return DataManagerStatus.NORMAL;
+            }
+        }
+        return DataManagerStatus.NO_SUCH_CARD_BAG;
+    }
+
+    /**
+     * 获取指定的卡包
+     * @param name 卡包名
+     * @return 所需的卡包，未找到时返回 {@code null}
+     */
+    public static CardBag provideCardBag(String name) {
+        for (CardBag i : cardBags) {
+            if (Objects.equals(i.getName(), name)) {
+                return i;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 存储卡包
+     * @param cardBag 要存储的卡包
+     * @return 操作状态，参见 {@link DataManagerStatus}
+     */
+    public static int saveCardBag(CardBag cardBag) {
+        int cardBagNum = cardBags.size();
+        for (int i = 0; i < cardBagNum; i++) {
+            if (Objects.equals(cardBags.get(i).getId(), cardBag.getId())) {
+                cardBags.set(i, cardBag);
+                CardBag.saveCardBag(cardBag);
+                return DataManagerStatus.NORMAL;
+            }
+        }
+        return DataManagerStatus.NO_SUCH_CARD_BAG;
+    }
+
+    /**
+     * 保存卡包名称列表 {@code cardBagNames} 到文件。
+     * @return 是否保存成功
+     */
+    public static boolean saveCardBagName() {
+        try {
+            File file = new File("App/dataBank/card_bag_name.txt");
+            if (file.exists()) {
+                file.delete();
+            }
+            ObjectOutputStream tool = new ObjectOutputStream(
+                    new FileOutputStream("App/dataBank/card_bag_name.txt"));
+            tool.writeObject(cardBagNames);
+            tool.close();
+        } catch (IOException e) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * getter
+     */
+    public static List<String> getCardBagNames() {
+        return cardBagNames;
     }
 }

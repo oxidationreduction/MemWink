@@ -1,15 +1,17 @@
 package com.MemWink.Data.CardBag;
 
+import java.io.Serializable;
+
 /**
  * 含分类的卡片
  * @author Liu Hongyu
  * @version 1.0
  */
-public class CategorizedCard extends Card {
+public class CategorizedCard extends Card implements Serializable {
     /**
-     * 卡片在卡包内的类别
+     * 卡片在卡包内的类别，默认为 {@code null} 代表"未分类"
      */
-    private String category = "";
+    private String category = null;
 
     /**
      * 构造器

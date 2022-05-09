@@ -1,5 +1,6 @@
 package com.MemWink.Data.CardBag;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -14,7 +15,7 @@ import java.util.*;
  * @author Liu Hongyu
  * @version 1.0
  */
-public class Card {
+public class Card implements Serializable {
     /**
      * 卡正面的内容
      */

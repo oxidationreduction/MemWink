@@ -1,9 +1,9 @@
 package com.MemWink.Data.CardBag;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * 卡包：存储卡片
@@ -15,7 +15,7 @@ import java.util.Objects;
  * @author Liu Hongyu
  * @version  1.0
  */
-public class CardBag {
+public class CardBag implements Serializable {
     /**
      * 卡包的名字
      */
@@ -25,6 +25,13 @@ public class CardBag {
      * 卡包的颜色
      */
     private Color color;
+
+    /**
+     * 卡包对象的创建时间，精确到毫秒
+     * <p>
+     * 使用时间作为区分不同卡包的唯一标识，因此此项只读
+     */
+    private Date id;
 
     /**
      * 每天记忆的新卡数量
@@ -51,7 +58,7 @@ public class CardBag {
     /**
      * 用户自定义分类
      */
-    private List<String> categories = new ArrayList<>();
+    private Set<String> categories = new HashSet<>();
 
     /**
      * 构造器
@@ -59,6 +66,13 @@ public class CardBag {
     public CardBag(String name, Color color) {
         this.name = name;
         this.color = color;
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        categories.add(null);
+        this.id = new Date();
     }
 
     /**
@@ -68,6 +82,11 @@ public class CardBag {
     public CardBag(String name, Color color, int dailyNewCardNum) {
         this.name = name;
         this.color = color;
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         if (dailyNewCardNum < 1) {
             throw new RuntimeException("Invalid daily new card number: " + dailyNewCardNum);
         } else {
@@ -76,7 +95,7 @@ public class CardBag {
     }
 
     /**
-     * getter
+     * getter 和 setter
      */
     public Color getColor() {
         return color;
@@ -87,11 +106,31 @@ public class CardBag {
     public List<CategorizedCard> getCards() {
         return cards;
     }
-    public List<String> getCategories() {
+    public Set<String> getCategories() {
         return categories;
     }
     public String getName() {
         return name;
+    }
+    public Date getId() {
+        return id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * 向卡包内添加新的一种分类
+     * @param catName 分类种类名称
+     * @return 是否添加成功
+     */
+    public boolean addCategory(String catName) {
+        if (categories.add(catName)) {
+            saveCardBag(this);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -110,12 +149,13 @@ public class CardBag {
             throw new RuntimeException(e);
         }
         CategorizedCard tmp;
-        if (Objects.equals(category, "") || categories.contains(category)) {
+        if (Objects.equals(category, null) || categories.contains(category)) {
             tmp = new CategorizedCard(front, back, showFront, memState, starred, category);
         } else {
             throw new RuntimeException("Invalid Category: " + category);
         }
         cards.add(tmp);
+        saveCardBag(this);
     }
 
     /**
@@ -130,6 +170,7 @@ public class CardBag {
                 return;
             }
         }
+        saveCardBag(this);
     }
 
     /**
@@ -139,6 +180,7 @@ public class CardBag {
     public void delCard(CategorizedCard c) {
         cards.remove(c);
         cardNeedReview.remove(c);
+        saveCardBag(this);
     }
 
     /**
@@ -197,5 +239,43 @@ public class CardBag {
     public int getReviewCardsNum() {
         updateCardNeedReview();
         return cardNeedReview.size();
+    }
+
+    /**
+     * 保存卡包，静态方法，可直接调用
+     * @param cardBag 要保存的卡包
+     * @return 是否保存成功
+     */
+    public static boolean saveCardBag(CardBag cardBag) {
+        String pathName = "App/dataBank/" + cardBag.getName();
+        File file = new File(pathName);
+        if (file.exists()) {
+            file.delete();
+        }
+        try {
+            ObjectOutputStream tool = new ObjectOutputStream(
+                    new FileOutputStream(pathName));
+            tool.writeObject(cardBag);
+            tool.close();
+        } catch (IOException e) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 从文件读取卡包，静态方法，可直接调用
+     * @param bagName 卡包名称
+     * @return 读取的卡包
+     * @throws RuntimeException I/O错误或未知类错误
+     */
+    public static CardBag openCardBag(String bagName) {
+        try {
+            ObjectInputStream tool = new ObjectInputStream(
+                    new FileInputStream("App/dataBank/" + bagName));
+            return (CardBag) tool.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
