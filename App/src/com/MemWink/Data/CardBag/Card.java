@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * ¿¨Æ¬£º×îĞ¡¼ÇÒäµ¥Ôª¡£
+ * å¡ç‰‡ï¼šæœ€å°è®°å¿†å•å…ƒã€‚
  * <p>
- * Ã¿ÕÅ¿¨ÓĞÕı·´Á½Ãæ£¬ÕıÃæ¼ÇÔØÌáÊ¾ĞÅÏ¢£¬·´Ãæ¼ÇÔØĞèÒª¼ÇÒäµÄÄÚÈİ¡£
+ * æ¯å¼ å¡æœ‰æ­£åä¸¤é¢ï¼Œæ­£é¢è®°è½½æç¤ºä¿¡æ¯ï¼Œåé¢è®°è½½éœ€è¦è®°å¿†çš„å†…å®¹ã€‚
  * <p>
- * ÒÔ"µ¥´Ê±¾"ÎªÀı£ºÕıÃæ¼ÇÔØÖĞÎÄ·­Òë£¬·´Ãæ¼ÇÔØÍâÎÄµ¥´Ê¡£ÓÃ»§¼ÇÒäÊ±£¬µã¿ª¿¨Æ¬ºó
- * Ê×ÏÈ¿´µ½ÖĞÎÄ·­Òë£¬Ö®ºó¸ù¾İÖĞÎÄ·­Òë»ØÏëµ¥´Ê£¬ÔÙµã»÷·­Ãæ¼ì²é¼ÇÒä½á¹û¡£
+ * ä»¥"å•è¯æœ¬"ä¸ºä¾‹ï¼šæ­£é¢è®°è½½ä¸­æ–‡ç¿»è¯‘ï¼Œåé¢è®°è½½å¤–æ–‡å•è¯ã€‚ç”¨æˆ·è®°å¿†æ—¶ï¼Œç‚¹å¼€å¡ç‰‡å
+ * é¦–å…ˆçœ‹åˆ°ä¸­æ–‡ç¿»è¯‘ï¼Œä¹‹åæ ¹æ®ä¸­æ–‡ç¿»è¯‘å›æƒ³å•è¯ï¼Œå†ç‚¹å‡»ç¿»é¢æ£€æŸ¥è®°å¿†ç»“æœã€‚
  * <p>
  *
  * @author Liu Hongyu
@@ -17,44 +17,46 @@ import java.util.*;
  */
 public class Card implements Serializable {
     /**
-     * ¿¨ÕıÃæµÄÄÚÈİ
+     * å¡æ­£é¢çš„å†…å®¹
      */
     private String front = "";
 
     /**
-     * ¿¨±³ÃæµÄÄÚÈİ
+     * å¡èƒŒé¢çš„å†…å®¹
      */
     private String back = "";
 
     /**
-     * ¿¨Æ¬´´½¨Ê±¼ä£¬¿¨Æ¬µÄÎ¨Ò»±êÊ¶£¬Òò´ËÖ»¶Á
+     * å¡ç‰‡åˆ›å»ºæ—¶é—´ï¼Œå¡ç‰‡çš„å”¯ä¸€æ ‡è¯†ï¼Œå› æ­¤åªè¯»
      */
     private Date createTime = new Date();
 
     /**
-     * ÏÂ´Î¼ÇÒäÊ±¼ä
+     * ä¸‹æ¬¡è®°å¿†æ—¶é—´
      * <p>
-     * Èç¹û¼ÇÒä½×¶ÎÊÇ"ÒÑ¼Ç×¡"£¬ÕâÒ»ÏîÃ»ÓĞÒâÒå
+     * å¦‚æœè®°å¿†é˜¶æ®µæ˜¯"å·²è®°ä½"ï¼Œè¿™ä¸€é¡¹æ²¡æœ‰æ„ä¹‰
      */
     private Date rememberTime;
 
     /**
-     * ÊÇ·ñÄ¬ÈÏÏÔÊ¾ÕıÃæ
+     * æ˜¯å¦é»˜è®¤æ˜¾ç¤ºæ­£é¢
      */
     private boolean showFront = true;
 
     /**
-     * ¼ÇÒä½×¶Î
+     * è®°å¿†é˜¶æ®µ
      */
     private int memState = MemStateConstants.newCard;
 
+    private Stack<MemHistory> memHistories = new Stack<>();
+
     /**
-     * ÊÇ·ñ±ê¼ÇÎªÊÕ²Ø
+     * æ˜¯å¦æ ‡è®°ä¸ºæ”¶è—
      */
     private boolean starred = false;
 
     /**
-     * ³õÊ¼»¯Æ÷
+     * åˆå§‹åŒ–å™¨
      */
     public Card() {}
     public Card(String front, String back) {
@@ -86,7 +88,7 @@ public class Card implements Serializable {
 
     /**
      * setter
-     * <p> {@code createTime} ºÍ {@code rememberTime} ½ûÖ¹Ö±½ÓÉèÖÃ
+     * <p> {@code createTime} å’Œ {@code rememberTime} ç¦æ­¢ç›´æ¥è®¾ç½®
      */
     public void setFront(String front) {
         this.front = front;
@@ -102,18 +104,103 @@ public class Card implements Serializable {
     }
 
     /**
-     * ÉèÖÃ¿¨Æ¬¼ÇÒä½×¶Î
-     * <p>²Ù×÷½áÊøºó¸üĞÂ¿¨Æ¬µÄÏÂ´Î¼ÇÒäÊ±¼ä {@code rememberTime}
-     * @param memState ¼ÇÒä½×¶Î
+     * è®¾ç½®å¡ç‰‡è®°å¿†é˜¶æ®µ
+     * <p>æ“ä½œç»“æŸåæ›´æ–°å¡ç‰‡çš„ä¸‹æ¬¡è®°å¿†æ—¶é—´ {@code rememberTime}
+     * <p>ä»…é™å†…éƒ¨ä½¿ç”¨ï¼Œå¦‚æƒ³æ‰‹åŠ¨æ›´æ”¹è®°å¿†é˜¶æ®µï¼Œå¦è§ {@code public void changeMemState()}</p>
+     * @param memState è®°å¿†é˜¶æ®µ
      */
-    public void setMemState(int memState) {
+    private void setMemState(int memState) {
+        if (memState < -2 || memState > 6) {
+            throw new RuntimeException("Invalid memState.");
+        }
         this.memState = memState;
         setRememberTime();
     }
 
     /**
-     * ¸ù¾İ¼ÇÒä½×¶ÎÉèÖÃ¿¨Æ¬µÄ¼ÇÒäÊ±¼ä
-     * <p>½öÔÚ´´½¨¿¨Æ¬£¬»òĞŞ¸Ä¿¨Æ¬¼ÇÒä½×¶Îºóµ÷ÓÃ¡£
+     * å¤ä¹ æ—¶ï¼Œå¡ç‰‡è¢«è®°ä½
+     * <p>æ­¤æ–¹æ³•ä¼šæ ¹æ®å¡ç‰‡çš„è®°å¿†å†å²ï¼Œè‡ªåŠ¨ä¿®æ”¹å¡ç‰‡çš„è®°å¿†é˜¶æ®µ {@code memState}
+     * å’Œä¸‹æ¬¡è®°å¿†æ—¶é—´ {@code rememberTime}ï¼Œå¹¶æ·»åŠ ä¸€æ¡è®°å¿†å†å²</p>
+     *
+     * @throws RuntimeException ä¸åº”è¯¥è¢«å¤ä¹ çš„å¡ç‰‡è¢«å¤ä¹ äº†ï¼Œ
+     * æç¤º {@code CardBag.updateCardNeedReview} å­˜åœ¨é—®é¢˜
+     */
+    public void remembered() {
+        if (memState == MemStateConstants.finished) {
+            throw new RuntimeException("A card that shouldn't be reviewed is being reviewed. Check CardBag.updateCardNeedReview");
+        }
+
+        int lastState = -1;
+        Stack<MemHistory> tmpStack = new Stack<>();
+        while (!memHistories.isEmpty()) {
+            MemHistory tmp = memHistories.pop();
+            tmpStack.push(tmp);
+            if (tmp.status == MemHistory.StatusNum.REMEMBERED && tmp.afterState > 0) {
+                lastState = tmp.afterState;
+                break;
+            }
+        }
+        if (lastState == -1) {
+            lastState = tmpStack.peek().preState;
+        }
+        while (!tmpStack.isEmpty()) {
+            memHistories.push(tmpStack.pop());
+        }
+
+        if (memState == MemStateConstants.reinforce1) {
+            setMemState(MemStateConstants.reinforce2);
+        } else if (memState == MemStateConstants.reinforce2) {
+            if (lastState == MemStateConstants.newCard) {
+                setMemState(MemStateConstants.stage_one);
+                memHistories.add(
+                        new MemHistory(MemStateConstants.reinforce2, MemHistory.StatusNum.REMEMBERED, MemStateConstants.stage_one));
+            } else {
+                if (lastState < 0 || lastState == MemStateConstants.finished) {
+                    throw new RuntimeException("A card that shouldn't be reviewed is being reviewed. Check CardBag.updateCardNeedReview");
+                }
+                memHistories.add(
+                        new MemHistory(lastState, MemHistory.StatusNum.REMEMBERED, lastState + 1));
+                setMemState(lastState + 1);
+            }
+        } else if (memState != MemStateConstants.finished) {
+            memHistories.add(new MemHistory(memState, MemHistory.StatusNum.REMEMBERED, memState + 1));
+            setMemState(memState + 1);
+        }
+    }
+
+    /**
+     * å¤ä¹ æ—¶ï¼Œå¡ç‰‡æ²¡æœ‰è¢«è®°ä½
+     * <p>æ­¤æ–¹æ³•ä¼šæ ¹æ®å¡ç‰‡çš„è®°å¿†å†å²ï¼Œè‡ªåŠ¨ä¿®æ”¹å¡ç‰‡çš„è®°å¿†é˜¶æ®µ {@code memState}
+     * å’Œä¸‹æ¬¡è®°å¿†æ—¶é—´ {@code rememberTime}ï¼Œå¹¶æ·»åŠ ä¸€æ¡è®°å¿†å†å²</p>
+     *
+     * @throws RuntimeException ä¸åº”è¯¥è¢«å¤ä¹ çš„å¡ç‰‡è¢«å¤ä¹ äº†ï¼Œ
+     * æç¤º {@code CardBag.updateCardNeedReview} å­˜åœ¨é—®é¢˜
+     */
+    public void forget() {
+        if (memState == MemStateConstants.finished) {
+            throw new RuntimeException("A card that shouldn't be reviewed is being reviewed. Check CardBag.updateCardNeedReview");
+        }
+
+        memHistories.add(
+                new MemHistory(memState, MemHistory.StatusNum.FORGET, MemStateConstants.reinforce1));
+        setMemState(MemStateConstants.reinforce1);
+    }
+
+    /**
+     * ç”¨æˆ·æ‰‹åŠ¨ä¿®æ”¹å¡ç‰‡è®°å¿†é˜¶æ®µ
+     * <p>æ­¤æ–¹æ³•ä¼šä¿®æ”¹å¡ç‰‡çš„è®°å¿†é˜¶æ®µ {@code memState}
+     * å’Œä¸‹æ¬¡è®°å¿†æ—¶é—´ {@code rememberTime}ï¼Œå¹¶æ·»åŠ ä¸€æ¡è®°å¿†å†å²</p>
+     * @param newMemState ç”¨æˆ·è¦ä¿®æ”¹çš„ç›®æ ‡è®°å¿†é˜¶æ®µ
+     */
+    public void changeMemState(int newMemState) {
+        memHistories.add(
+                new MemHistory(memState, MemHistory.StatusNum.MANUAL_CHANGE, newMemState));
+        setMemState(newMemState);
+    }
+
+    /**
+     * æ ¹æ®è®°å¿†é˜¶æ®µè®¾ç½®å¡ç‰‡çš„è®°å¿†æ—¶é—´
+     * <p>ä»…åœ¨åˆ›å»ºå¡ç‰‡ï¼Œæˆ–ä¿®æ”¹å¡ç‰‡è®°å¿†é˜¶æ®µåè°ƒç”¨ã€‚
      */
     private void setRememberTime() {
         rememberTime = new Date();
@@ -139,8 +226,8 @@ public class Card implements Serializable {
     }
 
     /**
-     * ÅĞ¶Ï¿¨Æ¬ÊÇ·ñĞèÒª¸´Ï°
-     * @return boolean: true´ú±íĞèÒª¸´Ï°
+     * åˆ¤æ–­å¡ç‰‡æ˜¯å¦éœ€è¦å¤ä¹ 
+     * @return boolean: trueä»£è¡¨éœ€è¦å¤ä¹ 
      */
     public boolean needReview() {
         return memState != MemStateConstants.finished && new Date().getTime() > rememberTime.getTime();

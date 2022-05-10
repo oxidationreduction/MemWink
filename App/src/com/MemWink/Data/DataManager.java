@@ -7,27 +7,27 @@ import java.util.*;
 import java.util.List;
 
 /**
- * Êı¾İÖĞĞÄ
- * <p>¹ÜÀíËùÓĞ¿¨°ü£¬²¢¸ºÔğ´ÅÅÌI/O£¬ËùÓĞÊı¾İÓÉ´Ë»ñÈ¡</p>
+ * æ•°æ®ä¸­å¿ƒ
+ * <p>ç®¡ç†æ‰€æœ‰å¡åŒ…ï¼Œå¹¶è´Ÿè´£ç£ç›˜I/Oï¼Œæ‰€æœ‰æ•°æ®ç”±æ­¤è·å–</p>
  * @author Liu Hongyu
  * @version 1.0
  */
 public class DataManager {
     /**
-     * ËùÓĞ¿¨°ü
+     * æ‰€æœ‰å¡åŒ…
      */
     private static List<CardBag> cardBags = new ArrayList<>();
 
     /**
-     * ËùÓĞ¿¨°üµÄÃû×Ö
-     * <p>¿¨°ü²»ÔÊĞíÖØÃû</p>
+     * æ‰€æœ‰å¡åŒ…çš„åå­—
+     * <p>å¡åŒ…ä¸å…è®¸é‡å</p>
      */
     private static List<String> cardBagNames = new ArrayList<>();
 
     /**
-     * ¹¹ÔìÆ÷
-     * <p>²ÉÓÃµ¥ÀıÉè¼ÆÄ£Ê½£¬Òò´ËÎª {@code private} ÀàĞÍ</p>
-     * <p>³õÊ¼»¯Ê±Éæ¼°µ½´ÅÅÌI/O</p>
+     * æ„é€ å™¨
+     * <p>é‡‡ç”¨å•ä¾‹è®¾è®¡æ¨¡å¼ï¼Œå› æ­¤ä¸º {@code private} ç±»å‹</p>
+     * <p>åˆå§‹åŒ–æ—¶æ¶‰åŠåˆ°ç£ç›˜I/O</p>
      */
     private DataManager() {
         try {
@@ -43,26 +43,26 @@ public class DataManager {
     }
 
     /**
-     * ³õÊ¼»¯Êı¾İÖĞĞÄ
+     * åˆå§‹åŒ–æ•°æ®ä¸­å¿ƒ
      */
     public static void init() {
         new DataManager();
     }
 
     /**
-     * »ñÈ¡ËùÓĞ¿¨°ü
-     * @return ¿¨°üÁĞ±í
+     * è·å–æ‰€æœ‰å¡åŒ…
+     * @return å¡åŒ…åˆ—è¡¨
      */
     public static List<CardBag> getCardBags() {
         return cardBags;
     }
 
     /**
-     * Ìí¼ÓĞÂ¿¨°ü
-     * @param name ¿¨°üÃû
-     * @param color ÑÕÉ«
-     * @param dailyNewCardNum Ã¿ÈÕĞÂ¿¨ÊıÁ¿
-     * @return ²Ù×÷×´Ì¬£¬²Î¼û {@link DataManagerStatus}
+     * æ·»åŠ æ–°å¡åŒ…
+     * @param name å¡åŒ…å
+     * @param color é¢œè‰²
+     * @param dailyNewCardNum æ¯æ—¥æ–°å¡æ•°é‡
+     * @return æ“ä½œçŠ¶æ€ï¼Œå‚è§ {@link DataManagerStatus}
      */
     public static int addCardBag(String name, Color color, int dailyNewCardNum) {
         if (dailyNewCardNum < 1) {
@@ -86,9 +86,9 @@ public class DataManager {
     }
 
     /**
-     * É¾³ı¿¨°ü
-     * @param name ¿¨°üÃû
-     * @return ²Ù×÷×´Ì¬£¬²Î¼û {@link DataManagerStatus}
+     * åˆ é™¤å¡åŒ…
+     * @param name å¡åŒ…å
+     * @return æ“ä½œçŠ¶æ€ï¼Œå‚è§ {@link DataManagerStatus}
      */
     public static int delCardBag(String name) {
         for (CardBag i : cardBags) {
@@ -104,10 +104,10 @@ public class DataManager {
     }
 
     /**
-     * ÖØÃüÃû¿¨°ü
-     * @param oldName ¾ÉÃû
-     * @param newName ĞÂÃû
-     * @return ²Ù×÷×´Ì¬£¬²Î¼û {@link DataManagerStatus}
+     * é‡å‘½åå¡åŒ…
+     * @param oldName æ—§å
+     * @param newName æ–°å
+     * @return æ“ä½œçŠ¶æ€ï¼Œå‚è§ {@link DataManagerStatus}
      */
     public static int changeCardBagName(String oldName, String newName) {
         if (Objects.equals(newName, "")) {
@@ -130,9 +130,9 @@ public class DataManager {
     }
 
     /**
-     * »ñÈ¡Ö¸¶¨µÄ¿¨°ü
-     * @param name ¿¨°üÃû
-     * @return ËùĞèµÄ¿¨°ü£¬Î´ÕÒµ½Ê±·µ»Ø {@code null}
+     * è·å–æŒ‡å®šçš„å¡åŒ…
+     * @param name å¡åŒ…å
+     * @return æ‰€éœ€çš„å¡åŒ…ï¼Œæœªæ‰¾åˆ°æ—¶è¿”å› {@code null}
      */
     public static CardBag provideCardBag(String name) {
         for (CardBag i : cardBags) {
@@ -144,9 +144,9 @@ public class DataManager {
     }
 
     /**
-     * ´æ´¢¿¨°ü
-     * @param cardBag Òª´æ´¢µÄ¿¨°ü
-     * @return ²Ù×÷×´Ì¬£¬²Î¼û {@link DataManagerStatus}
+     * å­˜å‚¨å¡åŒ…
+     * @param cardBag è¦å­˜å‚¨çš„å¡åŒ…
+     * @return æ“ä½œçŠ¶æ€ï¼Œå‚è§ {@link DataManagerStatus}
      */
     public static int saveCardBag(CardBag cardBag) {
         int cardBagNum = cardBags.size();
@@ -161,8 +161,8 @@ public class DataManager {
     }
 
     /**
-     * ±£´æ¿¨°üÃû³ÆÁĞ±í {@code cardBagNames} µ½ÎÄ¼ş¡£
-     * @return ÊÇ·ñ±£´æ³É¹¦
+     * ä¿å­˜å¡åŒ…åç§°åˆ—è¡¨ {@code cardBagNames} åˆ°æ–‡ä»¶ã€‚
+     * @return æ˜¯å¦ä¿å­˜æˆåŠŸ
      */
     public static boolean saveCardBagName() {
         try {
