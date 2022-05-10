@@ -1,7 +1,7 @@
 package com.MemWink.Data;
 
 /**
- * ÓÃÓÚ»ã×Ü {@code DataManager} µÄ×´Ì¬·µ»ØÖµ
+ * ç”¨äºæ±‡æ€» {@code DataManager} çš„çŠ¶æ€è¿”å›å€¼
  * @author Liu Hongyu
  * @version 1.0
  */

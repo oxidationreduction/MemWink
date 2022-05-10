@@ -6,62 +6,62 @@ import java.util.*;
 import java.util.List;
 
 /**
- * ¿¨°ü£º´æ´¢¿¨Æ¬
- * <p>Ã¿Ìì¿¨°üÌá¹©¸øÓÃ»§½øĞĞ¸´Ï°µÄ¿¨Æ¬°üÀ¨
- * <p>  1.ĞÂ¿¨
- * <p>  2.¾É¿¨ÖĞĞèÒª¸´Ï°µÄ¿¨Æ¬
- * <p>ÓÃ»§¿ÉÒÔÉèÖÃ¿¨°üÃ¿Ìì³é³öĞÂ¿¨µÄÊıÁ¿
- * <p>ÁíÍâ£¬ÓÃ»§¿ÉÒÔ×Ô¶¨Òå¿¨Æ¬µÄ·ÖÀà
+ * å¡åŒ…ï¼šå­˜å‚¨å¡ç‰‡
+ * <p>æ¯å¤©å¡åŒ…æä¾›ç»™ç”¨æˆ·è¿›è¡Œå¤ä¹ çš„å¡ç‰‡åŒ…æ‹¬
+ * <p>  1.æ–°å¡
+ * <p>  2.æ—§å¡ä¸­éœ€è¦å¤ä¹ çš„å¡ç‰‡
+ * <p>ç”¨æˆ·å¯ä»¥è®¾ç½®å¡åŒ…æ¯å¤©æŠ½å‡ºæ–°å¡çš„æ•°é‡
+ * <p>å¦å¤–ï¼Œç”¨æˆ·å¯ä»¥è‡ªå®šä¹‰å¡ç‰‡çš„åˆ†ç±»
  * @author Liu Hongyu
  * @version  1.0
  */
 public class CardBag implements Serializable {
     /**
-     * ¿¨°üµÄÃû×Ö
+     * å¡åŒ…çš„åå­—
      */
     private String name;
 
     /**
-     * ¿¨°üµÄÑÕÉ«
+     * å¡åŒ…çš„é¢œè‰²
      */
     private Color color;
 
     /**
-     * ¿¨°ü¶ÔÏóµÄ´´½¨Ê±¼ä£¬¾«È·µ½ºÁÃë
+     * å¡åŒ…å¯¹è±¡çš„åˆ›å»ºæ—¶é—´ï¼Œç²¾ç¡®åˆ°æ¯«ç§’
      * <p>
-     * Ê¹ÓÃÊ±¼ä×÷ÎªÇø·Ö²»Í¬¿¨°üµÄÎ¨Ò»±êÊ¶£¬Òò´Ë´ËÏîÖ»¶Á
+     * ä½¿ç”¨æ—¶é—´ä½œä¸ºåŒºåˆ†ä¸åŒå¡åŒ…çš„å”¯ä¸€æ ‡è¯†ï¼Œå› æ­¤æ­¤é¡¹åªè¯»
      */
     private Date id;
 
     /**
-     * Ã¿Ìì¼ÇÒäµÄĞÂ¿¨ÊıÁ¿
-     * <p>ÒªÇóÖµ²»Ğ¡ÓÚ {@code 1}
-     * <p>×¢Òâ£º¶ÔÕâÒ»ÏîµÄĞŞ¸ÄÔÚ´ÎÈÕÉúĞ§
+     * æ¯å¤©è®°å¿†çš„æ–°å¡æ•°é‡
+     * <p>è¦æ±‚å€¼ä¸å°äº {@code 1}
+     * <p>æ³¨æ„ï¼šå¯¹è¿™ä¸€é¡¹çš„ä¿®æ”¹åœ¨æ¬¡æ—¥ç”Ÿæ•ˆ
      */
     private int dailyNewCardNum = 20;
 
     /**
-     * µ±ÌìÊÇ·ñÒÑ¾­³é³öĞÂ¿¨¸´Ï°
+     * å½“å¤©æ˜¯å¦å·²ç»æŠ½å‡ºæ–°å¡å¤ä¹ 
      */
     private boolean dailyNewCardRemembered = false;
 
     /**
-     * ¿¨Æ¬¶ÓÁĞ£¬°´ÕÕÌí¼ÓË³ĞòÅÅĞò
+     * å¡ç‰‡é˜Ÿåˆ—ï¼ŒæŒ‰ç…§æ·»åŠ é¡ºåºæ’åº
      */
     private List<CategorizedCard> cards = new ArrayList<>();
 
     /**
-     * ĞèÒª¸´Ï°µÄ¿¨Æ¬
+     * éœ€è¦å¤ä¹ çš„å¡ç‰‡
      */
     private List<CategorizedCard> cardNeedReview = new ArrayList<>();
 
     /**
-     * ÓÃ»§×Ô¶¨Òå·ÖÀà
+     * ç”¨æˆ·è‡ªå®šä¹‰åˆ†ç±»
      */
     private Set<String> categories = new HashSet<>();
 
     /**
-     * ¹¹ÔìÆ÷
+     * æ„é€ å™¨
      */
     public CardBag(String name, Color color) {
         this.name = name;
@@ -76,8 +76,8 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * Èı²ÎÊı¹¹ÔìÆ÷
-     * @param dailyNewCardNum Ã¿Ìì¼ÇÒäµÄĞÂ¿¨ÊıÁ¿£¬ÒªÇó²»ÄÜĞ¡ÓÚ {@code 1}¡£
+     * ä¸‰å‚æ•°æ„é€ å™¨
+     * @param dailyNewCardNum æ¯å¤©è®°å¿†çš„æ–°å¡æ•°é‡ï¼Œè¦æ±‚ä¸èƒ½å°äº {@code 1}ã€‚
      */
     public CardBag(String name, Color color, int dailyNewCardNum) {
         this.name = name;
@@ -92,10 +92,11 @@ public class CardBag implements Serializable {
         } else {
             this.dailyNewCardNum = dailyNewCardNum;
         }
+        this.id = new Date();
     }
 
     /**
-     * getter ºÍ setter
+     * getter å’Œ setter
      */
     public Color getColor() {
         return color;
@@ -120,9 +121,9 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * Ïò¿¨°üÄÚÌí¼ÓĞÂµÄÒ»ÖÖ·ÖÀà
-     * @param catName ·ÖÀàÖÖÀàÃû³Æ
-     * @return ÊÇ·ñÌí¼Ó³É¹¦
+     * å‘å¡åŒ…å†…æ·»åŠ æ–°çš„ä¸€ç§åˆ†ç±»
+     * @param catName åˆ†ç±»ç§ç±»åç§°
+     * @return æ˜¯å¦æ·»åŠ æˆåŠŸ
      */
     public boolean addCategory(String catName) {
         if (categories.add(catName)) {
@@ -134,13 +135,13 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * Ïò¿¨°üÄÚÌí¼Ó¿¨Æ¬
-     * @param front ÕıÃæ
-     * @param back ·´Ãæ
-     * @param showFront ÊÇ·ñÄ¬ÈÏÏÔÊ¾ÕıÃæ
-     * @param memState ¼ÇÒä½×¶Î
-     * @param starred ÊÇ·ñÊÕ²Ø
-     * @param category ¿¨Æ¬Àà±ğ
+     * å‘å¡åŒ…å†…æ·»åŠ å¡ç‰‡
+     * @param front æ­£é¢
+     * @param back åé¢
+     * @param showFront æ˜¯å¦é»˜è®¤æ˜¾ç¤ºæ­£é¢
+     * @param memState è®°å¿†é˜¶æ®µ
+     * @param starred æ˜¯å¦æ”¶è—
+     * @param category å¡ç‰‡ç±»åˆ«
      */
     public void addCard(String front, String back, boolean showFront, int memState, boolean starred, String category) {
         try {
@@ -159,8 +160,8 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * ¸üĞÂ¿¨°üÄÚµÄ¿¨Æ¬
-     * @param newCard ¸üĞÂºóµÄ¿¨Æ¬
+     * æ›´æ–°å¡åŒ…å†…çš„å¡ç‰‡
+     * @param newCard æ›´æ–°åçš„å¡ç‰‡
      */
     public void updateCard(CategorizedCard newCard) {
         int l = cards.size();
@@ -174,8 +175,8 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * ÔÚ¿¨°üÄÚÉ¾³ı¿¨Æ¬
-     * @param c ÒªÉ¾³ıµÄ¿¨Æ¬
+     * åœ¨å¡åŒ…å†…åˆ é™¤å¡ç‰‡
+     * @param c è¦åˆ é™¤çš„å¡ç‰‡
      */
     public void delCard(CategorizedCard c) {
         cards.remove(c);
@@ -184,11 +185,12 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * ¸üĞÂĞèÒª¸´Ï°µÄ¿¨Æ¬¶ÓÁĞ {@code cardNeedReview}
-     * <p>1.Ìí¼ÓĞÂ³öÏÖµÄĞèÒª¸´Ï°µÄ¿¨
-     * <p>2.ÒÆ³ıµ±Ç°²»ĞèÒª¸´Ï°µÄ¿¨
+     * æ›´æ–°éœ€è¦å¤ä¹ çš„å¡ç‰‡é˜Ÿåˆ— {@code cardNeedReview}
+     * <p>1.æ·»åŠ æ–°å‡ºç°çš„éœ€è¦å¤ä¹ çš„å¡
+     * <p>2.ç§»é™¤å½“å‰ä¸éœ€è¦å¤ä¹ çš„å¡
      */
     private void updateCardNeedReview() {
+        cardNeedReview = new ArrayList<>();
         if (dailyNewCardRemembered) {
             for (CategorizedCard i : cards) {
                 if(i.getMemState() != MemStateConstants.newCard && i.needReview() && !cardNeedReview.contains(i)) {
@@ -214,9 +216,9 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * »ñÈ¡ĞèÒª¸´Ï°µÄ¿¨Æ¬¶ÓÁĞ
-     * <p>²Ù×÷Ç°¸üĞÂĞèÒª¸´Ï°µÄ¿¨Æ¬¶ÓÁĞ {@code cardNeedReview}¡£
-     * @return ĞèÒª¸´Ï°µÄ¿¨Æ¬µÄ¶ÓÁĞ
+     * è·å–éœ€è¦å¤ä¹ çš„å¡ç‰‡é˜Ÿåˆ—
+     * <p>æ“ä½œå‰æ›´æ–°éœ€è¦å¤ä¹ çš„å¡ç‰‡é˜Ÿåˆ— {@code cardNeedReview}ã€‚
+     * @return éœ€è¦å¤ä¹ çš„å¡ç‰‡çš„é˜Ÿåˆ—
      */
     public List<CategorizedCard> getCardNeedReview() {
         updateCardNeedReview();
@@ -224,17 +226,17 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * ·µ»Ø¿¨°üÄÚ×Ü¿¨Êı
-     * @return ¿¨°üÄÚ¿¨µÄÊıÁ¿
+     * è¿”å›å¡åŒ…å†…æ€»å¡æ•°
+     * @return å¡åŒ…å†…å¡çš„æ•°é‡
      */
     public int getTotalCardsNum() {
         return cards.size();
     }
 
     /**
-     * ·µ»Ø¿¨°üÄÚµ±Ç°ĞèÒª¼ÇÒäµÄ¿¨µÄÊıÁ¿
-     * <p>²Ù×÷Ç°¸üĞÂĞèÒª¸´Ï°µÄ¿¨Æ¬¶ÓÁĞ {@code cardNeedReview}¡£
-     * @return ĞèÒª¼ÇÒä/¸´Ï°µÄ¿¨Æ¬µÄÊıÁ¿
+     * è¿”å›å¡åŒ…å†…å½“å‰éœ€è¦è®°å¿†çš„å¡çš„æ•°é‡
+     * <p>æ“ä½œå‰æ›´æ–°éœ€è¦å¤ä¹ çš„å¡ç‰‡é˜Ÿåˆ— {@code cardNeedReview}ã€‚
+     * @return éœ€è¦è®°å¿†/å¤ä¹ çš„å¡ç‰‡çš„æ•°é‡
      */
     public int getReviewCardsNum() {
         updateCardNeedReview();
@@ -242,9 +244,9 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * ±£´æ¿¨°ü£¬¾²Ì¬·½·¨£¬¿ÉÖ±½Óµ÷ÓÃ
-     * @param cardBag Òª±£´æµÄ¿¨°ü
-     * @return ÊÇ·ñ±£´æ³É¹¦
+     * ä¿å­˜å¡åŒ…ï¼Œé™æ€æ–¹æ³•ï¼Œå¯ç›´æ¥è°ƒç”¨
+     * @param cardBag è¦ä¿å­˜çš„å¡åŒ…
+     * @return æ˜¯å¦ä¿å­˜æˆåŠŸ
      */
     public static boolean saveCardBag(CardBag cardBag) {
         String pathName = "App/dataBank/" + cardBag.getName();
@@ -264,10 +266,10 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * ´ÓÎÄ¼ş¶ÁÈ¡¿¨°ü£¬¾²Ì¬·½·¨£¬¿ÉÖ±½Óµ÷ÓÃ
-     * @param bagName ¿¨°üÃû³Æ
-     * @return ¶ÁÈ¡µÄ¿¨°ü
-     * @throws RuntimeException I/O´íÎó»òÎ´ÖªÀà´íÎó
+     * ä»æ–‡ä»¶è¯»å–å¡åŒ…ï¼Œé™æ€æ–¹æ³•ï¼Œå¯ç›´æ¥è°ƒç”¨
+     * @param bagName å¡åŒ…åç§°
+     * @return è¯»å–çš„å¡åŒ…
+     * @throws RuntimeException I/Oé”™è¯¯æˆ–æœªçŸ¥ç±»é”™è¯¯
      */
     public static CardBag openCardBag(String bagName) {
         try {

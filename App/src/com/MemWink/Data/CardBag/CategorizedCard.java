@@ -3,18 +3,18 @@ package com.MemWink.Data.CardBag;
 import java.io.Serializable;
 
 /**
- * º¬·ÖÀàµÄ¿¨Æ¬
+ * å«åˆ†ç±»çš„å¡ç‰‡
  * @author Liu Hongyu
  * @version 1.0
  */
 public class CategorizedCard extends Card implements Serializable {
     /**
-     * ¿¨Æ¬ÔÚ¿¨°üÄÚµÄÀà±ğ£¬Ä¬ÈÏÎª {@code null} ´ú±í"Î´·ÖÀà"
+     * å¡ç‰‡åœ¨å¡åŒ…å†…çš„ç±»åˆ«ï¼Œé»˜è®¤ä¸º {@code null} ä»£è¡¨"æœªåˆ†ç±»"
      */
     private String category = null;
 
     /**
-     * ¹¹ÔìÆ÷
+     * æ„é€ å™¨
      */
     public CategorizedCard() {
         super();
@@ -37,7 +37,7 @@ public class CategorizedCard extends Card implements Serializable {
     }
 
     /**
-     * {@code category} µÄ setter ºÍ getter
+     * {@code category} çš„ setter å’Œ getter
      */
     public void setCategory(String category) {
         this.category = category;
