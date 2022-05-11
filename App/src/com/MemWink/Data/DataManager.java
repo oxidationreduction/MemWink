@@ -115,14 +115,17 @@ public class DataManager {
         }
         for (CardBag i : cardBags) {
             if (Objects.equals(i.getName(), oldName)) {
-                i.setName(newName);
+                i.updateName(newName);
                 File oldFile = new File("App/dataBank/" + oldName);
-                File newFile = new File("App/dataBank/" + newName);
-                if (oldFile.exists()) {
-                    if (!oldFile.renameTo(newFile)) {
-                        throw new RuntimeException("Rename Failed.");
-                    }
+                if (oldFile.delete()) {
+                    saveCardBag(i);
+                } else {
+                    throw new RuntimeException("Invalid card bag name: " + oldName);
                 }
+
+                cardBagNames.set(cardBagNames.indexOf(oldName), newName);
+                saveCardBagName();
+
                 return DataManagerStatus.NORMAL;
             }
         }

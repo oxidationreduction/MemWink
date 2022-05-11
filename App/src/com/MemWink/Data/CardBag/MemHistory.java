@@ -32,6 +32,10 @@ public class MemHistory implements Serializable {
      */
     public int afterState;
 
+    public MemHistory() {
+
+    }
+
     /**
      * 构造器
      */
@@ -52,7 +56,7 @@ public class MemHistory implements Serializable {
     /**
      * 用于记录与三种记忆操作类型一一对应的数值
      */
-    public static class StatusNum {
+    public static class StatusNum implements Serializable {
         public static int REMEMBERED = 0;
         public static int FORGET = 1;
         public static int MANUAL_CHANGE = 2;

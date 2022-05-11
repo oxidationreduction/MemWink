@@ -1,6 +1,9 @@
 package com.MemWink.Data.CardBag;
 
+import com.MemWink.Data.DataManager;
+
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * 含分类的卡片
@@ -16,33 +19,24 @@ public class CategorizedCard extends Card implements Serializable {
     /**
      * 构造器
      */
-    public CategorizedCard() {
-        super();
-    }
-    public CategorizedCard(String front, String back) {
-        super(front, back);
-    }
-    public CategorizedCard(String front, String back, boolean showFront) {
-        super(front, back, showFront);
-    }
-    public CategorizedCard(String front, String back, boolean showFront, int memState) {
-        super(front, back, showFront, memState);
-    }
-    public CategorizedCard(String front, String back, boolean showFront, int memState, boolean starred) {
-        super(front, back, showFront, memState, starred);
-    }
-    public CategorizedCard(String front, String back, boolean showFront, int memState, boolean starred, String category) {
-        super(front, back, showFront, memState, starred);
+    public CategorizedCard(String front, String back, boolean showFront, int memState, boolean starred, String category, String cardBagName) {
+        super(front, back, showFront, memState, starred, cardBagName);
         this.category = category;
     }
 
     /**
      * {@code category} 的 setter 和 getter
+     * <p> setter 仅限package内部使用，禁止外界直接访问。如果想要更改 {@code category}，请使用 updater </p>
      */
-    public void setCategory(String category) {
+    protected void setCategory(String category) {
         this.category = category;
     }
     public String getCategory() {
         return category;
+    }
+
+    public void updateCategory(String category) {
+        setCategory(category);
+        Objects.requireNonNull(DataManager.provideCardBag(getCardBagName())).updateCard(this);
     }
 }

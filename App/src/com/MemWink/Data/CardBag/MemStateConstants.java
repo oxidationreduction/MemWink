@@ -1,11 +1,13 @@
 package com.MemWink.Data.CardBag;
 
+import java.io.Serializable;
+
 /**
  * 记忆阶段：用于表示卡片的记忆阶段。
  * @author Liu Hongyu
  * @version 1.0
  */
-public class MemStateConstants {
+public class MemStateConstants implements Serializable {
     /**
      * 首次强化记忆，1分钟后重新记忆。
      */
