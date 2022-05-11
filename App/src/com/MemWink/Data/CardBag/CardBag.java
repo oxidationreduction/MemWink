@@ -116,8 +116,24 @@ public class CardBag implements Serializable {
     public Date getId() {
         return id;
     }
-    public void setName(String name) {
+
+    /**
+     * 卡包名的 setter，禁止直接调用
+     * @param name 卡包名
+     */
+    protected void setName(String name) {
         this.name = name;
+        for (CategorizedCard i : cards) {
+            i.setCardBagName(name);
+        }
+    }
+
+    /**
+     * 卡包名 setter 的替代品，外界可访问
+     * @param name 卡包名
+     */
+    public void updateName(String name) {
+        setName(name);
     }
 
     /**
@@ -127,8 +143,7 @@ public class CardBag implements Serializable {
      */
     public boolean addCategory(String catName) {
         if (categories.add(catName)) {
-            saveCardBag(this);
-            return true;
+            return saveCardBag(this);
         } else {
             return false;
         }
@@ -143,7 +158,7 @@ public class CardBag implements Serializable {
      * @param starred 是否收藏
      * @param category 卡片类别
      */
-    public void addCard(String front, String back, boolean showFront, int memState, boolean starred, String category) {
+    public boolean addCard(String front, String back, boolean showFront, int memState, boolean starred, String category) {
         try {
             Thread.sleep(1);
         } catch (InterruptedException e) {
@@ -151,37 +166,37 @@ public class CardBag implements Serializable {
         }
         CategorizedCard tmp;
         if (Objects.equals(category, null) || categories.contains(category)) {
-            tmp = new CategorizedCard(front, back, showFront, memState, starred, category);
+            tmp = new CategorizedCard(front, back, showFront, memState, starred, category, this.name);
         } else {
             throw new RuntimeException("Invalid Category: " + category);
         }
         cards.add(tmp);
-        saveCardBag(this);
+        return saveCardBag(this);
     }
 
     /**
      * 更新卡包内的卡片
      * @param newCard 更新后的卡片
      */
-    public void updateCard(CategorizedCard newCard) {
+    public boolean updateCard(CategorizedCard newCard) {
         int l = cards.size();
         for (int i = 0; i < l; i++) {
             if (newCard.getCreateTime() == cards.get(i).getCreateTime()) {
                 cards.set(i, newCard);
-                return;
+                return saveCardBag(this);
             }
         }
-        saveCardBag(this);
+        return false;
     }
 
     /**
      * 在卡包内删除卡片
      * @param c 要删除的卡片
      */
-    public void delCard(CategorizedCard c) {
+    public boolean delCard(CategorizedCard c) {
         cards.remove(c);
         cardNeedReview.remove(c);
-        saveCardBag(this);
+        return saveCardBag(this);
     }
 
     /**

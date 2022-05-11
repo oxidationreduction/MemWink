@@ -1,5 +1,7 @@
 package com.MemWink.Data.CardBag;
 
+import com.MemWink.Data.DataManager;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -11,6 +13,7 @@ import java.util.*;
  * 以"单词本"为例：正面记载中文翻译，反面记载外文单词。用户记忆时，点开卡片后
  * 首先看到中文翻译，之后根据中文翻译回想单词，再点击翻面检查记忆结果。
  * <p>
+ * 卡片不能脱离卡包存在，每张卡片只属于一个卡包
  *
  * @author Liu Hongyu
  * @version 1.0
@@ -30,6 +33,8 @@ public class Card implements Serializable {
      * 卡片创建时间，卡片的唯一标识，因此只读
      */
     private Date createTime = new Date();
+
+    private String cardBagName;
 
     /**
      * 下次记忆时间
@@ -58,49 +63,59 @@ public class Card implements Serializable {
     /**
      * 初始化器
      */
-    public Card() {}
-    public Card(String front, String back) {
-        this.front = front;
-        this.back = back;
-        setRememberTime();
-    }
-    public Card(String front, String back, boolean showFront) {
-        this.front = front;
-        this.back = back;
-        this.showFront = showFront;
-        setRememberTime();
-    }
-    public Card(String front, String back, boolean showFront, int memState) {
-        this.front = front;
-        this.back = back;
-        this.showFront = showFront;
-        this.memState = memState;
-        setRememberTime();
-    }
-    public Card(String front, String back, boolean showFront, int memState, boolean starred) {
+    public Card(String front, String back, boolean showFront, int memState, boolean starred, String cardBagName) {
         this.front = front;
         this.back = back;
         this.showFront = showFront;
         this.memState = memState;
         setRememberTime();
         this.starred = starred;
+        this.cardBagName = cardBagName;
     }
 
     /**
      * setter
+     * <p> 仅限软件包内部访问，禁止直接设置 </p>
      * <p> {@code createTime} 和 {@code rememberTime} 禁止直接设置
      */
-    public void setFront(String front) {
+    protected void setFront(String front) {
         this.front = front;
     }
-    public void setBack(String back) {
+    protected void setBack(String back) {
         this.back = back;
     }
-    public void setShowFront(boolean showFront) {
+    protected void setShowFront(boolean showFront) {
         this.showFront = showFront;
     }
-    public void setStarred(boolean starred) {
+    protected void setStarred(boolean starred) {
         this.starred = starred;
+    }
+    protected void setCardBagName(String cardBagName) {
+        this.cardBagName = cardBagName;
+    }
+
+    /**
+     * updater
+     * <p> setter 的替代品，用于支持外部直接访问 </p>
+     * <p> 在给出的 setter 中，cardBagName 的 setter 没有替代品，不可以被外界直接更改。</p>
+     */
+    public void updateFront(String front) {
+        setFront(front);
+        Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
+    }
+    public void updateBack(String back) {
+        setBack(back);
+        Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
+    }
+
+    public void updateShowFront(boolean showFront) {
+        setShowFront(showFront);
+        Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
+    }
+
+    public void updateStarred(boolean starred) {
+        setStarred(starred);
+        Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
     }
 
     /**
@@ -126,10 +141,12 @@ public class Card implements Serializable {
      * 提示 {@code CardBag.updateCardNeedReview} 存在问题
      */
     public void remembered() {
+        // "已记住"的卡片不应该被复习
         if (memState == MemStateConstants.finished) {
             throw new RuntimeException("A card that shouldn't be reviewed is being reviewed. Check CardBag.updateCardNeedReview");
         }
 
+        // 获取上次记住这张卡片时卡片的记忆阶段，"强化记忆阶段"除外
         int lastState = -1;
         Stack<MemHistory> tmpStack = new Stack<>();
         while (!memHistories.isEmpty()) {
@@ -141,14 +158,22 @@ public class Card implements Serializable {
             }
         }
         if (lastState == -1) {
-            lastState = tmpStack.peek().preState;
+            if (!tmpStack.isEmpty()) {
+                lastState = tmpStack.peek().preState;
+            } else {
+                lastState = memState;
+            }
         }
         while (!tmpStack.isEmpty()) {
             memHistories.push(tmpStack.pop());
         }
 
+        // 根据用户确认本次记住之前卡片的记忆阶段，和刚刚获取的上次记住这张卡片时卡片的记忆阶段进行判断，
+        // 确定现在卡片在本次被记住后应当变为的记忆阶段、下次记忆时间，添加一条记忆历史记录
         if (memState == MemStateConstants.reinforce1) {
             setMemState(MemStateConstants.reinforce2);
+            memHistories.add(
+                    new MemHistory(MemStateConstants.reinforce1, MemHistory.StatusNum.REMEMBERED, MemStateConstants.reinforce2));
         } else if (memState == MemStateConstants.reinforce2) {
             if (lastState == MemStateConstants.newCard) {
                 setMemState(MemStateConstants.stage_one);
@@ -159,13 +184,16 @@ public class Card implements Serializable {
                     throw new RuntimeException("A card that shouldn't be reviewed is being reviewed. Check CardBag.updateCardNeedReview");
                 }
                 memHistories.add(
-                        new MemHistory(lastState, MemHistory.StatusNum.REMEMBERED, lastState + 1));
-                setMemState(lastState + 1);
+                        new MemHistory(MemStateConstants.reinforce2, MemHistory.StatusNum.REMEMBERED, lastState));
+                setMemState(lastState);
             }
         } else if (memState != MemStateConstants.finished) {
             memHistories.add(new MemHistory(memState, MemHistory.StatusNum.REMEMBERED, memState + 1));
             setMemState(memState + 1);
         }
+
+        // 完成状态更新后进行数据更新和文件存储
+        Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
     }
 
     /**
@@ -184,6 +212,9 @@ public class Card implements Serializable {
         memHistories.add(
                 new MemHistory(memState, MemHistory.StatusNum.FORGET, MemStateConstants.reinforce1));
         setMemState(MemStateConstants.reinforce1);
+
+        // 数据更新和文件存储
+        DataManager.saveCardBag(DataManager.provideCardBag(cardBagName));
     }
 
     /**
@@ -196,6 +227,9 @@ public class Card implements Serializable {
         memHistories.add(
                 new MemHistory(memState, MemHistory.StatusNum.MANUAL_CHANGE, newMemState));
         setMemState(newMemState);
+
+        // 数据更新和文件存储
+        DataManager.saveCardBag(DataManager.provideCardBag(cardBagName));
     }
 
     /**
@@ -207,7 +241,7 @@ public class Card implements Serializable {
         if (memState == MemStateConstants.newCard) {
             rememberTime = (Date) createTime.clone();
         } else if (memState == MemStateConstants.reinforce1) {
-            rememberTime = new Date(new Date().getTime() + 60000);
+            rememberTime = new Date(new Date().getTime() + 6000);
         } else if (memState == MemStateConstants.reinforce2) {
             rememberTime = new Date(new Date().getTime() + 600000);
         } else if (memState == MemStateConstants.stage_one || memState == MemStateConstants.stage_two) {
@@ -250,6 +284,12 @@ public class Card implements Serializable {
     }
     public int getMemState() {
         return memState;
+    }
+    public String getCardBagName() {
+        return cardBagName;
+    }
+    public Stack<MemHistory> getMemHistories() {
+        return memHistories;
     }
     public boolean isShowFront() {
         return showFront;
