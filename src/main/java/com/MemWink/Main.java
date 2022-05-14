@@ -16,8 +16,6 @@ public class Main {
         CardBag test = Objects.requireNonNull(DataManager.provideCardBag("TEST"));
         test.addCard("正面", "背面", true, MemStateConstants.newCard, false, null);
 
-
-
         DataManager.changeCardBagName("TEST", "测试");
 
         List<CategorizedCard> cards = test.getCardNeedReview();

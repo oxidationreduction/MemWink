@@ -4,32 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CategorizedCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/MemHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/MemStateConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManagerStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/TopMenuBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/ConfigBaseUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/ConfigUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/SystemUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usrData/card_bag_name.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usrData/测试" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="23:05,May 14,2022: Transfer to Maven">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/i.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/i.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -102,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652529721584</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="23:05,May 14,2022: Transfer to Maven">
+      <created>1652540756070</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652540756070</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,6 +120,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="23:05,May 14,2022: Transfer to Maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="23:05,May 14,2022: Transfer to Maven" />
   </component>
 </project>
