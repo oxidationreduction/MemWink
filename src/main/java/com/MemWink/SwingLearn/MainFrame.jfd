@@ -1,0 +1,62 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.14.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		auxiliary() {
+			"JavaCodeGenerator.defaultVariableModifiers": 1
+		}
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {comp panel2:::p::p, space :::p, par l {comp scrollPane1::::461:x, comp panel3:::::x}, space :::p}}"
+			"$verticalGroup": "par l {seq {comp scrollPane1::::334:x, space :::p, comp panel3:::p::p}, comp panel2:::::x}"
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :::p, par l {comp button3::l:p::p, comp button4::l:p::p, comp button2::l:p::p}, space ::21:x}}"
+				"$verticalGroup": "par l {seq l {space :::p, comp button2:::p:66:p, space :::p, comp button3:::p:68:p, space :::p, comp button4:::p:72:p, space ::169:x}}"
+			} ) {
+				name: "panel2"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
+					"text": "text"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button3"
+					"text": "text"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button4"
+					"text": "text"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+					"columns": 4
+					"hgap": 10
+					"vgap": 10
+					"rows": 2
+				} ) {
+					name: "panel1"
+					auxiliary() {
+						"JavaCodeGenerator.variableModifiers": 1
+					}
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {space ::362:x, comp button1:::p::p, space :p:21:p}}"
+				"$verticalGroup": "par l {seq t {space :::x, comp button1:::p::p, space :p:17:p}}"
+			} ) {
+				name: "panel3"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"text": "text"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", true ) )
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 120, 75 )
+			"size": new java.awt.Dimension( 580, 425 )
+		} )
+	}
+}
