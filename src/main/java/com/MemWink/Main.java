@@ -3,7 +3,11 @@ package com.MemWink;
 import cn.hutool.setting.Setting;
 import com.MemWink.Data.CardBag.*;
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.UIConstant;
+import com.MemWink.UI.UIManager;
+import com.MemWink.UI.component.CardbagLookup;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Date;
 import java.util.List;
@@ -12,20 +16,25 @@ import java.util.Objects;
 public class Main {
     public static void main(String[] args){
         DataManager.init();
-        DataManager.addCardBag("TEST", Color.CYAN, 20);
+        DataManager.addCardBag("TEST", UIConstant.blue, 20);
         CardBag test = Objects.requireNonNull(DataManager.provideCardBag("TEST"));
+
         test.addCard("正面", "背面", true, MemStateConstants.newCard, false, null);
 
-
-
-        DataManager.changeCardBagName("TEST", "测试");
-
+        new UIManager();
+/*
         List<CategorizedCard> cards = test.getCardNeedReview();
         System.out.println(new Date());
         for (CategorizedCard i : cards) {
-            System.out.println(i.getFront() + ", belongs to " + i.getCardBagName() + ", Create at " + cards.get(0).getCreateTime().toString());
+            System.out.println(i.getFront() + ", belongs to " + i.getCardBagName() + ", Create at " + i.getCreateTime().toString());
             i.updateFront("FRONT");
         }
+        System.out.println();
+        for (CategorizedCard i : test.getCards()) {
+            System.out.println(i.getFront() + ", belongs to " + i.getCardBagName() + ", Create at " + i.getCreateTime().toString());
+        }
+
+ */
     }
 
     public static void main1(String[] args) {
@@ -54,5 +63,10 @@ public class Main {
     public static void main2(String[] args) {
         DataManager.init();
         DataManager.delCardBag("测试");
+    }
+
+    public static void main3(String[] args) {
+        DataManager.init();
+        DataManager.changeCardBagName("test", "TEST");
     }
 }

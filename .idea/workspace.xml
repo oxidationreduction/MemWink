@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="23:05,May 14,2022: Transfer to Maven">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/i.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/i.java" afterDir="false" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="commit test on Mac">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/CardbagLookup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagsPanel_.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/TopMenuBar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/util/ConfigBaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/ConfigBaseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/util/SystemUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/SystemUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/util/i.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/util/i.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usrData/card_bag_name.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usrData/测试" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +62,8 @@
     "last_opened_file_path": "/Users/liuhongyu/Downloads/MemWink/src/main/java",
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propGUI"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -58,6 +71,7 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/usrData/cardbags" />
       <recent name="$PROJECT_DIR$/src/main/java/com" />
     </key>
   </component>
@@ -104,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652540756070</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit test on Mac">
+      <created>1652544653526</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652544653526</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +142,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="23:05,May 14,2022: Transfer to Maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="23:05,May 14,2022: Transfer to Maven" />
+    <MESSAGE value="commit test on Mac" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit test on Mac" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/MemWink/Main.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

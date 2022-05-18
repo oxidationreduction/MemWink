@@ -13,7 +13,7 @@ public class SystemUtil {
     private static final String OS_ARCH = System.getProperty("os.arch");
     private static final String VM_VENDOR = System.getProperty("java.vm.vendor");
     private static final String USER_HOME = System.getProperty("user.home");
-    public static final String CONFIG_HOME = USER_HOME + File.separator + ".MooInfo";
+    public static final String CONFIG_HOME = "usrData/";
 
     /**
      * log file dir
