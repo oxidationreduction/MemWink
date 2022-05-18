@@ -284,6 +284,10 @@ public class CardBag implements Serializable {
         return true;
     }
 
+    public void rememberNewCard() {
+        dailyNewCardRemembered++;
+    }
+
     /**
      * 用户对本卡包内的、记忆阶段为"新卡"的卡片进行了记忆操作，因此令本日新卡记忆数 +1
      */
