@@ -19,6 +19,7 @@ public class CardBagsPanel_ extends JPanel {
 
     public CardBagsPanel_() {
         setupUI();
+
     }
 
     private void setupUI() {
