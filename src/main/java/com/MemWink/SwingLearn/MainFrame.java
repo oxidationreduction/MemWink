@@ -80,7 +80,8 @@ public class MainFrame extends JFrame {
 
             //======== panel1 ========
             {
-                panel1.setLayout(new GridLayout(2, 4, 10, 10));
+                panel1.setMaximumSize(new Dimension(461, 32767));
+                panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
             }
             scrollPane1.setViewportView(panel1);
         }
@@ -88,27 +89,21 @@ public class MainFrame extends JFrame {
         //======== panel3 ========
         {
 
-            //---- button1 ----
-            button1.setText("text");
-            button1.addActionListener(e -> button1(e));
-
             GroupLayout panel3Layout = new GroupLayout(panel3);
             panel3.setLayout(panel3Layout);
             panel3Layout.setHorizontalGroup(
                 panel3Layout.createParallelGroup()
-                    .addGroup(GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
-                        .addContainerGap(362, Short.MAX_VALUE)
-                        .addComponent(button1)
-                        .addGap(21, 21, 21))
+                    .addGap(0, 179, Short.MAX_VALUE)
             );
             panel3Layout.setVerticalGroup(
                 panel3Layout.createParallelGroup()
-                    .addGroup(GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(button1)
-                        .addGap(17, 17, 17))
+                    .addGap(0, 17, Short.MAX_VALUE)
             );
         }
+
+        //---- button1 ----
+        button1.setText("text");
+        button1.addActionListener(e -> button1(e));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -118,16 +113,25 @@ public class MainFrame extends JFrame {
                     .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
-                        .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(204, 204, 204)
+                            .addComponent(button1))
+                        .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                    .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addGap(13, 13, 13))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addComponent(button1)
+                            .addContainerGap())))
                 .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pack();

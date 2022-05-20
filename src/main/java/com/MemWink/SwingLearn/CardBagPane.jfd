@@ -8,6 +8,7 @@ new FormModel {
 		}
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
+			"preferredSize": new java.awt.Dimension( 200, 200 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "text"

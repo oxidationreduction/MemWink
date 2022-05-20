@@ -19,9 +19,12 @@ public class Test {
             CardBagPane pane = new CardBagPane();
             pane.setBackground(cardBag.getColor());
             pane.label1.setText(cardBag.getName());
+            pane.cardBag = DataManager.provideCardBag(pane.label1.getText());
             mainFrame.panel1.add(pane);
         }
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
     }
 }

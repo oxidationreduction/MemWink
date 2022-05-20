@@ -7,8 +7,8 @@ new FormModel {
 			"JavaCodeGenerator.defaultVariableModifiers": 1
 		}
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {comp panel2:::p::p, space :::p, par l {comp scrollPane1::::461:x, comp panel3:::::x}, space :::p}}"
-			"$verticalGroup": "par l {seq {comp scrollPane1::::334:x, space :::p, comp panel3:::p::p}, comp panel2:::::x}"
+			"$horizontalGroup": "par l {seq l {comp panel2:::p::p, space :::p, par l {seq {comp panel3:::::x, space :p:204:p, comp button1:::p::p}, comp scrollPane1::::461:x}, space :::p}}"
+			"$verticalGroup": "par l {seq {comp scrollPane1::::351:x, space :::p, par l {seq {comp panel3:::p::p, space :p:13:p}, seq t {comp button1:::p::p, space :::p}}}, comp panel2:::::x}"
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
@@ -31,28 +31,26 @@ new FormModel {
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
-					"columns": 4
-					"hgap": 10
-					"vgap": 10
-					"rows": 2
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+					"alignment": 0
 				} ) {
 					name: "panel1"
+					"maximumSize": new java.awt.Dimension( 461, 32767 )
 					auxiliary() {
 						"JavaCodeGenerator.variableModifiers": 1
 					}
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq t {space ::362:x, comp button1:::p::p, space :p:21:p}}"
-				"$verticalGroup": "par l {seq t {space :::x, comp button1:::p::p, space :p:17:p}}"
+				"$horizontalGroup": "par l {space :0:179:x}"
+				"$verticalGroup": "par l {space :0:17:x}"
 			} ) {
 				name: "panel3"
-				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "button1"
-					"text": "text"
-					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", true ) )
-				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "text"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 120, 75 )

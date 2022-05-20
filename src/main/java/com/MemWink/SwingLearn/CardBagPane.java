@@ -19,16 +19,7 @@ public class CardBagPane extends JPanel {
     public CardBagPane() {
         initComponents();
         menu.add(item);
-        CardBagPane pane = this;
-        pane.item.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JPanel parent = (JPanel) pane.getParent();
-                DataManager.delCardBag(pane.cardBag.getName());
-                parent.remove(pane);
-                parent.revalidate();
-            }
-        });
+        this.item.addActionListener(new itemListener(this));
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -45,6 +36,7 @@ public class CardBagPane extends JPanel {
         button1 = new JButton();
 
         //======== this ========
+        setPreferredSize(new Dimension(200, 200));
         setLayout(null);
 
         //---- label1 ----
@@ -84,4 +76,19 @@ public class CardBagPane extends JPanel {
     public JPopupMenu menu = new JPopupMenu();
     public JMenuItem item = new JMenuItem("删除");
     public CardBag cardBag;
+    private class itemListener implements ActionListener{
+        private CardBagPane panel;
+
+        public itemListener(CardBagPane panel){
+            this.panel = panel;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JPanel parent = (JPanel) panel.getParent();
+            DataManager.delCardBag(panel.cardBag.getName());
+            parent.remove(panel);
+            parent.updateUI();
+        }
+    }
 }
