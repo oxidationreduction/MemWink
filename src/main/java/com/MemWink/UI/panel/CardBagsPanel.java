@@ -8,7 +8,7 @@ import com.MemWink.UI.component.CardbagLookup;
 import javax.swing.*;
 import java.awt.*;
 
-public class CardBagsPanel_ extends JPanel {
+public class CardBagsPanel extends JPanel {
     private JScrollPane scrollPane = new JScrollPane();
 
     private JPanel basePanel = new JPanel();
@@ -17,7 +17,7 @@ public class CardBagsPanel_ extends JPanel {
 
     private JLabel cardBagLabel = new JLabel("卡包");
 
-    public CardBagsPanel_() {
+    public CardBagsPanel() {
         setupUI();
 
     }

@@ -3,9 +3,9 @@ package com.MemWink;
 import cn.hutool.setting.Setting;
 import com.MemWink.Data.CardBag.*;
 import com.MemWink.Data.DataManager;
+import com.MemWink.SwingLearn.CardBagPane;
 import com.MemWink.UI.UIConstant;
 import com.MemWink.UI.UIManager;
-import com.MemWink.UI.component.CardbagLookup;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +21,16 @@ public class Main {
 
         test.addCard("正面", "背面", true, MemStateConstants.newCard, false, null);
 
-        new UIManager();
+        CardBagPane pane = new CardBagPane();
+        pane.setBackground(test.getColor());
+        pane.label1.setText(test.getName());
+        // pane.setBounds(20, 20, 1000, 700);
+        pane.setVisible(true);
+        JFrame frame = new JFrame();
+        frame.setLayout(null);
+        frame.setSize(1440, 810);
+        frame.add(pane);
+        frame.setVisible(true);
 /*
         List<CategorizedCard> cards = test.getCardNeedReview();
         System.out.println(new Date());

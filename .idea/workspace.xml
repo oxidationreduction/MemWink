@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagsPanel_.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagsPanel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,10 +44,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
