@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/5/18 17:56 JFrameDesigner测试">
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrData/card_bag_name.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrData/新建卡包" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +107,7 @@
       <workItem from="1652838730996" duration="3305000" />
       <workItem from="1652866758910" duration="1419000" />
       <workItem from="1652960378946" duration="3293000" />
-      <workItem from="1653008438189" duration="697000" />
+      <workItem from="1653008438189" duration="2292000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1652529721584</created>
@@ -154,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652868098974</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug">
+      <created>1653009345875</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653009345875</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +180,7 @@
     <MESSAGE value="23:05,May 14,2022: Transfer to Maven" />
     <MESSAGE value="2nd commit on Windows" />
     <MESSAGE value="2022/5/18 17:56 JFrameDesigner测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022/5/18 17:56 JFrameDesigner测试" />
+    <MESSAGE value="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug" />
   </component>
 </project>

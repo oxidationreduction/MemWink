@@ -71,16 +71,19 @@ public class MainFrame extends JFrame {
                         .addComponent(button3, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button4, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(169, Short.MAX_VALUE))
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
         }
 
         //======== scrollPane1 ========
         {
+            scrollPane1.setPreferredSize(new Dimension(461, 351));
+            scrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
             //======== panel1 ========
             {
-                panel1.setMaximumSize(new Dimension(461, 32767));
+                panel1.setMaximumSize(new Dimension(290, 32767));
+                panel1.setPreferredSize(new Dimension(461, 351));
                 panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
             }
             scrollPane1.setViewportView(panel1);
@@ -93,7 +96,7 @@ public class MainFrame extends JFrame {
             panel3.setLayout(panel3Layout);
             panel3Layout.setHorizontalGroup(
                 panel3Layout.createParallelGroup()
-                    .addGap(0, 179, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
             );
             panel3Layout.setVerticalGroup(
                 panel3Layout.createParallelGroup()
@@ -117,13 +120,13 @@ public class MainFrame extends JFrame {
                             .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGap(204, 204, 204)
                             .addComponent(button1))
-                        .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
+                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 461, GroupLayout.PREFERRED_SIZE))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 351, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()

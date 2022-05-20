@@ -7,13 +7,13 @@ new FormModel {
 			"JavaCodeGenerator.defaultVariableModifiers": 1
 		}
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {comp panel2:::p::p, space :::p, par l {seq {comp panel3:::::x, space :p:204:p, comp button1:::p::p}, comp scrollPane1::::461:x}, space :::p}}"
-			"$verticalGroup": "par l {seq {comp scrollPane1::::351:x, space :::p, par l {seq {comp panel3:::p::p, space :p:13:p}, seq t {comp button1:::p::p, space :::p}}}, comp panel2:::::x}"
+			"$horizontalGroup": "par l {seq l {comp panel2:::p::p, space :::p, par l {seq {comp panel3:::::x, space :p:204:p, comp button1:::p::p}, comp scrollPane1:::p:461:p}, space :::p}}"
+			"$verticalGroup": "par l {seq {comp scrollPane1:::p:351:p, space :::p, par l {seq {comp panel3:::p::p, space :p:13:p}, seq t {comp button1:::p::p, space :::p}}}, comp panel2:::::x}"
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 				"$horizontalGroup": "par l {seq {space :::p, par l {comp button3::l:p::p, comp button4::l:p::p, comp button2::l:p::p}, space ::21:x}}"
-				"$verticalGroup": "par l {seq l {space :::p, comp button2:::p:66:p, space :::p, comp button3:::p:68:p, space :::p, comp button4:::p:72:p, space ::169:x}}"
+				"$verticalGroup": "par l {seq l {space :::p, comp button2:::p:66:p, space :::p, comp button3:::p:68:p, space :::p, comp button4:::p:72:p, space :::x}}"
 			} ) {
 				name: "panel2"
 				add( new FormComponent( "javax.swing.JButton" ) {
@@ -31,18 +31,21 @@ new FormModel {
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
+				"preferredSize": new java.awt.Dimension( 461, 351 )
+				"horizontalScrollBarPolicy": 31
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
 					"alignment": 0
 				} ) {
 					name: "panel1"
-					"maximumSize": new java.awt.Dimension( 461, 32767 )
+					"maximumSize": new java.awt.Dimension( 290, 32767 )
+					"preferredSize": new java.awt.Dimension( 461, 351 )
 					auxiliary() {
 						"JavaCodeGenerator.variableModifiers": 1
 					}
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {space :0:179:x}"
+				"$horizontalGroup": "par l {space :0:0:x}"
 				"$verticalGroup": "par l {space :0:17:x}"
 			} ) {
 				name: "panel3"

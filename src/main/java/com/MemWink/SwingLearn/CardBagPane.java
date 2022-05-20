@@ -36,35 +36,35 @@ public class CardBagPane extends JPanel {
         button1 = new JButton();
 
         //======== this ========
-        setPreferredSize(new Dimension(200, 200));
-        setLayout(null);
+        setPreferredSize(new Dimension(140, 119));
 
         //---- label1 ----
         label1.setText("text");
         label1.setHorizontalAlignment(SwingConstants.RIGHT);
-        add(label1);
-        label1.setBounds(65, 15, 75, 28);
 
         //---- button1 ----
         button1.setText("text");
         button1.setHorizontalAlignment(SwingConstants.LEFT);
-        add(button1);
-        button1.setBounds(6, 74, 88, 45);
 
-        {
-            // compute preferred size
-            Dimension preferredSize = new Dimension();
-            for(int i = 0; i < getComponentCount(); i++) {
-                Rectangle bounds = getComponent(i).getBounds();
-                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-            }
-            Insets insets = getInsets();
-            preferredSize.width += insets.right;
-            preferredSize.height += insets.bottom;
-            setMinimumSize(preferredSize);
-            setPreferredSize(preferredSize);
-        }
+        GroupLayout layout = new GroupLayout(this);
+        setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup()
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(65, 65, 65)
+                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(6, 6, 6)
+                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup()
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(15, 15, 15)
+                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+                    .addGap(31, 31, 31)
+                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
+        );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
