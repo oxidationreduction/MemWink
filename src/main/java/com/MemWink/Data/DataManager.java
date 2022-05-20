@@ -1,6 +1,7 @@
 package com.MemWink.Data;
 
 import com.MemWink.Data.CardBag.*;
+import com.MemWink.util.SystemUtil;
 
 import java.awt.*;
 import java.io.*;
@@ -26,7 +27,7 @@ public class DataManager {
      */
     private static List<String> cardBagNames = new ArrayList<>();
 
-    public static String savePath = "usrData/";
+    public static String savePath = SystemUtil.CONFIG_HOME + "cardbags/";
 
     /**
      * 构造器
@@ -107,6 +108,16 @@ public class DataManager {
         return DataManagerStatus.NO_SUCH_CARD_BAG;
     }
 
+    public static void rememberNewCard(String cardBagName) {
+        for (CardBag i : cardBags) {
+            if (Objects.equals(i.getName(), cardBagName)) {
+                i.rememberNewCard();
+                break;
+            }
+        }
+        throw new RuntimeException("Invalid card bag name: " + cardBagName);
+    }
+
     /**
      * 重命名卡包
      * @param oldName 旧名
@@ -115,7 +126,7 @@ public class DataManager {
      */
     public static int changeCardBagName(String oldName, String newName) {
         if (Objects.equals(newName, "")) {
-            return DataManagerStatus.NO_SUCH_CARD_BAG;
+            return DataManagerStatus.EMPTY_NAME;
         }
         for (CardBag i : cardBags) {
             if (Objects.equals(i.getName(), oldName)) {
@@ -136,6 +147,15 @@ public class DataManager {
         return DataManagerStatus.NO_SUCH_CARD_BAG;
     }
 
+    public void updateColor(String name, Color color) {
+        for (CardBag i : cardBags) {
+            if (Objects.equals(i.getName(), name)) {
+                i.setColor(color);
+                saveCardBag(i);
+                break;
+            }
+        }
+    }
     /**
      * 获取指定的卡包
      * @param name 卡包名

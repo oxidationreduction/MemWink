@@ -45,7 +45,7 @@ public class CardBag implements Serializable {
     /**
      * 当天是否已经抽出新卡复习
      */
-    private boolean dailyNewCardRemembered = false;
+    private int dailyNewCardRemembered = 0;
 
     /**
      * 卡片队列，按照添加顺序排序
@@ -130,6 +130,9 @@ public class CardBag implements Serializable {
         }
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
     /**
      * 卡包名 setter 的替代品，外界可访问
      * @param name 卡包名
@@ -208,20 +211,19 @@ public class CardBag implements Serializable {
      */
     private void updateCardNeedReview() {
         cardNeedReview = new ArrayList<>();
-        if (dailyNewCardRemembered) {
+        if (dailyNewCardRemembered >= dailyNewCardNum) {
             for (CategorizedCard i : cards) {
                 if(i.getMemState() != MemStateConstants.newCard && i.needReview() && !cardNeedReview.contains(i)) {
                     cardNeedReview.add(i);
                 }
             }
         } else {
-            dailyNewCardRemembered = true;
-            int newCardLeft = dailyNewCardNum;
+            int newCardAdded = 0;
             for (CategorizedCard i : cards) {
                 if (i.getMemState() == MemStateConstants.newCard) {
-                    if (newCardLeft > 0) {
+                    if (dailyNewCardRemembered + newCardAdded < dailyNewCardNum) {
                         cardNeedReview.add(i);
-                        newCardLeft--;
+                        newCardAdded++;
                     }
                 } else if (i.needReview()) {
                     cardNeedReview.add(i);
@@ -280,6 +282,10 @@ public class CardBag implements Serializable {
             return false;
         }
         return true;
+    }
+
+    public void rememberNewCard() {
+        dailyNewCardRemembered++;
     }
 
     /**

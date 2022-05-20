@@ -190,6 +190,9 @@ public class Card implements Serializable {
                 setMemState(lastState);
             }
         } else if (memState != MemStateConstants.finished) {
+            if (memState == MemStateConstants.newCard) {
+
+            }
             memHistories.add(new MemHistory(memState, MemHistory.StatusNum.REMEMBERED, memState + 1));
             setMemState(memState + 1);
         }

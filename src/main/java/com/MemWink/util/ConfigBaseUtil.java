@@ -16,7 +16,7 @@ public class ConfigBaseUtil {
     /**
      * path of the setting file
      */
-    private String settingFilePath = SystemUtil.CONFIG_HOME + File.separator + "config" + File.separator + "config.setting";
+    private String settingFilePath = SystemUtil.CONFIG_HOME + "config/" + "config.setting";
 
     Setting setting;
 
