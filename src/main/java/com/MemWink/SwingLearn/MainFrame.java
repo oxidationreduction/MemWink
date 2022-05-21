@@ -9,7 +9,12 @@ import com.MemWink.Data.DataManager;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 
 /**
  * @author unknown
@@ -26,6 +31,7 @@ public class MainFrame extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - 刘洪宇
         panel2 = new JPanel();
         button2 = new JButton();
         button3 = new JButton();
@@ -36,10 +42,15 @@ public class MainFrame extends JFrame {
         button1 = new JButton();
 
         //======== this ========
-        var contentPane = getContentPane();
+        Container contentPane = getContentPane();
 
         //======== panel2 ========
         {
+            panel2.setBorder (new CompoundBorder( new TitledBorder (new
+                    EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", TitledBorder. CENTER, TitledBorder. BOTTOM, new Font ("Dia\u006cog" , Font .BOLD ,12 ),
+            Color. red) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (new PropertyChangeListener( )
+            {  public void propertyChange (PropertyChangeEvent e) {if ("b\u006frde\u0072" .equals (e .getPropertyName () ))
+            throw new RuntimeException( ); }} );
 
             //---- button2 ----
             button2.setText("text");
@@ -54,23 +65,23 @@ public class MainFrame extends JFrame {
             panel2.setLayout(panel2Layout);
             panel2Layout.setHorizontalGroup(
                 panel2Layout.createParallelGroup()
-                    .addGroup(panel2Layout.createSequentialGroup()
+                    .add(panel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(panel2Layout.createParallelGroup()
-                            .addComponent(button3)
-                            .addComponent(button4)
-                            .addComponent(button2))
+                        .add(panel2Layout.createParallelGroup()
+                            .add(button3)
+                            .add(button4)
+                            .add(button2))
                         .addContainerGap(21, Short.MAX_VALUE))
             );
             panel2Layout.setVerticalGroup(
                 panel2Layout.createParallelGroup()
-                    .addGroup(panel2Layout.createSequentialGroup()
+                    .add(panel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(button2, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+                        .add(button2, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button3, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+                        .add(button3, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button4, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+                        .add(button4, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
         }
@@ -96,46 +107,50 @@ public class MainFrame extends JFrame {
             panel3.setLayout(panel3Layout);
             panel3Layout.setHorizontalGroup(
                 panel3Layout.createParallelGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .add(0, 0, Short.MAX_VALUE)
             );
             panel3Layout.setVerticalGroup(
                 panel3Layout.createParallelGroup()
-                    .addGap(0, 17, Short.MAX_VALUE)
+                    .add(0, 17, Short.MAX_VALUE)
             );
         }
 
         //---- button1 ----
         button1.setText("text");
-        button1.addActionListener(e -> button1(e));
+        button1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                button1(e);
+            }
+        });
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(204, 204, 204)
-                            .addComponent(button1))
-                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 461, GroupLayout.PREFERRED_SIZE))
+                .add(contentPaneLayout.createSequentialGroup()
+                    .add(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.RELATED)
+                    .add(contentPaneLayout.createParallelGroup()
+                        .add(contentPaneLayout.createSequentialGroup()
+                            .add(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(204, 204, 204)
+                            .add(button1))
+                        .add(scrollPane1, GroupLayout.PREFERRED_SIZE, 461, GroupLayout.PREFERRED_SIZE))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 351, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addGap(13, 13, 13))
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                            .addComponent(button1)
+                .add(contentPaneLayout.createSequentialGroup()
+                    .add(scrollPane1, GroupLayout.PREFERRED_SIZE, 351, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.RELATED)
+                    .add(contentPaneLayout.createParallelGroup()
+                        .add(contentPaneLayout.createSequentialGroup()
+                            .add(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .add(13, 13, 13))
+                        .add(GroupLayout.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .add(button1)
                             .addContainerGap())))
-                .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -143,6 +158,7 @@ public class MainFrame extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - 刘洪宇
     public JPanel panel2;
     public JButton button2;
     public JButton button3;
