@@ -14,17 +14,10 @@ public class Test {
     }
 
     private void init(){
-        DataManager.init();
         MainFrame mainFrame = new MainFrame();
-        /* for (CardBag cardBag : DataManager.getCardBags()) {
-            CardBagPane pane = new CardBagPane();
-            pane.setBackground(cardBag.getColor());
-            pane.label1.setText(cardBag.getName());
-            pane.cardBag = DataManager.provideCardBag(pane.label1.getText());
-            mainFrame.panel1.add(new CardbagLookup(cardBag));
-        }
+        ShowCardBags bagsPane = new ShowCardBags();
+        mainFrame.panel1.add(bagsPane);
 
-         */
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

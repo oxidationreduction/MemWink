@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug">
+      <change afterPath="$PROJECT_DIR$/lib/intellij_forms_rt.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/intellij_forms_rt_src.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.jfd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagsPanel_.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagsPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +34,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -44,11 +58,10 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "settings.editor.selected.configurable": "preferences.pluginManager"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MooInfo" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -111,6 +124,13 @@
       <workItem from="1652960378946" duration="3293000" />
       <workItem from="1653008438189" duration="2292000" />
       <workItem from="1653012931489" duration="713000" />
+      <workItem from="1653035711359" duration="30000" />
+      <workItem from="1653182453593" duration="1263000" />
+      <workItem from="1653183748805" duration="3384000" />
+      <workItem from="1653190989349" duration="3562000" />
+      <workItem from="1653216616921" duration="3622000" />
+      <workItem from="1653220287071" duration="3238000" />
+      <workItem from="1653286718931" duration="4856000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1652529721584</created>
@@ -192,5 +212,15 @@
     <MESSAGE value="2022/5/18 17:56 JFrameDesigner测试" />
     <MESSAGE value="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug" />
     <option name="LAST_COMMIT_MESSAGE" value="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

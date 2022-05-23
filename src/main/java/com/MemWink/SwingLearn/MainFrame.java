@@ -10,6 +10,7 @@ import com.MemWink.Data.DataManager;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import com.intellij.uiDesigner.core.*;
 
 /**
  * @author unknown
@@ -17,139 +18,147 @@ import javax.swing.*;
 public class MainFrame extends JFrame {
     public MainFrame() {
         initComponents();
+        setSize(835,625);
+        int windowWidth = this.getWidth();                     //获得窗口宽
+
+        int windowHeight = this.getHeight();                   //获得窗口高
+
+        Toolkit kit = Toolkit.getDefaultToolkit();              //定义工具包
+
+        Dimension screenSize = kit.getScreenSize();             //获取屏幕的尺寸
+
+        int screenWidth = screenSize.width;                     //获取屏幕的宽
+
+        int screenHeight = screenSize.height;                   //获取屏幕的高
+
+        this.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);//设置窗口居中显示
     }
 
-    private void button1(ActionEvent e) {
-        AddPane addPane = new AddPane(this);
-        addPane.setVisible(true);
+    private void button2(ActionEvent e) {
+        panel1.removeAll();
+        panel1.add(new ShowCardBags());
+        panel1.updateUI();
     }
+
+    private void button3(ActionEvent e) {
+        panel1.removeAll();
+        panel1.add(new ShowStatics());
+        panel1.updateUI();
+    }
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        menuBar1 = new JMenuBar();
+        menu1 = new JMenu();
+        menu2 = new JMenu();
+        menu3 = new JMenu();
+        menu4 = new JMenu();
         panel2 = new JPanel();
+        panel3 = new JPanel();
+        panel5 = new JPanel();
         button2 = new JButton();
         button3 = new JButton();
-        button4 = new JButton();
-        scrollPane1 = new JScrollPane();
-        panel1 = new JPanel();
-        panel3 = new JPanel();
+        panel4 = new JPanel();
         button1 = new JButton();
+        panel1 = new JPanel();
 
         //======== this ========
+        setMaximizedBounds(new Rectangle(0, 0, 1920, 1080));
+        setResizable(false);
         var contentPane = getContentPane();
+        contentPane.setLayout(new BorderLayout());
+
+        //======== menuBar1 ========
+        {
+
+            //======== menu1 ========
+            {
+                menu1.setText("\u6587\u4ef6");
+            }
+            menuBar1.add(menu1);
+
+            //======== menu2 ========
+            {
+                menu2.setText("\u5361\u7247");
+            }
+            menuBar1.add(menu2);
+
+            //======== menu3 ========
+            {
+                menu3.setText("\u7f16\u8f91");
+            }
+            menuBar1.add(menu3);
+
+            //======== menu4 ========
+            {
+                menu4.setText("\u5e2e\u52a9");
+            }
+            menuBar1.add(menu4);
+        }
+        setJMenuBar(menuBar1);
 
         //======== panel2 ========
         {
+            panel2.setLayout(new GridLayout(2, 1));
 
-            //---- button2 ----
-            button2.setText("text");
-
-            //---- button3 ----
-            button3.setText("text");
-
-            //---- button4 ----
-            button4.setText("text");
-
-            GroupLayout panel2Layout = new GroupLayout(panel2);
-            panel2.setLayout(panel2Layout);
-            panel2Layout.setHorizontalGroup(
-                panel2Layout.createParallelGroup()
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panel2Layout.createParallelGroup()
-                            .addComponent(button3)
-                            .addComponent(button4)
-                            .addComponent(button2))
-                        .addContainerGap(21, Short.MAX_VALUE))
-            );
-            panel2Layout.setVerticalGroup(
-                panel2Layout.createParallelGroup()
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(button2, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button3, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button4, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            );
-        }
-
-        //======== scrollPane1 ========
-        {
-            scrollPane1.setPreferredSize(new Dimension(461, 351));
-            scrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-            //======== panel1 ========
+            //======== panel3 ========
             {
-                panel1.setMaximumSize(new Dimension(290, 32767));
-                panel1.setPreferredSize(new Dimension(461, 351));
-                panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
+                panel3.setLayout(new GridLayout(2, 1));
+
+                //======== panel5 ========
+                {
+                    panel5.setLayout(new GridLayout(2, 1));
+
+                    //---- button2 ----
+                    button2.setText("text");
+                    button2.addActionListener(e -> button2(e));
+                    panel5.add(button2);
+
+                    //---- button3 ----
+                    button3.setText("text");
+                    button3.addActionListener(e -> button3(e));
+                    panel5.add(button3);
+                }
+                panel3.add(panel5);
             }
-            scrollPane1.setViewportView(panel1);
-        }
+            panel2.add(panel3);
 
-        //======== panel3 ========
+            //======== panel4 ========
+            {
+                panel4.setLayout(new BorderLayout());
+
+                //---- button1 ----
+                button1.setText("text");
+                panel4.add(button1, BorderLayout.SOUTH);
+            }
+            panel2.add(panel4);
+        }
+        contentPane.add(panel2, BorderLayout.WEST);
+
+        //======== panel1 ========
         {
-
-            GroupLayout panel3Layout = new GroupLayout(panel3);
-            panel3.setLayout(panel3Layout);
-            panel3Layout.setHorizontalGroup(
-                panel3Layout.createParallelGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-            );
-            panel3Layout.setVerticalGroup(
-                panel3Layout.createParallelGroup()
-                    .addGap(0, 17, Short.MAX_VALUE)
-            );
+            panel1.setLayout(new GridLayout(1, 1));
         }
-
-        //---- button1 ----
-        button1.setText("text");
-        button1.addActionListener(e -> button1(e));
-
-        GroupLayout contentPaneLayout = new GroupLayout(contentPane);
-        contentPane.setLayout(contentPaneLayout);
-        contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(204, 204, 204)
-                            .addComponent(button1))
-                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 461, GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap())
-        );
-        contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 351, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addGap(13, 13, 13))
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                            .addComponent(button1)
-                            .addContainerGap())))
-                .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        contentPane.add(panel1, BorderLayout.CENTER);
         pack();
-        setLocationRelativeTo(getOwner());
+        setLocationRelativeTo(null);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    public JMenuBar menuBar1;
+    public JMenu menu1;
+    public JMenu menu2;
+    public JMenu menu3;
+    public JMenu menu4;
     public JPanel panel2;
+    public JPanel panel3;
+    public JPanel panel5;
     public JButton button2;
     public JButton button3;
-    public JButton button4;
-    public JScrollPane scrollPane1;
-    public JPanel panel1;
-    public JPanel panel3;
+    public JPanel panel4;
     public JButton button1;
+    public JPanel panel1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

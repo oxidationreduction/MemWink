@@ -1,0 +1,38 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.14.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, par t {comp button1:::p::p, par l {comp label1:::p:76:p, comp scrollPane1:::p::p}}, space ::19:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label1:::p:38:p, space :::p, comp scrollPane1:::p::p, space :::x, comp button1:::p::p, space :::p}}"
+		} ) {
+			name: "this"
+			"preferredSize": new java.awt.Dimension( 775, 559 )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "卡包"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 14, false )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				"preferredSize": new java.awt.Dimension( 750, 450 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+					"alignment": 0
+				} ) {
+					name: "panel1"
+					"preferredSize": new java.awt.Dimension( 700, 400 )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "+"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 16, false )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 15, 45 )
+			"size": new java.awt.Dimension( 775, 555 )
+		} )
+	}
+}
