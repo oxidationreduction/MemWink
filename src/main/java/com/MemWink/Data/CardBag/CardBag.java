@@ -38,12 +38,12 @@ public class CardBag implements Serializable {
     /**
      * 每天记忆的新卡数量
      * <p>要求值不小于 {@code 1}
-     * <p>注意：对这一项的修改在次日生效
+     * <p>注意：若是增大这一值，改变立即生效；若是缩小这一值，改变在次日生效
      */
     private int dailyNewCardNum = 20;
 
     /**
-     * 当天是否已经抽出新卡复习
+     * 当天已经抽出学习的新卡的数量
      */
     private int dailyNewCardRemembered = 0;
 
@@ -268,7 +268,7 @@ public class CardBag implements Serializable {
      * @return 是否保存成功
      */
     public static boolean saveCardBag(CardBag cardBag) {
-        String pathName = DataManager.savePath + cardBag.getName();
+        String pathName = DataManager.cardBagSavePath + cardBag.getName();
         File file = new File(pathName);
         if (file.exists()) {
             file.delete();
@@ -284,8 +284,12 @@ public class CardBag implements Serializable {
         return true;
     }
 
-    public void rememberNewCard() {
+    /**
+     * 用户对本卡包内的、记忆阶段为"新卡"的卡片进行了记忆操作，因此令本日新卡记忆数 +1
+     */
+    public boolean rememberNewCard() {
         dailyNewCardRemembered++;
+        return saveCardBag(this);
     }
 
     /**
@@ -297,7 +301,7 @@ public class CardBag implements Serializable {
     public static CardBag openCardBag(String bagName) {
         try {
             ObjectInputStream tool = new ObjectInputStream(
-                    new FileInputStream(DataManager.savePath + bagName));
+                    new FileInputStream(DataManager.cardBagSavePath + bagName));
             return (CardBag) tool.readObject();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);

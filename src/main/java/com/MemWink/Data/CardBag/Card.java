@@ -36,6 +36,9 @@ public class Card implements Serializable {
      */
     private Date createTime = new Date();
 
+    /**
+     * 卡片所属的卡包的名字
+     */
     private String cardBagName;
 
     /**
@@ -137,7 +140,7 @@ public class Card implements Serializable {
     /**
      * 复习时，卡片被记住
      * <p>此方法会根据卡片的记忆历史，自动修改卡片的记忆阶段 {@code memState}
-     * 和下次记忆时间 {@code rememberTime}，并添加一条记忆历史</p>
+     * 和下次记忆时间 {@code rememberTime}，并添加一条记忆历史，更新全局记忆历史记录 ({@code usage})</p>
      *
      * @throws RuntimeException 不应该被复习的卡片被复习了，
      * 提示 {@code CardBag.updateCardNeedReview} 存在问题
@@ -191,7 +194,7 @@ public class Card implements Serializable {
             }
         } else if (memState != MemStateConstants.finished) {
             if (memState == MemStateConstants.newCard) {
-
+                DataManager.rememberNewCard(cardBagName);
             }
             memHistories.add(new MemHistory(memState, MemHistory.StatusNum.REMEMBERED, memState + 1));
             setMemState(memState + 1);
@@ -199,12 +202,13 @@ public class Card implements Serializable {
 
         // 完成状态更新后进行数据更新和文件存储
         Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
+        DataManager.addRememberedCardsNumHistory();
     }
 
     /**
      * 复习时，卡片没有被记住
      * <p>此方法会根据卡片的记忆历史，自动修改卡片的记忆阶段 {@code memState}
-     * 和下次记忆时间 {@code rememberTime}，并添加一条记忆历史</p>
+     * 和下次记忆时间 {@code rememberTime}，并添加一条记忆历史，更新全局记忆历史记录 ({@code usage})</p>
      *
      * @throws RuntimeException 不应该被复习的卡片被复习了，
      * 提示 {@code CardBag.updateCardNeedReview} 存在问题
@@ -214,12 +218,17 @@ public class Card implements Serializable {
             throw new RuntimeException("A card that shouldn't be reviewed is being reviewed. Check CardBag.updateCardNeedReview");
         }
 
+        if (memState == MemStateConstants.newCard) {
+            DataManager.rememberNewCard(cardBagName);
+        }
+
         memHistories.add(
                 new MemHistory(memState, MemHistory.StatusNum.FORGET, MemStateConstants.reinforce1));
         setMemState(MemStateConstants.reinforce1);
 
         // 数据更新和文件存储
         DataManager.saveCardBag(DataManager.provideCardBag(cardBagName));
+        DataManager.addForgetCardsNumHistory();
     }
 
     /**

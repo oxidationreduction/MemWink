@@ -1,6 +1,7 @@
 package com.MemWink.Data;
 
 import com.MemWink.Data.CardBag.*;
+import com.MemWink.Data.History.Usage;
 import com.MemWink.util.SystemUtil;
 
 import java.awt.*;
@@ -27,7 +28,20 @@ public class DataManager {
      */
     private static List<String> cardBagNames = new ArrayList<>();
 
-    public static String savePath = SystemUtil.CONFIG_HOME + "cardbags/";
+    /**
+     * 记忆历史记录
+     */
+    private static Usage usage = new Usage();
+
+    /**
+     * 卡包文件夹路径
+     */
+    public static String cardBagSavePath = SystemUtil.CONFIG_HOME + "cardbags/";
+
+    /**
+     * 历史记录文件夹路径
+     */
+    public static String historySavePath = SystemUtil.CONFIG_HOME + "history/history";
 
     /**
      * 构造器
@@ -35,8 +49,9 @@ public class DataManager {
      * <p>初始化时涉及到磁盘I/O</p>
      */
     private DataManager() {
+        // 读取卡包名列表，再按名字读取卡包
         try {
-            FileInputStream fileInputStream = new FileInputStream(DataManager.savePath + "card_bag_name.txt");
+            FileInputStream fileInputStream = new FileInputStream(cardBagSavePath + "card_bag_name.txt");
             ObjectInputStream tool = new ObjectInputStream(fileInputStream);
             cardBagNames = (List<String>) tool.readObject();
             for (String i : cardBagNames) {
@@ -44,6 +59,15 @@ public class DataManager {
             }
         } catch (IOException | ClassNotFoundException e) {
             saveCardBagName();
+        }
+
+        // 读取记忆历史记录
+        try {
+            FileInputStream fileInputStream = new FileInputStream(historySavePath);
+            ObjectInputStream tool = new ObjectInputStream(fileInputStream);
+            usage = (Usage) tool.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            saveUsage();
         }
     }
 
@@ -99,7 +123,7 @@ public class DataManager {
         for (CardBag i : cardBags) {
             if (Objects.equals(i.getName(), name)) {
                 cardBags.remove(i);
-                new File( DataManager.savePath+ "" + name).delete();
+                new File( DataManager.cardBagSavePath + "" + name).delete();
                 cardBagNames.remove(name);
                 saveCardBagName();
                 return DataManagerStatus.NORMAL;
@@ -108,11 +132,15 @@ public class DataManager {
         return DataManagerStatus.NO_SUCH_CARD_BAG;
     }
 
+    /**
+     * 用于Card与CardBag建立连接，使进行记忆操作后更新已经当日已经复习的新卡的数量，禁止调用
+     * @param cardBagName 卡包名
+     */
     public static void rememberNewCard(String cardBagName) {
         for (CardBag i : cardBags) {
             if (Objects.equals(i.getName(), cardBagName)) {
                 i.rememberNewCard();
-                break;
+                return;
             }
         }
         throw new RuntimeException("Invalid card bag name: " + cardBagName);
@@ -131,7 +159,7 @@ public class DataManager {
         for (CardBag i : cardBags) {
             if (Objects.equals(i.getName(), oldName)) {
                 i.updateName(newName);
-                File oldFile = new File( DataManager.savePath+ "" + oldName);
+                File oldFile = new File( DataManager.cardBagSavePath + "" + oldName);
                 if (oldFile.delete()) {
                     saveCardBag(i);
                 } else {
@@ -147,6 +175,11 @@ public class DataManager {
         return DataManagerStatus.NO_SUCH_CARD_BAG;
     }
 
+    /**
+     * 更新卡包的颜色
+     * @param name 卡包名
+     * @param color 新颜色
+     */
     public void updateColor(String name, Color color) {
         for (CardBag i : cardBags) {
             if (Objects.equals(i.getName(), name)) {
@@ -168,6 +201,81 @@ public class DataManager {
             }
         }
         return null;
+    }
+
+    /**
+     * 获取今天进行的记忆操作数量
+     * @return 本日记忆操作数量
+     */
+    public static int getTodayReviewCardsNum() {
+        List<Integer> tmp = usage.getReviewCardsNumHistory();
+        return  tmp.get(tmp.size()-1);
+    }
+
+    /**
+     * 获取今天"已记住"操作的数量
+     * @return "已记住"操作数量
+     */
+    public static int getTodayRememberedCardsNum() {
+        List<Integer> tmp = usage.getRememberedCardsNumHistory();
+        return  tmp.get(tmp.size()-1);
+    }
+    /**
+     * 获取今天"没记住"操作的数量
+     * @return "没记住"操作数量
+     */
+    public static int getTodayForgetCardsNum() {
+        List<Integer> tmp = usage.getForgetCardsNumHistory();
+        return  tmp.get(tmp.size()-1);
+    }
+    /**
+     * 获取今天的遗忘率
+     * @return 本日遗忘率
+     */
+    public static double getTodayForgetRate() {
+        List<Double> tmp = usage.getForgetRateHistory();
+        return tmp.get(tmp.size()-1);
+    }
+    /**
+     * 获取今天还需记忆的卡片的数量
+     * @return 本日剩余卡片数量
+     */
+    public static int getTodayRemainCardsNum() {
+        int ans = 0;
+        for (CardBag i : cardBags) {
+            ans += i.getReviewCardsNum();
+        }
+        return ans;
+    }
+
+    /**
+     * 和全局记忆历史记录 ({@code usage}) 中的数据列表有关的 getter
+     * <p>主要在实现折线图时使用</p>
+     */
+    public static List<Integer> getReviewCardsNumHistory() {
+        return usage.getReviewCardsNumHistory();
+    }
+    public static List<Integer> getRememberedCardsNumHistory() {
+        return usage.getRememberedCardsNumHistory();
+    }
+    public static List<Integer> getForgetCardsNumHistory() {
+        return usage.getForgetCardsNumHistory();
+    }
+
+    /**
+     * 用户操作"已记住"后，更新并存储历史数据
+     */
+    public static void addRememberedCardsNumHistory() {
+        usage.addRememberedCardsNumHistory();
+        saveUsage();
+    }
+
+    /**
+     * 用户操作"没记住"后，更新并存储历史数据
+     */
+    public static void addForgetCardsNumHistory() {
+        usage.addForgetCardsNumHistory();
+        saveUsage();
     }
 
     /**
@@ -193,13 +301,34 @@ public class DataManager {
      */
     public static boolean saveCardBagName() {
         try {
-            File file = new File(DataManager.savePath + "card_bag_name.txt");
+            File file = new File(DataManager.cardBagSavePath + "card_bag_name.txt");
             if (file.exists()) {
                 file.delete();
             }
             ObjectOutputStream tool = new ObjectOutputStream(
-                    new FileOutputStream(DataManager.savePath + "card_bag_name.txt"));
+                    new FileOutputStream(DataManager.cardBagSavePath + "card_bag_name.txt"));
             tool.writeObject(cardBagNames);
+            tool.close();
+        } catch (IOException e) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 存储全局记忆历史记录 ({@code usage})
+     * @return 是否保存成功
+     */
+    public static boolean saveUsage() {
+        try {
+            File file = new File(historySavePath);
+            if (file.exists()) {
+                file.delete();
+            }
+            ObjectOutputStream tool = new ObjectOutputStream(
+                    new FileOutputStream(historySavePath)
+            );
+            tool.writeObject(usage);
             tool.close();
         } catch (IOException e) {
             return false;
