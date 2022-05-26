@@ -17,18 +17,22 @@ public class Usage implements Serializable {
      * 上次操作时间，用于一天中首次使用时向 4 个数据列表中添加代表当天的新的数据元素，仅限内部使用
      */
     private Date lastUse = new Date();
+
     /**
      * 每天记忆操作总数
      */
     private List<Integer> reviewCardsNumHistory = new ArrayList<>();
+
     /**
      * 每天"已记住"操作的总数
      */
     private List<Integer> rememberedCardsNumHistory = new ArrayList<>();
+
     /**
      * 每天"没记住"操作的总数
      */
     private List<Integer> forgetCardsNumHistory = new ArrayList<>();
+
     /**
      * 每天的遗忘率
      */
