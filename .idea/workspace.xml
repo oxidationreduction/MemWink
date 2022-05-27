@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug">
-      <change afterPath="$PROJECT_DIR$/lib/intellij_forms_rt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/intellij_forms_rt_src.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2022_5_15_0_03____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2022_5_15_0_03____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +23,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>

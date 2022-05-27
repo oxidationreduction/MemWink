@@ -10,7 +10,6 @@ import com.MemWink.Data.DataManager;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import com.intellij.uiDesigner.core.*;
 
 /**
  * @author unknown
