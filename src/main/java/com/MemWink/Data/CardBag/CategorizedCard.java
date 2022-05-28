@@ -32,7 +32,7 @@ public class CategorizedCard extends Card implements Serializable {
         this.category = category;
     }
     public String getCategory() {
-        return category;
+        return category == null ? "未分类" : category;
     }
 
     public void updateCategory(String category) {

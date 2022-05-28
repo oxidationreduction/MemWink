@@ -2,6 +2,7 @@ package com.MemWink.Data.CardBag;
 
 import com.MemWink.Data.DataManager;
 
+import java.awt.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -279,6 +280,14 @@ public class Card implements Serializable {
      */
     public boolean needReview() {
         return memState != MemStateConstants.finished && new Date().getTime() > rememberTime.getTime();
+    }
+
+    /**
+     * 返回卡片所属卡包的颜色。
+     * @return 卡片所属卡包的颜色
+     */
+    public Color getCardBagColor() {
+        return DataManager.provideCardBag(cardBagName).getColor();
     }
 
     /**

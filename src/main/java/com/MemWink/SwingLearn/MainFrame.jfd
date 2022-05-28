@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.14.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.14.1" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -15,33 +15,33 @@ new FormModel {
 				"columns": 1
 				"rows": 2
 			} ) {
-				name: "panel2"
+				name: "barPanel"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 					"columns": 1
 					"rows": 2
 				} ) {
-					name: "panel3"
+					name: "upperPanel"
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 						"columns": 1
 						"rows": 2
 					} ) {
-						name: "panel5"
+						name: "functionPanel"
 						add( new FormComponent( "javax.swing.JButton" ) {
-							name: "button2"
+							name: "cardBagButton"
 							"text": "text"
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JButton" ) {
-							name: "button3"
+							name: "staticticButton"
 							"text": "text"
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
 						} )
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
-					name: "panel4"
+					name: "lowerPanel"
 					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "button1"
+						name: "helpButton"
 						"text": "text"
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "South"
@@ -53,26 +53,26 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 				"columns": 1
 			} ) {
-				name: "panel1"
+				name: "mainPanel"
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
 			} )
 			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "menuBar1"
 				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
-					name: "menu1"
+					name: "fileMenu"
 					"text": "文件"
 				} )
 				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
-					name: "menu2"
+					name: "cardMenu"
 					"text": "卡片"
 				} )
 				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
-					name: "menu3"
+					name: "editMenu"
 					"text": "编辑"
 				} )
 				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
-					name: "menu4"
+					name: "helpMenu"
 					"text": "帮助"
 				} )
 			}

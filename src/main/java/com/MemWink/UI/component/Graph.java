@@ -102,6 +102,10 @@ class Test {
         Graph g = new Graph(GraphType.FORGET_RATE, 700, 360, data);
         g.setLocation(100, 100);
         p.setVisible(true);
-        p.add(g);
+        // p.add(g);
+        JPanel tmp1 = new JPanel();
+        tmp1.setSize(70, 70);
+        tmp1.setBackground(Color.black);
+        p.add(tmp1);
     }
 }
