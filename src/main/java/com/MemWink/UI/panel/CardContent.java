@@ -204,6 +204,7 @@ public class CardContent extends JPanel {
                 hidedBackLabel.setVerticalAlignment(backVerticalAlignment);
                 hidedBackLabel.setFont(
                         new Font("Microsoft Sans Serif", Font.PLAIN, 80));
+                hidedBackLabel.setVisible(true);
                 hidedBackPanel.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {

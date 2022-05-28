@@ -32,6 +32,9 @@ public class ShowCardBags extends JPanel {
     private void button1(ActionEvent e) {
         // TODO add your code here
     }
+    public void update() {
+
+    }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
