@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/5/28 20：14 修改添加卡包的逻辑并优化统计界面">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/PositionConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usrData/cardbags/A" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usrData/cardbags/card_bag_name.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usrData/cardbags/hello" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usrData/cardbags/jn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/MemStateConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/MemStateConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/RoundedRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/RoundedRectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContent.java" afterDir="false" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="增加卡片查看页面，初步添加功能">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653740150675</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="增加卡片查看页面，初步添加功能">
+      <created>1653747258655</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1653747258655</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +257,8 @@
     <MESSAGE value="2022/5/23 16：03 主页面基本绘制" />
     <MESSAGE value="2022/5/28 18：53 测试" />
     <MESSAGE value="2022/5/28 20：14 修改添加卡包的逻辑并优化统计界面" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022/5/28 20：14 修改添加卡包的逻辑并优化统计界面" />
+    <MESSAGE value="增加卡片查看页面，初步添加功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加卡片查看页面，初步添加功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
