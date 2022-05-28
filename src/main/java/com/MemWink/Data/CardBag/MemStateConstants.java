@@ -8,6 +8,7 @@ import java.io.Serializable;
  * @version 1.0
  */
 public class MemStateConstants implements Serializable {
+    public static int[] values = {-2, -1, 0, 1, 2, 3, 4, 5, 6};
     /**
      * 首次强化记忆，1分钟后重新记忆。
      */
@@ -78,6 +79,61 @@ public class MemStateConstants implements Serializable {
             }
             case 6 -> {
                 return "已记住";
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + stage);
+        }
+    }
+    public static int getStageVal(String stage) {
+        switch (stage) {
+            case "强化记忆" -> {
+                return reinforce1;
+            }
+            case "新卡" -> {
+                return 0;
+            }
+            case "阶段一" -> {
+                return 1;
+            }
+            case "阶段二" -> {
+                return 2;
+            }
+            case "阶段三" -> {
+                return 3;
+            }
+            case "阶段四" -> {
+                return 4;
+            }
+            case "阶段五" -> {
+                return 5;
+            }
+            case "已记住" -> {
+                return 6;
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + stage);
+        }
+    }
+    public static String getRememberTimeLabel(int stage) {
+        switch (stage) {
+            case -2, -1 -> {
+                return "1分钟后记忆";
+            }
+            case 0 -> {
+                return "择机抽取";
+            }
+            case 1, 2 -> {
+                return "1天后记忆";
+            }
+            case 3 -> {
+                return "2天后记忆";
+            }
+            case 4 -> {
+                return "4天后记忆";
+            }
+            case 5 -> {
+                return "7天后记忆";
+            }
+            case 6 -> {
+                return "不再记忆";
             }
             default -> throw new IllegalStateException("Unexpected value: " + stage);
         }

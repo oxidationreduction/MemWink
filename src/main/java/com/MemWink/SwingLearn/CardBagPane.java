@@ -55,7 +55,7 @@ public class CardBagPane extends JPanel {
     public JPopupMenu menu = new JPopupMenu();
     public JMenuItem item = new JMenuItem("删除");
     public CardBag cardBag;
-    private class itemListener implements ActionListener{
+    private class itemListener implements ActionListener {
         private CardBagPane panel;
 
         public itemListener(CardBagPane panel){

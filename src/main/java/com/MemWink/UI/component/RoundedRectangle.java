@@ -24,6 +24,10 @@ public class RoundedRectangle extends JPanel {
         g2d.setColor(color);
         Shape shape = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), arc, arc);
         g2d.fill(shape);
+        if (color == Color.WHITE) {
+            g2d.setColor(Color.BLACK);
+            g2d.draw(shape);
+        }
     }
 
     public void setArc(double arc) {
