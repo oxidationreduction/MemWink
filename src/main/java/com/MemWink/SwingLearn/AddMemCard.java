@@ -11,7 +11,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
-import javax.swing.border.*;
 
 /**
  * @author unknown
@@ -40,7 +39,7 @@ public class AddMemCard extends JDialog {
             pane.cardBag = cardBag;
             pane.setBackground(cardBag.getColor());
             pane.label1.setText(cardBag.getName());
-            mainFrame.panel1.add(pane);
+            mainFrame.mainPanel.add(pane);
             mainFrame.revalidate();
         }
     }
@@ -71,7 +70,7 @@ public class AddMemCard extends JDialog {
         //---- label4 ----
         label4.setText("\u5361\u5305\u5e95\u8272");
 
-        //======== panel1 ========
+        //======== mainPanel ========
         {
             panel1.setLayout(new GridLayout(1, 7, 10, 0));
         }

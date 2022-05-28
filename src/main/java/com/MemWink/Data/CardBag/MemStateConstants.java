@@ -52,4 +52,34 @@ public class MemStateConstants implements Serializable {
      * 已记住。
      */
     public static int finished = 6;
+
+    public static String getStageLabel(int stage) {
+        switch (stage) {
+            case -2, -1 -> {
+                return "强化记忆";
+            }
+            case 0 -> {
+                return "新卡";
+            }
+            case 1 -> {
+                return "阶段一";
+            }
+            case 2 -> {
+                return "阶段二";
+            }
+            case 3 -> {
+                return "阶段三";
+            }
+            case 4 -> {
+                return "阶段四";
+            }
+            case 5 -> {
+                return "阶段五";
+            }
+            case 6 -> {
+                return "已记住";
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + stage);
+        }
+    }
 }

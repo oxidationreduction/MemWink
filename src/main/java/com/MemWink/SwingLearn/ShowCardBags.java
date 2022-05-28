@@ -4,6 +4,8 @@
 
 package com.MemWink.SwingLearn;
 
+import com.MemWink.UI.UIConstant;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -19,7 +21,7 @@ public class ShowCardBags extends JPanel {
         initComponents();
     }
 
-    private void button1(ActionEvent e) {
+    private void addButton(ActionEvent e) {
         AddPane pane = new AddPane();
         pane.setVisible(true);
         JButton tmp = new JButton();
@@ -27,36 +29,47 @@ public class ShowCardBags extends JPanel {
         add(tmp);
     }
 
+    private void button1(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        label1 = new JLabel();
-        scrollPane1 = new JScrollPane();
-        panel1 = new JPanel();
-        button1 = new JButton();
+        // Generated using JFormDesigner Evaluation license - 刘洪宇
+        cardBagLabel = new JLabel();
+        cardBagScrollPane = new JScrollPane();
+        cardBagInnerPanel = new JPanel();
+        addButton = new JButton();
 
         //======== this ========
         setPreferredSize(new Dimension(775, 559));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+        EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing
+        . border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ),
+        java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+        { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () ))
+        throw new RuntimeException( ); }} );
 
-        //---- label1 ----
-        label1.setText("\u5361\u5305");
-        label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 14f));
+        //---- cardBagLabel ----
+        cardBagLabel.setText("\u5361\u5305");
+        cardBagLabel.setFont(cardBagLabel.getFont().deriveFont(cardBagLabel.getFont().getSize() + 39f));
 
-        //======== scrollPane1 ========
+        //======== cardBagScrollPane ========
         {
-            scrollPane1.setPreferredSize(new Dimension(750, 450));
+            cardBagScrollPane.setPreferredSize(new Dimension(750, 450));
 
-            //======== panel1 ========
+            //======== cardBagInnerPanel ========
             {
-                panel1.setPreferredSize(new Dimension(700, 400));
-                panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
+                cardBagInnerPanel.setPreferredSize(new Dimension(700, 400));
+                cardBagInnerPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
             }
-            scrollPane1.setViewportView(panel1);
+            cardBagScrollPane.setViewportView(cardBagInnerPanel);
         }
 
-        //---- button1 ----
-        button1.setText("+");
-        button1.setFont(button1.getFont().deriveFont(button1.getFont().getStyle() | Font.BOLD, button1.getFont().getSize() + 16f));
-        button1.addActionListener(e -> button1(e));
+        //---- addButton ----
+        addButton.setText("+");
+        addButton.setFont(addButton.getFont().deriveFont(addButton.getFont().getStyle() | Font.BOLD, addButton.getFont().getSize() + 16f));
+        addButton.addActionListener(e -> button1(e));
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
@@ -65,30 +78,41 @@ public class ShowCardBags extends JPanel {
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                        .addComponent(button1)
+                        .addComponent(addButton)
                         .addGroup(layout.createParallelGroup()
-                            .addComponent(label1, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cardBagLabel, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cardBagScrollPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cardBagLabel, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cardBagScrollPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button1)
+                    .addComponent(addButton)
                     .addContainerGap())
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
+    public void updateSize() {
+        cardBagInnerPanel.setSize(UIConstant.windowWidth - 130, UIConstant.windowHeight - 220);
+        // System.out.println("cardBagInnerPanel: " + cardBagInnerPanel.getWidth() + " * " + cardBagInnerPanel.getHeight());
+        cardBagInnerPanel.updateUI();
+
+        cardBagScrollPane.setSize(UIConstant.windowWidth - 95, UIConstant.windowHeight - 180);
+        // System.out.println("cardBagScrollPane: " + cardBagScrollPane.getWidth() + " * " + cardBagScrollPane.getHeight());
+        cardBagScrollPane.updateUI();
+    }
+
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JLabel label1;
-    private JScrollPane scrollPane1;
-    private JPanel panel1;
-    private JButton button1;
+    // Generated using JFormDesigner Evaluation license - 刘洪宇
+    private JLabel cardBagLabel;
+    private JScrollPane cardBagScrollPane;
+    private JPanel cardBagInnerPanel;
+    private JButton addButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

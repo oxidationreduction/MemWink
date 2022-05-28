@@ -4,8 +4,7 @@
 
 package com.MemWink.SwingLearn;
 
-import com.MemWink.Data.CardBag.CardBag;
-import com.MemWink.Data.DataManager;
+import com.MemWink.UI.UIConstant;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -17,7 +16,7 @@ import javax.swing.*;
 public class MainFrame extends JFrame {
     public MainFrame() {
         initComponents();
-        setPreferredSize(new Dimension(835, 625));
+        // setPreferredSize(new Dimension(835, 625));
         int windowWidth = this.getWidth();                     //获得窗口宽
 
         int windowHeight = this.getHeight();                   //获得窗口高
@@ -34,132 +33,156 @@ public class MainFrame extends JFrame {
     }
 
     private void button2(ActionEvent e) {
-        panel1.removeAll();
-        panel1.add(new ShowCardBags());
-        panel1.updateUI();
+        mainPanel.removeAll();
+        mainPanel.add(showCardBags);
+        mainPanel.updateUI();
     }
 
     private void button3(ActionEvent e) {
-        panel1.removeAll();
-        panel1.add(new ShowStatics());
-        panel1.updateUI();
+        mainPanel.removeAll();
+        mainPanel.add(showStatics);
+        mainPanel.updateUI();
     }
 
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - 刘洪宇
         menuBar1 = new JMenuBar();
-        menu1 = new JMenu();
-        menu2 = new JMenu();
-        menu3 = new JMenu();
-        menu4 = new JMenu();
-        panel2 = new JPanel();
-        panel3 = new JPanel();
-        panel5 = new JPanel();
-        button2 = new JButton();
-        button3 = new JButton();
-        panel4 = new JPanel();
-        button1 = new JButton();
-        panel1 = new JPanel();
+        fileMenu = new JMenu();
+        cardMenu = new JMenu();
+        editMenu = new JMenu();
+        helpMenu = new JMenu();
+        barPanel = new JPanel();
+        upperPanel = new JPanel();
+        functionPanel = new JPanel();
+        cardBagButton = new JButton();
+        staticticButton = new JButton();
+        lowerPanel = new JPanel();
+        helpButton = new JButton();
+        mainPanel = new JPanel();
 
         //======== this ========
-        setMaximizedBounds(new Rectangle(0, 0, 1920, 1080));
-        setResizable(true);
         var contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
+        setResizable(true);
+        setBounds(new Rectangle(0, 0, 1280, 720));
+        setMinimumSize(new Dimension(835, 625));
 
         //======== menuBar1 ========
         {
 
-            //======== menu1 ========
+            //======== fileMenu ========
             {
-                menu1.setText("\u6587\u4ef6");
+                fileMenu.setText("\u6587\u4ef6");
             }
-            menuBar1.add(menu1);
+            menuBar1.add(fileMenu);
 
-            //======== menu2 ========
+            //======== cardMenu ========
             {
-                menu2.setText("\u5361\u7247");
+                cardMenu.setText("\u5361\u7247");
             }
-            menuBar1.add(menu2);
+            menuBar1.add(cardMenu);
 
-            //======== menu3 ========
+            //======== editMenu ========
             {
-                menu3.setText("\u7f16\u8f91");
+                editMenu.setText("\u7f16\u8f91");
             }
-            menuBar1.add(menu3);
+            menuBar1.add(editMenu);
 
-            //======== menu4 ========
+            //======== helpMenu ========
             {
-                menu4.setText("\u5e2e\u52a9");
+                helpMenu.setText("\u5e2e\u52a9");
             }
-            menuBar1.add(menu4);
+            menuBar1.add(helpMenu);
         }
         setJMenuBar(menuBar1);
 
-        //======== panel2 ========
+        //======== barPanel ========
         {
-            panel2.setLayout(new GridLayout(2, 1));
+            barPanel.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.
+            border.EmptyBorder(0,0,0,0), "",javax.swing.border.TitledBorder.CENTER
+            ,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font
+            .BOLD,12),java.awt.Color.red),barPanel. getBorder()));barPanel. addPropertyChangeListener(
+            new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r"
+            .equals(e.getPropertyName()))throw new RuntimeException();}});
+            barPanel.setLayout(new GridLayout(2, 1));
 
-            //======== panel3 ========
+            //======== upperPanel ========
             {
-                panel3.setLayout(new GridLayout(2, 1));
+                upperPanel.setLayout(new GridLayout(2, 1));
 
-                //======== panel5 ========
+                //======== functionPanel ========
                 {
-                    panel5.setLayout(new GridLayout(2, 1));
+                    functionPanel.setLayout(null);
 
-                    //---- button2 ----
-                    button2.setText("卡包");
+                    //---- cardBagButton ----
+                    cardBagButton.setText("卡包");
+                    cardBagButton.setLocation(0, 0);
+                    cardBagButton.setSize(65, 65);
+                    cardBagButton.addActionListener(e -> button2(e));
+                    functionPanel.add(cardBagButton);
 
-                    button2.addActionListener(e -> button2(e));
-                    panel5.add(button2);
-
-                    //---- button3 ----
-                    button3.setText("统计");
-                    button3.setSize(40, 40);
-                    button3.addActionListener(e -> button3(e));
-                    panel5.add(button3);
+                    //---- staticticButton ----
+                    staticticButton.setText("统计");
+                    staticticButton.setSize(65, 65);
+                    staticticButton.setLocation(0, 70);
+                    staticticButton.addActionListener(e -> button3(e));
+                    functionPanel.add(staticticButton);
                 }
-                panel3.add(panel5);
+                upperPanel.add(functionPanel);
             }
-            panel2.add(panel3);
+            barPanel.add(upperPanel);
 
-            //======== panel4 ========
+            //======== lowerPanel ========
             {
-                panel4.setLayout(new BorderLayout());
+                lowerPanel.setLayout(new BorderLayout());
 
-                //---- button1 ----
-                button1.setText("text");
-                panel4.add(button1, BorderLayout.SOUTH);
+                //---- helpButton ----
+                helpButton.setText("text");
+                lowerPanel.add(helpButton, BorderLayout.SOUTH);
             }
-            panel2.add(panel4);
+            barPanel.add(lowerPanel);
         }
-        contentPane.add(panel2, BorderLayout.WEST);
+        contentPane.add(barPanel, BorderLayout.WEST);
 
-        //======== panel1 ========
+        //======== mainPanel ========
         {
-            panel1.setLayout(new GridLayout(1, 1));
+            mainPanel.setLayout(new GridLayout(1, 1));
         }
-        contentPane.add(panel1, BorderLayout.CENTER);
-        pack();
+        contentPane.add(mainPanel, BorderLayout.CENTER);
         setLocationRelativeTo(null);
+
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                UIConstant.windowWidth = getWidth();
+                UIConstant.windowHeight = getHeight();
+                showCardBags.updateSize();
+                showStatics.updateSize();
+
+                System.out.println("W: " + UIConstant.windowWidth + ", H: " + UIConstant.windowHeight);
+            }
+        });
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - 刘洪宇
     public JMenuBar menuBar1;
-    public JMenu menu1;
-    public JMenu menu2;
-    public JMenu menu3;
-    public JMenu menu4;
-    public JPanel panel2;
-    public JPanel panel3;
-    public JPanel panel5;
-    public JButton button2;
-    public JButton button3;
-    public JPanel panel4;
-    public JButton button1;
-    public JPanel panel1;
+    public JMenu fileMenu;
+    public JMenu cardMenu;
+    public JMenu editMenu;
+    public JMenu helpMenu;
+    public JPanel barPanel;
+    public JPanel upperPanel;
+    public JPanel functionPanel;
+    public JButton cardBagButton;
+    public JButton staticticButton;
+    public JPanel lowerPanel;
+    public JButton helpButton;
+    public JPanel mainPanel;
+    public ShowCardBags showCardBags = new ShowCardBags();
+    public ShowStatics showStatics = new ShowStatics();
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

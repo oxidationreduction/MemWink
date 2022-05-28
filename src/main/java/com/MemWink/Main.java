@@ -31,17 +31,11 @@ public class Main {
         frame.add(pane);
         frame.setVisible(true);
 */
+        JFrame frame = new JFrame();
+        frame.setLayout(null);
+        frame.setSize(1440, 810);
+        frame.setVisible(true);
 
-        List<CategorizedCard> cards = test.getCardNeedReview();
-        System.out.println(new Date());
-        for (CategorizedCard i : cards) {
-            System.out.println(i.getFront() + ", belongs to " + i.getCardBagName() + ", Create at " + i.getCreateTime().toString());
-            i.updateFront("FRONT");
-        }
-        System.out.println();
-        for (CategorizedCard i : test.getCards()) {
-            System.out.println(i.getFront() + ", belongs to " + i.getCardBagName() + ", Create at " + i.getCreateTime().toString());
-        }
     }
 
     public static void main(String[] args) {

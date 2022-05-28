@@ -42,7 +42,7 @@ public class CardBagPane extends JPanel {
         label1.setText("text");
         label1.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        //---- button1 ----
+        //---- helpButton ----
         button1.setText("text");
         button1.setHorizontalAlignment(SwingConstants.LEFT);
 

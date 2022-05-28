@@ -1,29 +1,29 @@
-JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.14.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.14.1" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp label1:::p:76:p}, seq l {space :p:26:p, par l:::p {comp panel1::::713:x, comp panel8::::713:x}}}, space ::41:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp label1:::p:38:p, space :p:47:p, comp panel1:::p:116:p, space :p:53:p, comp panel8:::p:262:p, space ::48:x}}"
+			"$horizontalGroup": "par l {seq {par t {seq {space :0:26:x, comp upperPanel:::p:713:p}, seq l {space :::p, par t {seq l {comp staticLabel:::p:150:p, space :0:0:x}, seq l {space :0:20:x, comp lowerPanel:::p:713:p}}}}, space ::41:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp staticLabel:::p:65:p, space :p:45:p, comp upperPanel:::::x, space :p:55:p, comp lowerPanel:::::x, space ::21:x}}"
 		} ) {
 			name: "this"
-			"preferredSize": new java.awt.Dimension( 775, 559 )
+			"preferredSize": new java.awt.Dimension( 1150, 600 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label1"
+				name: "staticLabel"
 				"text": "统计"
-				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 14, false )
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 39, false )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 				"columns": 4
 				"hgap": 30
 			} ) {
-				name: "panel1"
+				name: "upperPanel"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :::p, par t {comp label2:::p::p, comp alreadyStudy:::p::p}, space ::55:x, comp label6:::p::p, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp label2:::p::p, space s:::p, par b {comp alreadyStudy::b:p::p, comp label6::b:p::p}, space ::17:x}}"
+					"$horizontalGroup": "par l {seq {space :::p, par t {comp label2:::p::p, comp alreadyStudy:::p::p}, space ::34:x, comp label6:::p::p, space :::p}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp label2:::p::p, space s:::p, par b {comp alreadyStudy::b:p::p, comp label6::b:p::p}, space ::13:x}}"
 				} ) {
-					name: "panel4"
+					name: "alreadyStudyPanel"
 					"border": new javax.swing.border.EtchedBorder( 1, sfield java.awt.Color lightGray, sfield java.awt.Color gray )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label2"
@@ -42,13 +42,13 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, par t {comp waitStudy:::p::p, comp label3:::p::p}, space ::55:x, comp label7:::p::p, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp label3:::p::p, space s:::p, par b {comp waitStudy::b:p::p, comp label7::b:p::p}, space ::17:x}}"
+					"$horizontalGroup": "par l {seq l {space :::p, par t {comp waitStudy:::p::p, comp label0:::p::p}, space ::34:x, comp label7:::p::p, space :::p}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp label0:::p::p, space s:::p, par b {comp waitStudy::b:p::p, comp label7::b:p::p}, space ::13:x}}"
 				} ) {
-					name: "panel5"
+					name: "waitStudyPanel"
 					"border": new javax.swing.border.EtchedBorder( 1, sfield java.awt.Color lightGray, sfield java.awt.Color gray )
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label3"
+						name: "label0"
 						"text": "今天待学"
 						"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
 					} )
@@ -64,10 +64,10 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, par t {comp forgetPer:::p::p, comp label4:::p::p}, space ::61:x}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp label4:::p::p, space s:::p, comp forgetPer:::p::p, space ::17:x}}"
+					"$horizontalGroup": "par l {seq l {space :p:13:p, par t {comp label4:::p::p, seq {comp label1:::p::p, space :::p, comp forgetPer:::p::p}}, space ::33:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp label4:::p::p, space s:::p, par b {comp forgetPer::b:p::p, comp label1::b:p::p}, space ::13:x}}"
 				} ) {
-					name: "panel6"
+					name: "forgetPerPanel"
 					"border": new javax.swing.border.EtchedBorder( 1, sfield java.awt.Color lightGray, sfield java.awt.Color gray )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label4"
@@ -76,15 +76,21 @@ new FormModel {
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "forgetPer"
-						"text": "0%"
+						"text": "%"
 						"font": #SwingDerivedFont1
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": "0"
+						"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 25, false )
+						"horizontalTextPosition": 4
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, par t {comp nextStudy:::p::p, comp label5:::p::p}, space ::55:x, comp label8:::p::p, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp label5:::p::p, space s:::p, par b {comp nextStudy::b:p::p, comp label8::b:p::p}, space ::17:x}}"
+					"$horizontalGroup": "par l {seq l {space :::p, par t {comp nextStudy:::p::p, comp label5:::p::p}, space ::34:x, comp label8:::p::p, space :::p}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp label5:::p::p, space s:::p, par b {comp nextStudy::b:p::p, comp label8::b:p::p}, space ::13:x}}"
 				} ) {
-					name: "panel7"
+					name: "nextStudyPanel"
 					"border": new javax.swing.border.EtchedBorder( 1, sfield java.awt.Color lightGray, sfield java.awt.Color gray )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label5"
@@ -107,12 +113,12 @@ new FormModel {
 				"columns": 2
 				"hgap": 30
 			} ) {
-				name: "panel8"
+				name: "lowerPanel"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :p:19:p, comp label9:::p::p, space ::120:x, comp label11:::p::p, space :p:68:p}}"
-					"$verticalGroup": "par l {seq l {space :::p, par b {comp label9::b:p::p, comp label11::b:p::p}, space ::233:x}}"
+					"$horizontalGroup": "par l {seq l {space :p:19:p, comp label9:::p::p, space ::82:x, comp label11:::p::p, space :p:68:p}}"
+					"$verticalGroup": "par l {seq l {space :::p, par b {comp label9::b:p::p, comp label11::b:p::p}, space ::226:x}}"
 				} ) {
-					name: "panel9"
+					name: "studyNumGraphPanel"
 					"border": new javax.swing.border.EtchedBorder( 1, sfield java.awt.Color lightGray, sfield java.awt.Color gray )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label9"
@@ -126,10 +132,10 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :p:21:p, comp label10:::p::p, space ::111:x, comp label12:::p::p, space :p:75:p}}"
-					"$verticalGroup": "par l {seq l {space :::p, par b {comp label10::b:p::p, comp label12::b:p::p}, space ::233:x}}"
+					"$horizontalGroup": "par l {seq l {space :p:21:p, comp label10:::p::p, space ::73:x, comp label12:::p::p, space :p:75:p}}"
+					"$verticalGroup": "par l {seq l {space :::p, par b {comp label10::b:p::p, comp label12::b:p::p}, space ::226:x}}"
 				} ) {
-					name: "panel10"
+					name: "foegerRateGraphPanel"
 					"border": new javax.swing.border.EtchedBorder( 1, sfield java.awt.Color lightGray, sfield java.awt.Color gray )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label10"

@@ -4,6 +4,8 @@
 
 package com.MemWink.SwingLearn;
 
+import com.MemWink.UI.UIConstant;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
@@ -19,45 +21,53 @@ public class ShowStatics extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        label1 = new JLabel();
-        panel1 = new JPanel();
-        panel4 = new JPanel();
+        // Generated using JFormDesigner Evaluation license - 刘洪宇
+        staticLabel = new JLabel();
+        upperPanel = new JPanel();
+        alreadyStudyPanel = new JPanel();
         label2 = new JLabel();
         label6 = new JLabel();
         alreadyStudy = new JLabel();
-        panel5 = new JPanel();
-        label3 = new JLabel();
+        waitStudyPanel = new JPanel();
+        label0 = new JLabel();
         label7 = new JLabel();
         waitStudy = new JLabel();
-        panel6 = new JPanel();
+        forgetPerPanel = new JPanel();
         label4 = new JLabel();
         forgetPer = new JLabel();
-        panel7 = new JPanel();
+        label1 = new JLabel();
+        nextStudyPanel = new JPanel();
         label5 = new JLabel();
         label8 = new JLabel();
         nextStudy = new JLabel();
-        panel8 = new JPanel();
-        panel9 = new JPanel();
+        lowerPanel = new JPanel();
+        studyNumGraphPanel = new JPanel();
         label9 = new JLabel();
         label11 = new JLabel();
-        panel10 = new JPanel();
+        foegerRateGraphPanel = new JPanel();
         label10 = new JLabel();
         label12 = new JLabel();
 
         //======== this ========
-        setPreferredSize(new Dimension(775, 559));
+        setPreferredSize(new Dimension(1150, 600));
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.
+        border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER
+        ,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font
+        .BOLD,12),java.awt.Color.red), getBorder())); addPropertyChangeListener(
+        new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r"
+        .equals(e.getPropertyName()))throw new RuntimeException();}});
 
-        //---- label1 ----
-        label1.setText("\u7edf\u8ba1");
-        label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 14f));
+        //---- staticLabel ----
+        staticLabel.setText("\u7edf\u8ba1");
+        staticLabel.setFont(staticLabel.getFont().deriveFont(staticLabel.getFont().getSize() + 39f));
 
-        //======== panel1 ========
+        //======== upperPanel ========
         {
-            panel1.setLayout(new GridLayout(1, 4, 30, 0));
+            upperPanel.setLayout(new GridLayout(1, 4, 30, 0));
 
-            //======== panel4 ========
+            //======== alreadyStudyPanel ========
             {
-                panel4.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                alreadyStudyPanel.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
 
                 //---- label2 ----
                 label2.setText("\u4eca\u5929\u5df2\u5b66");
@@ -71,40 +81,40 @@ public class ShowStatics extends JPanel {
                 alreadyStudy.setText("0");
                 alreadyStudy.setFont(alreadyStudy.getFont().deriveFont(alreadyStudy.getFont().getSize() + 25f));
 
-                GroupLayout panel4Layout = new GroupLayout(panel4);
-                panel4.setLayout(panel4Layout);
-                panel4Layout.setHorizontalGroup(
-                    panel4Layout.createParallelGroup()
-                        .addGroup(panel4Layout.createSequentialGroup()
+                GroupLayout alreadyStudyPanelLayout = new GroupLayout(alreadyStudyPanel);
+                alreadyStudyPanel.setLayout(alreadyStudyPanelLayout);
+                alreadyStudyPanelLayout.setHorizontalGroup(
+                    alreadyStudyPanelLayout.createParallelGroup()
+                        .addGroup(alreadyStudyPanelLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(panel4Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addGroup(alreadyStudyPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                 .addComponent(label2)
                                 .addComponent(alreadyStudy))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                             .addComponent(label6)
                             .addContainerGap())
                 );
-                panel4Layout.setVerticalGroup(
-                    panel4Layout.createParallelGroup()
-                        .addGroup(panel4Layout.createSequentialGroup()
+                alreadyStudyPanelLayout.setVerticalGroup(
+                    alreadyStudyPanelLayout.createParallelGroup()
+                        .addGroup(alreadyStudyPanelLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(label2)
                             .addGap(18, 18, 18)
-                            .addGroup(panel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addGroup(alreadyStudyPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(alreadyStudy)
                                 .addComponent(label6))
-                            .addContainerGap(17, Short.MAX_VALUE))
+                            .addContainerGap(13, Short.MAX_VALUE))
                 );
             }
-            panel1.add(panel4);
+            upperPanel.add(alreadyStudyPanel);
 
-            //======== panel5 ========
+            //======== waitStudyPanel ========
             {
-                panel5.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                waitStudyPanel.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
 
-                //---- label3 ----
-                label3.setText("\u4eca\u5929\u5f85\u5b66");
-                label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 5f));
+                //---- label0 ----
+                label0.setText("\u4eca\u5929\u5f85\u5b66");
+                label0.setFont(label0.getFont().deriveFont(label0.getFont().getSize() + 5f));
 
                 //---- label7 ----
                 label7.setText("\u5f20");
@@ -114,71 +124,81 @@ public class ShowStatics extends JPanel {
                 waitStudy.setText("0");
                 waitStudy.setFont(waitStudy.getFont().deriveFont(waitStudy.getFont().getSize() + 25f));
 
-                GroupLayout panel5Layout = new GroupLayout(panel5);
-                panel5.setLayout(panel5Layout);
-                panel5Layout.setHorizontalGroup(
-                    panel5Layout.createParallelGroup()
-                        .addGroup(panel5Layout.createSequentialGroup()
+                GroupLayout waitStudyPanelLayout = new GroupLayout(waitStudyPanel);
+                waitStudyPanel.setLayout(waitStudyPanelLayout);
+                waitStudyPanelLayout.setHorizontalGroup(
+                    waitStudyPanelLayout.createParallelGroup()
+                        .addGroup(waitStudyPanelLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(panel5Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addGroup(waitStudyPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                 .addComponent(waitStudy)
-                                .addComponent(label3))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                                .addComponent(label0))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                             .addComponent(label7)
                             .addContainerGap())
                 );
-                panel5Layout.setVerticalGroup(
-                    panel5Layout.createParallelGroup()
-                        .addGroup(panel5Layout.createSequentialGroup()
+                waitStudyPanelLayout.setVerticalGroup(
+                    waitStudyPanelLayout.createParallelGroup()
+                        .addGroup(waitStudyPanelLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(label3)
+                            .addComponent(label0)
                             .addGap(18, 18, 18)
-                            .addGroup(panel5Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addGroup(waitStudyPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(waitStudy)
                                 .addComponent(label7))
-                            .addContainerGap(17, Short.MAX_VALUE))
+                            .addContainerGap(13, Short.MAX_VALUE))
                 );
             }
-            panel1.add(panel5);
+            upperPanel.add(waitStudyPanel);
 
-            //======== panel6 ========
+            //======== forgetPerPanel ========
             {
-                panel6.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                forgetPerPanel.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
 
                 //---- label4 ----
                 label4.setText("\u590d\u4e60\u9057\u5fd8\u7387");
                 label4.setFont(label4.getFont().deriveFont(label4.getFont().getSize() + 5f));
 
                 //---- forgetPer ----
-                forgetPer.setText("0%");
+                forgetPer.setText("%");
                 forgetPer.setFont(forgetPer.getFont().deriveFont(forgetPer.getFont().getSize() + 25f));
 
-                GroupLayout panel6Layout = new GroupLayout(panel6);
-                panel6.setLayout(panel6Layout);
-                panel6Layout.setHorizontalGroup(
-                    panel6Layout.createParallelGroup()
-                        .addGroup(panel6Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panel6Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(forgetPer)
-                                .addComponent(label4))
-                            .addContainerGap(61, Short.MAX_VALUE))
+                //---- label1 ----
+                label1.setText("0");
+                label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 25f));
+                label1.setHorizontalTextPosition(SwingConstants.RIGHT);
+
+                GroupLayout forgetPerPanelLayout = new GroupLayout(forgetPerPanel);
+                forgetPerPanel.setLayout(forgetPerPanelLayout);
+                forgetPerPanelLayout.setHorizontalGroup(
+                    forgetPerPanelLayout.createParallelGroup()
+                        .addGroup(forgetPerPanelLayout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addGroup(forgetPerPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addComponent(label4)
+                                .addGroup(forgetPerPanelLayout.createSequentialGroup()
+                                    .addComponent(label1)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(forgetPer)))
+                            .addContainerGap(33, Short.MAX_VALUE))
                 );
-                panel6Layout.setVerticalGroup(
-                    panel6Layout.createParallelGroup()
-                        .addGroup(panel6Layout.createSequentialGroup()
+                forgetPerPanelLayout.setVerticalGroup(
+                    forgetPerPanelLayout.createParallelGroup()
+                        .addGroup(forgetPerPanelLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(label4)
                             .addGap(18, 18, 18)
-                            .addComponent(forgetPer)
-                            .addContainerGap(17, Short.MAX_VALUE))
+                            .addGroup(forgetPerPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(forgetPer)
+                                .addComponent(label1))
+                            .addContainerGap(13, Short.MAX_VALUE))
                 );
             }
-            panel1.add(panel6);
+            upperPanel.add(forgetPerPanel);
 
-            //======== panel7 ========
+            //======== nextStudyPanel ========
             {
-                panel7.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                nextStudyPanel.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
 
                 //---- label5 ----
                 label5.setText("\u660e\u5929\u9884\u8ba1");
@@ -192,41 +212,41 @@ public class ShowStatics extends JPanel {
                 nextStudy.setText("0");
                 nextStudy.setFont(nextStudy.getFont().deriveFont(nextStudy.getFont().getSize() + 25f));
 
-                GroupLayout panel7Layout = new GroupLayout(panel7);
-                panel7.setLayout(panel7Layout);
-                panel7Layout.setHorizontalGroup(
-                    panel7Layout.createParallelGroup()
-                        .addGroup(panel7Layout.createSequentialGroup()
+                GroupLayout nextStudyPanelLayout = new GroupLayout(nextStudyPanel);
+                nextStudyPanel.setLayout(nextStudyPanelLayout);
+                nextStudyPanelLayout.setHorizontalGroup(
+                    nextStudyPanelLayout.createParallelGroup()
+                        .addGroup(nextStudyPanelLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(panel7Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addGroup(nextStudyPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                 .addComponent(nextStudy)
                                 .addComponent(label5))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                             .addComponent(label8)
                             .addContainerGap())
                 );
-                panel7Layout.setVerticalGroup(
-                    panel7Layout.createParallelGroup()
-                        .addGroup(panel7Layout.createSequentialGroup()
+                nextStudyPanelLayout.setVerticalGroup(
+                    nextStudyPanelLayout.createParallelGroup()
+                        .addGroup(nextStudyPanelLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(label5)
                             .addGap(18, 18, 18)
-                            .addGroup(panel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addGroup(nextStudyPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(nextStudy)
                                 .addComponent(label8))
-                            .addContainerGap(17, Short.MAX_VALUE))
+                            .addContainerGap(13, Short.MAX_VALUE))
                 );
             }
-            panel1.add(panel7);
+            upperPanel.add(nextStudyPanel);
         }
 
-        //======== panel8 ========
+        //======== lowerPanel ========
         {
-            panel8.setLayout(new GridLayout(1, 2, 30, 0));
+            lowerPanel.setLayout(new GridLayout(1, 2, 30, 0));
 
-            //======== panel9 ========
+            //======== studyNumGraphPanel ========
             {
-                panel9.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                studyNumGraphPanel.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
 
                 //---- label9 ----
                 label9.setText("\u5b66\u4e60\u5361\u7247\u6570");
@@ -236,32 +256,32 @@ public class ShowStatics extends JPanel {
                 label11.setText("\u6bd4\u6628\u5929");
                 label11.setFont(label11.getFont().deriveFont(label11.getFont().getSize() + 5f));
 
-                GroupLayout panel9Layout = new GroupLayout(panel9);
-                panel9.setLayout(panel9Layout);
-                panel9Layout.setHorizontalGroup(
-                    panel9Layout.createParallelGroup()
-                        .addGroup(panel9Layout.createSequentialGroup()
+                GroupLayout studyNumGraphPanelLayout = new GroupLayout(studyNumGraphPanel);
+                studyNumGraphPanel.setLayout(studyNumGraphPanelLayout);
+                studyNumGraphPanelLayout.setHorizontalGroup(
+                    studyNumGraphPanelLayout.createParallelGroup()
+                        .addGroup(studyNumGraphPanelLayout.createSequentialGroup()
                             .addGap(19, 19, 19)
                             .addComponent(label9)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                             .addComponent(label11)
                             .addGap(68, 68, 68))
                 );
-                panel9Layout.setVerticalGroup(
-                    panel9Layout.createParallelGroup()
-                        .addGroup(panel9Layout.createSequentialGroup()
+                studyNumGraphPanelLayout.setVerticalGroup(
+                    studyNumGraphPanelLayout.createParallelGroup()
+                        .addGroup(studyNumGraphPanelLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(panel9Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addGroup(studyNumGraphPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(label9)
                                 .addComponent(label11))
-                            .addContainerGap(233, Short.MAX_VALUE))
+                            .addContainerGap(226, Short.MAX_VALUE))
                 );
             }
-            panel8.add(panel9);
+            lowerPanel.add(studyNumGraphPanel);
 
-            //======== panel10 ========
+            //======== foegerRateGraphPanel ========
             {
-                panel10.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                foegerRateGraphPanel.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
 
                 //---- label10 ----
                 label10.setText("\u590d\u4e60\u9057\u5fd8\u7387");
@@ -271,28 +291,28 @@ public class ShowStatics extends JPanel {
                 label12.setText("\u6bd4\u6628\u5929");
                 label12.setFont(label12.getFont().deriveFont(label12.getFont().getSize() + 5f));
 
-                GroupLayout panel10Layout = new GroupLayout(panel10);
-                panel10.setLayout(panel10Layout);
-                panel10Layout.setHorizontalGroup(
-                    panel10Layout.createParallelGroup()
-                        .addGroup(panel10Layout.createSequentialGroup()
+                GroupLayout foegerRateGraphPanelLayout = new GroupLayout(foegerRateGraphPanel);
+                foegerRateGraphPanel.setLayout(foegerRateGraphPanelLayout);
+                foegerRateGraphPanelLayout.setHorizontalGroup(
+                    foegerRateGraphPanelLayout.createParallelGroup()
+                        .addGroup(foegerRateGraphPanelLayout.createSequentialGroup()
                             .addGap(21, 21, 21)
                             .addComponent(label10)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                             .addComponent(label12)
                             .addGap(75, 75, 75))
                 );
-                panel10Layout.setVerticalGroup(
-                    panel10Layout.createParallelGroup()
-                        .addGroup(panel10Layout.createSequentialGroup()
+                foegerRateGraphPanelLayout.setVerticalGroup(
+                    foegerRateGraphPanelLayout.createParallelGroup()
+                        .addGroup(foegerRateGraphPanelLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(panel10Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addGroup(foegerRateGraphPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(label10)
                                 .addComponent(label12))
-                            .addContainerGap(233, Short.MAX_VALUE))
+                            .addContainerGap(226, Short.MAX_VALUE))
                 );
             }
-            panel8.add(panel10);
+            lowerPanel.add(foegerRateGraphPanel);
         }
 
         GroupLayout layout = new GroupLayout(this);
@@ -300,54 +320,66 @@ public class ShowStatics extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup()
+                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
+                            .addGap(0, 26, Short.MAX_VALUE)
+                            .addComponent(upperPanel, GroupLayout.PREFERRED_SIZE, 713, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(label1, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
-                                .addComponent(panel8, GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE))))
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(staticLabel, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(0, 20, Short.MAX_VALUE)
+                                    .addComponent(lowerPanel, GroupLayout.PREFERRED_SIZE, 713, GroupLayout.PREFERRED_SIZE)))))
                     .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-                    .addGap(47, 47, 47)
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
-                    .addGap(53, 53, 53)
-                    .addComponent(panel8, GroupLayout.PREFERRED_SIZE, 262, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(48, Short.MAX_VALUE))
+                    .addComponent(staticLabel, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+                    .addGap(45, 45, 45)
+                    .addComponent(upperPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(55, 55, 55)
+                    .addComponent(lowerPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap(21, Short.MAX_VALUE))
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
+    public void updateSize() {
+        setSize(UIConstant.windowWidth - 130, UIConstant.windowHeight - 220);
+        System.out.println("staticPanel: " + getWidth() + " * " + getHeight());
+        updateUI();
+    }
+
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JLabel label1;
-    private JPanel panel1;
-    private JPanel panel4;
+    // Generated using JFormDesigner Evaluation license - 刘洪宇
+    private JLabel staticLabel;
+    private JPanel upperPanel;
+    private JPanel alreadyStudyPanel;
     private JLabel label2;
     private JLabel label6;
     private JLabel alreadyStudy;
-    private JPanel panel5;
-    private JLabel label3;
+    private JPanel waitStudyPanel;
+    private JLabel label0;
     private JLabel label7;
     private JLabel waitStudy;
-    private JPanel panel6;
+    private JPanel forgetPerPanel;
     private JLabel label4;
     private JLabel forgetPer;
-    private JPanel panel7;
+    private JLabel label1;
+    private JPanel nextStudyPanel;
     private JLabel label5;
     private JLabel label8;
     private JLabel nextStudy;
-    private JPanel panel8;
-    private JPanel panel9;
+    private JPanel lowerPanel;
+    private JPanel studyNumGraphPanel;
     private JLabel label9;
     private JLabel label11;
-    private JPanel panel10;
+    private JPanel foegerRateGraphPanel;
     private JLabel label10;
     private JLabel label12;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
