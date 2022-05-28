@@ -6,25 +6,19 @@ new FormModel {
 		auxiliary() {
 			"JavaCodeGenerator.defaultVariableModifiers": 1
 		}
-		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :65:65:p, comp label1:::p:75:p}, seq {space :6:6:p, comp button1:::p:88:p}}"
-			"$verticalGroup": "par l {seq {space :15:15:p, comp label1:::p:28:p, space :31:31:p, comp button1:::p:45:p}}"
-		} ) {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 			name: "this"
-			"preferredSize": new java.awt.Dimension( 140, 119 )
+			"preferredSize": new java.awt.Dimension( 170, 130 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label1"
+				name: "label2"
 				"text": "text"
-				"horizontalAlignment": 4
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button1"
-				"text": "text"
-				"horizontalAlignment": 2
+				"horizontalAlignment": 0
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "South"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 190, 130 )
-			"size": new java.awt.Dimension( 140, 125 )
+			"location": new java.awt.Point( 285, 90 )
+			"size": new java.awt.Dimension( 190, 145 )
 		} )
 	}
 }

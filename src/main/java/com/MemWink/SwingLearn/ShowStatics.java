@@ -243,7 +243,7 @@ public class ShowStatics extends JPanel {
                         .addGroup(panel9Layout.createSequentialGroup()
                             .addGap(19, 19, 19)
                             .addComponent(label9)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                             .addComponent(label11)
                             .addGap(68, 68, 68))
                 );
@@ -254,7 +254,7 @@ public class ShowStatics extends JPanel {
                             .addGroup(panel9Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(label9)
                                 .addComponent(label11))
-                            .addContainerGap(233, Short.MAX_VALUE))
+                            .addContainerGap(229, Short.MAX_VALUE))
                 );
             }
             panel8.add(panel9);
@@ -278,7 +278,7 @@ public class ShowStatics extends JPanel {
                         .addGroup(panel10Layout.createSequentialGroup()
                             .addGap(21, 21, 21)
                             .addComponent(label10)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                             .addComponent(label12)
                             .addGap(75, 75, 75))
                 );
@@ -289,7 +289,7 @@ public class ShowStatics extends JPanel {
                             .addGroup(panel10Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(label10)
                                 .addComponent(label12))
-                            .addContainerGap(233, Short.MAX_VALUE))
+                            .addContainerGap(229, Short.MAX_VALUE))
                 );
             }
             panel8.add(panel10);

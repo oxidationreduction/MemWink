@@ -4,34 +4,13 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq l {space :::p, par t {comp label2:::p::p, comp label3:::p::p}, par l {seq l {space :p:20:p, comp label:::p::p}, seq l {space :::p, par l:::p {comp textField2::::269:x, comp textField1::::269:x}}}}, seq l {space :p:202:p, comp example:::p::p}}, space ::52:x}, seq t {space ::119:x, par l {seq t {comp colorPane:::p:376:p, space :p:78:p}, seq t {comp save:::p::p, space :p:37:p}}}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp example:::p::p, space :::p, comp label:::p:25:p, space :p:12:p, par b {comp label2::b:p::p, comp textField1::b:p:54:p}, space u:::p, par b {comp label3::b:p::p, comp textField2::b:p:50:p}, space ::22:x, comp colorPane:::p:48:p, space u:::p, comp save:::p::p, space :p:22:p}}"
+			"$horizontalGroup": "par l {seq {space ::117:x, par l {seq t {comp save:::p::p, space :p:37:p}, seq t {comp colorPane:::p:376:p, space :p:80:p}}}, seq {par l {seq {space :27:27:p, comp panel2:::p:524:p}, seq l {space :p:168:p, comp example:::p:209:p}}, space ::22:x}}"
+			"$verticalGroup": "par l {seq l {space :p:19:p, comp example:::p:145:p, space s:::p, comp panel2:::p:100:p, space s:::p, comp colorPane:::p:48:p, space ::21:x, comp save:::p::p, space :p:22:p}}"
 		} ) {
 			name: "this"
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			"modal": true
 			"title": "卡包设置"
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField1"
-				addEvent( new FormEvent( "javax.swing.event.CaretListener", "caretUpdate", "textField1CaretUpdate", true ) )
-			} )
-			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq t {space :0:114:x, comp label1:::p::p}}"
-				"$verticalGroup": "par l {seq l {space :::p, comp label1:::p::p, space ::50:x}}"
-			} ) {
-				name: "example"
-				"background": sfield java.awt.Color blue
-				"border": new javax.swing.border.LineBorder( sfield java.awt.Color blue, 20, true )
-				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label1"
-					"text": "0"
-					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 10, false )
-				} )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label"
-				"text": "example"
-			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 				"columns": 6
 				"hgap": 5
@@ -39,29 +18,53 @@ new FormModel {
 				name: "colorPane"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label2"
-				"text": "请输入卡包的名字："
-				"horizontalAlignment": 4
-				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 8, false )
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField2"
-				addEvent( new FormEvent( "javax.swing.event.CaretListener", "caretUpdate", "textField2CaretUpdate", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label3"
-				"text": "请输入每日复习卡片数量："
-				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 8, false )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "save"
 				"text": "确定"
 				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 8, false )
 				"background": sfield java.awt.Color black
 				"foreground": sfield java.awt.Color lightGray
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "saveMouseClicked", true ) )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "example"
+				"border": new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label"
+					"text": "example"
+					"horizontalAlignment": 0
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "South"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+				"columns": 2
+				"rows": 2
+				"vgap": 5
+			} ) {
+				name: "panel2"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "请输入卡包的名字："
+					"horizontalAlignment": 4
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 8, false )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField1"
+					addEvent( new FormEvent( "javax.swing.event.CaretListener", "caretUpdate", "textField1CaretUpdate", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "请输入每日复习卡片数量："
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 8, false )
+					"horizontalAlignment": 4
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField2"
+					addEvent( new FormEvent( "javax.swing.event.CaretListener", "caretUpdate", "textField2CaretUpdate", true ) )
+				} )
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 110, 30 )
+			"location": new java.awt.Point( 105, 30 )
 			"size": new java.awt.Dimension( 575, 450 )
 		} )
 	}

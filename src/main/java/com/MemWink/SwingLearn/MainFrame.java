@@ -36,7 +36,7 @@ public class MainFrame extends JFrame {
 
     private void button2(ActionEvent e) {
         panel1.removeAll();
-        panel1.add(new ShowCardBags());
+        panel1.add(ShowCardBags.getShowCardBags());
         panel1.updateUI();
     }
 

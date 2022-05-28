@@ -109,8 +109,8 @@ new FormModel {
 			} ) {
 				name: "panel8"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :p:19:p, comp label9:::p::p, space ::120:x, comp label11:::p::p, space :p:68:p}}"
-					"$verticalGroup": "par l {seq l {space :::p, par b {comp label9::b:p::p, comp label11::b:p::p}, space ::233:x}}"
+					"$horizontalGroup": "par l {seq l {space :p:19:p, comp label9:::p::p, space ::116:x, comp label11:::p::p, space :p:68:p}}"
+					"$verticalGroup": "par l {seq l {space :::p, par b {comp label9::b:p::p, comp label11::b:p::p}, space ::229:x}}"
 				} ) {
 					name: "panel9"
 					"border": new javax.swing.border.EtchedBorder( 1, sfield java.awt.Color lightGray, sfield java.awt.Color gray )
@@ -126,8 +126,8 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :p:21:p, comp label10:::p::p, space ::111:x, comp label12:::p::p, space :p:75:p}}"
-					"$verticalGroup": "par l {seq l {space :::p, par b {comp label10::b:p::p, comp label12::b:p::p}, space ::233:x}}"
+					"$horizontalGroup": "par l {seq l {space :p:21:p, comp label10:::p::p, space ::107:x, comp label12:::p::p, space :p:75:p}}"
+					"$verticalGroup": "par l {seq l {space :::p, par b {comp label10::b:p::p, comp label12::b:p::p}, space ::229:x}}"
 				} ) {
 					name: "panel10"
 					"border": new javax.swing.border.EtchedBorder( 1, sfield java.awt.Color lightGray, sfield java.awt.Color gray )

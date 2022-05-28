@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug">
-      <change afterPath="$PROJECT_DIR$/lib/intellij_forms_rt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/intellij_forms_rt_src.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.jfd" afterDir="false" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/5/23 16：03 主页面基本绘制">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPaneTop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPaneTop.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddMemCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddMemCard.jfd" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/AddPane.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/CardBagPane.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/MainFrame.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowCardBags.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/ShowStatics.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +35,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -60,7 +62,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MooInfo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -131,6 +133,13 @@
       <workItem from="1653216616921" duration="3622000" />
       <workItem from="1653220287071" duration="3238000" />
       <workItem from="1653286718931" duration="4856000" />
+      <workItem from="1653292758710" duration="341000" />
+      <workItem from="1653294434241" duration="936000" />
+      <workItem from="1653357369296" duration="3018000" />
+      <workItem from="1653465605371" duration="324000" />
+      <workItem from="1653654915425" duration="2073000" />
+      <workItem from="1653723329971" duration="5364000" />
+      <workItem from="1653728761378" duration="202000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1652529721584</created>
@@ -188,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653012944363</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="2022/5/23 16：03 主页面基本绘制">
+      <created>1653293068234</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653293068234</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +227,8 @@
     <MESSAGE value="2nd commit on Windows" />
     <MESSAGE value="2022/5/18 17:56 JFrameDesigner测试" />
     <MESSAGE value="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022/5/20 9:14 更新了删除卡包的逻辑，目前显示更加顺畅，并修复了一些主Frame的bug" />
+    <MESSAGE value="2022/5/23 16：03 主页面基本绘制" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022/5/23 16：03 主页面基本绘制" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -18,6 +18,8 @@ import javax.swing.GroupLayout;
 public class CardBagPane extends JPanel {
     public CardBagPane() {
         initComponents();
+        cardBagPaneTop = new CardBagPaneTop();
+        this.add(cardBagPaneTop,BorderLayout.CENTER);
         menu.add(item);
         this.item.addActionListener(new itemListener(this));
         this.addMouseListener(new MouseAdapter() {
@@ -32,47 +34,24 @@ public class CardBagPane extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        label1 = new JLabel();
-        button1 = new JButton();
+        label2 = new JLabel();
 
         //======== this ========
-        setPreferredSize(new Dimension(140, 119));
+        setPreferredSize(new Dimension(170, 130));
+        setLayout(new BorderLayout());
 
-        //---- label1 ----
-        label1.setText("text");
-        label1.setHorizontalAlignment(SwingConstants.RIGHT);
-
-        //---- button1 ----
-        button1.setText("text");
-        button1.setHorizontalAlignment(SwingConstants.LEFT);
-
-        GroupLayout layout = new GroupLayout(this);
-        setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup()
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(65, 65, 65)
-                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(6, 6, 6)
-                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup()
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(15, 15, 15)
-                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-                    .addGap(31, 31, 31)
-                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
-        );
+        //---- label2 ----
+        label2.setText("text");
+        label2.setHorizontalAlignment(SwingConstants.CENTER);
+        add(label2, BorderLayout.SOUTH);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    public JLabel label1;
-    public JButton button1;
+    public JLabel label2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
+    public CardBagPaneTop cardBagPaneTop;
     public JPopupMenu menu = new JPopupMenu();
     public JMenuItem item = new JMenuItem("删除");
     public CardBag cardBag;

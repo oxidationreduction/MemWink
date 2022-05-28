@@ -4,6 +4,8 @@
 
 package com.MemWink.SwingLearn;
 
+import com.MemWink.Data.DataManager;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
@@ -19,6 +21,9 @@ import javax.swing.event.*;
 public class AddPane extends JDialog {
     public AddPane() {
         initComponents();
+        top = new CardBagPaneTop();
+        top.setBackground(Color.blue);
+        example.add(top,BorderLayout.CENTER);
         colorButton button = new colorButton(Color.blue);
         button.selected = true;
         button.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -38,25 +43,49 @@ public class AddPane extends JDialog {
     }
 
     private void textField1CaretUpdate(CaretEvent e) {
-        String name = textField1.getText();
-        label.setText(name);
+        label.setText(textField1.getText());
+        if ( textField2.getText().matches("\\d+") && Integer.parseInt(textField2.getText()) > 0 && !label.getText().equals("") ){
+            save.setForeground(Color.black);
+        }
+        else {
+            save.setForeground(Color.lightGray);
+        }
     }
 
     private void textField2CaretUpdate(CaretEvent e) {
+        if ( textField2.getText().matches("\\d+") && Integer.parseInt(textField2.getText()) > 0 && !label.getText().equals("") ){
+            save.setForeground(Color.black);
+        }
+        else {
+            save.setForeground(Color.lightGray);
+        }
+    }
 
+    private void saveMouseClicked(MouseEvent e) {
+        if ( save.getForeground() == Color.black ){
+            DataManager.addCardBag(textField1.getText(),addColor,Integer.parseInt(textField2.getText()));
+            ShowCardBags showCardBags = ShowCardBags.getShowCardBags();
+            CardBagPane cardBagPane = new CardBagPane();
+            cardBagPane.cardBag = DataManager.provideCardBag(textField1.getText());
+            cardBagPane.label2.setText(textField1.getText());
+            cardBagPane.cardBagPaneTop.setBackground(addColor);
+            showCardBags.panel1.add(cardBagPane);
+            showCardBags.updateUI();
+            this.dispose();
+        }
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        textField1 = new JTextField();
-        example = new JPanel();
-        label1 = new JLabel();
-        label = new JLabel();
         colorPane = new JPanel();
-        label2 = new JLabel();
-        textField2 = new JTextField();
-        label3 = new JLabel();
         save = new JLabel();
+        example = new JPanel();
+        label = new JLabel();
+        panel2 = new JPanel();
+        label2 = new JLabel();
+        textField1 = new JTextField();
+        label3 = new JLabel();
+        textField2 = new JTextField();
 
         //======== this ========
         setBackground(Color.white);
@@ -64,113 +93,92 @@ public class AddPane extends JDialog {
         setTitle("\u5361\u5305\u8bbe\u7f6e");
         var contentPane = getContentPane();
 
-        //---- textField1 ----
-        textField1.addCaretListener(e -> textField1CaretUpdate(e));
-
-        //======== example ========
-        {
-            example.setBackground(Color.blue);
-            example.setBorder(new LineBorder(Color.blue, 20, true));
-
-            //---- label1 ----
-            label1.setText("0");
-            label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 10f));
-
-            GroupLayout exampleLayout = new GroupLayout(example);
-            example.setLayout(exampleLayout);
-            exampleLayout.setHorizontalGroup(
-                exampleLayout.createParallelGroup()
-                    .addGroup(GroupLayout.Alignment.TRAILING, exampleLayout.createSequentialGroup()
-                        .addGap(0, 114, Short.MAX_VALUE)
-                        .addComponent(label1))
-            );
-            exampleLayout.setVerticalGroup(
-                exampleLayout.createParallelGroup()
-                    .addGroup(exampleLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(label1)
-                        .addContainerGap(50, Short.MAX_VALUE))
-            );
-        }
-
-        //---- label ----
-        label.setText("example");
-
         //======== colorPane ========
         {
             colorPane.setLayout(new GridLayout(1, 6, 5, 0));
         }
-
-        //---- label2 ----
-        label2.setText("\u8bf7\u8f93\u5165\u5361\u5305\u7684\u540d\u5b57\uff1a");
-        label2.setHorizontalAlignment(SwingConstants.RIGHT);
-        label2.setFont(label2.getFont().deriveFont(label2.getFont().getSize() + 8f));
-
-        //---- textField2 ----
-        textField2.addCaretListener(e -> textField2CaretUpdate(e));
-
-        //---- label3 ----
-        label3.setText("\u8bf7\u8f93\u5165\u6bcf\u65e5\u590d\u4e60\u5361\u7247\u6570\u91cf\uff1a");
-        label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 8f));
 
         //---- save ----
         save.setText("\u786e\u5b9a");
         save.setFont(save.getFont().deriveFont(save.getFont().getSize() + 8f));
         save.setBackground(Color.black);
         save.setForeground(Color.lightGray);
+        save.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                saveMouseClicked(e);
+            }
+        });
+
+        //======== example ========
+        {
+            example.setBorder(BorderFactory.createEmptyBorder());
+            example.setLayout(new BorderLayout());
+
+            //---- label ----
+            label.setText("example");
+            label.setHorizontalAlignment(SwingConstants.CENTER);
+            example.add(label, BorderLayout.SOUTH);
+        }
+
+        //======== panel2 ========
+        {
+            panel2.setLayout(new GridLayout(2, 2, 0, 5));
+
+            //---- label2 ----
+            label2.setText("\u8bf7\u8f93\u5165\u5361\u5305\u7684\u540d\u5b57\uff1a");
+            label2.setHorizontalAlignment(SwingConstants.RIGHT);
+            label2.setFont(label2.getFont().deriveFont(label2.getFont().getSize() + 8f));
+            panel2.add(label2);
+
+            //---- textField1 ----
+            textField1.addCaretListener(e -> textField1CaretUpdate(e));
+            panel2.add(textField1);
+
+            //---- label3 ----
+            label3.setText("\u8bf7\u8f93\u5165\u6bcf\u65e5\u590d\u4e60\u5361\u7247\u6570\u91cf\uff1a");
+            label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 8f));
+            label3.setHorizontalAlignment(SwingConstants.RIGHT);
+            panel2.add(label3);
+
+            //---- textField2 ----
+            textField2.addCaretListener(e -> textField2CaretUpdate(e));
+            panel2.add(textField2);
+        }
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addContainerGap(117, Short.MAX_VALUE)
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(label2)
-                                .addComponent(label3))
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addGap(20, 20, 20)
-                                    .addComponent(label))
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(textField2, GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                                        .addComponent(textField1, GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)))))
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGap(202, 202, 202)
-                            .addComponent(example, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(52, Short.MAX_VALUE))
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(119, Short.MAX_VALUE)
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                            .addComponent(colorPane, GroupLayout.PREFERRED_SIZE, 376, GroupLayout.PREFERRED_SIZE)
-                            .addGap(78, 78, 78))
                         .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                             .addComponent(save)
-                            .addGap(37, 37, 37))))
+                            .addGap(37, 37, 37))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addComponent(colorPane, GroupLayout.PREFERRED_SIZE, 376, GroupLayout.PREFERRED_SIZE)
+                            .addGap(80, 80, 80))))
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(27, 27, 27)
+                            .addComponent(panel2, GroupLayout.PREFERRED_SIZE, 524, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(168, 168, 168)
+                            .addComponent(example, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(22, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(example, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(label, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-                    .addGap(12, 12, 12)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(label2)
-                        .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(label3)
-                        .addComponent(textField2, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                    .addGap(19, 19, 19)
+                    .addComponent(example, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
                     .addComponent(colorPane, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                     .addComponent(save)
                     .addGap(22, 22, 22))
         );
@@ -180,21 +188,20 @@ public class AddPane extends JDialog {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JTextField textField1;
-    private JPanel example;
-    private JLabel label1;
-    private JLabel label;
     private JPanel colorPane;
-    private JLabel label2;
-    private JTextField textField2;
-    private JLabel label3;
     private JLabel save;
+    private JPanel example;
+    private JLabel label;
+    private JPanel panel2;
+    private JLabel label2;
+    private JTextField textField1;
+    private JLabel label3;
+    private JTextField textField2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
+    private CardBagPaneTop top;
     private Color addColor = Color.blue;
     private LinkedList<colorButton> buttons = new LinkedList<>();
-    private JPopupMenu menu = new JPopupMenu();
-    private JMenuItem item = new JMenuItem("请输入合法的参数");
 
     private class colorButton extends JButton{
         private Color color;
@@ -228,8 +235,7 @@ public class AddPane extends JDialog {
                 temp.setBorder(BorderFactory.createLineBorder(temp.color));
                 button.selected = true;
                 button.setBorder(BorderFactory.createLineBorder(Color.black));
-                example.setBackground(button.color);
-                example.setBorder(BorderFactory.createLineBorder(example.getBackground(),30,true));
+                top.setBackground(button.color);
                 addColor = button.color;
             }
         }
