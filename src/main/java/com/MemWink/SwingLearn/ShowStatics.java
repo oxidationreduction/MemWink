@@ -19,336 +19,474 @@ public class ShowStatics extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        label1 = new JLabel();
         panel1 = new JPanel();
-        panel4 = new JPanel();
-        label2 = new JLabel();
-        label6 = new JLabel();
-        alreadyStudy = new JLabel();
-        panel5 = new JPanel();
-        label3 = new JLabel();
-        label7 = new JLabel();
-        waitStudy = new JLabel();
-        panel6 = new JPanel();
-        label4 = new JLabel();
-        forgetPer = new JLabel();
-        panel7 = new JPanel();
-        label5 = new JLabel();
-        label8 = new JLabel();
-        nextStudy = new JLabel();
-        panel8 = new JPanel();
-        panel9 = new JPanel();
-        label9 = new JLabel();
-        label11 = new JLabel();
+        label1 = new JLabel();
+        vSpacer3 = new JPanel(null);
         panel10 = new JPanel();
+        panel11 = new JPanel();
+        panel13 = new JPanel();
+        panel18 = new JPanel();
+        vSpacer6 = new JPanel(null);
+        label7 = new JLabel();
+        panel19 = new JPanel();
+        vSpacer7 = new JPanel(null);
+        vSpacer8 = new JPanel(null);
+        panel20 = new JPanel();
+        label8 = new JLabel();
+        label9 = new JLabel();
+        panel14 = new JPanel();
+        panel21 = new JPanel();
+        vSpacer9 = new JPanel(null);
         label10 = new JLabel();
+        panel22 = new JPanel();
+        vSpacer10 = new JPanel(null);
+        vSpacer11 = new JPanel(null);
+        panel23 = new JPanel();
+        label11 = new JLabel();
         label12 = new JLabel();
+        panel15 = new JPanel();
+        panel24 = new JPanel();
+        vSpacer12 = new JPanel(null);
+        label13 = new JLabel();
+        panel25 = new JPanel();
+        vSpacer13 = new JPanel(null);
+        vSpacer14 = new JPanel(null);
+        panel26 = new JPanel();
+        label14 = new JLabel();
+        label15 = new JLabel();
+        panel16 = new JPanel();
+        panel27 = new JPanel();
+        vSpacer15 = new JPanel(null);
+        label16 = new JLabel();
+        panel28 = new JPanel();
+        vSpacer16 = new JPanel(null);
+        vSpacer17 = new JPanel(null);
+        panel29 = new JPanel();
+        label17 = new JLabel();
+        label18 = new JLabel();
+        panel12 = new JPanel();
+        panel30 = new JPanel();
+        panel32 = new JPanel();
+        panel33 = new JPanel();
+        label19 = new JLabel();
+        panel34 = new JPanel();
+        label20 = new JLabel();
+        label21 = new JLabel();
+        Map1 = new JPanel();
+        panel31 = new JPanel();
+        panel35 = new JPanel();
+        panel36 = new JPanel();
+        label22 = new JLabel();
+        panel37 = new JPanel();
+        label23 = new JLabel();
+        label24 = new JLabel();
+        Map2 = new JPanel();
+        hSpacer1 = new JPanel(null);
+        hSpacer2 = new JPanel(null);
 
         //======== this ========
         setPreferredSize(new Dimension(775, 559));
-
-        //---- label1 ----
-        label1.setText("\u7edf\u8ba1");
-        label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 14f));
+        setLayout(new BorderLayout());
 
         //======== panel1 ========
         {
-            panel1.setLayout(new GridLayout(1, 4, 30, 0));
+            panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-            //======== panel4 ========
-            {
-                panel4.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
-
-                //---- label2 ----
-                label2.setText("\u4eca\u5929\u5df2\u5b66");
-                label2.setFont(label2.getFont().deriveFont(label2.getFont().getSize() + 5f));
-
-                //---- label6 ----
-                label6.setText("\u5f20");
-                label6.setFont(label6.getFont().deriveFont(label6.getFont().getSize() + 5f));
-
-                //---- alreadyStudy ----
-                alreadyStudy.setText("0");
-                alreadyStudy.setFont(alreadyStudy.getFont().deriveFont(alreadyStudy.getFont().getSize() + 25f));
-
-                GroupLayout panel4Layout = new GroupLayout(panel4);
-                panel4.setLayout(panel4Layout);
-                panel4Layout.setHorizontalGroup(
-                    panel4Layout.createParallelGroup()
-                        .addGroup(panel4Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panel4Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(label2)
-                                .addComponent(alreadyStudy))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                            .addComponent(label6)
-                            .addContainerGap())
-                );
-                panel4Layout.setVerticalGroup(
-                    panel4Layout.createParallelGroup()
-                        .addGroup(panel4Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(label2)
-                            .addGap(18, 18, 18)
-                            .addGroup(panel4Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(alreadyStudy)
-                                .addComponent(label6))
-                            .addContainerGap(17, Short.MAX_VALUE))
-                );
-            }
-            panel1.add(panel4);
-
-            //======== panel5 ========
-            {
-                panel5.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
-
-                //---- label3 ----
-                label3.setText("\u4eca\u5929\u5f85\u5b66");
-                label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 5f));
-
-                //---- label7 ----
-                label7.setText("\u5f20");
-                label7.setFont(label7.getFont().deriveFont(label7.getFont().getSize() + 5f));
-
-                //---- waitStudy ----
-                waitStudy.setText("0");
-                waitStudy.setFont(waitStudy.getFont().deriveFont(waitStudy.getFont().getSize() + 25f));
-
-                GroupLayout panel5Layout = new GroupLayout(panel5);
-                panel5.setLayout(panel5Layout);
-                panel5Layout.setHorizontalGroup(
-                    panel5Layout.createParallelGroup()
-                        .addGroup(panel5Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panel5Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(waitStudy)
-                                .addComponent(label3))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                            .addComponent(label7)
-                            .addContainerGap())
-                );
-                panel5Layout.setVerticalGroup(
-                    panel5Layout.createParallelGroup()
-                        .addGroup(panel5Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(label3)
-                            .addGap(18, 18, 18)
-                            .addGroup(panel5Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(waitStudy)
-                                .addComponent(label7))
-                            .addContainerGap(17, Short.MAX_VALUE))
-                );
-            }
-            panel1.add(panel5);
-
-            //======== panel6 ========
-            {
-                panel6.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
-
-                //---- label4 ----
-                label4.setText("\u590d\u4e60\u9057\u5fd8\u7387");
-                label4.setFont(label4.getFont().deriveFont(label4.getFont().getSize() + 5f));
-
-                //---- forgetPer ----
-                forgetPer.setText("0%");
-                forgetPer.setFont(forgetPer.getFont().deriveFont(forgetPer.getFont().getSize() + 25f));
-
-                GroupLayout panel6Layout = new GroupLayout(panel6);
-                panel6.setLayout(panel6Layout);
-                panel6Layout.setHorizontalGroup(
-                    panel6Layout.createParallelGroup()
-                        .addGroup(panel6Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panel6Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(forgetPer)
-                                .addComponent(label4))
-                            .addContainerGap(61, Short.MAX_VALUE))
-                );
-                panel6Layout.setVerticalGroup(
-                    panel6Layout.createParallelGroup()
-                        .addGroup(panel6Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(label4)
-                            .addGap(18, 18, 18)
-                            .addComponent(forgetPer)
-                            .addContainerGap(17, Short.MAX_VALUE))
-                );
-            }
-            panel1.add(panel6);
-
-            //======== panel7 ========
-            {
-                panel7.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
-
-                //---- label5 ----
-                label5.setText("\u660e\u5929\u9884\u8ba1");
-                label5.setFont(label5.getFont().deriveFont(label5.getFont().getSize() + 5f));
-
-                //---- label8 ----
-                label8.setText("\u5f20");
-                label8.setFont(label8.getFont().deriveFont(label8.getFont().getSize() + 5f));
-
-                //---- nextStudy ----
-                nextStudy.setText("0");
-                nextStudy.setFont(nextStudy.getFont().deriveFont(nextStudy.getFont().getSize() + 25f));
-
-                GroupLayout panel7Layout = new GroupLayout(panel7);
-                panel7.setLayout(panel7Layout);
-                panel7Layout.setHorizontalGroup(
-                    panel7Layout.createParallelGroup()
-                        .addGroup(panel7Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panel7Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(nextStudy)
-                                .addComponent(label5))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                            .addComponent(label8)
-                            .addContainerGap())
-                );
-                panel7Layout.setVerticalGroup(
-                    panel7Layout.createParallelGroup()
-                        .addGroup(panel7Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(label5)
-                            .addGap(18, 18, 18)
-                            .addGroup(panel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(nextStudy)
-                                .addComponent(label8))
-                            .addContainerGap(17, Short.MAX_VALUE))
-                );
-            }
-            panel1.add(panel7);
+            //---- label1 ----
+            label1.setText("\u7edf\u8ba1");
+            label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 14f));
+            panel1.add(label1);
         }
+        add(panel1, BorderLayout.NORTH);
 
-        //======== panel8 ========
+        //---- vSpacer3 ----
+        vSpacer3.setPreferredSize(new Dimension(10, 30));
+        add(vSpacer3, BorderLayout.SOUTH);
+
+        //======== panel10 ========
         {
-            panel8.setLayout(new GridLayout(1, 2, 30, 0));
+            panel10.setLayout(new GridLayout(2, 1, 0, 20));
 
-            //======== panel9 ========
+            //======== panel11 ========
             {
-                panel9.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                panel11.setLayout(new GridLayout(1, 4, 30, 0));
 
-                //---- label9 ----
-                label9.setText("\u5b66\u4e60\u5361\u7247\u6570");
-                label9.setFont(label9.getFont().deriveFont(label9.getFont().getSize() + 5f));
+                //======== panel13 ========
+                {
+                    panel13.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                    panel13.setLayout(new BorderLayout());
 
-                //---- label11 ----
-                label11.setText("\u6bd4\u6628\u5929");
-                label11.setFont(label11.getFont().deriveFont(label11.getFont().getSize() + 5f));
+                    //======== panel18 ========
+                    {
+                        panel18.setLayout(new BorderLayout());
 
-                GroupLayout panel9Layout = new GroupLayout(panel9);
-                panel9.setLayout(panel9Layout);
-                panel9Layout.setHorizontalGroup(
-                    panel9Layout.createParallelGroup()
-                        .addGroup(panel9Layout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(label9)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                            .addComponent(label11)
-                            .addGap(68, 68, 68))
-                );
-                panel9Layout.setVerticalGroup(
-                    panel9Layout.createParallelGroup()
-                        .addGroup(panel9Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panel9Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(label9)
-                                .addComponent(label11))
-                            .addContainerGap(229, Short.MAX_VALUE))
-                );
+                        //---- vSpacer6 ----
+                        vSpacer6.setPreferredSize(new Dimension(10, 50));
+                        panel18.add(vSpacer6, BorderLayout.SOUTH);
+
+                        //---- label7 ----
+                        label7.setText("\u5f20");
+                        label7.setVerticalAlignment(SwingConstants.BOTTOM);
+                        label7.setFont(label7.getFont().deriveFont(label7.getFont().getSize() + 14f));
+                        panel18.add(label7, BorderLayout.CENTER);
+                    }
+                    panel13.add(panel18, BorderLayout.EAST);
+
+                    //======== panel19 ========
+                    {
+                        panel19.setLayout(new BorderLayout());
+                        panel19.add(vSpacer7, BorderLayout.SOUTH);
+                        panel19.add(vSpacer8, BorderLayout.NORTH);
+
+                        //======== panel20 ========
+                        {
+                            panel20.setLayout(new GridLayout(2, 1));
+
+                            //---- label8 ----
+                            label8.setText("\u4eca\u65e5\u5df2\u5b66");
+                            label8.setHorizontalAlignment(SwingConstants.CENTER);
+                            label8.setFont(label8.getFont().deriveFont(label8.getFont().getSize() + 14f));
+                            panel20.add(label8);
+
+                            //---- label9 ----
+                            label9.setText("0");
+                            label9.setHorizontalAlignment(SwingConstants.CENTER);
+                            label9.setFont(label9.getFont().deriveFont(label9.getFont().getSize() + 28f));
+                            panel20.add(label9);
+                        }
+                        panel19.add(panel20, BorderLayout.CENTER);
+                    }
+                    panel13.add(panel19, BorderLayout.CENTER);
+                }
+                panel11.add(panel13);
+
+                //======== panel14 ========
+                {
+                    panel14.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                    panel14.setLayout(new BorderLayout());
+
+                    //======== panel21 ========
+                    {
+                        panel21.setLayout(new BorderLayout());
+
+                        //---- vSpacer9 ----
+                        vSpacer9.setPreferredSize(new Dimension(10, 50));
+                        panel21.add(vSpacer9, BorderLayout.SOUTH);
+
+                        //---- label10 ----
+                        label10.setText("\u5f20");
+                        label10.setVerticalAlignment(SwingConstants.BOTTOM);
+                        label10.setFont(label10.getFont().deriveFont(label10.getFont().getSize() + 14f));
+                        panel21.add(label10, BorderLayout.CENTER);
+                    }
+                    panel14.add(panel21, BorderLayout.EAST);
+
+                    //======== panel22 ========
+                    {
+                        panel22.setLayout(new BorderLayout());
+                        panel22.add(vSpacer10, BorderLayout.SOUTH);
+                        panel22.add(vSpacer11, BorderLayout.NORTH);
+
+                        //======== panel23 ========
+                        {
+                            panel23.setLayout(new GridLayout(2, 1));
+
+                            //---- label11 ----
+                            label11.setText("\u4eca\u65e5\u5f85\u5b66");
+                            label11.setHorizontalAlignment(SwingConstants.CENTER);
+                            label11.setFont(label11.getFont().deriveFont(label11.getFont().getSize() + 14f));
+                            panel23.add(label11);
+
+                            //---- label12 ----
+                            label12.setText("0");
+                            label12.setHorizontalAlignment(SwingConstants.CENTER);
+                            label12.setFont(label12.getFont().deriveFont(label12.getFont().getSize() + 28f));
+                            panel23.add(label12);
+                        }
+                        panel22.add(panel23, BorderLayout.CENTER);
+                    }
+                    panel14.add(panel22, BorderLayout.CENTER);
+                }
+                panel11.add(panel14);
+
+                //======== panel15 ========
+                {
+                    panel15.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                    panel15.setLayout(new BorderLayout());
+
+                    //======== panel24 ========
+                    {
+                        panel24.setLayout(new BorderLayout());
+
+                        //---- vSpacer12 ----
+                        vSpacer12.setPreferredSize(new Dimension(10, 50));
+                        panel24.add(vSpacer12, BorderLayout.SOUTH);
+
+                        //---- label13 ----
+                        label13.setText("%");
+                        label13.setVerticalAlignment(SwingConstants.BOTTOM);
+                        label13.setFont(label13.getFont().deriveFont(label13.getFont().getSize() + 14f));
+                        panel24.add(label13, BorderLayout.CENTER);
+                    }
+                    panel15.add(panel24, BorderLayout.EAST);
+
+                    //======== panel25 ========
+                    {
+                        panel25.setLayout(new BorderLayout());
+                        panel25.add(vSpacer13, BorderLayout.SOUTH);
+                        panel25.add(vSpacer14, BorderLayout.NORTH);
+
+                        //======== panel26 ========
+                        {
+                            panel26.setLayout(new GridLayout(2, 1));
+
+                            //---- label14 ----
+                            label14.setText("\u590d\u4e60\u9057\u5fd8\u7387");
+                            label14.setHorizontalAlignment(SwingConstants.CENTER);
+                            label14.setFont(label14.getFont().deriveFont(label14.getFont().getSize() + 14f));
+                            panel26.add(label14);
+
+                            //---- label15 ----
+                            label15.setText("0");
+                            label15.setHorizontalAlignment(SwingConstants.CENTER);
+                            label15.setFont(label15.getFont().deriveFont(label15.getFont().getSize() + 28f));
+                            panel26.add(label15);
+                        }
+                        panel25.add(panel26, BorderLayout.CENTER);
+                    }
+                    panel15.add(panel25, BorderLayout.CENTER);
+                }
+                panel11.add(panel15);
+
+                //======== panel16 ========
+                {
+                    panel16.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                    panel16.setLayout(new BorderLayout());
+
+                    //======== panel27 ========
+                    {
+                        panel27.setLayout(new BorderLayout());
+
+                        //---- vSpacer15 ----
+                        vSpacer15.setPreferredSize(new Dimension(10, 50));
+                        panel27.add(vSpacer15, BorderLayout.SOUTH);
+
+                        //---- label16 ----
+                        label16.setText("\u5f20");
+                        label16.setVerticalAlignment(SwingConstants.BOTTOM);
+                        label16.setFont(label16.getFont().deriveFont(label16.getFont().getSize() + 14f));
+                        panel27.add(label16, BorderLayout.CENTER);
+                    }
+                    panel16.add(panel27, BorderLayout.EAST);
+
+                    //======== panel28 ========
+                    {
+                        panel28.setLayout(new BorderLayout());
+                        panel28.add(vSpacer16, BorderLayout.SOUTH);
+                        panel28.add(vSpacer17, BorderLayout.NORTH);
+
+                        //======== panel29 ========
+                        {
+                            panel29.setLayout(new GridLayout(2, 1));
+
+                            //---- label17 ----
+                            label17.setText("\u660e\u5929\u9884\u8ba1");
+                            label17.setHorizontalAlignment(SwingConstants.CENTER);
+                            label17.setFont(label17.getFont().deriveFont(label17.getFont().getSize() + 14f));
+                            panel29.add(label17);
+
+                            //---- label18 ----
+                            label18.setText("0");
+                            label18.setHorizontalAlignment(SwingConstants.CENTER);
+                            label18.setFont(label18.getFont().deriveFont(label18.getFont().getSize() + 28f));
+                            panel29.add(label18);
+                        }
+                        panel28.add(panel29, BorderLayout.CENTER);
+                    }
+                    panel16.add(panel28, BorderLayout.CENTER);
+                }
+                panel11.add(panel16);
             }
-            panel8.add(panel9);
+            panel10.add(panel11);
 
-            //======== panel10 ========
+            //======== panel12 ========
             {
-                panel10.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                panel12.setLayout(new GridLayout(1, 2, 30, 0));
 
-                //---- label10 ----
-                label10.setText("\u590d\u4e60\u9057\u5fd8\u7387");
-                label10.setFont(label10.getFont().deriveFont(label10.getFont().getSize() + 5f));
+                //======== panel30 ========
+                {
+                    panel30.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                    panel30.setLayout(new BorderLayout());
 
-                //---- label12 ----
-                label12.setText("\u6bd4\u6628\u5929");
-                label12.setFont(label12.getFont().deriveFont(label12.getFont().getSize() + 5f));
+                    //======== panel32 ========
+                    {
+                        panel32.setLayout(new GridLayout(1, 2));
 
-                GroupLayout panel10Layout = new GroupLayout(panel10);
-                panel10.setLayout(panel10Layout);
-                panel10Layout.setHorizontalGroup(
-                    panel10Layout.createParallelGroup()
-                        .addGroup(panel10Layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(label10)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                            .addComponent(label12)
-                            .addGap(75, 75, 75))
-                );
-                panel10Layout.setVerticalGroup(
-                    panel10Layout.createParallelGroup()
-                        .addGroup(panel10Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panel10Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(label10)
-                                .addComponent(label12))
-                            .addContainerGap(229, Short.MAX_VALUE))
-                );
+                        //======== panel33 ========
+                        {
+                            panel33.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+                            //---- label19 ----
+                            label19.setText("\u5b66\u4e60\u5361\u7247\u6570");
+                            label19.setFont(label19.getFont().deriveFont(label19.getFont().getSize() + 10f));
+                            panel33.add(label19);
+                        }
+                        panel32.add(panel33);
+
+                        //======== panel34 ========
+                        {
+                            panel34.setLayout(new FlowLayout(FlowLayout.RIGHT));
+
+                            //---- label20 ----
+                            label20.setText("\u6bd4\u6628\u5929");
+                            label20.setFont(label20.getFont().deriveFont(label20.getFont().getSize() + 5f));
+                            label20.setVerticalAlignment(SwingConstants.BOTTOM);
+                            panel34.add(label20);
+
+                            //---- label21 ----
+                            label21.setText("+0");
+                            label21.setFont(label21.getFont().deriveFont(label21.getFont().getSize() + 5f));
+                            label21.setVerticalAlignment(SwingConstants.BOTTOM);
+                            panel34.add(label21);
+                        }
+                        panel32.add(panel34);
+                    }
+                    panel30.add(panel32, BorderLayout.NORTH);
+
+                    //======== Map1 ========
+                    {
+                        Map1.setLayout(new GridLayout(1, 1));
+                    }
+                    panel30.add(Map1, BorderLayout.CENTER);
+                }
+                panel12.add(panel30);
+
+                //======== panel31 ========
+                {
+                    panel31.setBorder(new EtchedBorder(Color.lightGray, Color.gray));
+                    panel31.setLayout(new BorderLayout());
+
+                    //======== panel35 ========
+                    {
+                        panel35.setLayout(new GridLayout(1, 2));
+
+                        //======== panel36 ========
+                        {
+                            panel36.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+                            //---- label22 ----
+                            label22.setText("\u590d\u4e60\u9057\u5fd8\u7387");
+                            label22.setFont(label22.getFont().deriveFont(label22.getFont().getSize() + 10f));
+                            panel36.add(label22);
+                        }
+                        panel35.add(panel36);
+
+                        //======== panel37 ========
+                        {
+                            panel37.setLayout(new FlowLayout(FlowLayout.RIGHT));
+
+                            //---- label23 ----
+                            label23.setText("\u6bd4\u6628\u5929");
+                            label23.setFont(label23.getFont().deriveFont(label23.getFont().getSize() + 5f));
+                            label23.setVerticalAlignment(SwingConstants.BOTTOM);
+                            panel37.add(label23);
+
+                            //---- label24 ----
+                            label24.setText("+0%");
+                            label24.setFont(label24.getFont().deriveFont(label24.getFont().getSize() + 5f));
+                            label24.setVerticalAlignment(SwingConstants.BOTTOM);
+                            panel37.add(label24);
+                        }
+                        panel35.add(panel37);
+                    }
+                    panel31.add(panel35, BorderLayout.NORTH);
+
+                    //======== Map2 ========
+                    {
+                        Map2.setLayout(new GridLayout(1, 1));
+                    }
+                    panel31.add(Map2, BorderLayout.CENTER);
+                }
+                panel12.add(panel31);
             }
-            panel8.add(panel10);
+            panel10.add(panel12);
         }
+        add(panel10, BorderLayout.CENTER);
 
-        GroupLayout layout = new GroupLayout(this);
-        setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup()
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup()
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(label1, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
-                                .addComponent(panel8, GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE))))
-                    .addContainerGap(41, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup()
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-                    .addGap(47, 47, 47)
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
-                    .addGap(53, 53, 53)
-                    .addComponent(panel8, GroupLayout.PREFERRED_SIZE, 262, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(48, Short.MAX_VALUE))
-        );
+        //---- hSpacer1 ----
+        hSpacer1.setPreferredSize(new Dimension(20, 10));
+        add(hSpacer1, BorderLayout.WEST);
+
+        //---- hSpacer2 ----
+        hSpacer2.setPreferredSize(new Dimension(20, 10));
+        add(hSpacer2, BorderLayout.EAST);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JLabel label1;
     private JPanel panel1;
-    private JPanel panel4;
-    private JLabel label2;
-    private JLabel label6;
-    private JLabel alreadyStudy;
-    private JPanel panel5;
-    private JLabel label3;
-    private JLabel label7;
-    private JLabel waitStudy;
-    private JPanel panel6;
-    private JLabel label4;
-    private JLabel forgetPer;
-    private JPanel panel7;
-    private JLabel label5;
-    private JLabel label8;
-    private JLabel nextStudy;
-    private JPanel panel8;
-    private JPanel panel9;
-    private JLabel label9;
-    private JLabel label11;
+    private JLabel label1;
+    private JPanel vSpacer3;
     private JPanel panel10;
+    private JPanel panel11;
+    private JPanel panel13;
+    private JPanel panel18;
+    private JPanel vSpacer6;
+    private JLabel label7;
+    private JPanel panel19;
+    private JPanel vSpacer7;
+    private JPanel vSpacer8;
+    private JPanel panel20;
+    private JLabel label8;
+    private JLabel label9;
+    private JPanel panel14;
+    private JPanel panel21;
+    private JPanel vSpacer9;
     private JLabel label10;
+    private JPanel panel22;
+    private JPanel vSpacer10;
+    private JPanel vSpacer11;
+    private JPanel panel23;
+    private JLabel label11;
     private JLabel label12;
+    private JPanel panel15;
+    private JPanel panel24;
+    private JPanel vSpacer12;
+    private JLabel label13;
+    private JPanel panel25;
+    private JPanel vSpacer13;
+    private JPanel vSpacer14;
+    private JPanel panel26;
+    private JLabel label14;
+    private JLabel label15;
+    private JPanel panel16;
+    private JPanel panel27;
+    private JPanel vSpacer15;
+    private JLabel label16;
+    private JPanel panel28;
+    private JPanel vSpacer16;
+    private JPanel vSpacer17;
+    private JPanel panel29;
+    private JLabel label17;
+    private JLabel label18;
+    private JPanel panel12;
+    private JPanel panel30;
+    private JPanel panel32;
+    private JPanel panel33;
+    private JLabel label19;
+    private JPanel panel34;
+    private JLabel label20;
+    private JLabel label21;
+    private JPanel Map1;
+    private JPanel panel31;
+    private JPanel panel35;
+    private JPanel panel36;
+    private JLabel label22;
+    private JPanel panel37;
+    private JLabel label23;
+    private JLabel label24;
+    private JPanel Map2;
+    private JPanel hSpacer1;
+    private JPanel hSpacer2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

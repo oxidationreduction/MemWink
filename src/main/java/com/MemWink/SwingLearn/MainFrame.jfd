@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.14.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.14.1" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -9,8 +9,8 @@ new FormModel {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 			name: "this"
 			"maximizedBounds": new java.awt.Rectangle( 0, 0, 1920, 1080 )
-			"resizable": false
 			"$locationPolicy": 1
+			"minimumSize": new java.awt.Dimension( 835, 625 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 				"columns": 1
 				"rows": 2
@@ -21,20 +21,24 @@ new FormModel {
 					"rows": 2
 				} ) {
 					name: "upperPanel"
-					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
-						"columns": 1
-						"rows": 2
-					} ) {
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 						name: "functionPanel"
 						add( new FormComponent( "javax.swing.JButton" ) {
 							name: "cardBagButton"
-							"text": "text"
+							"text": "卡包"
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"height": 65
+							"width": 65
 						} )
 						add( new FormComponent( "javax.swing.JButton" ) {
 							name: "staticticButton"
-							"text": "text"
+							"text": "统计"
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"y": 70
+							"height": 65
+							"width": 65
 						} )
 					} )
 				} )
