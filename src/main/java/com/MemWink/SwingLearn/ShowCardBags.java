@@ -22,6 +22,9 @@ public class ShowCardBags extends JPanel {
     private void button1(ActionEvent e) {
         AddPane pane = new AddPane();
         pane.setVisible(true);
+        JButton tmp = new JButton();
+        tmp.setLocation(300, 200);
+        add(tmp);
     }
 
     private void initComponents() {

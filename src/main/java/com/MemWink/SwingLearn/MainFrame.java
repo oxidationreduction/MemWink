@@ -17,7 +17,7 @@ import javax.swing.*;
 public class MainFrame extends JFrame {
     public MainFrame() {
         initComponents();
-        setSize(835,625);
+        setPreferredSize(new Dimension(835, 625));
         int windowWidth = this.getWidth();                     //获得窗口宽
 
         int windowHeight = this.getHeight();                   //获得窗口高
@@ -64,7 +64,7 @@ public class MainFrame extends JFrame {
 
         //======== this ========
         setMaximizedBounds(new Rectangle(0, 0, 1920, 1080));
-        setResizable(false);
+        setResizable(true);
         var contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
@@ -110,12 +110,14 @@ public class MainFrame extends JFrame {
                     panel5.setLayout(new GridLayout(2, 1));
 
                     //---- button2 ----
-                    button2.setText("text");
+                    button2.setText("卡包");
+
                     button2.addActionListener(e -> button2(e));
                     panel5.add(button2);
 
                     //---- button3 ----
-                    button3.setText("text");
+                    button3.setText("统计");
+                    button3.setSize(40, 40);
                     button3.addActionListener(e -> button3(e));
                     panel5.add(button3);
                 }
