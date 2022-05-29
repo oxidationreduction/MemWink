@@ -10,7 +10,7 @@ import java.util.Objects;
  * @author Liu Hongyu
  * @version 1.0
  */
-public class CategorizedCard extends Card implements Serializable {
+public class CategorizedCard extends Card implements Serializable, Cloneable {
     /**
      * 卡片在卡包内的类别，默认为 {@code null} 代表"未分类"
      */
@@ -38,5 +38,9 @@ public class CategorizedCard extends Card implements Serializable {
     public void updateCategory(String category) {
         setCategory(category);
         Objects.requireNonNull(DataManager.provideCardBag(getCardBagName())).updateCard(this);
+    }
+
+    public CategorizedCard cloneItem() throws CloneNotSupportedException {
+        return (CategorizedCard) this.clone();
     }
 }

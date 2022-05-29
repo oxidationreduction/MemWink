@@ -62,6 +62,8 @@ public class CardBag implements Serializable {
      */
     private Set<String> categories = new HashSet<>();
 
+    private UISetting uiSetting;
+
     /**
      * 构造器
      */
@@ -75,6 +77,7 @@ public class CardBag implements Serializable {
         }
         categories.add(null);
         this.id = new Date();
+        uiSetting = new UISetting();
     }
 
     /**
@@ -95,6 +98,7 @@ public class CardBag implements Serializable {
             this.dailyNewCardNum = dailyNewCardNum;
         }
         this.id = new Date();
+        uiSetting = new UISetting();
     }
 
     /**
@@ -176,6 +180,10 @@ public class CardBag implements Serializable {
             throw new RuntimeException("Invalid Category: " + category);
         }
         cards.add(tmp);
+        return saveCardBag(this);
+    }
+    public boolean addCard(CategorizedCard card) {
+        cards.add(card);
         return saveCardBag(this);
     }
 
@@ -306,5 +314,18 @@ public class CardBag implements Serializable {
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public UISetting getUiSetting() {
+        return uiSetting;
+    }
+
+    protected void setUiSetting(UISetting uiSetting) {
+        this.uiSetting = uiSetting;
+    }
+
+    public void updateUISetting(UISetting uiSetting) {
+        setUiSetting(uiSetting);
+        saveCardBag(this);
     }
 }

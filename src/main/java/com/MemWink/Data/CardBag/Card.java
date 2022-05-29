@@ -21,7 +21,7 @@ import java.util.Stack;
  * @author Liu Hongyu
  * @version 1.0
  */
-public class Card implements Serializable {
+public class Card implements Serializable, Cloneable {
     /**
      * 卡正面的内容
      */
@@ -122,6 +122,16 @@ public class Card implements Serializable {
     public void updateStarred(boolean starred) {
         setStarred(starred);
         Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
+    }
+
+    /**
+     * 将卡片复制到新卡包
+     * <p>注意：仅复制操作可用，若要在移动操作中使用，需要调用其他方法删除原卡</p>
+     * @param newBagName 新卡包的名字
+     */
+    public void updateCardBagName(String newBagName) {
+        setCardBagName(newBagName);
+        Objects.requireNonNull(DataManager.provideCardBag(newBagName)).addCard((CategorizedCard) this);
     }
 
     /**
@@ -319,5 +329,10 @@ public class Card implements Serializable {
     }
     public boolean isStarred() {
         return starred;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
