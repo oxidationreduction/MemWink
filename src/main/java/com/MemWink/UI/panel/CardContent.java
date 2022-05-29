@@ -321,7 +321,7 @@ public class CardContent extends JPanel {
             {
                 settingButton = new JButton();
                 ImageIcon tmpIcon = new ImageIcon("image/设置.png");
-                Image tmpImage = tmpIcon.getImage().getScaledInstance(45, 45, Image.SCALE_DEFAULT);
+                Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
                 tmpIcon = new ImageIcon(tmpImage);
                 settingButton.setIcon(tmpIcon);
                 settingButton.setSize(45, 45);
@@ -332,7 +332,7 @@ public class CardContent extends JPanel {
             // editButton
             {
                 ImageIcon tmpIcon = new ImageIcon("image/修改.png");
-                Image tmpImage = tmpIcon.getImage().getScaledInstance(45, 45, Image.SCALE_DEFAULT);
+                Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
                 tmpIcon = new ImageIcon(tmpImage);
                 editButton = new JButton();
                 editButton.setIcon(tmpIcon);

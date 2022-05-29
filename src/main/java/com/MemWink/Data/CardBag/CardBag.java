@@ -293,14 +293,6 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * 用户对本卡包内的、记忆阶段为"新卡"的卡片进行了记忆操作，因此令本日新卡记忆数 +1
-     */
-    public boolean rememberNewCard() {
-        dailyNewCardRemembered++;
-        return saveCardBag(this);
-    }
-
-    /**
      * 从文件读取卡包，静态方法，可直接调用
      * @param bagName 卡包名称
      * @return 读取的卡包
