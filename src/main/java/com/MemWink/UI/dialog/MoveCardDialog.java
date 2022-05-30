@@ -1,8 +1,7 @@
-package com.MemWink.UI.component;
+package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.UI.UIConstant;
-import com.MemWink.UI.panel.CardContent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -82,5 +81,6 @@ public class MoveCardDialog extends JDialog {
                 UIConstant.windowHeight / 2 - 150
         );
         setVisible(true);
+        setResizable(false);
     }
 }

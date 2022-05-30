@@ -1,4 +1,4 @@
-package com.MemWink.UI.component;
+package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.Data.DataManager;
@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 import java.util.Objects;
 
 public class DeleteConfirmDialog extends JDialog {
@@ -64,5 +63,6 @@ public class DeleteConfirmDialog extends JDialog {
         add(mainPanel);
         setSize(350, 200);
         setVisible(true);
+        setResizable(false);
     }
 }

@@ -1,4 +1,4 @@
-package com.MemWink.UI.component;
+package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.Data.CardBag.MemHistory;
@@ -71,5 +71,6 @@ public class HistoryDialog extends JDialog {
         setVisible(true);
         setSize(280, Math.min(historyList.getHeight() + 80, 500));
         setLocation(170, 175);
+        setResizable(false);
     }
 }

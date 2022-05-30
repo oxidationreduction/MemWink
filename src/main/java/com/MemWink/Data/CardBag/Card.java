@@ -4,9 +4,8 @@ import com.MemWink.Data.DataManager;
 
 import java.awt.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Objects;
-import java.util.Stack;
+import java.util.*;
+import java.util.List;
 
 /**
  * 卡片：最小记忆单元。
@@ -24,13 +23,15 @@ import java.util.Stack;
 public class Card implements Serializable, Cloneable {
     /**
      * 卡正面的内容
+     * <p>一个元素代表一行中的内容</p>
      */
-    private String front = "";
+    private List<String> front = new ArrayList<>();
 
     /**
      * 卡背面的内容
+     * <p>一个元素代表一行中的内容</p>
      */
-    private String back = "";
+    private List<String> back = new ArrayList<>();
 
     /**
      * 卡片创建时间，卡片的唯一标识，因此只读
@@ -70,8 +71,8 @@ public class Card implements Serializable, Cloneable {
      * 初始化器
      */
     public Card(String front, String back, boolean showFront, int memState, boolean starred, String cardBagName) {
-        this.front = front;
-        this.back = back;
+        setFront(front);
+        setBack(back);
         this.showFront = showFront;
         this.memState = memState;
         setRememberTime();
@@ -85,10 +86,12 @@ public class Card implements Serializable, Cloneable {
      * <p> {@code createTime} 和 {@code rememberTime} 禁止直接设置
      */
     protected void setFront(String front) {
-        this.front = front;
+        this.front.clear();
+        this.front.addAll(List.of(front.split("\n")));
     }
     protected void setBack(String back) {
-        this.back = back;
+        this.back.clear();
+        this.back.addAll(List.of(back.split("\n")));
     }
     protected void setShowFront(boolean showFront) {
         this.showFront = showFront;
@@ -309,11 +312,26 @@ public class Card implements Serializable, Cloneable {
     public Date getRememberTime() {
         return rememberTime;
     }
-    public String getFront() {
+    public List<String> getFrontList() {
         return front;
     }
-    public String getBack() {
+    public String getFrontString() {
+        String ans = "";
+        for (String i : front) {
+            ans += (i + "\n");
+        }
+        return ans;
+    }
+    public List<String> getBackList() {
         return back;
+    }
+
+    public String getBackString() {
+        String ans = "";
+        for (String i : back) {
+            ans += (i + "\n");
+        }
+        return ans;
     }
     public int getMemState() {
         return memState;

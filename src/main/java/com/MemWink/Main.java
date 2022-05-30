@@ -53,7 +53,7 @@ public class Main {
         System.out.println(new Date());
         for (CategorizedCard i : cards) {
             i.remembered();
-            System.out.println(i.getFront() + ", " + i.getMemState() + ", belongs to " + i.getCardBagName() + ", Create at " + i.getCreateTime().toString());
+            System.out.println(i.getFrontString() + ", " + i.getMemState() + ", belongs to " + i.getCardBagName() + ", Create at " + i.getCreateTime().toString());
 
             for (MemHistory j : i.getMemHistories()) {
                 System.out.println("\t" + j.status + ", " + j.preState + " -> " + j.afterState);

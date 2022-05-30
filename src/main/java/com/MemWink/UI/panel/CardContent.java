@@ -2,10 +2,12 @@ package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.*;
 import com.MemWink.Data.DataManager;
+import com.MemWink.Data.Util;
 import com.MemWink.UI.UIConstant;
-import com.MemWink.UI.component.DeleteConfirmDialog;
-import com.MemWink.UI.component.HistoryDialog;
-import com.MemWink.UI.component.MoveCardDialog;
+import com.MemWink.UI.dialog.DeleteConfirmDialog;
+import com.MemWink.UI.dialog.EditCardDialog;
+import com.MemWink.UI.dialog.HistoryDialog;
+import com.MemWink.UI.dialog.MoveCardDialog;
 import com.MemWink.UI.component.RoundedRectangle;
 
 import javax.swing.*;
@@ -25,9 +27,6 @@ public class CardContent extends JPanel {
     private JButton historyButton;
 
     private RoundedRectangle frontPanel;
-    private JLabel frontContentLabel;
-    private JLabel backContentLabel;
-
     private JButton frontHorizenalLeft;
     private JButton frontHorizenalCenter;
     private JButton frontHorizenalRight;
@@ -87,6 +86,9 @@ public class CardContent extends JPanel {
         hidedBackPanel.setLocation(
                 (int) Math.round(middlePanel.getWidth() * 0.53), 15
         );
+
+        frontContentLabelsPanel.update();
+        backContentLabelsPanel.update();
         if (isEditLayout) {
             frontPanel.setSize(
                     (int) Math.round(middlePanel.getWidth() * 0.45),
@@ -100,6 +102,7 @@ public class CardContent extends JPanel {
                     (int) Math.round(middlePanel.getWidth() * 0.45),
                     middlePanel.getHeight() - 75
             );
+            backButton.setText("保存布局");
         } else {
             frontPanel.setSize(
                     (int) Math.round(middlePanel.getWidth() * 0.45),
@@ -113,6 +116,7 @@ public class CardContent extends JPanel {
                     (int) Math.round(middlePanel.getWidth() * 0.45),
                     middlePanel.getHeight() - 30
             );
+            backButton.setText("返回");
         }
 
         frontHorizenalLeft.setLocation(
@@ -139,8 +143,6 @@ public class CardContent extends JPanel {
                 middlePanel.getWidth() - (backPanel.getWidth() >> 1) + 14,
                 middlePanel.getHeight() - 50
         );
-        frontContentLabel.setHorizontalAlignment(cardBag.getUiSetting().frontHorizenalAlignment);
-        System.out.println(cardBag.getUiSetting().frontHorizenalAlignment == SwingConstants.LEADING);
 
         System.out.println(frontHorizenalLeft.getLocation());
         System.out.println(frontHorizenalRight.getLocation());
@@ -160,6 +162,11 @@ public class CardContent extends JPanel {
             Image tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
             tmpIcon = new ImageIcon(tmpImage);
         }
+        frontContentLabelsPanel.updateParentSize(frontPanel.getSize());
+        frontContentLabelsPanel.updateContent(card.getFrontList());
+        backContentLabelsPanel.updateParentSize(backPanel.getSize());
+        backContentLabelsPanel.updateContent(card.getBackList());
+        super.updateUI();
     }
 
     public void setupUI() {
@@ -281,9 +288,136 @@ public class CardContent extends JPanel {
                 });
             }
 
+            // frontVerticalAlignmentButtons
+            {
+                {
+                    frontVerticalTop = new JButton();
+                    frontVerticalTop.setIcon(Util.getScaledIcon("设置", 30, 30));
+                    frontVerticalTop.setSize(35, 35);
+                    frontVerticalTop.setLocation(
+                            (leftPanel.getWidth() >> 1) - 15,
+                            (leftPanel.getHeight() >> 1) - 40
+                    );
+
+                    frontVerticalTop.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.frontVerticalAlignment = BorderLayout.NORTH;
+                            cardBag.updateUISetting(tmp);
+                            frontContentLabelsPanel.updateVerticalAlignment(BorderLayout.NORTH);
+                            update();
+                            System.out.println("frontVerticalTop");
+                        }
+                    });
+                    frontVerticalTop.setVisible(false);
+                }
+
+                {
+                    frontVerticalCenter = new JButton();
+                    frontVerticalCenter.setIcon(Util.getScaledIcon("设置", 30, 30));
+                    frontVerticalCenter.setSize(35, 35);
+                    frontVerticalCenter.setLocation(
+                            (leftPanel.getWidth() >> 1) - 15,
+                            (leftPanel.getHeight() >> 1)
+                    );
+
+                    frontVerticalCenter.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.frontVerticalAlignment = BorderLayout.CENTER;
+                            cardBag.updateUISetting(tmp);
+                            frontContentLabelsPanel.updateVerticalAlignment(BorderLayout.CENTER);
+                            update();
+                            System.out.println("frontVerticalCenter");
+                        }
+                    });
+                    frontVerticalCenter.setVisible(false);
+                }
+
+                {
+                    frontVerticalBottom = new JButton();
+                    frontVerticalBottom.setIcon(Util.getScaledIcon("设置", 30, 30));
+                    frontVerticalBottom.setSize(35, 35);
+                    frontVerticalBottom.setLocation(
+                            (leftPanel.getWidth() >> 1) - 15,
+                            (leftPanel.getHeight() >> 1) + 40
+                    );
+
+                    frontVerticalBottom.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.frontVerticalAlignment = BorderLayout.SOUTH;
+                            cardBag.updateUISetting(tmp);
+                            frontContentLabelsPanel.updateVerticalAlignment(BorderLayout.SOUTH);
+                            update();
+                            System.out.println("frontVerticalBottom");
+                        }
+                    });
+                    frontVerticalBottom.setVisible(false);
+                }
+            }
+
+            // frontFontSizeButtons
+            {
+                {
+                    frontFontSizeAddButton = new JButton();
+                    frontFontSizeAddButton.setIcon(Util.getScaledIcon("设置", 30, 30));
+                    frontFontSizeAddButton.setSize(35, 35);
+                    frontFontSizeAddButton.setLocation(
+                            (leftPanel.getWidth() >> 1) - 15,
+                            (leftPanel.getHeight() >> 1) + 100
+                    );
+
+                    frontFontSizeAddButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.frontFontSize += 5;
+                            cardBag.updateUISetting(tmp);
+                            frontContentLabelsPanel.updateFontSize(tmp.frontFontSize);
+                            update();
+                            System.out.println("frontFontSizeAdd");
+                        }
+                    });
+                    frontFontSizeAddButton.setVisible(false);
+                }
+
+                {
+                    frontFontSizeMinusButton = new JButton();
+                    frontFontSizeMinusButton.setIcon(Util.getScaledIcon("设置", 30, 30));
+                    frontFontSizeMinusButton.setSize(35, 35);
+                    frontFontSizeMinusButton.setLocation(
+                            (leftPanel.getWidth() >> 1) - 15,
+                            (leftPanel.getHeight() >> 1) + 140
+                    );
+
+                    frontFontSizeMinusButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.frontFontSize -= 5;
+                            cardBag.updateUISetting(tmp);
+                            frontContentLabelsPanel.updateFontSize(tmp.frontFontSize);
+                            update();
+                            System.out.println("frontFontSizeMinus");
+                        }
+                    });
+                    frontFontSizeMinusButton.setVisible(false);
+                }
+            }
+
             leftPanel.add(categoryButton);
             leftPanel.add(stageButton);
             leftPanel.add(historyButton);
+            leftPanel.add(frontVerticalTop);
+            leftPanel.add(frontVerticalCenter);
+            leftPanel.add(frontVerticalBottom);
+            leftPanel.add(frontFontSizeAddButton);
+            leftPanel.add(frontFontSizeMinusButton);
+
             leftPanel.setLocation(0, 0);
             leftPanel.setVisible(true);
         }
@@ -307,32 +441,31 @@ public class CardContent extends JPanel {
                         card.getCardBagColor()
                 );
                 frontPanel.setFocusable(false);
-                frontPanel.setLayout(new BorderLayout());
+                frontPanel.setLayout(null);
                 frontPanel.setLocation(
-                        (int) Math.round(middlePanel.getWidth() * 0.02), 15
+                        (int) Math.round(middlePanel.getWidth() * 0.2), 15
                 );
-                frontContentLabel = new JLabel(card.getFront());
-                frontContentLabel.setSize(
-                        (int) Math.round(frontPanel.getWidth() * 0.9),
-                        (int) Math.round(frontPanel.getHeight() * 0.9)
-                );
-                frontContentLabel.setHorizontalAlignment(cardBag.getUiSetting().frontHorizenalAlignment);
-                frontContentLabel.setFont(
-                        new Font("Microsoft Sans Serif", Font.PLAIN, cardBag.getUiSetting().frontFontSize));
-                frontContentLabel.setForeground(Color.WHITE);
-                frontPanel.add(frontContentLabel, cardBag.getUiSetting().frontVerticalAlignment);
-                frontPanel.setVisible(true);
-                System.out.println("Front: " + frontPanel.getWidth() + " * " + frontPanel.getHeight());
+
+                // frontContentLabelsPanel
+                {
+                    frontContentLabelsPanel = new CardContentLabelsPanel(
+                            card.getFrontList(),
+                            (int) Math.round(frontPanel.getWidth() * 0.9),
+                            cardBag.getUiSetting().frontHorizenalAlignment,
+                            cardBag.getUiSetting().frontVerticalAlignment,
+                            frontPanel.getSize(),
+                            cardBag.getUiSetting().frontFontSize
+                    );
+                    frontContentLabelsPanel.updateVerticalAlignment(cardBag.getUiSetting().frontVerticalAlignment);
+                }
+                frontPanel.add(frontContentLabelsPanel);
             }
 
-            // frontHorizenalAlignmentButton
+            // frontHorizontalAlignmentButton
             {
                 {
                     frontHorizenalLeft = new JButton();
-                    ImageIcon tmpIcon = new ImageIcon("image/设置.png");
-                    Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
-                    tmpIcon = new ImageIcon(tmpImage);
-                    frontHorizenalLeft.setIcon(tmpIcon);
+                    frontHorizenalLeft.setIcon(Util.getScaledIcon("设置", 30, 30));
                     frontHorizenalLeft.setSize(35, 35);
                     frontHorizenalLeft.setLocation(
                             (frontPanel.getWidth() >> 1) - 50,
@@ -344,6 +477,7 @@ public class CardContent extends JPanel {
                         public void actionPerformed(ActionEvent e) {
                             UISetting tmp = cardBag.getUiSetting();
                             tmp.frontHorizenalAlignment = SwingConstants.LEADING;
+                            frontContentLabelsPanel.updateHorizonalAlignment(SwingConstants.LEADING);
                             cardBag.updateUISetting(tmp);
                             CardContent.this.update();
                             System.out.println("frontHorizontalLeft");
@@ -354,10 +488,7 @@ public class CardContent extends JPanel {
 
                 {
                     frontHorizenalCenter = new JButton();
-                    ImageIcon tmpIcon = new ImageIcon("image/设置.png");
-                    Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
-                    tmpIcon = new ImageIcon(tmpImage);
-                    frontHorizenalCenter.setIcon(tmpIcon);
+                    frontHorizenalCenter.setIcon(Util.getScaledIcon("设置", 30, 30));
                     frontHorizenalCenter.setSize(35, 35);
                     frontHorizenalCenter.setLocation(
                             (frontPanel.getWidth() >> 1) - 8,
@@ -370,6 +501,7 @@ public class CardContent extends JPanel {
                             UISetting tmp = cardBag.getUiSetting();
                             tmp.frontHorizenalAlignment = SwingConstants.CENTER;
                             cardBag.updateUISetting(tmp);
+                            frontContentLabelsPanel.updateHorizonalAlignment(SwingConstants.CENTER);
                             CardContent.this.update();
                             System.out.println("frontHorizontalCenter");
                         }
@@ -379,10 +511,7 @@ public class CardContent extends JPanel {
 
                 {
                     frontHorizenalRight = new JButton();
-                    ImageIcon tmpIcon = new ImageIcon("image/设置.png");
-                    Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
-                    tmpIcon = new ImageIcon(tmpImage);
-                    frontHorizenalRight.setIcon(tmpIcon);
+                    frontHorizenalRight.setIcon(Util.getScaledIcon("设置", 30, 30));
                     frontHorizenalRight.setSize(35, 35);
                     frontHorizenalRight.setLocation(
                             (frontPanel.getWidth() >> 1) + 34,
@@ -395,6 +524,7 @@ public class CardContent extends JPanel {
                             UISetting tmp = cardBag.getUiSetting();
                             tmp.frontHorizenalAlignment = SwingConstants.RIGHT;
                             cardBag.updateUISetting(tmp);
+                            frontContentLabelsPanel.updateHorizonalAlignment(SwingConstants.RIGHT);
                             CardContent.this.update();
                             System.out.println("frontHorizontalCenter");
                         }
@@ -414,24 +544,27 @@ public class CardContent extends JPanel {
                         middlePanel.getHeight() * 0.05,
                         card.getCardBagColor()
                 );
-                backPanel.setLayout(new BorderLayout());
+                backPanel.setFocusable(false);
+                backPanel.setLayout(null);
                 backPanel.setLocation(
                         (int) Math.round(middlePanel.getWidth() * 0.53), 15
                 );
-                backContentLabel = new JLabel(card.getBack());
-                backContentLabel.setSize(
-                        (int) Math.round(frontPanel.getWidth() * 0.9),
-                        (int) Math.round(frontPanel.getHeight() * 0.9)
-                );
-                backContentLabel.setForeground(Color.WHITE);
-                backContentLabel.setHorizontalAlignment(cardBag.getUiSetting().backHorizenalAlignment);
-                backContentLabel.setFont(
-                        new Font("Microsoft Sans Serif", Font.PLAIN, cardBag.getUiSetting().backFontSize));
-                backPanel.add(backContentLabel, cardBag.getUiSetting().backVerticalAlignment);
+
+                // backContentLabelsPanel
+                {
+                    backContentLabelsPanel = new CardContentLabelsPanel(
+                            card.getBackList(),
+                            (int) Math.round(backPanel.getWidth() * 0.9),
+                            cardBag.getUiSetting().backHorizenalAlignment,
+                            cardBag.getUiSetting().backVerticalAlignment,
+                            backPanel.getSize(),
+                            cardBag.getUiSetting().backFontSize
+                    );
+                    backPanel.add(backContentLabelsPanel);
+                }
                 backPanel.setVisible(cardBag.getUiSetting().showBack);
-                backPanel.setFocusable(false);
             }
-            // backHorizenalAlignmentButton
+            // backHorizontalAlignmentButton
             {
                 {
                     backHorizenalLeft = new JButton();
@@ -451,7 +584,8 @@ public class CardContent extends JPanel {
                             UISetting tmp = cardBag.getUiSetting();
                             tmp.backHorizenalAlignment = SwingConstants.LEADING;
                             cardBag.updateUISetting(tmp);
-                            CardContent.this.update();
+                            backContentLabelsPanel.updateHorizonalAlignment(SwingConstants.LEADING);
+                            update();
                             System.out.println("backHorizontalLeft");
                         }
                     });
@@ -476,7 +610,8 @@ public class CardContent extends JPanel {
                             UISetting tmp = cardBag.getUiSetting();
                             tmp.backHorizenalAlignment = SwingConstants.CENTER;
                             cardBag.updateUISetting(tmp);
-                            CardContent.this.update();
+                            backContentLabelsPanel.updateHorizonalAlignment(SwingConstants.CENTER);
+                            update();
                             System.out.println("backHorizontalCenter");
                         }
                     });
@@ -501,7 +636,8 @@ public class CardContent extends JPanel {
                             UISetting tmp = cardBag.getUiSetting();
                             tmp.backHorizenalAlignment = SwingConstants.RIGHT;
                             cardBag.updateUISetting(tmp);
-                            CardContent.this.update();
+                            backContentLabelsPanel.updateHorizonalAlignment(SwingConstants.RIGHT);
+                            update();
                             System.out.println("backHorizontalRight");
                         }
                     });
@@ -550,8 +686,7 @@ public class CardContent extends JPanel {
                 hidedBackPanel.setFocusable(false);
                 hidedBackPanel.setVisible(!cardBag.getUiSetting().showBack);
             }
-
-
+            
             middlePanel.add(frontPanel);
             middlePanel.add(backPanel);
             middlePanel.add(hidedBackPanel);
@@ -600,10 +735,21 @@ public class CardContent extends JPanel {
                                 frontHorizenalLeft.setVisible(true);
                                 frontHorizenalCenter.setVisible(true);
                                 frontHorizenalRight.setVisible(true);
+                                frontVerticalTop.setVisible(true);
+                                frontVerticalCenter.setVisible(true);
+                                frontVerticalBottom.setVisible(true);
+                                frontFontSizeAddButton.setVisible(true);
+                                frontFontSizeMinusButton.setVisible(true);
                                 backHorizenalLeft.setVisible(true);
                                 backHorizenalCenter.setVisible(true);
                                 backHorizenalRight.setVisible(true);
-                                CardContent.this.update();
+                                backVerticalTop.setVisible(true);
+                                backVerticalCenter.setVisible(true);
+                                backVerticalBottom.setVisible(true);
+                                backFontSizeAddButton.setVisible(true);
+                                backFontSizeMinusButton.setVisible(true);
+
+                                update();
                             }
                         });
                         layoutSetting.setSize(150, 25);
@@ -725,7 +871,7 @@ public class CardContent extends JPanel {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             System.out.println("显示记忆阶段面板");
-                            settingMenu.show(settingButton, -50, 5);
+                            settingMenu.show(settingButton, -150, 5);
                         }
                     });
                 }
@@ -746,9 +892,131 @@ public class CardContent extends JPanel {
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("进入卡片内容编辑状态");
                         isEditCard = true;
-                        CardContent.this.update();
+                        new EditCardDialog(card, CardContent.this);
+                        update();
                     }
                 });
+            }
+
+            // backVerticalAlignmentButtons
+            {
+                {
+                    backVerticalTop = new JButton();
+                    backVerticalTop.setIcon(Util.getScaledIcon("设置", 30, 30));
+                    backVerticalTop.setSize(35, 35);
+                    backVerticalTop.setLocation(
+                            (rightPanel.getWidth() >> 1) + 15,
+                            (rightPanel.getHeight() >> 1) - 40
+                    );
+
+                    backVerticalTop.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.backVerticalAlignment = BorderLayout.NORTH;
+                            cardBag.updateUISetting(tmp);
+                            backContentLabelsPanel.updateVerticalAlignment(BorderLayout.NORTH);
+                            update();
+                            System.out.println("backVerticalTop");
+                        }
+                    });
+                    backVerticalTop.setVisible(false);
+                }
+
+                {
+                    backVerticalCenter = new JButton();
+                    backVerticalCenter.setIcon(Util.getScaledIcon("设置", 30, 30));;
+                    backVerticalCenter.setSize(35, 35);
+                    backVerticalCenter.setLocation(
+                            (rightPanel.getWidth() >> 1) + 15,
+                            (rightPanel.getHeight() >> 1)
+                    );
+
+                    backVerticalCenter.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.backVerticalAlignment = BorderLayout.CENTER;
+                            cardBag.updateUISetting(tmp);
+                            backContentLabelsPanel.updateVerticalAlignment(BorderLayout.CENTER);
+                            update();
+                            System.out.println("backVerticalCenter");
+                        }
+                    });
+                    backVerticalCenter.setVisible(false);
+                }
+
+                {
+                    backVerticalBottom = new JButton();
+                    backVerticalBottom.setIcon(Util.getScaledIcon("设置", 30, 30));;
+                    backVerticalBottom.setSize(35, 35);
+                    backVerticalBottom.setLocation(
+                            (rightPanel.getWidth() >> 1) + 15,
+                            (rightPanel.getHeight() >> 1) + 40
+                    );
+
+                    backVerticalBottom.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.backVerticalAlignment = BorderLayout.SOUTH;
+                            cardBag.updateUISetting(tmp);
+                            backContentLabelsPanel.updateVerticalAlignment(BorderLayout.SOUTH);
+                            update();
+                            System.out.println("backVerticalBottom");
+                        }
+                    });
+                    backVerticalBottom.setVisible(false);
+                }
+            }
+
+            // backFontSizeButtons
+            {
+                {
+                    backFontSizeAddButton = new JButton();
+                    backFontSizeAddButton.setIcon(Util.getScaledIcon("设置", 30, 30));
+                    backFontSizeAddButton.setSize(35, 35);
+                    backFontSizeAddButton.setLocation(
+                            (rightPanel.getWidth() >> 1) + 15,
+                            (rightPanel.getHeight() >> 1) + 100
+                    );
+
+                    backFontSizeAddButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.backFontSize += 5;
+                            cardBag.updateUISetting(tmp);
+                            backContentLabelsPanel.updateFontSize(tmp.backFontSize);
+                            update();
+                            System.out.println("backFontSizeAdd");
+                        }
+                    });
+                    backFontSizeAddButton.setVisible(false);
+                }
+
+                {
+                    backFontSizeMinusButton = new JButton();
+                    backFontSizeMinusButton.setIcon(Util.getScaledIcon("设置", 30, 30));
+                    backFontSizeMinusButton.setSize(35, 35);
+                    backFontSizeMinusButton.setLocation(
+                            (rightPanel.getWidth() >> 1) + 15,
+                            (rightPanel.getHeight() >> 1) + 140
+                    );
+
+                    backFontSizeMinusButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            UISetting tmp = cardBag.getUiSetting();
+                            tmp.backFontSize -= 5;
+                            cardBag.updateUISetting(tmp);
+                            backContentLabelsPanel.updateFontSize(tmp.backFontSize);
+                            update();
+                            System.out.println("backFontSizeMinus");
+                        }
+                    });
+                    backFontSizeMinusButton.setVisible(false);
+                }
             }
 
             // backButton
@@ -760,8 +1028,31 @@ public class CardContent extends JPanel {
                 backButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("返回");
-                        CardContent.this.setVisible(false);
+                        if (isEditLayout) {
+                            System.out.println("退出布局编辑模式");
+                            isEditLayout = false;
+                            frontHorizenalLeft.setVisible(false);
+                            frontHorizenalCenter.setVisible(false);
+                            frontHorizenalRight.setVisible(false);
+                            frontVerticalTop.setVisible(false);
+                            frontVerticalCenter.setVisible(false);
+                            frontVerticalBottom.setVisible(false);
+                            frontFontSizeAddButton.setVisible(false);
+                            frontFontSizeMinusButton.setVisible(false);
+                            backHorizenalLeft.setVisible(false);
+                            backHorizenalCenter.setVisible(false);
+                            backHorizenalRight.setVisible(false);
+                            backVerticalTop.setVisible(false);
+                            backVerticalCenter.setVisible(false);
+                            backVerticalBottom.setVisible(false);
+                            backFontSizeAddButton.setVisible(false);
+                            backFontSizeMinusButton.setVisible(false);
+
+                            update();
+                        } else {
+                            System.out.println("返回");
+                            CardContent.this.setVisible(false);
+                        }
                     }
                 });
             }
@@ -769,6 +1060,14 @@ public class CardContent extends JPanel {
             rightPanel.add(settingButton);
             rightPanel.add(editButton);
             rightPanel.add(backButton);
+            rightPanel.add(backVerticalTop);
+            rightPanel.add(backVerticalCenter);
+            rightPanel.add(backVerticalBottom);
+
+            rightPanel.add(backFontSizeAddButton);
+            rightPanel.add(backFontSizeMinusButton);
+
+
             rightPanel.setLocation(this.getWidth()-110, 0);
         }
 
@@ -795,15 +1094,11 @@ public class CardContent extends JPanel {
     public static void main(String[] args) {
         DataManager.init();
         DataManager.addCardBag("A", Color.gray, 20);
-        DataManager.provideCardBag("A").addCard("Front", "Back", true, MemStateConstants.newCard, false, null);
+        DataManager.provideCardBag("A").addCard("Front\ncontent", "Back", true, MemStateConstants.newCard, false, null);
         JFrame frame = new JFrame();
         frame.setLayout(null);
         frame.setSize(1280, 720);
-        CardContent tmp = new CardContent(
-                DataManager
-                        .provideCardBag("A")
-                        .getCards()
-                        .get(0));
+        CardContent tmp = new CardContent(DataManager.provideCardBag("A").getCards().get(0));
         tmp.setLocation(50, 25);
         frame.add(tmp);
         System.out.println(UIConstant.windowWidth + " * " + UIConstant.windowHeight + ", "
@@ -826,4 +1121,12 @@ public class CardContent extends JPanel {
         tmp.requestFocus();
         frame.setVisible(true);
     }
+
+    private CardContentLabelsPanel frontContentLabelsPanel;
+    private CardContentLabelsPanel backContentLabelsPanel;
+
+    private JButton frontFontSizeAddButton;
+    private JButton frontFontSizeMinusButton;
+    private JButton backFontSizeAddButton;
+    private JButton backFontSizeMinusButton;
 }
