@@ -5,8 +5,7 @@ import com.MemWink.UI.panel.CardContent;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class EditCardDialog extends JDialog {
     private CategorizedCard card;
@@ -17,10 +16,27 @@ public class EditCardDialog extends JDialog {
         setup();
     }
 
+    private void update() {
+        mainPanel.setSize(getWidth(), getHeight());
+        frontTextArea.setSize(
+                (getWidth() >> 1) - 5,
+                getHeight() - 120
+        );
 
+        backLabel.setLocation(5 + (getWidth() >> 1), 5);
+        backTextArea.setLocation(5 + (getWidth() >> 1), 40);
+        backTextArea.setSize(
+                (getWidth() >> 1) - 5,
+                getHeight() - 120
+        );
+        confirm.setLocation(
+                mainPanel.getWidth() - 105,
+                mainPanel.getHeight() - 77
+        );
+    }
     private void setup() {
-        setSize(640, 450);
-        setMinimumSize(new Dimension(640, 450));
+        setSize(640, 480);
+        setMinimumSize(new Dimension(640, 480));
         setLocation(
                 (panel.getWidth() >> 1) - (getWidth() >> 1),
                 (panel.getHeight() >> 1) - (getHeight() >> 1)
@@ -28,7 +44,7 @@ public class EditCardDialog extends JDialog {
         setVisible(true);
 
         mainPanel = new JPanel();
-        mainPanel.setSize(640, 450);
+        mainPanel.setSize(640, 480);
         mainPanel.setLocation(0, 0);
         mainPanel.setLayout(null);
 
@@ -45,7 +61,10 @@ public class EditCardDialog extends JDialog {
             {
                 frontTextArea = new JTextArea(card.getFrontString());
                 frontTextArea.setLocation(5, 40);
-                frontTextArea.setSize((getWidth() >> 1) - 5, getHeight() - 80);
+                frontTextArea.setSize(
+                        (getWidth() >> 1) - 5,
+                        getHeight() - 90
+                );
                 frontTextArea.setFont(new Font("微软雅黑", Font.PLAIN, 25));
                 frontTextArea.setLineWrap(true);
                 frontTextArea.setWrapStyleWord(true);
@@ -66,18 +85,21 @@ public class EditCardDialog extends JDialog {
             {
                 backTextArea = new JTextArea(card.getBackString());
                 backTextArea.setLocation(5 + (getWidth() >> 1), 40);
-                backTextArea.setSize((getWidth() >> 1) - 5, getHeight() - 80);
+                backTextArea.setSize((getWidth() >> 1) - 5, getHeight() - 90);
                 backTextArea.setFont(new Font("微软雅黑", Font.PLAIN, 25));
             }
             mainPanel.add(backTextArea);
         }
 
-        // 确认按钮
+        // 保存按钮
         {
             confirm = new JButton("保存");
             confirm.setFont(new Font("微软雅黑", Font.PLAIN, 18));
-            confirm.setSize(100, 50);
-            confirm.setLocation(mainPanel.getWidth() - 105, mainPanel.getHeight() - 55);
+            confirm.setSize(100, 45);
+            confirm.setLocation(
+                    mainPanel.getWidth() - 105,
+                    mainPanel.getHeight() - 48
+            );
             confirm.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -98,6 +120,13 @@ public class EditCardDialog extends JDialog {
         mainPanel.add(confirm);
 
         add(mainPanel);
+
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                update();
+            }
+        });
     }
 
     private JPanel mainPanel;

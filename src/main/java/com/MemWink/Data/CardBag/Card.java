@@ -116,12 +116,10 @@ public class Card implements Serializable, Cloneable {
         setBack(back);
         Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
     }
-
     public void updateShowFront(boolean showFront) {
         setShowFront(showFront);
         Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
     }
-
     public void updateStarred(boolean starred) {
         setStarred(starred);
         Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
@@ -312,27 +310,6 @@ public class Card implements Serializable, Cloneable {
     public Date getRememberTime() {
         return rememberTime;
     }
-    public List<String> getFrontList() {
-        return front;
-    }
-    public String getFrontString() {
-        String ans = "";
-        for (String i : front) {
-            ans += (i + "\n");
-        }
-        return ans;
-    }
-    public List<String> getBackList() {
-        return back;
-    }
-
-    public String getBackString() {
-        String ans = "";
-        for (String i : back) {
-            ans += (i + "\n");
-        }
-        return ans;
-    }
     public int getMemState() {
         return memState;
     }
@@ -347,6 +324,46 @@ public class Card implements Serializable, Cloneable {
     }
     public boolean isStarred() {
         return starred;
+    }
+
+    /**
+     * 获取正面内容
+     * @return 集中了所有正面内容的一个字符串，包含换行符
+     */
+    public String getFrontString() {
+        String ans = "";
+        for (String i : front) {
+            ans += (i + "\n");
+        }
+        return ans;
+    }
+
+    /**
+     * 获取反面内容
+     * @return 集中了所有反面内容的一个字符串，包含换行符
+     */
+    public String getBackString() {
+        String ans = "";
+        for (String i : back) {
+            ans += (i + "\n");
+        }
+        return ans;
+    }
+
+    /**
+     * 获取正面内容列表
+     * @return 正面内容列表，每个元素代表一行
+     */
+    public List<String> getFrontList() {
+        return front;
+    }
+
+    /**
+     * 获取反面内容列表
+     * @return 反面内容列表，每个元素代表一行
+     */
+    public List<String> getBackList() {
+        return back;
     }
 
     @Override

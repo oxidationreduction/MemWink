@@ -25,7 +25,6 @@ public class CardContent extends JPanel {
     private JButton categoryButton;
     private JButton stageButton;
     private JButton historyButton;
-
     private RoundedRectangle frontPanel;
     private JButton frontHorizenalLeft;
     private JButton frontHorizenalCenter;
