@@ -15,7 +15,7 @@ public class Test {
 
     private void init(){
         DataManager.init();
-        MainFrame mainFrame = new MainFrame();
+        MainFrame mainFrame = MainFrame.getMainFrame();
         mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
 
         mainFrame.setVisible(true);
