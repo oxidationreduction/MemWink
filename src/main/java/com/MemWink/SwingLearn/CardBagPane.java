@@ -32,12 +32,27 @@ public class CardBagPane extends JPanel {
         });
     }
 
+    private void thisMouseClicked(MouseEvent e) {
+        ShowAllCards allCards = new ShowAllCards();
+        MainFrame.mainPanel.removeAll();
+        MainFrame.mainPanel.add(allCards);
+        MainFrame.mainPanel.updateUI();
+        allCards.setVisible(true);
+    }
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         label2 = new JLabel();
 
         //======== this ========
         setPreferredSize(new Dimension(170, 130));
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                thisMouseClicked(e);
+            }
+        });
         setLayout(new BorderLayout());
 
         //---- label2 ----
