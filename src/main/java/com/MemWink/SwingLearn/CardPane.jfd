@@ -1,0 +1,41 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"foreground": new javax.swing.plaf.ColorUIResource( 238, 238, 238 )
+			"background": new java.awt.Color( 51, 51, 255, 255 )
+			"maximumSize": new java.awt.Dimension( 170, 164 )
+			"preferredSize": new java.awt.Dimension( 170, 180 )
+			"border": new javax.swing.border.BevelBorder( 1, null, null, null, null )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "分类"
+				"verticalAlignment": 3
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "North"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "卡片信息"
+				"horizontalAlignment": 0
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "阶段"
+				"horizontalAlignment": 4
+				"maximumSize": new java.awt.Dimension( 170, 130 )
+				"minimumSize": new java.awt.Dimension( 170, 130 )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "South"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 45, 0 )
+			"size": new java.awt.Dimension( 165, 170 )
+		} )
+	}
+}

@@ -1,0 +1,29 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"maximumSize": new java.awt.Dimension( 10, 17 )
+			"minimumSize": new java.awt.Dimension( 10, 17 )
+			"preferredSize": new java.awt.Dimension( 10, 17 )
+			"border": new javax.swing.border.EtchedBorder( 1, null, null )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "种类"
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "West"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "number"
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "East"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
