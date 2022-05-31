@@ -2,8 +2,8 @@ package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.Data.CardBag.MemHistory;
-import com.MemWink.Data.CardBag.MemStateConstants;
-import com.MemWink.Data.Util;
+import com.MemWink.util.constant.MemStateConstants;
+import com.MemWink.util.MemWinkUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +27,7 @@ public class HistoryDialog extends JDialog {
         Image tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
         tmpIcon = new ImageIcon(tmpImage);
         historyItem.setIcon(tmpIcon);
-        historyItem.setText("创建于：" + Util.date2String(card.getCreateTime()));
+        historyItem.setText("创建于：" + MemWinkUtil.date2String(card.getCreateTime()));
         historyItem.setForeground(Color.BLACK);
         historyItem.setFont(font);
         historyItem.setSize(300, 30);
@@ -56,7 +56,7 @@ public class HistoryDialog extends JDialog {
             }
             historyItem.setText("<html><body><font size=\"5\">第" + num + "次："
                     + MemStateConstants.getStageLabel(i.preState) + "→" + MemStateConstants.getStageLabel(i.afterState)
-                    + "</font><br><font size=\"3\" color=\"gray\">" + Util.date2String(card.getCreateTime()) + "</font></body></html>");
+                    + "</font><br><font size=\"3\" color=\"gray\">" + MemWinkUtil.date2String(card.getCreateTime()) + "</font></body></html>");
             // historyItem.setFont(font);
             historyItem.setSize(280, 45);
             historyItem.setLocation(0, 45 * num);

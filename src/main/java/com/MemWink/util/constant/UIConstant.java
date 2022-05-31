@@ -1,4 +1,4 @@
-package com.MemWink.UI;
+package com.MemWink.util.constant;
 
 import javax.swing.*;
 import java.awt.*;

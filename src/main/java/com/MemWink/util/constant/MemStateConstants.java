@@ -1,4 +1,4 @@
-package com.MemWink.Data.CardBag;
+package com.MemWink.util.constant;
 
 import java.io.Serializable;
 

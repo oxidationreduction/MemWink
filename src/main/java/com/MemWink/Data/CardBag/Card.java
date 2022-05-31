@@ -1,6 +1,7 @@
 package com.MemWink.Data.CardBag;
 
 import com.MemWink.Data.DataManager;
+import com.MemWink.util.constant.MemStateConstants;
 
 import java.awt.*;
 import java.io.Serializable;

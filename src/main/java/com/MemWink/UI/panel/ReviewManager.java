@@ -2,14 +2,13 @@ package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.CardBag.CategorizedCard;
-import com.MemWink.Data.CardBag.MemStateConstants;
+import com.MemWink.util.constant.MemStateConstants;
 import com.MemWink.Data.DataManager;
-import com.MemWink.UI.UIConstant;
+import com.MemWink.util.constant.UIConstant;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
+import java.awt.event.*;
 import java.util.List;
 
 public class ReviewManager extends JPanel {
@@ -23,7 +22,6 @@ public class ReviewManager extends JPanel {
         rememberedNum = 0;
         forgotNum = 0;
         cards = null;
-        System.out.println(cardBag.getCardNeedReview().size());;
         setup();
     }
 
@@ -33,12 +31,12 @@ public class ReviewManager extends JPanel {
 
         removeAll();
         if (cards.size() == 0) {
-            System.out.println("Card size == 0");
+            System.out.println("No cards");
         } else {
-            System.out.println("size != 0");
             reviewPanel = new ReviewPanel(cards.get(0), this);
             reviewPanel.setLocation(0, 0);
             add(reviewPanel);
+            reviewPanel.requestFocus();
             updateUI();
         }
 
@@ -55,10 +53,11 @@ public class ReviewManager extends JPanel {
     }
 
     public void update() {
+        setup();
         reviewPanel.update();
         setSize(new Dimension(
                 UIConstant.windowWidth - 95,
-                UIConstant.windowHeight - 180)
+                UIConstant.windowHeight - 100)
         );
     }
 
@@ -66,12 +65,13 @@ public class ReviewManager extends JPanel {
 
     public static void main(String[] args) {
         DataManager.init();
-        DataManager.addCardBag("A", Color.gray, 20);
-        DataManager.provideCardBag("A").addCard("Front\ncontent", "Back", true, MemStateConstants.newCard, false, null);
+        DataManager.addCardBag("C", Color.gray, 20);
+        for (int i = 0; i < 3; i++)
+            DataManager.provideCardBag("C").addCard("Front\ncontent", "Back", true, MemStateConstants.newCard, false, null);
         JFrame frame = new JFrame();
         frame.setLayout(null);
         frame.setSize(1280, 720);
-        ReviewManager tmp = new ReviewManager(DataManager.provideCardBag("A"));
+        ReviewManager tmp = new ReviewManager(DataManager.provideCardBag("C"));
         tmp.setLocation(50, 25);
         frame.add(tmp);
 
@@ -83,8 +83,7 @@ public class ReviewManager extends JPanel {
                 tmp.update();
             }
         });
-        frame.addKeyListener(tmp.reviewPanel.getKeyAdapter());
-        tmp.requestFocus();
         frame.setVisible(true);
     }
 }
+

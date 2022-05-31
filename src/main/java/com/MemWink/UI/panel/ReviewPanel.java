@@ -1,20 +1,14 @@
 package com.MemWink.UI.panel;
 
-import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.CardBag.CategorizedCard;
-import com.MemWink.Data.CardBag.MemStateConstants;
-import com.MemWink.Data.Util;
-import com.MemWink.UI.UIConstant;
+import com.MemWink.util.constant.MemStateConstants;
+import com.MemWink.util.MemWinkUtil;
 import com.MemWink.UI.component.RoundedRectangle;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.util.Date;
-import java.util.List;
 
 public class ReviewPanel extends CardContent implements ActionListener {
     private Timer timer = new Timer(2000, this);
@@ -23,10 +17,13 @@ public class ReviewPanel extends CardContent implements ActionListener {
     public ReviewPanel(CategorizedCard card, ReviewManager reviewManager) {
         super(card);
         this.reviewManager = reviewManager;
+        this.setFocusable(true);
+        this.addKeyListener(this);
         setup();
     }
     private void setup() {
         isShowBack = false;
+        isReview = true;
         // timePanel
         {
             timePanel = new RoundedRectangle(110, 60, 10, Color.WHITE);
@@ -58,9 +55,12 @@ public class ReviewPanel extends CardContent implements ActionListener {
         // rememberedButton
         {
             rememberedButton = new JButton("记住了");
-            rememberedButton.setIcon(Util.getScaledIcon("红叉", 25, 25));
-            rememberedButton.setBackground(Color.GREEN);
-            rememberedButton.setForeground(Color.WHITE);
+            rememberedButton.setHorizontalTextPosition(SwingConstants.RIGHT);
+            rememberedButton.setVerticalTextPosition(SwingConstants.CENTER);
+            rememberedButton.setFont(new Font("微软雅黑", Font.PLAIN, 12));
+            rememberedButton.setIcon(MemWinkUtil.getScaledIcon("绿勾", 12, 12));
+            // rememberedButton.setBackground(Color.GREEN);
+            // rememberedButton.setForeground(Color.WHITE);
             rememberedButton.setSize(100, 45);
             rememberedButton.setLocation(
                     frontPanel.getWidth() - 100, frontPanel.getHeight() + 5);
@@ -77,12 +77,14 @@ public class ReviewPanel extends CardContent implements ActionListener {
         // forgotButton
         {
             forgotButton= new JButton("没记住");
-            forgotButton.setIcon(Util.getScaledIcon("绿勾", 25, 25));
-            forgotButton.setBackground(Color.RED);
-            forgotButton.setForeground(Color.WHITE);
+            forgotButton.setVerticalTextPosition(SwingConstants.CENTER);
+            forgotButton.setHorizontalTextPosition(SwingConstants.RIGHT);
+            forgotButton.setFont(new Font("微软雅黑", Font.PLAIN, 12));
+            forgotButton.setIcon(MemWinkUtil.getScaledIcon("红叉", 6, 6));
+            forgotButton.setIconTextGap(5);
             forgotButton.setSize(100, 45);
             forgotButton.setLocation(
-                    backPanel.getX(), frontPanel.getHeight() + 5);
+                    backPanel.getX(), middlePanel.getHeight() - 50);
             forgotButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -92,19 +94,19 @@ public class ReviewPanel extends CardContent implements ActionListener {
             });
         }
         middlePanel.add(forgotButton);
+        // frontPanel.setSize(frontPanel.getWidth(), (int) Math.round(frontPanel.getHeight() * 0.9));
+        // frontPanel.setSize(backPanel.getWidth(), (int) Math.round(backPanel.getHeight()));
         setVisible(true);
         update();
-        System.out.println(ReviewPanel.class + " setup complete");
     }
 
     @Override
     public void update() {
-        System.out.println("Update at " + new Date());
         super.update();
         forgotButton.setLocation(
-                backPanel.getX(), frontPanel.getHeight() + 5);
+                backPanel.getX(), rightPanel.getHeight() - 55);
         rememberedButton.setLocation(
-                frontPanel.getWidth() - 100, frontPanel.getHeight() + 5);
+                frontPanel.getX() + frontPanel.getWidth() - 100, rightPanel.getHeight() - 55);
         isShowBack = isTimeUp() || isShowBack;
         if (isShowBack) {
             timePanel.setVisible(false);
@@ -154,25 +156,6 @@ public class ReviewPanel extends CardContent implements ActionListener {
         }
     }
 
-    public KeyAdapter getKeyAdapter() {
-        return new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                int code = e.getKeyCode();
-                if (code == KeyEvent.VK_UP) {
-                    isShowBack = true;
-                } else if (code == KeyEvent.VK_LEFT) {
-                    card.remembered();
-                    reviewManager.remembered();
-                } else if (code == KeyEvent.VK_RIGHT) {
-                    card.forget();
-                    reviewManager.forget();
-                }
-                System.out.println(code + " pressed.");
-            }
-        };
-    }
-
     JButton rememberedButton;
     JButton forgotButton;
     JPanel timePanel;
@@ -192,5 +175,20 @@ public class ReviewPanel extends CardContent implements ActionListener {
             endTime.setTime(new Date().getTime() + 5000);
         }
         timer.start();
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int code = e.getKeyCode();
+        if (code == KeyEvent.VK_UP) {
+            isShowBack = true;
+        } else if (code == KeyEvent.VK_LEFT) {
+            card.remembered();
+            reviewManager.remembered();
+        } else if (code == KeyEvent.VK_RIGHT) {
+            card.forget();
+            reviewManager.forget();
+        }
+        update();
     }
 }

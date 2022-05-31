@@ -1,7 +1,7 @@
 package com.MemWink.UI.component;
 
 import com.MemWink.Data.CardBag.CardBag;
-import com.MemWink.UI.UIConstant;
+import com.MemWink.util.constant.UIConstant;
 
 import javax.swing.*;
 import java.awt.*;

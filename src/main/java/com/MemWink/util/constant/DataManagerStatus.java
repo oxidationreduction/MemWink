@@ -1,4 +1,4 @@
-package com.MemWink.Data;
+package com.MemWink.util.constant;
 
 /**
  * 用于汇总 {@code DataManager} 的状态返回值

@@ -1,13 +1,11 @@
 package com.MemWink;
 
-import cn.hutool.setting.Setting;
 import com.MemWink.Data.CardBag.*;
 import com.MemWink.Data.DataManager;
-import com.MemWink.UI.UIConstant;
-import com.MemWink.UI.UIManager;
+import com.MemWink.util.constant.UIConstant;
+import com.MemWink.util.constant.MemStateConstants;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;

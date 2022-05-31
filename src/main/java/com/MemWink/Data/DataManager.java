@@ -2,7 +2,8 @@ package com.MemWink.Data;
 
 import com.MemWink.Data.CardBag.*;
 import com.MemWink.Data.History.Usage;
-import com.MemWink.util.SystemUtil;
+import com.MemWink.util.constant.DataManagerStatus;
+import com.MemWink.util.constant.SystemUtil;
 
 import java.awt.*;
 import java.io.*;

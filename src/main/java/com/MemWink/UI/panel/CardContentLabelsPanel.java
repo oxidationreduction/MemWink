@@ -1,8 +1,5 @@
 package com.MemWink.UI.panel;
 
-import com.MemWink.Data.CardBag.CategorizedCard;
-import com.MemWink.UI.UIConstant;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
