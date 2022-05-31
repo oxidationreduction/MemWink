@@ -1,6 +1,7 @@
 package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.CardBag.CategorizedCard;
+import com.MemWink.Data.Util;
 import com.MemWink.UI.panel.CardContent;
 
 import javax.swing.*;

@@ -114,8 +114,11 @@ public class MemStateConstants implements Serializable {
     }
     public static String getRememberTimeLabel(int stage) {
         switch (stage) {
-            case -2, -1 -> {
+            case -2 -> {
                 return "1分钟后记忆";
+            }
+            case -1 -> {
+                return "10分钟后记忆";
             }
             case 0 -> {
                 return "择机抽取";

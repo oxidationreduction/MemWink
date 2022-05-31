@@ -16,41 +16,8 @@ import java.awt.event.*;
 import java.util.Objects;
 
 public class CardContent extends JPanel {
-    private boolean isEditLayout = false;
-    private boolean isEditCard = false;
-    private CardBag cardBag;
-    private JPanel leftPanel;
-    private static JPanel middlePanel;
-    private JPanel rightPanel;
-    private JButton categoryButton;
-    private JButton stageButton;
-    private JButton historyButton;
-    private RoundedRectangle frontPanel;
-    private JButton frontHorizenalLeft;
-    private JButton frontHorizenalCenter;
-    private JButton frontHorizenalRight;
-    private JButton backHorizenalLeft;
-    private JButton backHorizenalCenter;
-    private JButton backHorizenalRight;
-    private RoundedRectangle backPanel;
-
-    private RoundedRectangle hidedBackPanel;
-    private JLabel hidedBackLabel = new JLabel("<html><body>点击此处<br>或按[↑]键<br>查看背面<body></html>", JLabel.CENTER);
-
-    private JButton settingButton;
-    private JButton editButton;
-
-    private JButton frontVerticalTop;
-    private JButton frontVerticalCenter;
-    private JButton frontVerticalBottom;
-    private JButton backVerticalTop;
-    private JButton backVerticalCenter;
-    private JButton backVerticalBottom;
-    private JPopupMenu settingMenu;
-    private JMenuItem showBack;
-    private JButton backButton;
-
-    private CategorizedCard card;
+    protected CardBag cardBag;
+    protected CategorizedCard card;
 
     public CardContent(CategorizedCard card) {
         this.card = card;
@@ -88,7 +55,7 @@ public class CardContent extends JPanel {
 
         frontContentLabelsPanel.update();
         backContentLabelsPanel.update();
-        if (isEditLayout) {
+        if (isEditLayout || isReview) {
             frontPanel.setSize(
                     (int) Math.round(middlePanel.getWidth() * 0.45),
                     middlePanel.getHeight() - 75
@@ -152,14 +119,8 @@ public class CardContent extends JPanel {
         backButton.setLocation(5, rightPanel.getHeight()-55);
         if (cardBag.getUiSetting().showBack) {
             showBack.setText("默认隐藏背面");
-            ImageIcon tmpIcon = new ImageIcon("image/手动修改.png");
-            Image tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
-            tmpIcon = new ImageIcon(tmpImage);
         } else {
             showBack.setText("直接显示背面");
-            ImageIcon tmpIcon = new ImageIcon("image/手动修改.png");
-            Image tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
-            tmpIcon = new ImageIcon(tmpImage);
         }
         frontContentLabelsPanel.updateParentSize(frontPanel.getSize());
         frontContentLabelsPanel.updateContent(card.getFrontList());
@@ -169,6 +130,7 @@ public class CardContent extends JPanel {
     }
 
     public void setupUI() {
+        isShowBack = cardBag.getUiSetting().showBack && !isReview;
         setSize(new Dimension(
                 UIConstant.windowWidth - 95,
                 UIConstant.windowHeight - 180)
@@ -890,7 +852,6 @@ public class CardContent extends JPanel {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("进入卡片内容编辑状态");
-                        isEditCard = true;
                         new EditCardDialog(card, CardContent.this);
                         update();
                     }
@@ -1081,6 +1042,7 @@ public class CardContent extends JPanel {
             @Override
             public void keyReleased(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    isShowBack = true;
                     CardContent.this.hidedBackPanel.setVisible(false);
                     CardContent.this.backPanel.setVisible(true);
                     System.out.println("Show back.");
@@ -1121,11 +1083,45 @@ public class CardContent extends JPanel {
         frame.setVisible(true);
     }
 
-    private CardContentLabelsPanel frontContentLabelsPanel;
-    private CardContentLabelsPanel backContentLabelsPanel;
+    public void updateReview(boolean review) {
+        isReview = review;
+        update();
+    }
 
-    private JButton frontFontSizeAddButton;
-    private JButton frontFontSizeMinusButton;
-    private JButton backFontSizeAddButton;
-    private JButton backFontSizeMinusButton;
+    CardContentLabelsPanel frontContentLabelsPanel;
+    CardContentLabelsPanel backContentLabelsPanel;
+    JButton frontFontSizeAddButton;
+    JButton frontFontSizeMinusButton;
+    JButton backFontSizeAddButton;
+    JButton backFontSizeMinusButton;
+     boolean isEditLayout = false;
+    protected boolean isReview = false;
+    protected boolean isShowBack;
+    protected JPanel leftPanel;
+    protected static JPanel middlePanel;
+    protected JPanel rightPanel;
+     JButton categoryButton;
+     JButton stageButton;
+     JButton historyButton;
+    protected RoundedRectangle frontPanel;
+     JButton frontHorizenalLeft;
+     JButton frontHorizenalCenter;
+     JButton frontHorizenalRight;
+     JButton backHorizenalLeft;
+     JButton backHorizenalCenter;
+     JButton backHorizenalRight;
+    protected RoundedRectangle backPanel;
+    protected RoundedRectangle hidedBackPanel;
+     JLabel hidedBackLabel = new JLabel("<html><body>点击此处<br>或按[↑]键<br>查看背面<body></html>", JLabel.CENTER);
+     JButton settingButton;
+     JButton editButton;
+     JButton frontVerticalTop;
+     JButton frontVerticalCenter;
+     JButton frontVerticalBottom;
+     JButton backVerticalTop;
+     JButton backVerticalCenter;
+     JButton backVerticalBottom;
+     JPopupMenu settingMenu;
+     JMenuItem showBack;
+     JButton backButton;
 }
