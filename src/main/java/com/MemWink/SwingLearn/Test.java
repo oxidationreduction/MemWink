@@ -15,11 +15,8 @@ public class Test {
 
     private void init(){
         DataManager.init();
-        MainFrame mainFrame = new MainFrame();
-        ShowAllCards allCards = new ShowAllCards();
+        MainFrame mainFrame = MainFrame.getMainFrame();
         mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
-        allCards.updateUI();
-
 
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

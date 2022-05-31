@@ -34,9 +34,9 @@ public class CardBagPane extends JPanel {
 
     private void thisMouseClicked(MouseEvent e) {
         ShowAllCards allCards = new ShowAllCards();
-        MainFrame.mainPanel.removeAll();
-        MainFrame.mainPanel.add(allCards);
-        MainFrame.mainPanel.updateUI();
+        MainFrame.getMainFrame().mainPanel.removeAll();
+        MainFrame.getMainFrame().mainPanel.add(allCards);
+        MainFrame.getMainFrame().mainPanel.updateUI();
         allCards.setVisible(true);
     }
 
@@ -49,7 +49,7 @@ public class CardBagPane extends JPanel {
         setPreferredSize(new Dimension(170, 130));
         addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseReleased(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 thisMouseClicked(e);
             }
         });

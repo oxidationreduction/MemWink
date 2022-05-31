@@ -12,6 +12,12 @@ import javax.swing.*;
  * @author unknown
  */
 public class MainFrame extends JFrame {
+    private static MainFrame mainFrame = new MainFrame();
+
+    public static MainFrame getMainFrame() {
+        return mainFrame;
+    }
+
     public MainFrame() {
         initComponents();
         setSize(new Dimension(835, 625));
@@ -241,6 +247,6 @@ public class MainFrame extends JFrame {
     public JButton staticticButton;
     public JPanel lowerPanel;
     public JButton helpButton;
-    public static JPanel mainPanel;
+    public JPanel mainPanel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
