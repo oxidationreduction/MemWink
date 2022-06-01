@@ -16,10 +16,8 @@ public class Test {
     private void init(){
         DataManager.init();
         MainFrame mainFrame = MainFrame.getMainFrame();
-        //mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
 
-        MemoryCompletionPane memoryCompletionPane = new MemoryCompletionPane();
-        mainFrame.mainPanel.add(memoryCompletionPane);
+        mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

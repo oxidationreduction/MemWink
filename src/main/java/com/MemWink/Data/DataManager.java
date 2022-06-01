@@ -181,7 +181,7 @@ public class DataManager {
      * @param name 卡包名
      * @param color 新颜色
      */
-    public void updateColor(String name, Color color) {
+    public static void updateColor(String name, Color color) {
         for (CardBag i : cardBags) {
             if (Objects.equals(i.getName(), name)) {
                 i.setColor(color);

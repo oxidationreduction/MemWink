@@ -6,6 +6,7 @@ package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.dialog.ModifyDialog;
 import com.MemWink.UI.frame.MainFrame;
 
 import java.awt.*;
@@ -20,8 +21,10 @@ public class CardBagPane extends JPanel {
         initComponents();
         cardBagPaneTop = new CardBagPaneTop();
         this.add(cardBagPaneTop,BorderLayout.CENTER);
-        menu.add(item);
-        this.item.addActionListener(new itemListener(this));
+        menu.add(item1);
+        this.item1.addActionListener(new item1Listener(this));
+        menu.add(item2);
+        this.item2.addActionListener(new item2Listener(this));
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -33,11 +36,13 @@ public class CardBagPane extends JPanel {
     }
 
     private void thisMouseClicked(MouseEvent e) {
-        ShowAllCards allCards = new ShowAllCards();
-        MainFrame.getMainFrame().mainPanel.removeAll();
-        MainFrame.getMainFrame().mainPanel.add(allCards);
-        MainFrame.getMainFrame().mainPanel.updateUI();
-        allCards.setVisible(true);
+        if ( e.getButton() == MouseEvent.BUTTON1 ){
+            ShowAllCards allCards = new ShowAllCards();
+            MainFrame.getMainFrame().mainPanel.removeAll();
+            MainFrame.getMainFrame().mainPanel.add(allCards);
+            MainFrame.getMainFrame().mainPanel.updateUI();
+            allCards.setVisible(true);
+        }
     }
 
 
@@ -68,12 +73,26 @@ public class CardBagPane extends JPanel {
 
     public CardBagPaneTop cardBagPaneTop;
     public JPopupMenu menu = new JPopupMenu();
-    public JMenuItem item = new JMenuItem("删除");
+    public JMenuItem item1 = new JMenuItem("修改");
+    public JMenuItem item2 = new JMenuItem("删除");
     public CardBag cardBag;
-    private class itemListener implements ActionListener {
+    private class item1Listener implements ActionListener {
+         private CardBagPane panel;
+
+         public item1Listener(CardBagPane panel){
+             this.panel = panel;
+         }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ModifyDialog modifyDialog = new ModifyDialog(panel);
+            modifyDialog.setVisible(true);
+        }
+    }
+    private class item2Listener implements ActionListener {
         private CardBagPane panel;
 
-        public itemListener(CardBagPane panel){
+        public item2Listener(CardBagPane panel){
             this.panel = panel;
         }
 
