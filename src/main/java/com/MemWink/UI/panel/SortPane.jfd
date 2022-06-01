@@ -7,17 +7,46 @@ new FormModel {
 			name: "this"
 			"maximumSize": new java.awt.Dimension( 10, 17 )
 			"minimumSize": new java.awt.Dimension( 10, 17 )
-			"preferredSize": new java.awt.Dimension( 10, 17 )
-			"border": new javax.swing.border.EtchedBorder( 1, null, null )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label1"
-				"text": "种类"
+			"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+			"preferredSize": new java.awt.Dimension( 150, 21 )
+			"background": sfield java.awt.Color lightGray
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel1"
+				"background": sfield java.awt.Color lightGray
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "种类"
+					"background": sfield java.awt.Color lightGray
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+				add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
+					name: "hSpacer1"
+					"background": sfield java.awt.Color lightGray
+					"preferredSize": new java.awt.Dimension( 11, 10 )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "West"
+				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "West"
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label2"
-				"text": "number"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel2"
+				"background": sfield java.awt.Color lightGray
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "number"
+					"background": sfield java.awt.Color lightGray
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+				add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
+					name: "hSpacer2"
+					"background": sfield java.awt.Color lightGray
+					"preferredSize": new java.awt.Dimension( 11, 10 )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "East"
+				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "East"
 			} )
