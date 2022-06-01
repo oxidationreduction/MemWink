@@ -141,7 +141,7 @@ public class MemoryCompletionPane extends JPanel {
 
             //---- button1 ----
             button1.setText("\u786e\u8ba4");
-            button1.setBackground(new Color(102, 255, 102));
+            button1.setBackground(new Color(0, 204, 51));
             button1.setForeground(new Color(238, 238, 238));
             panel2.add(button1, BorderLayout.CENTER);
 
@@ -165,17 +165,27 @@ public class MemoryCompletionPane extends JPanel {
 
             //======== panel4 ========
             {
-                panel4.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
+                panel4.setBorder(null);
+                panel4.setBackground(Color.lightGray);
                 panel4.setLayout(new BorderLayout());
 
                 //======== panel8 ========
                 {
+                    panel8.setBackground(Color.lightGray);
                     panel8.setLayout(new BorderLayout());
 
                     //---- label2 ----
                     label2.setText("\u672c\u6b21\u5b66\u4e60");
                     panel8.add(label2, BorderLayout.CENTER);
+
+                    //---- hSpacer5 ----
+                    hSpacer5.setPreferredSize(new Dimension(15, 10));
+                    hSpacer5.setBackground(Color.lightGray);
                     panel8.add(hSpacer5, BorderLayout.WEST);
+
+                    //---- vSpacer3 ----
+                    vSpacer3.setBackground(Color.lightGray);
+                    vSpacer3.setPreferredSize(new Dimension(10, 15));
                     panel8.add(vSpacer3, BorderLayout.NORTH);
                 }
                 panel4.add(panel8, BorderLayout.NORTH);
@@ -183,22 +193,39 @@ public class MemoryCompletionPane extends JPanel {
                 //---- label3 ----
                 label3.setText("number");
                 label3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 30));
+                label3.setBackground(Color.lightGray);
                 panel4.add(label3, BorderLayout.CENTER);
+
+                //---- hSpacer6 ----
+                hSpacer6.setBackground(Color.lightGray);
                 panel4.add(hSpacer6, BorderLayout.WEST);
 
                 //---- vSpacer4 ----
                 vSpacer4.setMinimumSize(new Dimension(12, 60));
+                vSpacer4.setBackground(Color.lightGray);
                 panel4.add(vSpacer4, BorderLayout.SOUTH);
 
                 //======== panel9 ========
                 {
+                    panel9.setBackground(Color.lightGray);
                     panel9.setLayout(new BorderLayout());
 
                     //---- label4 ----
                     label4.setText("\u5f20");
+                    label4.setBackground(Color.lightGray);
                     panel9.add(label4, BorderLayout.CENTER);
+
+                    //---- hSpacer7 ----
+                    hSpacer7.setBackground(Color.lightGray);
+                    hSpacer7.setPreferredSize(new Dimension(20, 10));
                     panel9.add(hSpacer7, BorderLayout.EAST);
+
+                    //---- vSpacer5 ----
+                    vSpacer5.setBackground(Color.lightGray);
                     panel9.add(vSpacer5, BorderLayout.SOUTH);
+
+                    //---- vSpacer6 ----
+                    vSpacer6.setBackground(Color.lightGray);
                     panel9.add(vSpacer6, BorderLayout.NORTH);
                 }
                 panel4.add(panel9, BorderLayout.EAST);
@@ -212,21 +239,32 @@ public class MemoryCompletionPane extends JPanel {
 
                 //======== panel13 ========
                 {
-                    panel13.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
+                    panel13.setBorder(null);
+                    panel13.setBackground(Color.lightGray);
                     panel13.setLayout(new BorderLayout());
 
                     //======== panel14 ========
                     {
+                        panel14.setBackground(Color.lightGray);
                         panel14.setLayout(new BorderLayout());
 
                         //======== panel15 ========
                         {
+                            panel15.setBackground(Color.lightGray);
                             panel15.setLayout(new BorderLayout());
 
                             //---- label8 ----
                             label8.setText("\u8bb0\u4f4f");
                             panel15.add(label8, BorderLayout.CENTER);
+
+                            //---- hSpacer11 ----
+                            hSpacer11.setPreferredSize(new Dimension(15, 10));
+                            hSpacer11.setBackground(Color.lightGray);
                             panel15.add(hSpacer11, BorderLayout.WEST);
+
+                            //---- vSpacer11 ----
+                            vSpacer11.setPreferredSize(new Dimension(10, 15));
+                            vSpacer11.setBackground(Color.lightGray);
                             panel15.add(vSpacer11, BorderLayout.NORTH);
                         }
                         panel14.add(panel15, BorderLayout.NORTH);
@@ -234,19 +272,37 @@ public class MemoryCompletionPane extends JPanel {
                         //---- label9 ----
                         label9.setText("number");
                         label9.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 12));
+                        label9.setBackground(Color.lightGray);
                         panel14.add(label9, BorderLayout.CENTER);
+
+                        //---- hSpacer12 ----
+                        hSpacer12.setBackground(Color.lightGray);
                         panel14.add(hSpacer12, BorderLayout.WEST);
+
+                        //---- vSpacer12 ----
+                        vSpacer12.setBackground(Color.lightGray);
                         panel14.add(vSpacer12, BorderLayout.SOUTH);
 
                         //======== panel16 ========
                         {
+                            panel16.setBackground(Color.lightGray);
                             panel16.setLayout(new BorderLayout());
 
                             //---- label10 ----
                             label10.setText("\u5f20");
+                            label10.setBackground(Color.lightGray);
                             panel16.add(label10, BorderLayout.CENTER);
+
+                            //---- hSpacer13 ----
+                            hSpacer13.setBackground(Color.lightGray);
                             panel16.add(hSpacer13, BorderLayout.EAST);
+
+                            //---- vSpacer13 ----
+                            vSpacer13.setBackground(Color.lightGray);
                             panel16.add(vSpacer13, BorderLayout.SOUTH);
+
+                            //---- vSpacer14 ----
+                            vSpacer14.setBackground(Color.lightGray);
                             panel16.add(vSpacer14, BorderLayout.NORTH);
                         }
                         panel14.add(panel16, BorderLayout.EAST);
@@ -257,21 +313,33 @@ public class MemoryCompletionPane extends JPanel {
 
                 //======== panel17 ========
                 {
-                    panel17.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
+                    panel17.setBorder(null);
+                    panel17.setBackground(Color.lightGray);
                     panel17.setLayout(new BorderLayout());
 
                     //======== panel18 ========
                     {
+                        panel18.setBackground(Color.lightGray);
                         panel18.setLayout(new BorderLayout());
 
                         //======== panel19 ========
                         {
+                            panel19.setBackground(Color.lightGray);
                             panel19.setLayout(new BorderLayout());
 
                             //---- label11 ----
                             label11.setText("\u5fd8\u8bb0");
+                            label11.setBackground(Color.lightGray);
                             panel19.add(label11, BorderLayout.CENTER);
+
+                            //---- hSpacer14 ----
+                            hSpacer14.setBackground(Color.lightGray);
+                            hSpacer14.setPreferredSize(new Dimension(15, 10));
                             panel19.add(hSpacer14, BorderLayout.WEST);
+
+                            //---- vSpacer15 ----
+                            vSpacer15.setBackground(Color.lightGray);
+                            vSpacer15.setPreferredSize(new Dimension(10, 15));
                             panel19.add(vSpacer15, BorderLayout.NORTH);
                         }
                         panel18.add(panel19, BorderLayout.NORTH);
@@ -279,19 +347,37 @@ public class MemoryCompletionPane extends JPanel {
                         //---- label12 ----
                         label12.setText("number");
                         label12.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 12));
+                        label12.setBackground(Color.lightGray);
                         panel18.add(label12, BorderLayout.CENTER);
+
+                        //---- hSpacer15 ----
+                        hSpacer15.setBackground(Color.lightGray);
                         panel18.add(hSpacer15, BorderLayout.WEST);
+
+                        //---- vSpacer16 ----
+                        vSpacer16.setBackground(Color.lightGray);
                         panel18.add(vSpacer16, BorderLayout.SOUTH);
 
                         //======== panel20 ========
                         {
+                            panel20.setBackground(Color.lightGray);
                             panel20.setLayout(new BorderLayout());
 
                             //---- label13 ----
                             label13.setText("\u5f20");
+                            label13.setBackground(Color.lightGray);
                             panel20.add(label13, BorderLayout.CENTER);
+
+                            //---- hSpacer16 ----
+                            hSpacer16.setBackground(Color.lightGray);
                             panel20.add(hSpacer16, BorderLayout.EAST);
+
+                            //---- vSpacer17 ----
+                            vSpacer17.setBackground(Color.lightGray);
                             panel20.add(vSpacer17, BorderLayout.SOUTH);
+
+                            //---- vSpacer18 ----
+                            vSpacer18.setBackground(Color.lightGray);
                             panel20.add(vSpacer18, BorderLayout.NORTH);
                         }
                         panel18.add(panel20, BorderLayout.EAST);
@@ -305,21 +391,33 @@ public class MemoryCompletionPane extends JPanel {
 
             //======== panel6 ========
             {
-                panel6.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
+                panel6.setBorder(null);
+                panel6.setBackground(Color.lightGray);
                 panel6.setLayout(new BorderLayout());
 
                 //======== panel21 ========
                 {
+                    panel21.setBackground(Color.lightGray);
                     panel21.setLayout(new BorderLayout());
 
                     //======== panel22 ========
                     {
+                        panel22.setBackground(Color.lightGray);
                         panel22.setLayout(new BorderLayout());
 
                         //---- label14 ----
                         label14.setText("\u9057\u5fd8\u7387");
+                        label14.setBackground(Color.lightGray);
                         panel22.add(label14, BorderLayout.CENTER);
+
+                        //---- hSpacer18 ----
+                        hSpacer18.setBackground(Color.lightGray);
+                        hSpacer18.setPreferredSize(new Dimension(15, 10));
                         panel22.add(hSpacer18, BorderLayout.WEST);
+
+                        //---- vSpacer19 ----
+                        vSpacer19.setBackground(Color.lightGray);
+                        vSpacer19.setPreferredSize(new Dimension(10, 15));
                         panel22.add(vSpacer19, BorderLayout.NORTH);
                     }
                     panel21.add(panel22, BorderLayout.NORTH);
@@ -327,51 +425,91 @@ public class MemoryCompletionPane extends JPanel {
                     //---- label15 ----
                     label15.setText("number");
                     label15.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 30));
+                    label15.setBackground(Color.lightGray);
                     panel21.add(label15, BorderLayout.CENTER);
+
+                    //---- hSpacer19 ----
+                    hSpacer19.setBackground(Color.lightGray);
                     panel21.add(hSpacer19, BorderLayout.WEST);
+
+                    //---- vSpacer20 ----
+                    vSpacer20.setBackground(Color.lightGray);
                     panel21.add(vSpacer20, BorderLayout.SOUTH);
                 }
                 panel6.add(panel21, BorderLayout.CENTER);
+
+                //---- hSpacer20 ----
+                hSpacer20.setBackground(Color.lightGray);
                 panel6.add(hSpacer20, BorderLayout.EAST);
             }
             panel3.add(panel6);
 
             //======== panel7 ========
             {
-                panel7.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
+                panel7.setBorder(null);
+                panel7.setBackground(Color.lightGray);
                 panel7.setLayout(new BorderLayout());
 
                 //======== panel10 ========
                 {
+                    panel10.setBackground(Color.lightGray);
                     panel10.setLayout(new BorderLayout());
 
                     //======== panel11 ========
                     {
+                        panel11.setBackground(Color.lightGray);
                         panel11.setLayout(new BorderLayout());
 
                         //---- label5 ----
                         label5.setText("\u4eca\u5929\u8fd8\u5269");
+                        label5.setBackground(Color.lightGray);
                         panel11.add(label5, BorderLayout.CENTER);
+
+                        //---- hSpacer8 ----
+                        hSpacer8.setBackground(Color.lightGray);
+                        hSpacer8.setPreferredSize(new Dimension(15, 10));
                         panel11.add(hSpacer8, BorderLayout.WEST);
+
+                        //---- vSpacer7 ----
+                        vSpacer7.setBackground(Color.lightGray);
+                        vSpacer7.setPreferredSize(new Dimension(10, 15));
                         panel11.add(vSpacer7, BorderLayout.NORTH);
                     }
                     panel10.add(panel11, BorderLayout.NORTH);
 
                     //---- label6 ----
                     label6.setText("number");
+                    label6.setBackground(Color.lightGray);
                     panel10.add(label6, BorderLayout.CENTER);
+
+                    //---- hSpacer9 ----
+                    hSpacer9.setBackground(Color.lightGray);
                     panel10.add(hSpacer9, BorderLayout.WEST);
+
+                    //---- vSpacer8 ----
+                    vSpacer8.setBackground(Color.lightGray);
                     panel10.add(vSpacer8, BorderLayout.SOUTH);
 
                     //======== panel12 ========
                     {
+                        panel12.setBackground(Color.lightGray);
                         panel12.setLayout(new BorderLayout());
 
                         //---- label7 ----
                         label7.setText("\u5f20");
+                        label7.setBackground(Color.lightGray);
                         panel12.add(label7, BorderLayout.CENTER);
+
+                        //---- hSpacer10 ----
+                        hSpacer10.setBackground(Color.lightGray);
                         panel12.add(hSpacer10, BorderLayout.EAST);
+
+                        //---- vSpacer9 ----
+                        vSpacer9.setBackground(Color.lightGray);
                         panel12.add(vSpacer9, BorderLayout.SOUTH);
+
+                        //---- vSpacer10 ----
+                        vSpacer10.setBackground(Color.lightGray);
                         panel12.add(vSpacer10, BorderLayout.NORTH);
                     }
                     panel10.add(panel12, BorderLayout.EAST);

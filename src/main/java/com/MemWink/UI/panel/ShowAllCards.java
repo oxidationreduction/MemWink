@@ -30,16 +30,13 @@ public class ShowAllCards extends JPanel {
         SortPane sortPane1 = new SortPane();
         SortPane sortPane2 = new SortPane();
         SortPane sortPane3 = new SortPane();
+        SortPane sortPane4 = new SortPane();
+        SortPane sortPane5 = new SortPane();
         this.panel8.add(sortPane1);
         this.panel8.add(sortPane2);
         this.panel8.add(sortPane3);
-    }
-    private void button1(ActionEvent e) {
-        AddPane pane = new AddPane();
-        pane.setVisible(true);
-        JButton tmp = new JButton();
-        tmp.setLocation(300, 200);
-        add(tmp);
+        this.panel8.add(sortPane4);
+        this.panel8.add(sortPane5);
     }
     //添加菜单的两个监听
 
@@ -65,6 +62,7 @@ public class ShowAllCards extends JPanel {
         panel6 = new JPanel();
         panel7 = new JPanel();
         label3 = new JLabel();
+        scrollPane2 = new JScrollPane();
         panel8 = new JPanel();
         panel4 = new JPanel();
         label1 = new JLabel();
@@ -138,13 +136,19 @@ public class ShowAllCards extends JPanel {
                 label3.setText("\u5206\u7c7b");
                 label3.setHorizontalTextPosition(SwingConstants.RIGHT);
                 label3.setHorizontalAlignment(SwingConstants.RIGHT);
-                panel7.add(label3, BorderLayout.NORTH);
+                panel7.add(label3, BorderLayout.PAGE_START);
 
-                //======== panel8 ========
+                //======== scrollPane2 ========
                 {
-                    panel8.setLayout(new GridLayout(0, 1, 0, 18));
+
+                    //======== panel8 ========
+                    {
+                        panel8.setPreferredSize(new Dimension(40, 10));
+                        panel8.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 5));
+                    }
+                    scrollPane2.setViewportView(panel8);
                 }
-                panel7.add(panel8, BorderLayout.CENTER);
+                panel7.add(scrollPane2, BorderLayout.CENTER);
             }
             panel3.add(panel7, BorderLayout.CENTER);
         }
@@ -212,7 +216,7 @@ public class ShowAllCards extends JPanel {
                     menu2.setHorizontalAlignment(SwingConstants.RIGHT);
 
                     //---- menuItem1 ----
-                    menuItem1.setText("\u65b0\u5efa\u5361\u5305");
+                    menuItem1.setText("\u65b0\u5efa\u5361\u7247");
                     menuItem1.addActionListener(e -> menuItem1(e));
                     menu2.add(menuItem1);
 
@@ -236,6 +240,7 @@ public class ShowAllCards extends JPanel {
     private JPanel panel6;
     private JPanel panel7;
     private JLabel label3;
+    private JScrollPane scrollPane2;
     private JPanel panel8;
     private JPanel panel4;
     private JLabel label1;

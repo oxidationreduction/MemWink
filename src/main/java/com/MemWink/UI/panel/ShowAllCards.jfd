@@ -46,14 +46,16 @@ new FormModel {
 						"horizontalTextPosition": 4
 						"horizontalAlignment": 4
 					}, new FormLayoutConstraints( class java.lang.String ) {
-						"value": "North"
+						"value": "First"
 					} )
-					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
-						"columns": 1
-						"rows": 0
-						"vgap": 18
-					} ) {
-						name: "panel8"
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane2"
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+							"hgap": 0
+						} ) {
+							name: "panel8"
+							"preferredSize": new java.awt.Dimension( 40, 10 )
+						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "Center"
 					} )
@@ -127,7 +129,7 @@ new FormModel {
 						"horizontalAlignment": 4
 						add( new FormComponent( "javax.swing.JMenuItem" ) {
 							name: "menuItem1"
-							"text": "新建卡包"
+							"text": "新建卡片"
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem1", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JMenuItem" ) {

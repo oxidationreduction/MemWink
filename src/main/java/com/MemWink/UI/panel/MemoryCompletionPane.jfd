@@ -43,7 +43,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button1"
 					"text": "确认"
-					"background": new java.awt.Color( 102, 255, 102, 255 )
+					"background": new java.awt.Color( 0, 204, 51, 255 )
 					"foreground": new javax.swing.plaf.ColorUIResource( 238, 238, 238 )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "Center"
@@ -78,9 +78,11 @@ new FormModel {
 				name: "panel3"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 					name: "panel4"
-					"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 1, null, null, null, null )
+					"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"background": sfield java.awt.Color lightGray
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 						name: "panel8"
+						"background": sfield java.awt.Color lightGray
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "label2"
 							"text": "本次学习"
@@ -89,11 +91,15 @@ new FormModel {
 						} )
 						add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 							name: "hSpacer5"
+							"preferredSize": new java.awt.Dimension( 15, 10 )
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "West"
 						} )
 						add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 							name: "vSpacer3"
+							"background": sfield java.awt.Color lightGray
+							"preferredSize": new java.awt.Dimension( 10, 15 )
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "North"
 						} )
@@ -104,40 +110,49 @@ new FormModel {
 						name: "label3"
 						"text": "number"
 						"font": new java.awt.Font( "Microsoft YaHei UI", 0, 30 )
+						"background": sfield java.awt.Color lightGray
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "Center"
 					} )
 					add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 						name: "hSpacer6"
+						"background": sfield java.awt.Color lightGray
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "West"
 					} )
 					add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 						name: "vSpacer4"
 						"minimumSize": new java.awt.Dimension( 12, 60 )
+						"background": sfield java.awt.Color lightGray
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "South"
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 						name: "panel9"
+						"background": sfield java.awt.Color lightGray
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "label4"
 							"text": "张"
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "Center"
 						} )
 						add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 							name: "hSpacer7"
+							"background": sfield java.awt.Color lightGray
+							"preferredSize": new java.awt.Dimension( 20, 10 )
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "East"
 						} )
 						add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 							name: "vSpacer5"
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "South"
 						} )
 						add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 							name: "vSpacer6"
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "North"
 						} )
@@ -153,11 +168,14 @@ new FormModel {
 					"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 						name: "panel13"
-						"border": #SoftBevelBorder0
+						"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"background": sfield java.awt.Color lightGray
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 							name: "panel14"
+							"background": sfield java.awt.Color lightGray
 							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 								name: "panel15"
+								"background": sfield java.awt.Color lightGray
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label8"
 									"text": "记住"
@@ -166,11 +184,15 @@ new FormModel {
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 									name: "hSpacer11"
+									"preferredSize": new java.awt.Dimension( 15, 10 )
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "West"
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 									name: "vSpacer11"
+									"preferredSize": new java.awt.Dimension( 10, 15 )
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "North"
 								} )
@@ -181,39 +203,47 @@ new FormModel {
 								name: "label9"
 								"text": "number"
 								"font": new java.awt.Font( "Microsoft YaHei UI", 0, 12 )
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "Center"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 								name: "hSpacer12"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "West"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 								name: "vSpacer12"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "South"
 							} )
 							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 								name: "panel16"
+								"background": sfield java.awt.Color lightGray
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label10"
 									"text": "张"
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "Center"
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 									name: "hSpacer13"
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "East"
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 									name: "vSpacer13"
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "South"
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 									name: "vSpacer14"
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "North"
 								} )
@@ -228,24 +258,32 @@ new FormModel {
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 						name: "panel17"
-						"border": #SoftBevelBorder0
+						"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"background": sfield java.awt.Color lightGray
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 							name: "panel18"
+							"background": sfield java.awt.Color lightGray
 							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 								name: "panel19"
+								"background": sfield java.awt.Color lightGray
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label11"
 									"text": "忘记"
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "Center"
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 									name: "hSpacer14"
+									"background": sfield java.awt.Color lightGray
+									"preferredSize": new java.awt.Dimension( 15, 10 )
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "West"
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 									name: "vSpacer15"
+									"background": sfield java.awt.Color lightGray
+									"preferredSize": new java.awt.Dimension( 10, 15 )
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "North"
 								} )
@@ -256,39 +294,47 @@ new FormModel {
 								name: "label12"
 								"text": "number"
 								"font": new java.awt.Font( "Microsoft YaHei UI", 0, 12 )
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "Center"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 								name: "hSpacer15"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "West"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 								name: "vSpacer16"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "South"
 							} )
 							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 								name: "panel20"
+								"background": sfield java.awt.Color lightGray
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label13"
 									"text": "张"
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "Center"
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 									name: "hSpacer16"
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "East"
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 									name: "vSpacer17"
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "South"
 								} )
 								add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 									name: "vSpacer18"
+									"background": sfield java.awt.Color lightGray
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "North"
 								} )
@@ -309,24 +355,32 @@ new FormModel {
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 					name: "panel6"
-					"border": #SoftBevelBorder0
+					"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"background": sfield java.awt.Color lightGray
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 						name: "panel21"
+						"background": sfield java.awt.Color lightGray
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 							name: "panel22"
+							"background": sfield java.awt.Color lightGray
 							add( new FormComponent( "javax.swing.JLabel" ) {
 								name: "label14"
 								"text": "遗忘率"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "Center"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 								name: "hSpacer18"
+								"background": sfield java.awt.Color lightGray
+								"preferredSize": new java.awt.Dimension( 15, 10 )
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "West"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 								name: "vSpacer19"
+								"background": sfield java.awt.Color lightGray
+								"preferredSize": new java.awt.Dimension( 10, 15 )
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "North"
 							} )
@@ -337,16 +391,19 @@ new FormModel {
 							name: "label15"
 							"text": "number"
 							"font": new java.awt.Font( "Microsoft YaHei UI", 0, 30 )
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "Center"
 						} )
 						add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 							name: "hSpacer19"
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "West"
 						} )
 						add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 							name: "vSpacer20"
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "South"
 						} )
@@ -355,30 +412,39 @@ new FormModel {
 					} )
 					add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 						name: "hSpacer20"
+						"background": sfield java.awt.Color lightGray
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "East"
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 					name: "panel7"
-					"border": #SoftBevelBorder0
+					"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"background": sfield java.awt.Color lightGray
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 						name: "panel10"
+						"background": sfield java.awt.Color lightGray
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 							name: "panel11"
+							"background": sfield java.awt.Color lightGray
 							add( new FormComponent( "javax.swing.JLabel" ) {
 								name: "label5"
 								"text": "今天还剩"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "Center"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 								name: "hSpacer8"
+								"background": sfield java.awt.Color lightGray
+								"preferredSize": new java.awt.Dimension( 15, 10 )
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "West"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 								name: "vSpacer7"
+								"background": sfield java.awt.Color lightGray
+								"preferredSize": new java.awt.Dimension( 10, 15 )
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "North"
 							} )
@@ -388,39 +454,47 @@ new FormModel {
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "label6"
 							"text": "number"
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "Center"
 						} )
 						add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 							name: "hSpacer9"
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "West"
 						} )
 						add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 							name: "vSpacer8"
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "South"
 						} )
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 							name: "panel12"
+							"background": sfield java.awt.Color lightGray
 							add( new FormComponent( "javax.swing.JLabel" ) {
 								name: "label7"
 								"text": "张"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "Center"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 								name: "hSpacer10"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "East"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 								name: "vSpacer9"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "South"
 							} )
 							add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 								name: "vSpacer10"
+								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "North"
 							} )
