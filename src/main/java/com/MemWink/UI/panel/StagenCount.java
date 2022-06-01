@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Mon May 30 22:12:29 CST 2022
  */
 
-package com.MemWink.SwingLearn;
+package com.MemWink.UI.panel;
 
 import java.awt.*;
 import javax.swing.*;

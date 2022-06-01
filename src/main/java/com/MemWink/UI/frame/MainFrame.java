@@ -2,7 +2,11 @@
  * Created by JFormDesigner on Sun May 15 18:50:15 CST 2022
  */
 
-package com.MemWink.SwingLearn;
+package com.MemWink.UI.frame;
+
+import com.MemWink.UI.dialog.AddPane;
+import com.MemWink.UI.panel.ShowCardBags;
+import com.MemWink.UI.panel.ShowStatics;
 
 import java.awt.*;
 import java.awt.event.*;

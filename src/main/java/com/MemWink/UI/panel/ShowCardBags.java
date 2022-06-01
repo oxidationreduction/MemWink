@@ -2,15 +2,15 @@
  * Created by JFormDesigner on Sun May 22 10:23:45 CST 2022
  */
 
-package com.MemWink.SwingLearn;
+package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.dialog.AddPane;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.GroupLayout;
 
 /**
  * @author unknown

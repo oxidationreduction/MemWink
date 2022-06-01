@@ -2,10 +2,11 @@
  * Created by JFormDesigner on Sat May 28 16:54:13 CST 2022
  */
 
-package com.MemWink.SwingLearn;
+package com.MemWink.UI.panel;
+
+import com.MemWink.UI.dialog.AddPane;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.GroupLayout;

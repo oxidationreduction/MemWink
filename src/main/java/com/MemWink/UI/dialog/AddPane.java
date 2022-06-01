@@ -2,17 +2,18 @@
  * Created by JFormDesigner on Mon May 16 20:00:47 CST 2022
  */
 
-package com.MemWink.SwingLearn;
+package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.panel.CardBagPane;
+import com.MemWink.UI.panel.CardBagPaneTop;
+import com.MemWink.UI.panel.ShowCardBags;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
 import java.util.LinkedList;
 import javax.swing.*;
 import javax.swing.GroupLayout;
-import javax.swing.border.LineBorder;
 import javax.swing.event.*;
 
 /**

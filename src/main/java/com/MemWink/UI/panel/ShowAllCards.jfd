@@ -77,6 +77,10 @@ new FormModel {
 					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
 						name: "menu1"
 						"text": "设置"
+						"icon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						auxiliary() {
+							"icon.noCode": true
+						}
 						add( new FormComponent( "javax.swing.JMenuItem" ) {
 							name: "menuItem3"
 							"text": "卡包设置"
