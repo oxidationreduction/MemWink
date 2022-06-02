@@ -1,16 +1,23 @@
 package com.MemWink;
 
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.text.csv.*;
 import com.MemWink.Data.CardBag.*;
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.UIManager;
 import com.MemWink.util.constant.UIConstant;
 import com.MemWink.util.constant.MemStateConstants;
 
 import javax.swing.*;
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-//hello world！
 public class Main {
+    public static void main(String[] args) {
+        DataManager.init();
+        UIManager.init();
+    }
     public static void main0(String[] args){
         DataManager.init();
         DataManager.addCardBag("TEST", UIConstant.blue, 20);
@@ -36,7 +43,7 @@ public class Main {
 
     }
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         DataManager.init();
         DataManager.changeCardBagName("TEST", "测试");
         CardBag test = Objects.requireNonNull(DataManager.provideCardBag("测试"));
@@ -76,5 +83,16 @@ public class Main {
     public static void main3(String[] args) {
         DataManager.init();
         DataManager.changeCardBagName("test", "TEST");
+    }
+
+    public static void main4(String[] args) {
+        // CsvReader csvReader = new CsvReader(new File("usrData/cards A.csv"), new CsvReadConfig());
+
+        CsvReader reader = CsvUtil.getReader();
+        CsvData data = reader.read(new File("usrData/cards A.csv"));
+        List<CsvRow> rows = data.getRows();
+        for (CsvRow i : rows) {
+            System.out.println(i);
+        }
     }
 }

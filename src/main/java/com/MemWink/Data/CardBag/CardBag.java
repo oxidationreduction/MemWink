@@ -1,7 +1,9 @@
 package com.MemWink.Data.CardBag;
 
+import cn.hutool.core.text.csv.*;
 import com.MemWink.Data.DataManager;
 import com.MemWink.util.constant.MemStateConstants;
+import com.MemWink.util.constant.SortLogicConstant;
 
 import java.awt.*;
 import java.io.*;
@@ -64,6 +66,8 @@ public class CardBag implements Serializable {
     private Set<String> categories = new HashSet<>();
 
     private UISetting uiSetting;
+
+    private int sortLogic = SortLogicConstant.CREATE_TIME;
 
     /**
      * 构造器
@@ -168,7 +172,7 @@ public class CardBag implements Serializable {
      * @param starred 是否收藏
      * @param category 卡片类别
      */
-    public boolean addCard(String front, String back, boolean showFront, int memState, boolean starred, String category) {
+    public void addCard(String front, String back, boolean showFront, int memState, boolean starred, String category) {
         try {
             Thread.sleep(1);
         } catch (InterruptedException e) {
@@ -181,11 +185,11 @@ public class CardBag implements Serializable {
             throw new RuntimeException("Invalid Category: " + category);
         }
         cards.add(tmp);
-        return saveCardBag(this);
+        updateSortLogic(sortLogic);
     }
-    public boolean addCard(CategorizedCard card) {
+    public void addCard(CategorizedCard card) {
         cards.add(card);
-        return saveCardBag(this);
+        updateSortLogic(sortLogic);
     }
 
     /**
@@ -271,6 +275,67 @@ public class CardBag implements Serializable {
         return cardNeedReview.size();
     }
 
+    public void updateSortLogic(int logic) {
+        if (logic == SortLogicConstant.CREATE_TIME) {
+            sortByCreateTime();
+        } else if (logic == SortLogicConstant.FRONT_CONTENT) {
+            sortByFront();
+        } else if (logic == SortLogicConstant.MEM_STAGE) {
+            sortByStage();
+        } else {
+            throw new RuntimeException("Invalid sort logic value: " + logic);
+        }
+        this.sortLogic = logic;
+        saveCardBag(this);
+    }
+    /**
+     * 按需排序
+     */
+    private void sortByFront() {
+        cards.sort(new Comparator<CategorizedCard>() {
+            @Override
+            public int compare(CategorizedCard o1, CategorizedCard o2) {
+                return o1.getFrontString().compareTo(o2.getFrontString());
+            }
+        });
+
+    }
+    private void sortByCreateTime() {
+        cards.sort(new Comparator<CategorizedCard>() {
+            @Override
+            public int compare(CategorizedCard o1, CategorizedCard o2) {
+                return o2.getCreateTime().compareTo(o1.getCreateTime());
+            }
+        });
+    }
+    private void sortByStage() {
+        cards.sort(new Comparator<CategorizedCard>() {
+            @Override
+            public int compare(CategorizedCard o1, CategorizedCard o2) {
+                int o1Stage =
+                        o1.getMemState() == MemStateConstants.newCard ? MemStateConstants.finished + 1 : o1.getMemState();
+                int o2Stage =
+                        o2.getMemState() == MemStateConstants.newCard ? MemStateConstants.finished + 1 : o1.getMemState();
+                return o1Stage - o2Stage;
+            }
+        });
+    }
+
+    /**
+     * 按照类别筛选卡片
+     * @param category 类别
+     * @return 筛选得到的卡片列表
+     */
+    public List<CategorizedCard> selectCardByCategory(String category) {
+        List<CategorizedCard> ans = new ArrayList<>();
+        for (CategorizedCard i : cards) {
+            if (Objects.equals(i.getCategory(), category)) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+
     /**
      * 保存卡包，静态方法，可直接调用
      * @param cardBag 要保存的卡包
@@ -314,6 +379,26 @@ public class CardBag implements Serializable {
             return (CardBag) tool.readObject();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void importCSV(File file) {
+        List<CsvRow> rows = CsvUtil.getReader().read(file).getRows();
+        for (CsvRow i : rows) {
+            if (i.size() == 2) {
+                this.addCard(i.get(0), i.get(1),
+                        true, MemStateConstants.newCard, false, null);
+            } else if (i.size() == 3) {
+                if (Objects.equals(i.get(0), "正面")
+                        && Objects.equals(i.get(1), "背面")
+                        && Objects.equals(i.get(2), "分类")) {
+                    continue;
+                }
+                this.addCard(i.get(0), i.get(1),
+                        true, MemStateConstants.newCard, false, i.get(2));
+            } else {
+                throw new RuntimeException("Csv format error.");
+            }
         }
     }
 

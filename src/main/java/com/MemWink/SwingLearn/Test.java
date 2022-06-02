@@ -20,7 +20,5 @@ public class Test {
         mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
     }
 }
