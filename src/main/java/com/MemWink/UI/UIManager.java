@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class UIManager {
     public static MainFrame mainFrame;
+
     private UIManager() {
 
     }
