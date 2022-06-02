@@ -2,7 +2,6 @@ package com.MemWink.SwingLearn;
 
 import com.MemWink.Data.DataManager;
 import com.MemWink.UI.frame.MainFrame;
-import com.MemWink.UI.panel.MemoryCompletionPane;
 import com.MemWink.UI.panel.ShowCardBags;
 
 import javax.swing.*;
@@ -20,5 +19,6 @@ public class Test {
         mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 }

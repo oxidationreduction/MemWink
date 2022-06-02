@@ -5,6 +5,7 @@
 package com.MemWink.UI.panel;
 
 import com.MemWink.UI.dialog.AddPane;
+import com.MemWink.util.MemWinkUtil;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -53,9 +54,27 @@ public class ShowAllCards extends JPanel {
         container.add(button);
     }
 
+    private void button1(ActionEvent e) {
+        popupMenu1.show(panel4,615,0);
+        button1.setIcon(MemWinkUtil.getScaledIcon("设置被按下",30,30));
+        button1.setBackground(Color.lightGray);
+    }
+
+    private void button2(ActionEvent e) {
+        popupMenu2.show(panel5,637,0);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - 刘洪宇
+        popupMenu1 = new JPopupMenu();
+        menuItem3 = new JMenuItem();
+        menuItem4 = new JMenuItem();
+        menuItem5 = new JMenuItem();
+        menuItem6 = new JMenuItem();
+        menuItem7 = new JMenuItem();
+        popupMenu2 = new JPopupMenu();
+        menuItem1 = new JMenuItem();
+        menuItem2 = new JMenuItem();
         panel2 = new JPanel();
         scrollPane1 = new JScrollPane();
         panel1 = new JPanel();
@@ -67,28 +86,50 @@ public class ShowAllCards extends JPanel {
         panel8 = new JPanel();
         panel4 = new JPanel();
         label1 = new JLabel();
-        menuBar1 = new JMenuBar();
-        menu1 = new JMenu();
-        menuItem3 = new JMenuItem();
-        menuItem4 = new JMenuItem();
-        menuItem5 = new JMenuItem();
-        menuItem6 = new JMenuItem();
-        menuItem7 = new JMenuItem();
+        button1 = new JButton();
         panel5 = new JPanel();
         label2 = new JLabel();
-        menuBar2 = new JMenuBar();
-        menu2 = new JMenu();
-        menuItem1 = new JMenuItem();
-        menuItem2 = new JMenuItem();
+        button2 = new JButton();
+
+        button1.setIcon(MemWinkUtil.getScaledIcon("设置",30,30));
+        //======== popupMenu1 ========
+        {
+
+            //---- menuItem3 ----
+            menuItem3.setText("\u5361\u5305\u8bbe\u7f6e");
+            popupMenu1.add(menuItem3);
+
+            //---- menuItem4 ----
+            menuItem4.setText("\u6392\u5e8f\u65b9\u5f0f");
+            popupMenu1.add(menuItem4);
+
+            //---- menuItem5 ----
+            menuItem5.setText("\u9ed8\u8ba4\u663e\u793a\u5361\u7247");
+            popupMenu1.add(menuItem5);
+
+            //---- menuItem6 ----
+            menuItem6.setText("\u6e05\u9664\u5361\u5305\u5185\u5bb9");
+            popupMenu1.add(menuItem6);
+
+            //---- menuItem7 ----
+            menuItem7.setText("\u5220\u9664\u5361\u5305");
+            popupMenu1.add(menuItem7);
+        }
+
+        //======== popupMenu2 ========
+        {
+
+            //---- menuItem1 ----
+            menuItem1.setText("\u65b0\u5efa\u5361\u7247");
+            menuItem1.addActionListener(e -> menuItem1(e));
+            popupMenu2.add(menuItem1);
+
+            //---- menuItem2 ----
+            menuItem2.setText("\u5bfc\u5165csv");
+            popupMenu2.add(menuItem2);
+        }
 
         //======== this ========
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
-        . border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder
-        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .
-        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
-        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
-        ;
         setLayout(new BorderLayout());
 
         //======== panel2 ========
@@ -171,36 +212,10 @@ public class ShowAllCards extends JPanel {
             label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 14f));
             panel4.add(label1, BorderLayout.WEST);
 
-            //======== menuBar1 ========
-            {
-
-                //======== menu1 ========
-                {
-                    menu1.setText("\u8bbe\u7f6e");
-
-                    //---- menuItem3 ----
-                    menuItem3.setText("\u5361\u5305\u8bbe\u7f6e");
-                    menu1.add(menuItem3);
-
-                    //---- menuItem4 ----
-                    menuItem4.setText("\u6392\u5e8f\u65b9\u5f0f");
-                    menu1.add(menuItem4);
-
-                    //---- menuItem5 ----
-                    menuItem5.setText("\u9ed8\u8ba4\u663e\u793a\u5361\u7247");
-                    menu1.add(menuItem5);
-
-                    //---- menuItem6 ----
-                    menuItem6.setText("\u6e05\u9664\u5361\u5305\u5185\u5bb9");
-                    menu1.add(menuItem6);
-
-                    //---- menuItem7 ----
-                    menuItem7.setText("\u5220\u9664\u5361\u5305");
-                    menu1.add(menuItem7);
-                }
-                menuBar1.add(menu1);
-            }
-            panel4.add(menuBar1, BorderLayout.EAST);
+            //---- button1 ----
+            button1.setPreferredSize(new Dimension(45, 45));
+            button1.addActionListener(e -> button1(e));
+            panel4.add(button1, BorderLayout.EAST);
         }
         add(panel4, BorderLayout.NORTH);
 
@@ -214,34 +229,26 @@ public class ShowAllCards extends JPanel {
             label2.setBorder(new EtchedBorder());
             panel5.add(label2, BorderLayout.CENTER);
 
-            //======== menuBar2 ========
-            {
-
-                //======== menu2 ========
-                {
-                    menu2.setText("+");
-                    menu2.setVerticalTextPosition(SwingConstants.TOP);
-                    menu2.setHorizontalAlignment(SwingConstants.RIGHT);
-
-                    //---- menuItem1 ----
-                    menuItem1.setText("\u65b0\u5efa\u5361\u7247");
-                    menuItem1.addActionListener(e -> menuItem1(e));
-                    menu2.add(menuItem1);
-
-                    //---- menuItem2 ----
-                    menuItem2.setText("\u5bfc\u5165csv");
-                    menu2.add(menuItem2);
-                }
-                menuBar2.add(menu2);
-            }
-            panel5.add(menuBar2, BorderLayout.EAST);
+            //---- button2 ----
+            button2.setText("+");
+            button2.setPreferredSize(new Dimension(45, 45));
+            button2.addActionListener(e -> button2(e));
+            panel5.add(button2, BorderLayout.EAST);
         }
         add(panel5, BorderLayout.SOUTH);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - 刘洪宇
+    private JPopupMenu popupMenu1;
+    private JMenuItem menuItem3;
+    private JMenuItem menuItem4;
+    private JMenuItem menuItem5;
+    private JMenuItem menuItem6;
+    private JMenuItem menuItem7;
+    private JPopupMenu popupMenu2;
+    private JMenuItem menuItem1;
+    private JMenuItem menuItem2;
     private JPanel panel2;
     private JScrollPane scrollPane1;
     private JPanel panel1;
@@ -253,18 +260,9 @@ public class ShowAllCards extends JPanel {
     private JPanel panel8;
     private JPanel panel4;
     private JLabel label1;
-    private JMenuBar menuBar1;
-    private JMenu menu1;
-    private JMenuItem menuItem3;
-    private JMenuItem menuItem4;
-    private JMenuItem menuItem5;
-    private JMenuItem menuItem6;
-    private JMenuItem menuItem7;
+    private JButton button1;
     private JPanel panel5;
     private JLabel label2;
-    private JMenuBar menuBar2;
-    private JMenu menu2;
-    private JMenuItem menuItem1;
-    private JMenuItem menuItem2;
+    private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
