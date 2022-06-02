@@ -5,6 +5,8 @@
 package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.UIManager;
+import com.MemWink.UI.frame.MainFrame;
 import com.MemWink.UI.panel.CardBagPane;
 import com.MemWink.UI.panel.CardBagPaneTop;
 import com.MemWink.UI.panel.ShowCardBags;
@@ -65,17 +67,13 @@ public class AddPane extends JDialog {
     private void saveMouseClicked(MouseEvent e) {
         if ( save.getForeground() == Color.black ){
             if ( DataManager.addCardBag(textField1.getText(),addColor,Integer.parseInt(textField2.getText())) == 0 ){
-                ShowCardBags showCardBags = ShowCardBags.getShowCardBags();
-                CardBagPane cardBagPane = new CardBagPane();
-                cardBagPane.cardBag = DataManager.provideCardBag(textField1.getText());
-                cardBagPane.label2.setText(textField1.getText());
-                cardBagPane.cardBagPaneTop.setBackground(addColor);
-                showCardBags.panel1.add(cardBagPane);
-                showCardBags.updateUI();
+                UIManager.mainFrame.mainPanel.removeAll();
+                UIManager.mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
+                UIManager.mainFrame.mainPanel.updateUI();
                 this.dispose();
             }
             else {
-                save.setBorder(BorderFactory.createLineBorder(Color.red));
+                label2.setForeground(Color.red);
             }
         }
     }

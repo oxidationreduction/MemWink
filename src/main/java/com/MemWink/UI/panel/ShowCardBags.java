@@ -16,13 +16,12 @@ import javax.swing.*;
  * @author unknown
  */
 public class ShowCardBags extends JPanel {
-    private static ShowCardBags showCardBags = new ShowCardBags();
 
     public static ShowCardBags getShowCardBags(){
-        return showCardBags;
+        return new ShowCardBags();
     }
 
-    public ShowCardBags() {
+    private ShowCardBags() {
         initComponents();
         for ( CardBag cardBag: DataManager.getCardBags()){
             CardBagPane cardBagPane = new CardBagPane();
