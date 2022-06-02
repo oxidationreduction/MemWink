@@ -644,7 +644,7 @@ public class CardContent extends JPanel implements KeyListener {
                 ImageIcon tmpIcon = new ImageIcon("image/设置.png");
                 Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
                 tmpIcon = new ImageIcon(tmpImage);
-                settingButton.setIcon(tmpIcon);
+                settingButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
                 settingButton.setSize(45, 45);
                 settingButton.setLocation(60, 5);
                 settingButton.setFocusable(false);
