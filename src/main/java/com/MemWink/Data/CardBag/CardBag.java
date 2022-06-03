@@ -287,6 +287,86 @@ public class CardBag implements Serializable {
         return cardNeedReview.size();
     }
 
+    /**
+     * 获取卡包内明天需要复习的卡片的数量
+     * @return 明天要复习的卡片数量
+     */
+    public int getTomorrowNum() {
+        int ans = 0;
+        for (CategorizedCard i : cards) {
+            Date tomorrow = new Date(new Date().getTime() + 24*60*60000);
+            Date rememberTime = i.getRememberTime();
+            if (tomorrow.getYear() == rememberTime.getYear()
+                    && tomorrow.getMonth() == rememberTime.getMonth()
+                    && tomorrow.getDay() == rememberTime.getDay()) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 获取指定分类的卡片
+     * @param category 卡片分类
+     * @return 相应分类的卡片列表
+     */
+    public List<CategorizedCard> getCardsByCategory(String category) {
+        List<CategorizedCard> ans = new ArrayList<>();
+        for (CategorizedCard i : cards) {
+            if (Objects.equals(i.getCategory(), category)) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 获取所有新卡
+     * @return 所有新卡的列表
+     */
+    public List<CategorizedCard> getNewCards() {
+        List<CategorizedCard> ans = new ArrayList<>();
+        for (CategorizedCard i : cards) {
+            if (i.getMemState() == MemStateConstants.newCard) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 获取所有正在记忆中的卡片，即既不是新卡，也不是"已记住"的卡片
+     * @return 所有正在记忆中的卡片的列表
+     */
+    public List<CategorizedCard> getCardsLearning() {
+        List<CategorizedCard> ans = new ArrayList<>();
+        for (CategorizedCard i : cards) {
+            if (i.getMemState() != MemStateConstants.newCard
+                    && i.getMemState() != MemStateConstants.finished) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 获取所有"已记住"的卡片
+     * @return 所有"已记住"的卡片的列表
+     */
+    public List<CategorizedCard> getCardFinished() {
+        List<CategorizedCard> ans = new ArrayList<>();
+        for (CategorizedCard i : cards) {
+            if (i.getMemState() == MemStateConstants.finished) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 更改排序逻辑
+     * @param logic 新排序逻辑
+     */
     public void updateSortLogic(int logic) {
         if (logic == SortLogicConstant.CREATE_TIME) {
             sortByCreateTime();
@@ -301,7 +381,7 @@ public class CardBag implements Serializable {
         saveCardBag(this);
     }
     /**
-     * 按需排序
+     * 按正面内容排序
      */
     private void sortByFront() {
         cards.sort(new Comparator<CategorizedCard>() {
@@ -312,6 +392,10 @@ public class CardBag implements Serializable {
         });
 
     }
+
+    /**
+     * 按创建时间排序
+     */
     private void sortByCreateTime() {
         cards.sort(new Comparator<CategorizedCard>() {
             @Override
@@ -320,6 +404,10 @@ public class CardBag implements Serializable {
             }
         });
     }
+
+    /**
+     * 按记忆阶段排序
+     */
     private void sortByStage() {
         cards.sort(new Comparator<CategorizedCard>() {
             @Override

@@ -44,10 +44,15 @@ public class Graph extends JPanel {
         Graphics2D g = (Graphics2D) g0;
         g.setColor(Color.darkGray);
         g.setStroke(new BasicStroke(3));
-        g.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
+        g.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 20));
         double maxVal = getMaxVal();
 
         int n = data.size();
+        if (n < 7) {
+            g.drawString("连续使用7天以上以显示趋势", getWidth()/2-120, getHeight()/2);
+            return;
+        }
+
         int interval_x = (getWidth() - 50) / (n-1);
         int available_height = getHeight() - 40;
         for (int i = 0; i < n-1; i++) {
