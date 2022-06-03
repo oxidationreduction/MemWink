@@ -159,6 +159,10 @@ public class DataManager {
         }
         for (CardBag i : cardBags) {
             if (Objects.equals(i.getName(), oldName)) {
+                if (cardBagNames.contains(newName)) {
+                    return DataManagerStatus.DUPLICATE_CARD_BAG_NAME;
+                }
+
                 i.updateName(newName);
                 File oldFile = new File( DataManager.cardBagSavePath + "" + oldName);
                 if (oldFile.delete()) {
@@ -183,10 +187,6 @@ public class DataManager {
      */
     public static void updateColor(String name, Color color) {
         Objects.requireNonNull(DataManager.provideCardBag(name)).updateColor(color);
-    }
-
-    public static void updateName(String oldName, String newName) {
-        Objects.requireNonNull(DataManager.provideCardBag(oldName)).updateName(newName);
     }
 
     public static void updateDailyNewCardNum(String name, int num) {

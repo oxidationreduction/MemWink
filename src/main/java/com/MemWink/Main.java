@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Objects;
 public class Main {
     public static void main(String[] args) {
-        //DataManager.init();
+        DataManager.init();
         UIManager.init();
     }
     public static void main0(String[] args){

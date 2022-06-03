@@ -118,9 +118,7 @@ public class EditCardDialog extends JDialog {
             confirm.setVisible(true);
         }
         mainPanel.add(confirm);
-
         add(mainPanel);
-
         addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {

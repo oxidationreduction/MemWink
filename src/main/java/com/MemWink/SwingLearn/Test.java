@@ -12,7 +12,7 @@ public class Test {
         new Test().init();
     }
 
-    private void init(){
+    private void init() {
         DataManager.init();
         MainFrame mainFrame = MainFrame.getMainFrame();
 
