@@ -20,6 +20,7 @@ import javax.swing.border.*;
 public class ShowAllCards extends JPanel {
     public ShowAllCards() {
         initComponents();
+        init2();
         StagenCount stagenCount1 = new StagenCount();
         StagenCount stagenCount2 = new StagenCount();
         StagenCount stagenCount3 = new StagenCount();
@@ -56,17 +57,18 @@ public class ShowAllCards extends JPanel {
 
     private void button1(ActionEvent e) {
         popupMenu1.show(button1,-95,0);
-        button1.setIcon(MemWinkUtil.getScaledIcon("设置",30,30));
-        button1.setBackground(Color.lightGray);
     }
 
     private void button2(ActionEvent e) {
         popupMenu2.show(button2,-75,0);
     }
 
+    public void init2(){
+        button1.setIcon(MemWinkUtil.getScaledIcon("设置",30,30));
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - 刘洪宇
         popupMenu1 = new JPopupMenu();
         menuItem3 = new JMenuItem();
         menuItem4 = new JMenuItem();
@@ -129,12 +131,6 @@ public class ShowAllCards extends JPanel {
         }
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border
-        .EmptyBorder(0,0,0,0), "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e",javax.swing.border.TitledBorder.CENTER,javax
-        .swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069al\u006fg",java.awt.Font.BOLD,
-        12),java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans
-        .PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062or\u0064er".equals(e.
-        getPropertyName()))throw new RuntimeException();}});
         setLayout(new BorderLayout());
 
         //======== scrollPane1 ========
@@ -222,7 +218,6 @@ public class ShowAllCards extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - 刘洪宇
     private JPopupMenu popupMenu1;
     private JMenuItem menuItem3;
     private JMenuItem menuItem4;
