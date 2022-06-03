@@ -35,11 +35,20 @@ public class CategorizedCard extends Card implements Serializable, Cloneable {
         return category == null ? "未分类" : category;
     }
 
+    /**
+     * 类别 setter 的替代方法
+     * @param category 卡片类别
+     */
     public void updateCategory(String category) {
         setCategory(category);
         Objects.requireNonNull(DataManager.provideCardBag(getCardBagName())).updateCard(this);
     }
 
+    /**
+     * 克隆本张卡片，生成完全相同的新对象，包括创建时间也完全相同
+     * @return 复制得到的卡片副本
+     * @throws CloneNotSupportedException 不支持克隆，提示方法调用或 {@code CategorizedCard} 存在问题
+     */
     public CategorizedCard cloneItem() throws CloneNotSupportedException {
         return (CategorizedCard) this.clone();
     }

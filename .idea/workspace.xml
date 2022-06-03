@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="小修小补">
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="为前端提供后端方法；修改Graph使7天以上才显示数据">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CategorizedCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CategorizedCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.base/java/text/DecimalFormat.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.base/java/util/Date.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.desktop/java/awt/Component.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.desktop/javax/swing/JButton.java" root0="SKIP_INSPECTION" />
   </component>
@@ -345,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654259072826</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="为前端提供后端方法；修改Graph使7天以上才显示数据">
+      <created>1654264275224</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1654264275224</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +389,8 @@
     <MESSAGE value="复习页面基本功能开发结束，等待复习结束页面开发完成。&#10;源码结构重组。" />
     <MESSAGE value="添加排序功能，整合UIManager。&#10;初步添加README文档。" />
     <MESSAGE value="小修小补" />
-    <option name="LAST_COMMIT_MESSAGE" value="小修小补" />
+    <MESSAGE value="为前端提供后端方法；修改Graph使7天以上才显示数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="为前端提供后端方法；修改Graph使7天以上才显示数据" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

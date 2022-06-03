@@ -303,26 +303,57 @@ public class Card implements Serializable, Cloneable {
     }
 
     /**
-     * getter
+     * 获取卡片的创建时间
+     * @return 卡片创建时间
      */
     public Date getCreateTime() {
         return createTime;
     }
+
+    /**
+     * 获取卡片下次应当进行复习的时间
+     * @return 下次复习时间
+     */
     public Date getRememberTime() {
         return rememberTime;
     }
+
+    /**
+     * 获取卡片记忆阶段
+     * @return 记忆阶段
+     */
     public int getMemState() {
         return memState;
     }
+
+    /**
+     * 获取卡片所属卡包的名字
+     * @return 卡包名
+     */
     public String getCardBagName() {
         return cardBagName;
     }
+
+    /**
+     * 获取卡片记忆历史
+     * @return 卡片记忆历史列表
+     */
     public Stack<MemHistory> getMemHistories() {
         return memHistories;
     }
+
+    /**
+     * 获取卡片是否默认显示正面
+     * @return 是否默认显示正面，{@code true} 代表"是"
+     */
     public boolean isShowFront() {
         return showFront;
     }
+
+    /**
+     * 获取卡片是否被标记为收藏
+     * @return 是否被标记为收藏，{@code true} 代表"是"
+     */
     public boolean isStarred() {
         return starred;
     }
@@ -367,6 +398,11 @@ public class Card implements Serializable, Cloneable {
         return back;
     }
 
+    /**
+     * 克隆本张卡片，生成完全相同的新对象，包括创建时间也完全相同
+     * @return 复制得到的卡片副本
+     * @throws CloneNotSupportedException 不支持克隆，提示方法调用或 {@code Card} 存在问题
+     */
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();

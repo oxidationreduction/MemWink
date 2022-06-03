@@ -189,6 +189,11 @@ public class DataManager {
         Objects.requireNonNull(DataManager.provideCardBag(name)).updateColor(color);
     }
 
+    /**
+     * 更改指定卡包的每天复习新卡的个数
+     * @param name 卡包名
+     * @param num 复习新卡的数量
+     */
     public static void updateDailyNewCardNum(String name, int num) {
         Objects.requireNonNull(DataManager.provideCardBag(name)).updateDailyNewCardNum(num);
     }
@@ -340,7 +345,8 @@ public class DataManager {
     }
 
     /**
-     * getter
+     * 获取卡包名列表
+     * @return 卡包名列表
      */
     public static List<String> getCardBagNames() {
         return cardBagNames;

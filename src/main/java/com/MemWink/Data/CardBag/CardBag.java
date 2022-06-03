@@ -5,7 +5,6 @@ import com.MemWink.Data.DataManager;
 import com.MemWink.util.constant.MemStateConstants;
 import com.MemWink.util.constant.SortLogicConstant;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.List;
@@ -66,8 +65,14 @@ public class CardBag implements Serializable {
      */
     private Set<String> categories = new HashSet<>();
 
+    /**
+     * UI设置
+     */
     private UISetting uiSetting;
 
+    /**
+     * 排序逻辑
+     */
     private int sortLogic = SortLogicConstant.CREATE_TIME;
 
     /**
@@ -108,23 +113,49 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * getter 和 setter
+     * 获取卡包颜色
+     * @return 卡包颜色
      */
     public Color getColor() {
         return color;
     }
+
+    /**
+     * 获取每天应学习的新卡的数量
+     * @return 每日学习新卡数量
+     */
     public int getDailyNewCardNum() {
         return dailyNewCardNum;
     }
+
+    /**
+     * 获取卡包内的卡片
+     * @return 卡片列表
+     */
     public List<CategorizedCard> getCards() {
         return cards;
     }
+
+    /**
+     * 获取卡包的用户分类
+     * @return 用户分类列表
+     */
     public Set<String> getCategories() {
         return categories;
     }
+
+    /**
+     * 获取卡包名
+     * @return 卡包名
+     */
     public String getName() {
         return name;
     }
+
+    /**
+     * 获取卡包ID
+     * @return 卡包ID
+     */
     public Date getId() {
         return id;
     }
@@ -153,10 +184,18 @@ public class CardBag implements Serializable {
         setName(name);
         saveCardBag(this);
     }
+    /**
+     * 卡包颜色 setter 的替代品，外界可访问
+     * @param color 卡包颜色
+     */
     public void updateColor(Color color) {
         setColor(color);
         saveCardBag(this);
     }
+    /**
+     * 每日新卡学习数 setter 的替代品，外界可访问
+     * @param num 每天学习的新卡的个数
+     */
     public void updateDailyNewCardNum(int num) {
         setDailyNewCardNum(num);
         saveCardBag(this);
@@ -199,7 +238,13 @@ public class CardBag implements Serializable {
         cards.add(tmp);
         updateSortLogic(sortLogic);
     }
+
+    /**
+     * 向卡包内添加卡片
+     * @param card 要添加的卡片
+     */
     public void addCard(CategorizedCard card) {
+        card.updateCardBagName(name);
         cards.add(card);
         updateSortLogic(sortLogic);
     }
@@ -482,6 +527,10 @@ public class CardBag implements Serializable {
         }
     }
 
+    /**
+     * 向卡包内导入csv
+     * @param file 用户在文件管理器中选定的csv文件
+     */
     public void importCSV(File file) {
         List<CsvRow> rows = CsvUtil.getReader().read(file).getRows();
         for (CsvRow i : rows) {
@@ -502,14 +551,26 @@ public class CardBag implements Serializable {
         }
     }
 
+    /**
+     * 获取本卡包的UI设置
+     * @return UI设置
+     */
     public UISetting getUiSetting() {
         return uiSetting;
     }
 
+    /**
+     * 修改本卡包的UI设置，仅限内部使用
+     * @param uiSetting 新的UI设置
+     */
     protected void setUiSetting(UISetting uiSetting) {
         this.uiSetting = uiSetting;
     }
 
+    /**
+     * UI设置 setter 的替代品，可以外部使用
+     * @param uiSetting 新的UI设置
+     */
     public void updateUISetting(UISetting uiSetting) {
         setUiSetting(uiSetting);
         saveCardBag(this);
