@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="小修小补">
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/6/2 21:21 修改卡包展示页面BUG以及添加卡包页面的逻辑">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/EditCardDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/EditCardDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.jfd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +34,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.base/java/text/DecimalFormat.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.desktop/java/awt/Component.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.desktop/javax/swing/JButton.java" root0="SKIP_INSPECTION" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -59,16 +52,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/liuhongyu/Documents/大二下/面向对象/mem-wink/usrData&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/usrData" />
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -81,10 +70,8 @@
   </component>
   <component name="RunManager" selected="应用程序.Main">
     <configuration name="CardContent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.MemWink.UI.panel.CardContent" />
-      <module name="mem-wink" />
+      <module name="java大作业" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.MemWink.UI.panel.*" />
@@ -96,26 +83,11 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.MemWink.Main" />
-      <module name="mem-wink" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.MemWink.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReviewManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.MemWink.UI.panel.ReviewManager" />
       <module name="MemWink" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.MemWink.UI.panel.*" />
+          <option name="PATTERN" value="com.MemWink.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,7 +99,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.MemWink.SwingLearn.Test" />
-      <module name="mem-wink" />
+      <module name="MemWink" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.MemWink.SwingLearn.*" />
@@ -138,12 +110,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.MemWink.UI.panel.TestPage" />
+    <configuration name="com.MemWink.UI.component.t" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.MemWink.UI.component.t" />
       <module name="MemWink" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.MemWink.UI.panel.*" />
+          <option name="PATTERN" value="com.MemWink.UI.dialog.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -154,10 +126,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.Main" />
-        <item itemvalue="应用程序.CardContent" />
         <item itemvalue="应用程序.Test" />
-        <item itemvalue="应用程序.TestPage" />
-        <item itemvalue="应用程序.ReviewManager" />
+        <item itemvalue="应用程序.CardContent" />
+        <item itemvalue="应用程序.com.MemWink.UI.component.t" />
       </list>
     </recent_temporary>
   </component>
@@ -193,6 +164,12 @@
       <workItem from="1653723329971" duration="5364000" />
       <workItem from="1653728761378" duration="202000" />
       <workItem from="1653961024954" duration="1474000" />
+      <workItem from="1653962528740" duration="814000" />
+      <workItem from="1654068925648" duration="4889000" />
+      <workItem from="1654073874087" duration="191000" />
+      <workItem from="1654173689366" duration="2445000" />
+      <workItem from="1654230168757" duration="10000" />
+      <workItem from="1654256591680" duration="4288000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1652529721584</created>
@@ -306,42 +283,28 @@
       <option name="project" value="LOCAL" />
       <updated>1653914878972</updated>
     </task>
-    <task id="LOCAL-00017" summary="开始添加复习功能">
-      <created>1653968169900</created>
+    <task id="LOCAL-00017" summary="2022/5/31 10：04 优化主页面代码结构">
+      <created>1653962712373</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1653968169900</updated>
+      <updated>1653962712373</updated>
     </task>
-    <task id="LOCAL-00018" summary="复习页面基本功能开发结束，等待复习结束页面开发完成。&#10;源码结构重组。">
-      <created>1653977645292</created>
+    <task id="LOCAL-00018" summary="2022/6/1 16：56 卡包新增修改颜色功能">
+      <created>1654073807007</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1653977645292</updated>
+      <updated>1654073807007</updated>
     </task>
-    <task id="LOCAL-00019" summary="添加排序功能，整合UIManager。&#10;初步添加README文档。">
-      <created>1654171514244</created>
+    <task id="LOCAL-00019" summary="2022/6/2 21:21 修改卡包展示页面BUG以及添加卡包页面的逻辑">
+      <created>1654176124829</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1654171514244</updated>
+      <updated>1654176124829</updated>
     </task>
-    <task id="LOCAL-00020" summary="添加排序功能，整合UIManager。&#10;初步添加README文档。">
-      <created>1654183110815</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1654183110815</updated>
-    </task>
-    <task id="LOCAL-00021" summary="小修小补">
-      <created>1654256330670</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1654256330670</updated>
-    </task>
-    <option name="localTasksCounter" value="22" />
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,21 +334,9 @@
     <MESSAGE value="0" />
     <MESSAGE value="更新CardBag，增加UISetting变量；&#10;健全CardContent功能。" />
     <MESSAGE value="完成CardContent功能开发；&#10;修改卡片正反面内容Card.front, Card.back的保存方式；&#10;新建多个对话框，包括&quot;卡片编辑&quot;EditCardDialog对话框，此对话框可用于新建卡片。" />
-    <MESSAGE value="开始添加复习功能" />
-    <MESSAGE value="复习页面基本功能开发结束，等待复习结束页面开发完成。&#10;源码结构重组。" />
-    <MESSAGE value="添加排序功能，整合UIManager。&#10;初步添加README文档。" />
-    <MESSAGE value="小修小补" />
-    <option name="LAST_COMMIT_MESSAGE" value="小修小补" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewManager.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="2022/5/31 10：04 优化主页面代码结构" />
+    <MESSAGE value="2022/6/1 16：56 卡包新增修改颜色功能" />
+    <MESSAGE value="2022/6/2 21:21 修改卡包展示页面BUG以及添加卡包页面的逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022/6/2 21:21 修改卡包展示页面BUG以及添加卡包页面的逻辑" />
   </component>
 </project>

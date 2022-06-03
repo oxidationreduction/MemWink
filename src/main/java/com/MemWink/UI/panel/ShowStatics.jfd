@@ -100,10 +100,10 @@ new FormModel {
 										"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 12, false )
 									} )
 									add( new FormComponent( "javax.swing.JLabel" ) {
-										name: "label9"
+										name: "TodayReviewCardsNum"
 										"text": "0"
 										"horizontalAlignment": 0
-										"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 28, false )
+										"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 20, false )
 									} )
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "Center"
@@ -164,10 +164,10 @@ new FormModel {
 										"font": #SwingDerivedFont0
 									} )
 									add( new FormComponent( "javax.swing.JLabel" ) {
-										name: "label12"
+										name: "TodayRemainCardsNum"
 										"text": "0"
 										"horizontalAlignment": 0
-										"font": #SwingDerivedFont1
+										"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 20, false )
 									} )
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "Center"
@@ -228,10 +228,10 @@ new FormModel {
 										"font": #SwingDerivedFont0
 									} )
 									add( new FormComponent( "javax.swing.JLabel" ) {
-										name: "label15"
+										name: "TodayForgetRate"
 										"text": "0"
 										"horizontalAlignment": 0
-										"font": #SwingDerivedFont1
+										"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 20, false )
 									} )
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "Center"
@@ -295,7 +295,7 @@ new FormModel {
 										name: "label18"
 										"text": "0"
 										"horizontalAlignment": 0
-										"font": #SwingDerivedFont1
+										"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 20, false )
 									} )
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "Center"
@@ -327,7 +327,7 @@ new FormModel {
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label19"
 									"text": "学习卡片数"
-									"font": &SwingDerivedFont2 new com.jformdesigner.model.SwingDerivedFont( null, 0, 10, false )
+									"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 10, false )
 								} )
 							} )
 							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
@@ -337,13 +337,13 @@ new FormModel {
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label20"
 									"text": "比昨天"
-									"font": &SwingDerivedFont3 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+									"font": &SwingDerivedFont2 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
 									"verticalAlignment": 3
 								} )
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label21"
 									"text": "+0"
-									"font": &SwingDerivedFont4 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+									"font": &SwingDerivedFont3 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
 									"verticalAlignment": 3
 								} )
 							} )
@@ -372,7 +372,7 @@ new FormModel {
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label22"
 									"text": "复习遗忘率"
-									"font": #SwingDerivedFont2
+									"font": #SwingDerivedFont1
 								} )
 							} )
 							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
@@ -382,13 +382,13 @@ new FormModel {
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label23"
 									"text": "比昨天"
-									"font": #SwingDerivedFont3
+									"font": #SwingDerivedFont2
 									"verticalAlignment": 3
 								} )
 								add( new FormComponent( "javax.swing.JLabel" ) {
 									name: "label24"
 									"text": "+0%"
-									"font": #SwingDerivedFont4
+									"font": #SwingDerivedFont3
 									"verticalAlignment": 3
 								} )
 							} )
