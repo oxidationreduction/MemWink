@@ -641,9 +641,6 @@ public class CardContent extends JPanel implements KeyListener {
             // settingButton
             {
                 settingButton = new JButton();
-                ImageIcon tmpIcon = new ImageIcon("image/设置.png");
-                Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
-                tmpIcon = new ImageIcon(tmpImage);
                 settingButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
                 settingButton.setSize(45, 45);
                 settingButton.setLocation(60, 5);
@@ -657,10 +654,7 @@ public class CardContent extends JPanel implements KeyListener {
                     {
                         JMenuItem layoutSetting = new JMenuItem();
                         layoutSetting.setText("调整布局");
-                        tmpIcon = new ImageIcon("image/手动修改.png");
-                        tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
-                        tmpIcon = new ImageIcon(tmpImage);
-                        layoutSetting.setIcon(tmpIcon);
+                        layoutSetting.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
                         layoutSetting.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
@@ -699,17 +693,13 @@ public class CardContent extends JPanel implements KeyListener {
 
                         if (cardBag.getUiSetting().showBack) {
                             showBack.setText("默认隐藏背面");
-                            tmpIcon = new ImageIcon("image/手动修改.png");
-                            tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
-                            tmpIcon = new ImageIcon(tmpImage);
+                            showBack.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
                         } else {
                             showBack.setText("直接显示背面");
-                            tmpIcon = new ImageIcon("image/手动修改.png");
-                            tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
-                            tmpIcon = new ImageIcon(tmpImage);
+                            showBack.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
                         }
 
-                        showBack.setIcon(tmpIcon);
+
                         showBack.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
@@ -737,11 +727,7 @@ public class CardContent extends JPanel implements KeyListener {
                         JMenuItem duplicate = new JMenuItem();
 
                         duplicate.setText("复制卡片到…");
-                        tmpIcon = new ImageIcon("image/手动修改.png");
-                        tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
-                        tmpIcon = new ImageIcon(tmpImage);
-
-                        duplicate.setIcon(tmpIcon);
+                        duplicate.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
 
                         duplicate.addActionListener(new ActionListener() {
                             @Override
@@ -764,11 +750,7 @@ public class CardContent extends JPanel implements KeyListener {
                         JMenuItem move = new JMenuItem();
 
                         move.setText("移动卡片到…");
-                        tmpIcon = new ImageIcon("image/手动修改.png");
-                        tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
-                        tmpIcon = new ImageIcon(tmpImage);
-
-                        move.setIcon(tmpIcon);
+                        move.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
 
                         move.addActionListener(new ActionListener() {
                             @Override
@@ -787,10 +769,7 @@ public class CardContent extends JPanel implements KeyListener {
                         JMenuItem delete = new JMenuItem();
 
                         delete.setText("删除卡片");
-                        tmpIcon = new ImageIcon("image/手动修改.png");
-                        tmpImage = tmpIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
-                        tmpIcon = new ImageIcon(tmpImage);
-                        delete.setIcon(tmpIcon);
+                        delete.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
 
                         delete.addActionListener(new ActionListener() {
                             @Override
@@ -816,11 +795,8 @@ public class CardContent extends JPanel implements KeyListener {
 
             // editButton
             {
-                ImageIcon tmpIcon = new ImageIcon("image/修改.png");
-                Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
-                tmpIcon = new ImageIcon(tmpImage);
                 editButton = new JButton();
-                editButton.setIcon(tmpIcon);
+                editButton.setIcon(MemWinkUtil.getScaledIcon("修改", 30, 30));
                 editButton.setSize(45, 45);
                 editButton.setLocation(60, 60);
                 editButton.setFocusable(false);

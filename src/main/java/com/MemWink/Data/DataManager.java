@@ -182,13 +182,15 @@ public class DataManager {
      * @param color 新颜色
      */
     public static void updateColor(String name, Color color) {
-        for (CardBag i : cardBags) {
-            if (Objects.equals(i.getName(), name)) {
-                i.setColor(color);
-                saveCardBag(i);
-                break;
-            }
-        }
+        Objects.requireNonNull(DataManager.provideCardBag(name)).updateColor(color);
+    }
+
+    public static void updateName(String oldName, String newName) {
+        Objects.requireNonNull(DataManager.provideCardBag(oldName)).updateName(newName);
+    }
+
+    public static void updateDailyNewCardNum(String name, int num) {
+        Objects.requireNonNull(DataManager.provideCardBag(name)).updateDailyNewCardNum(num);
     }
     /**
      * 获取指定的卡包

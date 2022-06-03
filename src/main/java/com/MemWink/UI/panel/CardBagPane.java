@@ -6,6 +6,8 @@ package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.UIManager;
+import com.MemWink.UI.dialog.AddPane;
 import com.MemWink.UI.dialog.ModifyDialog;
 import com.MemWink.UI.frame.MainFrame;
 
@@ -42,6 +44,7 @@ public class CardBagPane extends JPanel {
             MainFrame.getMainFrame().mainPanel.add(allCards);
             MainFrame.getMainFrame().mainPanel.updateUI();
             allCards.setVisible(true);
+            UIManager.showAllCards = allCards;
         }
     }
 
@@ -87,6 +90,9 @@ public class CardBagPane extends JPanel {
         public void actionPerformed(ActionEvent e) {
             ModifyDialog modifyDialog = new ModifyDialog(panel);
             modifyDialog.setVisible(true);
+
+            // AddPane addPane = new AddPane(cardBag.getName(), cardBag.getDailyNewCardNum(), cardBag.getColor());
+            // addPane.setVisible(true);
         }
     }
     private class item2Listener implements ActionListener {

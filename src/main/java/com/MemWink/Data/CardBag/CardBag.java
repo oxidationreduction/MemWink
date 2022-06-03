@@ -138,9 +138,11 @@ public class CardBag implements Serializable {
             i.setCardBagName(name);
         }
     }
-
-    public void setColor(Color color) {
+    protected void setColor(Color color) {
         this.color = color;
+    }
+    protected void setDailyNewCardNum(int num) {
+        this.dailyNewCardNum = num;
     }
     /**
      * 卡包名 setter 的替代品，外界可访问
@@ -148,6 +150,15 @@ public class CardBag implements Serializable {
      */
     public void updateName(String name) {
         setName(name);
+        saveCardBag(this);
+    }
+    public void updateColor(Color color) {
+        setColor(color);
+        saveCardBag(this);
+    }
+    public void updateDailyNewCardNum(int num) {
+        setDailyNewCardNum(num);
+        saveCardBag(this);
     }
 
     /**

@@ -6,8 +6,6 @@ package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.DataManager;
 import com.MemWink.UI.UIManager;
-import com.MemWink.UI.frame.MainFrame;
-import com.MemWink.UI.panel.CardBagPane;
 import com.MemWink.UI.panel.CardBagPaneTop;
 import com.MemWink.UI.panel.ShowCardBags;
 
@@ -22,8 +20,16 @@ import javax.swing.event.*;
  * @author unknown
  */
 public class AddPane extends JDialog {
+    private boolean isModify = false;
+    private String oldName;
+
     public AddPane() {
         initComponents();
+        initButtons();
+        addColor = Color.blue;
+    }
+
+    private void initButtons() {
         top = new CardBagPaneTop();
         top.setBackground(Color.blue);
         example.add(top,BorderLayout.CENTER);
@@ -40,9 +46,17 @@ public class AddPane extends JDialog {
         for ( colorButton temp: buttons){
             colorPane.add(temp);
         }
-        addColor = Color.blue;
+    }
 
+    public AddPane(String name, int count, Color color) {
+        initComponents();
+        initButtons();
+        textField1.setText(name);
+        textField2.setText(count + "");
+        addColor = color;
 
+        isModify = true;
+        this.oldName = name;
     }
 
     private void textField1CaretUpdate(CaretEvent e) {
@@ -65,6 +79,19 @@ public class AddPane extends JDialog {
     }
 
     private void saveMouseClicked(MouseEvent e) {
+        /*if (isModify) {
+            System.out.println(oldName);
+            DataManager.updateName(oldName, textField1.getName());
+            DataManager.updateDailyNewCardNum(textField1.getName(), Integer.parseInt(textField2.getText()));
+            DataManager.updateColor(textField1.getName(), addColor);
+
+            UIManager.mainFrame.mainPanel.removeAll();
+            UIManager.mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
+            UIManager.mainFrame.mainPanel.updateUI();
+            this.dispose();
+        }
+        else
+         */
         if ( save.getForeground() == Color.black ){
             if ( DataManager.addCardBag(textField1.getText(),addColor,Integer.parseInt(textField2.getText())) == 0 ){
                 UIManager.mainFrame.mainPanel.removeAll();
@@ -80,6 +107,7 @@ public class AddPane extends JDialog {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - 刘洪宇
         colorPane = new JPanel();
         save = new JLabel();
         example = new JPanel();
@@ -98,6 +126,13 @@ public class AddPane extends JDialog {
 
         //======== colorPane ========
         {
+            colorPane.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax.
+            swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border
+            . TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog"
+            ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,colorPane. getBorder
+            ( )) ); colorPane. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java
+            .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException
+            ( ); }} );
             colorPane.setLayout(new GridLayout(1, 6, 5, 0));
         }
 
@@ -191,6 +226,7 @@ public class AddPane extends JDialog {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - 刘洪宇
     private JPanel colorPane;
     private JLabel save;
     private JPanel example;

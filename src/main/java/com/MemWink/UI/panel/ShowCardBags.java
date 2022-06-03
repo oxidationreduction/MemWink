@@ -6,6 +6,7 @@ package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.UIManager;
 import com.MemWink.UI.dialog.AddPane;
 
 import java.awt.*;
@@ -18,7 +19,8 @@ import javax.swing.*;
 public class ShowCardBags extends JPanel {
 
     public static ShowCardBags getShowCardBags(){
-        return new ShowCardBags();
+        UIManager.showCardBags = new ShowCardBags();
+        return UIManager.showCardBags;
     }
 
     private ShowCardBags() {
