@@ -44,23 +44,13 @@ new FormModel {
 		} )
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 			name: "this"
-			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq l {comp scrollPane1:::p:777:p, space :p:318:p}}"
-				"$verticalGroup": "par l {seq t {comp scrollPane1:::p:507:p, space :::x}}"
-			} ) {
-				name: "panel2"
-				"preferredSize": new java.awt.Dimension( 775, 559 )
-				"minimumSize": new java.awt.Dimension( 762, 555 )
-				"maximumSize": new java.awt.Dimension( 33523, 33316 )
-				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-					name: "scrollPane1"
-					"verticalScrollBarPolicy": 22
-					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
-						"alignment": 0
-					} ) {
-						name: "panel1"
-						"border": new javax.swing.border.SoftBevelBorder( 1, null, null, null, null )
-					} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+					"alignment": 0
+				} ) {
+					name: "panel1"
+					"border": new javax.swing.border.SoftBevelBorder( 1, null, null, null, null )
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
@@ -102,7 +92,7 @@ new FormModel {
 					"value": "Center"
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
-				"value": "East"
+				"value": "After"
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "panel4"
@@ -121,7 +111,7 @@ new FormModel {
 					"value": "East"
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
-				"value": "North"
+				"value": "First"
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "panel5"
@@ -142,7 +132,7 @@ new FormModel {
 					"value": "East"
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
-				"value": "South"
+				"value": "Last"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

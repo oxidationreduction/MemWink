@@ -55,13 +55,13 @@ public class ShowAllCards extends JPanel {
     }
 
     private void button1(ActionEvent e) {
-        popupMenu1.show(panel4,615,0);
+        popupMenu1.show(button1,-95,0);
         button1.setIcon(MemWinkUtil.getScaledIcon("设置被按下",30,30));
         button1.setBackground(Color.lightGray);
     }
 
     private void button2(ActionEvent e) {
-        popupMenu2.show(panel5,637,0);
+        popupMenu2.show(button2,-75,0);
     }
 
     private void initComponents() {
@@ -75,7 +75,6 @@ public class ShowAllCards extends JPanel {
         popupMenu2 = new JPopupMenu();
         menuItem1 = new JMenuItem();
         menuItem2 = new JMenuItem();
-        panel2 = new JPanel();
         scrollPane1 = new JScrollPane();
         panel1 = new JPanel();
         panel3 = new JPanel();
@@ -92,6 +91,7 @@ public class ShowAllCards extends JPanel {
         button2 = new JButton();
 
         button1.setIcon(MemWinkUtil.getScaledIcon("设置",30,30));
+
         //======== popupMenu1 ========
         {
 
@@ -132,40 +132,17 @@ public class ShowAllCards extends JPanel {
         //======== this ========
         setLayout(new BorderLayout());
 
-        //======== panel2 ========
+        //======== scrollPane1 ========
         {
-            panel2.setPreferredSize(new Dimension(775, 559));
-            panel2.setMinimumSize(new Dimension(762, 555));
-            panel2.setMaximumSize(new Dimension(33523, 33316));
 
-            //======== scrollPane1 ========
+            //======== panel1 ========
             {
-                scrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-                //======== panel1 ========
-                {
-                    panel1.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
-                    panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-                }
-                scrollPane1.setViewportView(panel1);
+                panel1.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
+                panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
             }
-
-            GroupLayout panel2Layout = new GroupLayout(panel2);
-            panel2.setLayout(panel2Layout);
-            panel2Layout.setHorizontalGroup(
-                panel2Layout.createParallelGroup()
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 777, GroupLayout.PREFERRED_SIZE)
-                        .addGap(318, 318, 318))
-            );
-            panel2Layout.setVerticalGroup(
-                panel2Layout.createParallelGroup()
-                    .addGroup(GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 507, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            );
+            scrollPane1.setViewportView(panel1);
         }
-        add(panel2, BorderLayout.CENTER);
+        add(scrollPane1, BorderLayout.CENTER);
 
         //======== panel3 ========
         {
@@ -201,7 +178,7 @@ public class ShowAllCards extends JPanel {
             }
             panel3.add(panel7, BorderLayout.CENTER);
         }
-        add(panel3, BorderLayout.EAST);
+        add(panel3, BorderLayout.LINE_END);
 
         //======== panel4 ========
         {
@@ -217,7 +194,7 @@ public class ShowAllCards extends JPanel {
             button1.addActionListener(e -> button1(e));
             panel4.add(button1, BorderLayout.EAST);
         }
-        add(panel4, BorderLayout.NORTH);
+        add(panel4, BorderLayout.PAGE_START);
 
         //======== panel5 ========
         {
@@ -235,7 +212,7 @@ public class ShowAllCards extends JPanel {
             button2.addActionListener(e -> button2(e));
             panel5.add(button2, BorderLayout.EAST);
         }
-        add(panel5, BorderLayout.SOUTH);
+        add(panel5, BorderLayout.PAGE_END);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -249,7 +226,6 @@ public class ShowAllCards extends JPanel {
     private JPopupMenu popupMenu2;
     private JMenuItem menuItem1;
     private JMenuItem menuItem2;
-    private JPanel panel2;
     private JScrollPane scrollPane1;
     private JPanel panel1;
     private JPanel panel3;
