@@ -257,6 +257,18 @@ public class DataManager {
     }
 
     /**
+     * 获取明天需要记忆的卡片的数量
+     * @return 明天要记忆的卡片数量
+     */
+    public static int getTomorrowCardsNum() {
+        int ans = 0;
+        for (CardBag i : cardBags) {
+            ans += i.getTomorrowNum();
+        }
+        return ans;
+    }
+
+    /**
      * 和全局记忆历史记录 ({@code usage}) 中的数据列表有关的 getter
      * <p>主要在实现折线图时使用</p>
      */
