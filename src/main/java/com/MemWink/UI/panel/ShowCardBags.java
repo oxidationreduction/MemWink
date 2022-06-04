@@ -30,6 +30,8 @@ public class ShowCardBags extends JPanel {
             cardBagPane.cardBag = cardBag;
             cardBagPane.label2.setText(cardBag.getName());
             cardBagPane.cardBagPaneTop.setBackground(cardBag.getColor());
+            cardBagPane.cardBagPaneTop.TotalCardsNum.setText(Integer.toString(cardBagPane.cardBag.getTotalCardsNum()));
+            cardBagPane.cardBagPaneTop.DailyNewCardNum.setText(Integer.toString(cardBagPane.cardBag.getDailyNewCardNum()));
             this.panel1.add(cardBagPane);
         }
     }

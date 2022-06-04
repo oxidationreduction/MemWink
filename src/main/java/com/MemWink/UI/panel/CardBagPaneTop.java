@@ -31,16 +31,16 @@ public class CardBagPaneTop extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        label1 = new JLabel();
-        label2 = new JLabel();
+        TotalCardsNum = new JLabel();
+        DailyNewCardNum = new JLabel();
 
         //======== this ========
 
-        //---- label1 ----
-        label1.setText("0");
+        //---- TotalCardsNum ----
+        TotalCardsNum.setText("0");
 
-        //---- label2 ----
-        label2.setText("0");
+        //---- DailyNewCardNum ----
+        DailyNewCardNum.setText("0");
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
@@ -48,27 +48,27 @@ public class CardBagPaneTop extends JPanel {
             layout.createParallelGroup()
                 .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(177, Short.MAX_VALUE)
-                    .addComponent(label1)
+                    .addComponent(TotalCardsNum)
                     .addContainerGap())
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label2)
-                    .addContainerGap(161, Short.MAX_VALUE))
+                    .addComponent(DailyNewCardNum)
+                    .addContainerGap(177, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label1)
+                    .addComponent(TotalCardsNum)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                    .addComponent(label2)
+                    .addComponent(DailyNewCardNum)
                     .addContainerGap())
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JLabel label1;
-    private JLabel label2;
+    public JLabel TotalCardsNum;
+    public JLabel DailyNewCardNum;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

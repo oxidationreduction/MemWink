@@ -292,7 +292,7 @@ new FormModel {
 										"font": #SwingDerivedFont0
 									} )
 									add( new FormComponent( "javax.swing.JLabel" ) {
-										name: "label18"
+										name: "TomorrowNum"
 										"text": "0"
 										"horizontalAlignment": 0
 										"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 20, false )
