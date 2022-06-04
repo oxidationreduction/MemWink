@@ -606,7 +606,7 @@ public class CardContent extends JPanel implements KeyListener {
                 hidedBackLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 hidedBackLabel.setVerticalAlignment(SwingConstants.CENTER);
                 hidedBackLabel.setFont(
-                        new Font("Microsoft Sans Serif", Font.PLAIN, 60));
+                        new Font("微软雅黑", Font.PLAIN, 60));
                 hidedBackLabel.setVisible(true);
                 hidedBackPanel.add(hidedBackLabel, BorderLayout.CENTER);
                 hidedBackPanel.addMouseListener(new MouseAdapter() {

@@ -77,7 +77,7 @@ public class CardbagLookup extends JPanel {
     public void setComponent() {
         base = getBase();
         JLabel totalCards = new JLabel(totalNum + " ", SwingConstants.RIGHT);
-        totalCards.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 35));
+        totalCards.setFont(new Font("微软雅黑", Font.BOLD, 35));
         totalCards.setVerticalAlignment(SwingConstants.BOTTOM);
         totalCards.setHorizontalAlignment(SwingConstants.RIGHT);
         totalCards.setForeground(Color.white);
@@ -102,7 +102,7 @@ public class CardbagLookup extends JPanel {
         JLabel nameLabel = new JLabel(name);
         nameLabel.addMouseListener(pressCardGrid);
         nameLabel.setBounds(20, 133, 200, 30);
-        nameLabel.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 25));
+        nameLabel.setFont(new Font("微软雅黑", Font.BOLD, 25));
         nameLabel.setForeground(Color.WHITE);
         nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
         this.add(nameLabel);

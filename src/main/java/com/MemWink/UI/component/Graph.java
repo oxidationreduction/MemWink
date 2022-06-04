@@ -1,5 +1,7 @@
 package com.MemWink.UI.component;
 
+import com.MemWink.util.constant.GraphType;
+
 import javax.swing.*;
 import java.awt.*;
 import java.text.DecimalFormat;
@@ -44,7 +46,7 @@ public class Graph extends JPanel {
         Graphics2D g = (Graphics2D) g0;
         g.setColor(Color.darkGray);
         g.setStroke(new BasicStroke(3));
-        g.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 20));
+        g.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         double maxVal = getMaxVal();
 
         int n = data.size();
@@ -104,13 +106,9 @@ class Test {
         }
         JFrame p = new JFrame();
         p.setSize(1280, 720);
-        Graph g = new Graph(GraphType.FORGET_RATE, 700, 360, data);
-        g.setLocation(100, 100);
+        Graph g = new Graph(GraphType.FORGET_RATE, 1280, 720, data);
+        g.setLocation(0, 0);
         p.setVisible(true);
-        // p.add(g);
-        JPanel tmp1 = new JPanel();
-        tmp1.setSize(70, 70);
-        tmp1.setBackground(Color.black);
-        p.add(tmp1);
+        p.add(g);
     }
 }

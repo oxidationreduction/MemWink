@@ -1,4 +1,4 @@
-package com.MemWink.UI.component;
+package com.MemWink.util.constant;
 
 /**
  * 折线图图表类型
