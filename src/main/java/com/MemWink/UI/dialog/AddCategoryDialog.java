@@ -34,7 +34,7 @@ public class AddCategoryDialog extends JDialog {
         // mainPanel
         {
             mainPanel = new JPanel();
-            mainPanel.setSize(300, 200);
+            mainPanel.setSize(300, 150);
             mainPanel.setLocation(0, 0);
             mainPanel.setLayout(null);
         }

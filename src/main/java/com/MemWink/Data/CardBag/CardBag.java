@@ -228,7 +228,7 @@ public class CardBag implements Serializable {
         for (CategorizedCard i : cards) {
             i.updateCategory(null);
         }
-        return true;
+        return saveCardBag(this);
     }
 
     /**

@@ -125,7 +125,7 @@ public class CardContent extends JPanel implements KeyListener {
     public void categoryMenuUpdate() {
         categoryButton.setText(card.getCategory());
         categoryMenu = new JPopupMenu();
-        int menuHeight = 70;
+        int menuHeight = 105;
         Set<String> categories = cardBag.getCategories();
         for (String i : categories) {
             JMenuItem item;
@@ -183,6 +183,7 @@ public class CardContent extends JPanel implements KeyListener {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("删除分类，应打开删除分类面板");
+                    new DeleteCategoryDialog(cardBag, CardContent.this);
                 }
             });
             categoryMenu.add(item);
@@ -220,7 +221,7 @@ public class CardContent extends JPanel implements KeyListener {
                 categoryButton.setFocusable(false);
 
                 categoryMenu = new JPopupMenu();
-                int menuHeight = 70;
+                int menuHeight = 105;
                 Set<String> categories = cardBag.getCategories();
                 for (String i : categories) {
                     JMenuItem item;
@@ -263,6 +264,20 @@ public class CardContent extends JPanel implements KeyListener {
                         public void actionPerformed(ActionEvent e) {
                             System.out.println("添加新分类，应打开添加分类面板");
                             new AddCategoryDialog(card, CardContent.this);
+                        }
+                    });
+                    categoryMenu.add(item);
+                }
+
+                // 删除分类
+                {
+                    JMenuItem item = new JMenuItem("删除分类");
+                    item.setSize(110, 35);
+                    item.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            System.out.println("删除分类，应打开删除分类面板");
+                            new DeleteCategoryDialog(cardBag, CardContent.this);
                         }
                     });
                     categoryMenu.add(item);
@@ -1086,6 +1101,8 @@ public class CardContent extends JPanel implements KeyListener {
     public static void main(String[] args) {
         DataManager.init();
         DataManager.addCardBag("A", Color.gray, 20);
+        DataManager.addCardBag("D", Color.gray, 20);
+        DataManager.addCardBag("E", Color.gray, 20);
         DataManager.provideCardBag("A").addCard("Front\ncontent", "Back", true, MemStateConstants.newCard, false, null);
         JFrame frame = new JFrame();
         frame.setLayout(null);

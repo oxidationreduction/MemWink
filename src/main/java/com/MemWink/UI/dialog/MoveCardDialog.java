@@ -1,12 +1,15 @@
 package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.CardBag.CategorizedCard;
+import com.MemWink.Data.DataManager;
 import com.MemWink.util.constant.UIConstant;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class MoveCardDialog extends JDialog {
     private CategorizedCard card;
@@ -23,15 +26,12 @@ public class MoveCardDialog extends JDialog {
         JPanel mainPanel = new JPanel();
         JScrollPane cardBagPane = new JScrollPane();
 
-        /* List<String> tmp = DataManager.getCardBagNames();
+        List<String> tmp = DataManager.getCardBagNames();
         tmp.remove(card.getCardBagName());
         JList<String> cardBagList = new JList<>(tmp.toArray(new String[0]));
-         */
-        String[] tmp = new String[]{"A", "B", "C", "D", "E"};
-        JList<String> cardBagList = new JList<>(tmp);
 
         cardBagList.setFont(new Font("微软雅黑", Font.PLAIN, 25));
-        cardBagList.setSize(250, tmp.length * 30);
+        cardBagList.setSize(250, tmp.size() * 30);
         cardBagPane.setViewportView(cardBagList);
         cardBagPane.setSize(250, 265);
         cardBagPane.setLocation(0, 40);
