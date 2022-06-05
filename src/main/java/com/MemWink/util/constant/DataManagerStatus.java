@@ -11,4 +11,5 @@ public class DataManagerStatus {
     public static int DUPLICATE_CARD_BAG_NAME = 2;
     public static int NO_SUCH_CARD_BAG = 3;
     public static int EMPTY_NAME = 4;
+    public static int DUPLICATE_CATEGORY = 5;
 }

@@ -220,6 +220,17 @@ public class DataManager {
         return  tmp.get(tmp.size()-1);
     }
 
+    public static int addCategory(String name, String category) {
+        CardBag tmp = provideCardBag(name);
+        if (tmp == null) {
+            return DataManagerStatus.NO_SUCH_CARD_BAG;
+        }
+        if (!tmp.addCategory(category)) {
+            return DataManagerStatus.DUPLICATE_CATEGORY;
+        }
+        return DataManagerStatus.NORMAL;
+    }
+
     /**
      * 获取今天"已记住"操作的数量
      * @return "已记住"操作数量

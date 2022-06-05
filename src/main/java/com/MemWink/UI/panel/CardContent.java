@@ -2,18 +2,17 @@ package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.*;
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.dialog.*;
 import com.MemWink.util.constant.MemStateConstants;
 import com.MemWink.util.MemWinkUtil;
 import com.MemWink.util.constant.UIConstant;
-import com.MemWink.UI.dialog.DeleteConfirmDialog;
-import com.MemWink.UI.dialog.EditCardDialog;
-import com.MemWink.UI.dialog.HistoryDialog;
-import com.MemWink.UI.dialog.MoveCardDialog;
 import com.MemWink.UI.component.RoundedRectangle;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.List;
+import java.util.Set;
 
 public class CardContent extends JPanel implements KeyListener {
     protected CardBag cardBag;
@@ -123,6 +122,81 @@ public class CardContent extends JPanel implements KeyListener {
         super.updateUI();
     }
 
+    public void categoryMenuUpdate() {
+        categoryButton.setText(card.getCategory());
+        categoryMenu = new JPopupMenu();
+        int menuHeight = 70;
+        Set<String> categories = cardBag.getCategories();
+        for (String i : categories) {
+            JMenuItem item;
+            if (i != null) {
+                item = new JMenuItem(i);
+            } else {
+                continue;
+            }
+
+            item.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    card.updateCategory(item.getText());
+                    categoryButton.setText(item.getText());
+                }
+            });
+            item.setSize(100, 35);
+            categoryMenu.add(item);
+            menuHeight += 35;
+        }
+
+        // 未分类
+        {
+            JMenuItem item = new JMenuItem("未分类");
+            item.setSize(110, 35);
+            item.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    card.updateCategory(null);
+                    categoryButton.setText("未分类");
+                }
+            });
+            categoryMenu.add(item);
+        }
+
+        // 添加新分类
+        {
+            JMenuItem item = new JMenuItem("新分类…");
+            item.setSize(110, 35);
+            item.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("添加新分类，应打开添加分类面板");
+                    new AddCategoryDialog(card, CardContent.this);
+                }
+            });
+            categoryMenu.add(item);
+        }
+
+        // 删除分类
+        {
+            JMenuItem item = new JMenuItem("删除分类");
+            item.setSize(110, 35);
+            item.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("删除分类，应打开删除分类面板");
+                }
+            });
+            categoryMenu.add(item);
+        }
+
+        categoryMenu.setPopupSize(110, menuHeight);
+        categoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                categoryMenu.show(categoryButton, 110, 5);
+            }
+        });
+    }
+
     public void setupUI() {
         isShowBack = cardBag.getUiSetting().showBack && !isReview;
         setSize(new Dimension(
@@ -145,10 +219,17 @@ public class CardContent extends JPanel implements KeyListener {
                 categoryButton.setLocation(5, 5);
                 categoryButton.setFocusable(false);
 
-                JPopupMenu categoryMenu = new JPopupMenu();
-                int menuHeight = 35;
-                for (String i : new String[]{"A", "B", "C"}) {
-                    JMenuItem item = new JMenuItem(i);
+                categoryMenu = new JPopupMenu();
+                int menuHeight = 70;
+                Set<String> categories = cardBag.getCategories();
+                for (String i : categories) {
+                    JMenuItem item;
+                    if (i != null) {
+                        item = new JMenuItem(i);
+                    } else {
+                        continue;
+                    }
+
                     item.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -159,15 +240,34 @@ public class CardContent extends JPanel implements KeyListener {
                     categoryMenu.add(item);
                     menuHeight += 35;
                 }
-                JMenuItem item = new JMenuItem("新分类…");
-                item.setSize(110, 35);
-                item.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        System.out.println("添加新分类，应打开添加分类面板");
-                    }
-                });
-                categoryMenu.add(item);
+
+                // 未分类
+                {
+                    JMenuItem item = new JMenuItem("未分类");
+                    item.setSize(110, 35);
+                    item.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            card.updateCategory(null);
+                        }
+                    });
+                    categoryMenu.add(item);
+                }
+
+                // 添加新分类
+                {
+                    JMenuItem item = new JMenuItem("新分类…");
+                    item.setSize(110, 35);
+                    item.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            System.out.println("添加新分类，应打开添加分类面板");
+                            new AddCategoryDialog(card, CardContent.this);
+                        }
+                    });
+                    categoryMenu.add(item);
+                }
+
                 categoryMenu.setPopupSize(110, menuHeight);
                 categoryButton.addActionListener(new ActionListener() {
                     @Override
@@ -1045,6 +1145,7 @@ public class CardContent extends JPanel implements KeyListener {
      JPopupMenu settingMenu;
      JMenuItem showBack;
      JButton backButton;
+     JPopupMenu categoryMenu;
 
     @Override
     public void keyTyped(KeyEvent e) {
