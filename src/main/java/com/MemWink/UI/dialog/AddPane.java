@@ -97,6 +97,7 @@ public class AddPane extends JDialog {
                 UIManager.mainFrame.mainPanel.removeAll();
                 UIManager.mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
                 UIManager.mainFrame.mainPanel.updateUI();
+                UIManager.mainFrame.getContentPane();
                 this.dispose();
             }
             else {
