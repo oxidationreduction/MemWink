@@ -4,6 +4,8 @@
 
 package com.MemWink.UI.panel;
 
+import com.MemWink.UI.component.RoundPanel;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
@@ -14,7 +16,7 @@ import javax.swing.plaf.*;
 /**
  * @author unknown
  */
-public class CardPane extends JPanel {
+public class CardPane extends RoundPanel {
     public CardPane() {
         initComponents();
     }
