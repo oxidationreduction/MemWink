@@ -19,9 +19,10 @@ import javax.swing.*;
  * @author unknown
  */
 public class CardBagPane extends JPanel {
-    public CardBagPane() {
+    public CardBagPane(CardBag cardBag) {
         initComponents();
-        cardBagPaneTop = new CardBagPaneTop();
+        this.cardBag = cardBag;
+        this.cardBagPaneTop = new CardBagPaneTop(cardBag);
         this.add(cardBagPaneTop,BorderLayout.CENTER);
         menu.add(item1);
         this.item1.addActionListener(new item1Listener(this));
@@ -39,6 +40,7 @@ public class CardBagPane extends JPanel {
 
     private void thisMouseClicked(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ){
+            UIManager.cardBag = cardBag;
             ShowAllCards allCards = new ShowAllCards();
             MainFrame.getMainFrame().mainPanel.removeAll();
             MainFrame.getMainFrame().mainPanel.add(allCards);

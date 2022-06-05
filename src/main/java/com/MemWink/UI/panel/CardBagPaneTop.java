@@ -4,6 +4,12 @@
 
 package com.MemWink.UI.panel;
 
+import com.MemWink.Data.CardBag.Card;
+import com.MemWink.Data.CardBag.CardBag;
+import com.MemWink.UI.UIManager;
+import com.MemWink.UI.component.RoundButton;
+
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import java.awt.*;
@@ -13,6 +19,21 @@ import java.awt.geom.RoundRectangle2D;
  * @author unknown
  */
 public class CardBagPaneTop extends JPanel {
+    private CardBag cardBag;
+    private class ButtonListener implements ActionListener {
+        private CardBag cardBag;
+
+        private ButtonListener(CardBag cardBag) {
+            this.cardBag = cardBag;
+        }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            UIManager.mainFrame.mainPanel.removeAll();
+            UIManager.mainFrame.mainPanel.add(new ReviewManager(cardBag));
+            UIManager.mainFrame.mainPanel.updateUI();
+        }
+    }
+
     @Override
     public void paint(Graphics g) {
         int fieldX = 0;
@@ -25,6 +46,21 @@ public class CardBagPaneTop extends JPanel {
     }
 
 
+    public CardBagPaneTop(CardBag cardBag) {
+        initComponents();
+        this.cardBag = cardBag;
+        this.setBackground(cardBag.getColor());
+        this.TotalCardsNum.setText(Integer.toString(cardBag.getTotalCardsNum()));
+        panel.setBackground(cardBag.getColor());
+        if(cardBag.getReviewCardsNum()>0) {
+            RoundButton button = new RoundButton();
+            button.setText(Integer.toString(cardBag.getReviewCardsNum()));
+            button.setBackground(Color.white);
+            button.addActionListener(new ButtonListener(cardBag));
+            panel.add(button);
+        }
+    }
+
     public CardBagPaneTop() {
         initComponents();
     }
@@ -32,15 +68,17 @@ public class CardBagPaneTop extends JPanel {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         TotalCardsNum = new JLabel();
-        DailyNewCardNum = new JLabel();
+        panel = new JPanel();
 
         //======== this ========
 
         //---- TotalCardsNum ----
         TotalCardsNum.setText("0");
 
-        //---- DailyNewCardNum ----
-        DailyNewCardNum.setText("0");
+        //======== panel ========
+        {
+            panel.setLayout(new GridLayout(1, 1));
+        }
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
@@ -51,24 +89,24 @@ public class CardBagPaneTop extends JPanel {
                     .addComponent(TotalCardsNum)
                     .addContainerGap())
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(DailyNewCardNum)
-                    .addContainerGap(177, Short.MAX_VALUE))
+                    .addGap(14, 14, 14)
+                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(118, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(TotalCardsNum)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                    .addComponent(DailyNewCardNum)
-                    .addContainerGap())
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+                    .addGap(15, 15, 15))
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     public JLabel TotalCardsNum;
-    public JLabel DailyNewCardNum;
+    public JPanel panel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -30,12 +30,12 @@ public class MemoryCompletionPane extends JPanel {
         vSpacer21 = new JPanel(null);
         panel2 = new JPanel();
         vSpacer2 = new JPanel(null);
-        button1 = new RoundButton();
+        button1 = new JButton();
         hSpacer1 = new JPanel(null);
         hSpacer2 = new JPanel(null);
         vSpacer22 = new JPanel(null);
         panel3 = new JPanel();
-        panel4 = new RoundPanel();
+        panel4 = new JPanel();
         panel8 = new JPanel();
         label2 = new JLabel();
         hSpacer5 = new JPanel(null);
@@ -49,7 +49,7 @@ public class MemoryCompletionPane extends JPanel {
         vSpacer5 = new JPanel(null);
         vSpacer6 = new JPanel(null);
         panel5 = new JPanel();
-        panel13 = new RoundPanel();
+        panel13 = new JPanel();
         panel14 = new JPanel();
         panel15 = new JPanel();
         label8 = new JLabel();
@@ -63,7 +63,7 @@ public class MemoryCompletionPane extends JPanel {
         hSpacer13 = new JPanel(null);
         vSpacer13 = new JPanel(null);
         vSpacer14 = new JPanel(null);
-        panel17 = new RoundPanel();
+        panel17 = new JPanel();
         panel18 = new JPanel();
         panel19 = new JPanel();
         label11 = new JLabel();
@@ -78,7 +78,7 @@ public class MemoryCompletionPane extends JPanel {
         vSpacer17 = new JPanel(null);
         vSpacer18 = new JPanel(null);
         hSpacer17 = new JPanel(null);
-        panel6 = new RoundPanel();
+        panel6 = new JPanel();
         panel21 = new JPanel();
         panel22 = new JPanel();
         label14 = new JLabel();
@@ -88,7 +88,7 @@ public class MemoryCompletionPane extends JPanel {
         hSpacer19 = new JPanel(null);
         vSpacer20 = new JPanel(null);
         hSpacer20 = new JPanel(null);
-        panel7 = new RoundPanel();
+        panel7 = new JPanel();
         panel10 = new JPanel();
         panel11 = new JPanel();
         label5 = new JLabel();

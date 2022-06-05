@@ -32,6 +32,7 @@ public class ModifyDialog extends JDialog {
         label.setText(cardBagPane.label2.getText());
         top = new CardBagPaneTop();
         top.setBackground(cardBagPane.cardBagPaneTop.getBackground());
+        top.panel.setBackground(cardBagPane.cardBagPaneTop.getBackground());
         example.add(top,BorderLayout.CENTER);
         buttons.add(new colorButton1(Color.blue));
         buttons.add(new colorButton1(Color.black));
@@ -251,6 +252,7 @@ public class ModifyDialog extends JDialog {
                 button.selected = true;
                 button.setBorder(BorderFactory.createLineBorder(Color.black));
                 top.setBackground(button.color);
+                top.panel.setBackground(button.color);
                 addColor = button.color;
             }
         }

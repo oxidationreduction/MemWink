@@ -4,6 +4,7 @@
 
 package com.MemWink.UI.frame;
 
+import com.MemWink.UI.UIManager;
 import com.MemWink.UI.dialog.AddPane;
 import com.MemWink.UI.panel.ShowCardBags;
 import com.MemWink.UI.panel.ShowStatics;
@@ -41,6 +42,7 @@ public class MainFrame extends JFrame {
     }
 
     private void button2(ActionEvent e) {
+        UIManager.cardBag = null;
         mainPanel.removeAll();
         mainPanel.add(ShowCardBags.getShowCardBags());
         mainPanel.updateUI();

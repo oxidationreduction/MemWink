@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space ::177:x, comp TotalCardsNum:::p::p, space :::p}, seq l {space :::p, comp DailyNewCardNum:::p::p, space ::177:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp TotalCardsNum:::p::p, space ::74:x, comp DailyNewCardNum:::p::p, space :::p}}"
+			"$horizontalGroup": "par l {seq t {space ::177:x, comp TotalCardsNum:::p::p, space :::p}, seq l {space :p:14:p, comp panel:::p:58:p, space ::118:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp TotalCardsNum:::p::p, space ::51:x, comp panel:::p:31:p, space :p:15:p}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -15,9 +15,10 @@ new FormModel {
 					"JavaCodeGenerator.variableModifiers": 1
 				}
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "DailyNewCardNum"
-				"text": "0"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+				"columns": 1
+			} ) {
+				name: "panel"
 				auxiliary() {
 					"JavaCodeGenerator.variableModifiers": 1
 				}

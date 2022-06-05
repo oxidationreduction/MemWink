@@ -32,6 +32,7 @@ public class AddPane extends JDialog {
     private void initButtons() {
         top = new CardBagPaneTop();
         top.setBackground(Color.blue);
+        top.panel.setBackground(Color.blue);
         example.add(top,BorderLayout.CENTER);
         colorButton button = new colorButton(Color.blue);
         button.selected = true;
@@ -276,6 +277,7 @@ public class AddPane extends JDialog {
                 button.selected = true;
                 button.setBorder(BorderFactory.createLineBorder(Color.black));
                 top.setBackground(button.color);
+                top.panel.setBackground(button.color);
                 addColor = button.color;
             }
         }
