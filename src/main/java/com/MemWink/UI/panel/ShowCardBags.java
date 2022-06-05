@@ -8,6 +8,7 @@ import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.DataManager;
 import com.MemWink.UI.UIManager;
 import com.MemWink.UI.dialog.AddPane;
+import com.MemWink.util.constant.MemStateConstants;
 
 import java.awt.*;
 import java.awt.event.*;

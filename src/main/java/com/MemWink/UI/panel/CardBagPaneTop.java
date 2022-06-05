@@ -54,7 +54,8 @@ public class CardBagPaneTop extends JPanel {
         panel.setBackground(cardBag.getColor());
         if(cardBag.getReviewCardsNum()>0) {
             RoundButton button = new RoundButton();
-            button.setText(Integer.toString(cardBag.getReviewCardsNum()));
+            button.setFont(new Font("微软雅黑", Font.PLAIN, 9));
+            button.setText("待复习:" + cardBag.getReviewCardsNum());
             button.setBackground(Color.white);
             button.addActionListener(new ButtonListener(cardBag));
             panel.add(button);
@@ -89,18 +90,18 @@ public class CardBagPaneTop extends JPanel {
                     .addComponent(TotalCardsNum)
                     .addContainerGap())
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(14, 14, 14)
-                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(118, Short.MAX_VALUE))
+                    .addContainerGap()
+                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(107, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(TotalCardsNum)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                     .addComponent(panel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-                    .addGap(15, 15, 15))
+                    .addGap(14, 14, 14))
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
