@@ -4,6 +4,8 @@
 
 package com.MemWink.UI.panel;
 
+import com.MemWink.util.MemWinkUtil;
+
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
@@ -23,6 +25,9 @@ public class StagenCount extends JPanel {
         g.setClip(rect);
         super.paint(g);
     }
+    public void setLabel5(String filename,int a,int b){
+        this.label5.setIcon(MemWinkUtil.getScaledIcon(filename,a,b));
+    }
     public StagenCount() {
         initComponents();
     }
@@ -31,14 +36,13 @@ public class StagenCount extends JPanel {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
         label3 = new JLabel();
-        hSpacer2 = new JPanel(null);
         vSpacer3 = new JPanel(null);
+        label5 = new JLabel();
         panel2 = new JPanel();
         label4 = new JLabel();
         vSpacer2 = new JPanel(null);
         hSpacer1 = new JPanel(null);
         panel3 = new JPanel();
-        label5 = new JLabel();
         vSpacer1 = new JPanel(null);
 
         //======== this ========
@@ -59,17 +63,20 @@ public class StagenCount extends JPanel {
             label3.setHorizontalAlignment(SwingConstants.RIGHT);
             label3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 8));
             label3.setBackground(Color.lightGray);
-            panel1.add(label3, BorderLayout.CENTER);
-
-            //---- hSpacer2 ----
-            hSpacer2.setBackground(Color.lightGray);
-            hSpacer2.setPreferredSize(new Dimension(13, 10));
-            panel1.add(hSpacer2, BorderLayout.EAST);
+            panel1.add(label3, BorderLayout.EAST);
 
             //---- vSpacer3 ----
             vSpacer3.setBackground(Color.lightGray);
             vSpacer3.setPreferredSize(new Dimension(10, 11));
             panel1.add(vSpacer3, BorderLayout.NORTH);
+
+            //---- label5 ----
+            label5.setText("\u84dd\u70b9");
+            label5.setHorizontalAlignment(SwingConstants.LEFT);
+            label5.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 8));
+            label5.setBackground(Color.lightGray);
+            label5.setPreferredSize(new Dimension(16, 20));
+            panel1.add(label5, BorderLayout.WEST);
         }
         add(panel1, BorderLayout.NORTH);
 
@@ -101,16 +108,9 @@ public class StagenCount extends JPanel {
             panel3.setBackground(Color.lightGray);
             panel3.setLayout(new BorderLayout());
 
-            //---- label5 ----
-            label5.setText("\u84dd\u70b9");
-            label5.setHorizontalAlignment(SwingConstants.LEFT);
-            label5.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 8));
-            label5.setBackground(Color.lightGray);
-            panel3.add(label5, BorderLayout.CENTER);
-
             //---- vSpacer1 ----
-            vSpacer1.setPreferredSize(new Dimension(10, 180));
             vSpacer1.setBackground(Color.lightGray);
+            vSpacer1.setPreferredSize(new Dimension(10, 20));
             panel3.add(vSpacer1, BorderLayout.PAGE_END);
         }
         add(panel3, BorderLayout.CENTER);
@@ -120,14 +120,13 @@ public class StagenCount extends JPanel {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPanel panel1;
     private JLabel label3;
-    private JPanel hSpacer2;
     private JPanel vSpacer3;
+    private JLabel label5;
     private JPanel panel2;
     private JLabel label4;
     private JPanel vSpacer2;
     private JPanel hSpacer1;
     private JPanel panel3;
-    private JLabel label5;
     private JPanel vSpacer1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

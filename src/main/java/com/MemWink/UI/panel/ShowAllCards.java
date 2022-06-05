@@ -4,6 +4,7 @@
 
 package com.MemWink.UI.panel;
 
+import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.UI.dialog.AddPane;
 import com.MemWink.util.MemWinkUtil;
 
@@ -25,6 +26,7 @@ public class ShowAllCards extends JPanel {
         StagenCount stagenCount2 = new StagenCount();
         StagenCount stagenCount3 = new StagenCount();
         StagenCount stagenCount4 = new StagenCount();
+        stagenCount1.setLabel5("绿勾",1,1);
         this.panel6.add(stagenCount1);
         this.panel6.add(stagenCount2);
         this.panel6.add(stagenCount3);

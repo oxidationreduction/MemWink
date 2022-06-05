@@ -20,13 +20,6 @@ new FormModel {
 					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 8 )
 					"background": sfield java.awt.Color lightGray
 				}, new FormLayoutConstraints( class java.lang.String ) {
-					"value": "Center"
-				} )
-				add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
-					name: "hSpacer2"
-					"background": sfield java.awt.Color lightGray
-					"preferredSize": new java.awt.Dimension( 13, 10 )
-				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "East"
 				} )
 				add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
@@ -35,6 +28,16 @@ new FormModel {
 					"preferredSize": new java.awt.Dimension( 10, 11 )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "North"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label5"
+					"text": "蓝点"
+					"horizontalAlignment": 2
+					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 8 )
+					"background": sfield java.awt.Color lightGray
+					"preferredSize": new java.awt.Dimension( 16, 20 )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "West"
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "North"
@@ -70,19 +73,10 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "panel3"
 				"background": sfield java.awt.Color lightGray
-				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label5"
-					"text": "蓝点"
-					"horizontalAlignment": 2
-					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 8 )
-					"background": sfield java.awt.Color lightGray
-				}, new FormLayoutConstraints( class java.lang.String ) {
-					"value": "Center"
-				} )
 				add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
 					name: "vSpacer1"
-					"preferredSize": new java.awt.Dimension( 10, 180 )
 					"background": sfield java.awt.Color lightGray
+					"preferredSize": new java.awt.Dimension( 10, 20 )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "Last"
 				} )
