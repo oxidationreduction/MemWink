@@ -218,7 +218,7 @@ public class CardBag implements Serializable {
      * 删除卡包内的一种卡片分类
      * <p>删除后，所有分类为被删除分类的卡片都会被标记为"未分类"</p>
      * @param catName 要删除的分类名
-     * @return true：删除成功<p>false：catName为 {@code null} (想要删除"未分类"这一种分类) 或卡包中不存在名为catName的分类<p/>
+     * @return true：删除成功<p>false：catName为 {@code null} (想要删除"未分类"这一种分类) 、卡包中不存在名为catName的分类，或者卡包存储失败<p/>
      */
     public boolean delCategory(String catName) {
         if (catName == null || !categories.contains(catName)) {
