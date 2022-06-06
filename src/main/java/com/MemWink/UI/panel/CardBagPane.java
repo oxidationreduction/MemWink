@@ -20,6 +20,8 @@ import javax.swing.*;
  * @author unknown
  */
 public class CardBagPane extends JPanel {
+
+    //测试//
     public CardBagPane(CardBag cardBag) {
         initComponents();
         this.cardBag = cardBag;
