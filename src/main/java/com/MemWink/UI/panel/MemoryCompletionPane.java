@@ -22,6 +22,20 @@ public class MemoryCompletionPane extends JPanel {
         initComponents();
     }
 
+    /**
+     * 三参数构造器
+     * @param remember 本轮"记住了"的卡片数
+     * @param forget 本轮"没记住"的卡片数
+     * @param tomorrow 明天应该记忆的卡片数
+     *
+     * @author Liu Hongyu
+     * @since 2022-06-06
+     */
+    public MemoryCompletionPane(int remember, int forget, int tomorrow) {
+        initComponents();
+
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();

@@ -11,12 +11,37 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
+/**
+ * 复习管理器
+ * <p>用于统合复习页面和复习结束时的总结页面</p>
+ *
+ * @since 2022-05-30
+ * @author Liu Hongyu
+ */
 public class ReviewManager extends JPanel {
+    /**
+     * 本轮"记住了"的卡片数
+     */
     private int rememberedNum = 0;
+
+    /**
+     * 本轮"没记住"的卡片数
+     */
     private int forgotNum = 0;
+
+    /**
+     * 被复习的卡包
+     */
     private CardBag cardBag;
+
+    /**
+     * 要复习的卡片队列
+     */
     private List<CategorizedCard> cards;
 
+    /**
+     * 构造器
+     */
     public ReviewManager(CardBag cardBag) {
         this.cardBag = cardBag;
         rememberedNum = 0;
@@ -25,6 +50,9 @@ public class ReviewManager extends JPanel {
         setup();
     }
 
+    /**
+     * 初始化外观，也可用于外观更新
+     */
     private void setup() {
         cards = cardBag.getCardNeedReview();
         setLayout(null);
@@ -33,6 +61,7 @@ public class ReviewManager extends JPanel {
         int remain = cards.size();
         if (remain == 0) {
             System.out.println("No cards");
+            memoryCompletionPane = new MemoryCompletionPane(rememberedNum, forgotNum, cardBag.getTomorrowNum());
         } else {
             reviewPanel = new ReviewPanel(cards.get(0), remain, this);
             reviewPanel.setLocation(0, 0);
@@ -44,15 +73,25 @@ public class ReviewManager extends JPanel {
         setVisible(true);
     }
 
+    /**
+     * 选择"记住了"之后，对页面进行更新操作
+     */
     public void remembered() {
         rememberedNum++;
-        setup();
-    }
-    public void forget() {
-        forgotNum++;
-        setup();
+        update();
     }
 
+    /**
+     * 选择"没记住"之后，对页面进行更新操作
+     */
+    public void forget() {
+        forgotNum++;
+        update();
+    }
+
+    /**
+     * 更新页面
+     */
     public void update() {
         setup();
         reviewPanel.update();
@@ -62,7 +101,15 @@ public class ReviewManager extends JPanel {
         );
     }
 
+    /**
+     * 复习面板
+     */
     public ReviewPanel reviewPanel;
+
+    /**
+     * 复习结束后的总结面板
+     */
+    public MemoryCompletionPane memoryCompletionPane;
 
     public static void main(String[] args) {
         DataManager.init();
