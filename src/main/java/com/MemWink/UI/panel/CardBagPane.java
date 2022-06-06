@@ -8,6 +8,7 @@ import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.DataManager;
 import com.MemWink.UI.UIManager;
 import com.MemWink.UI.dialog.AddPane;
+import com.MemWink.UI.dialog.DeleteCardbag;
 import com.MemWink.UI.dialog.ModifyDialog;
 import com.MemWink.UI.frame.MainFrame;
 
@@ -106,10 +107,8 @@ public class CardBagPane extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            JPanel parent = (JPanel) panel.getParent();
-            DataManager.delCardBag(panel.cardBag.getName());
-            parent.remove(panel);
-            parent.updateUI();
+            DeleteCardbag deleteCardbag = new DeleteCardbag(panel.cardBag);
+            deleteCardbag.setVisible(true);
         }
     }
 }

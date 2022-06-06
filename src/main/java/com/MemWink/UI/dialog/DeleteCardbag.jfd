@@ -1,0 +1,38 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.14.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {space ::92:x, comp label1:::p::p, space :p:90:p}, seq {space :p:121:p, comp label2:::p::p, space ::126:x}, seq l {space :p:44:p, comp yes:::p:102:p, space ::101:x, comp no:::p:102:p, space :p:49:p}}"
+			"$verticalGroup": "par l {seq l {space :p:67:p, comp label1:::p::p, space :::p, comp label2:::p::p, space ::27:x, par b {comp yes::b:p:57:p, comp no::b:p:57:p}, space :p:53:p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "是否确定删除该卡包？"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 10, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "该操作无法恢复"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 10, false )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "yes"
+				"text": "是"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "yes", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "no"
+				"text": "否"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "no", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 160, 135 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
