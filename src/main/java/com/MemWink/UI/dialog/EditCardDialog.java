@@ -7,15 +7,35 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * 卡片编辑器对话框
+ * <p>用于新建或编辑卡片，修改卡片正/反面内容时使用</p>
+ * @author Liu Hongyu
+ * @since 2022-05-30
+ */
 public class EditCardDialog extends JDialog {
+    /**
+     * 被编辑的卡片
+     */
     private CategorizedCard card;
+
+    /**
+     * 启动此对话框的面板
+     */
     private JPanel panel;
+
+    /**
+     * 构造器
+     */
     public EditCardDialog(CategorizedCard card, JPanel panel) {
         this.card = card;
         this.panel = panel;
         setup();
     }
 
+    /**
+     * 更新外观
+     */
     private void update() {
         mainPanel.setSize(getWidth(), getHeight());
         frontTextArea.setSize(
@@ -34,6 +54,10 @@ public class EditCardDialog extends JDialog {
                 mainPanel.getHeight() - 77
         );
     }
+
+    /**
+     * 初始化外观
+     */
     private void setup() {
         setSize(640, 480);
         setMinimumSize(new Dimension(640, 480));
@@ -127,6 +151,9 @@ public class EditCardDialog extends JDialog {
         });
     }
 
+    /**
+     * 各种组件
+     */
     private JPanel mainPanel;
     private JLabel frontLabel;
     private JTextArea frontTextArea;
