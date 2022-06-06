@@ -18,6 +18,7 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
+import javax.swing.plaf.DimensionUIResource;
 
 
 /**
@@ -31,6 +32,8 @@ public class ShowAllCards extends JPanel {
         UIManager.cardBag=cardBag1;
         initComponents();
         init2();
+        panel1.setPreferredSize(new Dimension(20,1000));
+        panel5.setVisible(true);
         label1.setText(cardBag1.getName());
         //右上角阶段分类
         StagenCount stagenCount1 = new StagenCount("全部",cardBag1.getCards());
@@ -233,10 +236,13 @@ public class ShowAllCards extends JPanel {
 
         //======== scrollPane1 ========
         {
+            scrollPane1.setPreferredSize(new Dimension(20, 120));
 
             //======== panel1 ========
             {
-                panel1.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
+                panel1.setBorder(null);
+                panel1.setMaximumSize(new Dimension(16, 16));
+                panel1.setPreferredSize(new Dimension(20, 100));
                 panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
             }
             scrollPane1.setViewportView(panel1);
@@ -329,7 +335,7 @@ public class ShowAllCards extends JPanel {
     private JMenuItem menuItem1;
     private JMenuItem menuItem2;
     private JScrollPane scrollPane1;
-    private JPanel panel1;
+    public JPanel panel1;
     private JPanel panel3;
     private JPanel panel6;
     private JPanel panel7;

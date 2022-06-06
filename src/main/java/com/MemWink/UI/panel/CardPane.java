@@ -4,8 +4,12 @@
 
 package com.MemWink.UI.panel;
 
+import java.awt.event.*;
+
+import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.UI.component.RoundPanel;
+import com.MemWink.UI.UIManager;
 
 import java.awt.*;
 import javax.swing.*;
@@ -20,6 +24,7 @@ import javax.swing.plaf.*;
 public class CardPane extends RoundPanel {
     public CardPane(CategorizedCard card) {
         initComponents();
+        this.card = card;
         label1.setText(card.getCategory());
         label2.setText(card.getFrontString());
         int stageflag = card.getMemState();
@@ -54,6 +59,13 @@ public class CardPane extends RoundPanel {
         }
     }
 
+    private void thisMouseClicked(MouseEvent e) {
+        CardContent cardContent = new CardContent(card);
+        UIManager.mainFrame.mainPanel.removeAll();
+        UIManager.mainFrame.mainPanel.add(cardContent);
+        UIManager.mainFrame.mainPanel.updateUI();
+    }
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -67,6 +79,12 @@ public class CardPane extends RoundPanel {
         setMaximumSize(new Dimension(170, 164));
         setPreferredSize(new Dimension(170, 180));
         setBorder(new BevelBorder(BevelBorder.LOWERED));
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                thisMouseClicked(e);
+            }
+        });
         setLayout(new BorderLayout());
 
         //---- label1 ----
@@ -87,7 +105,7 @@ public class CardPane extends RoundPanel {
         add(label3, BorderLayout.SOUTH);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
+    private CategorizedCard card;
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JLabel label1;
     private JLabel label2;

@@ -31,9 +31,9 @@ public class SortPane extends JPanel {
     }
     public SortPane(String name, List<CategorizedCard> list) {
         this.list = list;
+        initComponents();
         label1.setText(name);
         label2.setText(String.valueOf(list.size()));
-        initComponents();
     }
 
     private void thisMouseClicked(MouseEvent e) {
