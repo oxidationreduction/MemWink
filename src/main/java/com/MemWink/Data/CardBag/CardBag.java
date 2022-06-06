@@ -263,6 +263,14 @@ public class CardBag implements Serializable {
      */
     public void addCard(CategorizedCard card) {
         card.updateCardBagName(name);
+        for (CategorizedCard i : cards) {
+            if (i.getCreateTime() == card.getCreateTime()) {
+                cards.set(cards.indexOf(i), card);
+                updateSortLogic(sortLogic);
+                saveCardBag(this);
+                return;
+            }
+        }
         cards.add(card);
         updateSortLogic(sortLogic);
         saveCardBag(this);
@@ -437,7 +445,7 @@ public class CardBag implements Serializable {
     }
 
     /**
-     * 更改排序逻辑
+     * 更改排序逻辑并排序
      * @param logic 新排序逻辑
      */
     public void updateSortLogic(int logic) {
