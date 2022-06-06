@@ -34,6 +34,7 @@ public class StagenCount extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - 刘洪宇
         panel1 = new JPanel();
         label3 = new JLabel();
         vSpacer3 = new JPanel(null);
@@ -51,6 +52,12 @@ public class StagenCount extends JPanel {
         setMinimumSize(new Dimension(74, 73));
         setBorder(null);
         setBackground(Color.lightGray);
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+        border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER
+        , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
+        .BOLD ,12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
+        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r"
+        .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(new BorderLayout());
 
         //======== panel1 ========
@@ -75,7 +82,9 @@ public class StagenCount extends JPanel {
             label5.setHorizontalAlignment(SwingConstants.LEFT);
             label5.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 8));
             label5.setBackground(Color.lightGray);
-            label5.setPreferredSize(new Dimension(16, 20));
+            label5.setPreferredSize(new Dimension(20, 20));
+            label5.setMinimumSize(new Dimension(20, 20));
+            label5.setMaximumSize(new Dimension(20, 20));
             panel1.add(label5, BorderLayout.WEST);
         }
         add(panel1, BorderLayout.NORTH);
@@ -118,6 +127,7 @@ public class StagenCount extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - 刘洪宇
     private JPanel panel1;
     private JLabel label3;
     private JPanel vSpacer3;

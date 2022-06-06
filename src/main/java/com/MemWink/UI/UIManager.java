@@ -1,10 +1,13 @@
 package com.MemWink.UI;
 
 import com.MemWink.Data.CardBag.CardBag;
+import com.MemWink.Data.DataManager;
 import com.MemWink.UI.frame.MainFrame;
 import com.MemWink.UI.panel.*;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.Date;
 
 public class UIManager {
     public static MainFrame mainFrame;
@@ -32,9 +35,48 @@ public class UIManager {
         mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Thread updateThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    update();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+        updateThread.start();
     }
 
-    public void update() {
-        // showAllCards = new ShowAllCards(cardBag);
+    /**
+     * 页面更新线程需要执行的语句
+     * @throws InterruptedException 线程异常
+     */
+    public static void update() throws InterruptedException {
+        while (true) {
+            Thread.sleep(5000);
+            Date start = new Date();
+
+            for (CardBag i : DataManager.getCardBags()) {
+                if (i.getReviewCardsNum() > 0) {
+                    Component[] components = mainFrame.mainPanel.getComponents();
+                    showCardBags = ShowCardBags.getShowCardBags();
+                    // TODO：ShowAllCards构造器中应当有一个CardBag参数
+                    // showAllCards = new ShowAllCards();
+                    if (components[0] instanceof ShowCardBags) {
+                        mainFrame.mainPanel.removeAll();
+                        mainFrame.mainPanel.add(showCardBags);
+                    } else if (components[0] instanceof ShowAllCards) {
+                        mainFrame.mainPanel.removeAll();
+                        mainFrame.mainPanel.add(showAllCards);
+                    }
+                    mainFrame.mainPanel.updateUI();
+                }
+            }
+            Date end = new Date();
+
+            System.out.println(end.getTime() - start.getTime());
+        }
     }
 }

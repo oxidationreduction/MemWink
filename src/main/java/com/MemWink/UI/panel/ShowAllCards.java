@@ -26,7 +26,7 @@ public class ShowAllCards extends JPanel {
         StagenCount stagenCount2 = new StagenCount();
         StagenCount stagenCount3 = new StagenCount();
         StagenCount stagenCount4 = new StagenCount();
-        stagenCount1.setLabel5("绿勾",1,1);
+        stagenCount1.setLabel5("设置",15,15);
         this.panel6.add(stagenCount1);
         this.panel6.add(stagenCount2);
         this.panel6.add(stagenCount3);
@@ -41,6 +41,8 @@ public class ShowAllCards extends JPanel {
         this.panel8.add(sortPane3);
         this.panel8.add(sortPane4);
         this.panel8.add(sortPane5);
+
+
     }
     //添加菜单的两个监听
 

@@ -247,13 +247,14 @@ public class CardBag implements Serializable {
             throw new RuntimeException(e);
         }
         CategorizedCard tmp;
-        if (Objects.equals(category, null) || categories.contains(category)) {
-            tmp = new CategorizedCard(front, back, showFront, memState, starred, category, this.name);
-        } else {
-            throw new RuntimeException("Invalid Category: " + category);
+        if (Objects.equals(category, "未分类")) {
+            category = null;
         }
+        categories.add(category);
+        tmp = new CategorizedCard(front, back, showFront, memState, starred, category, this.name);
         cards.add(tmp);
         updateSortLogic(sortLogic);
+        saveCardBag(this);
     }
 
     /**
@@ -264,6 +265,7 @@ public class CardBag implements Serializable {
         card.updateCardBagName(name);
         cards.add(card);
         updateSortLogic(sortLogic);
+        saveCardBag(this);
     }
 
     /**
@@ -288,6 +290,15 @@ public class CardBag implements Serializable {
     public boolean delCard(CategorizedCard c) {
         cards.remove(c);
         cardNeedReview.remove(c);
+        return saveCardBag(this);
+    }
+
+    /**
+     * 清除卡包内容
+     * @return 清除并保存成功返回 {@code true}，否则返回 {@code false}
+     */
+    public boolean removeAllCards() {
+        cards.clear();
         return saveCardBag(this);
     }
 
@@ -566,6 +577,7 @@ public class CardBag implements Serializable {
                 throw new RuntimeException("Csv format error.");
             }
         }
+        saveCardBag(this);
     }
 
     /**

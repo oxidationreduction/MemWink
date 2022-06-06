@@ -30,10 +30,11 @@ public class ReviewManager extends JPanel {
         setLayout(null);
 
         removeAll();
-        if (cards.size() == 0) {
+        int remain = cards.size();
+        if (remain == 0) {
             System.out.println("No cards");
         } else {
-            reviewPanel = new ReviewPanel(cards.get(0), this);
+            reviewPanel = new ReviewPanel(cards.get(0), remain, this);
             reviewPanel.setLocation(0, 0);
             add(reviewPanel);
             reviewPanel.requestFocus();

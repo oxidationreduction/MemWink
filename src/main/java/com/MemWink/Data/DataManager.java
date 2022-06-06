@@ -55,11 +55,14 @@ public class DataManager {
             FileInputStream fileInputStream = new FileInputStream(cardBagSavePath + "card_bag_name.txt");
             ObjectInputStream tool = new ObjectInputStream(fileInputStream);
             cardBagNames = (List<String>) tool.readObject();
-            for (String i : cardBagNames) {
-                cardBags.add(CardBag.openCardBag(i));
-            }
         } catch (IOException | ClassNotFoundException e) {
+            importExampleCardBag();
             saveCardBagName();
+        }
+
+        // 按名字读取卡包
+        for (String i : cardBagNames) {
+            cardBags.add(CardBag.openCardBag(i));
         }
 
         // 读取记忆历史记录
@@ -220,6 +223,12 @@ public class DataManager {
         return  tmp.get(tmp.size()-1);
     }
 
+    /**
+     * 向卡包内添加一个类别
+     * @param name 卡包名
+     * @param category 类别名
+     * @return 正常，返回0；否则按照错误类型返回。
+     */
     public static int addCategory(String name, String category) {
         CardBag tmp = provideCardBag(name);
         if (tmp == null) {
@@ -229,6 +238,17 @@ public class DataManager {
             return DataManagerStatus.DUPLICATE_CATEGORY;
         }
         return DataManagerStatus.NORMAL;
+    }
+
+    /**
+     * 导入示例卡包
+     */
+    public static void importExampleCardBag() {
+        File file = new File("usrData/example.csv");
+        addCardBag("欢迎使用MemWink", Color.ORANGE, 50);
+        CardBag cardBag = provideCardBag("欢迎使用MemWink");
+        cardBag.importCSV(file);
+        System.out.println("example: " + cardBag.getTotalCardsNum() + " " + cardBag.getReviewCardsNum());
     }
 
     /**

@@ -14,11 +14,12 @@ public class ReviewPanel extends CardContent implements ActionListener {
     private Timer timer = new Timer(2000, this);
     private Date endTime = new Date();
     private ReviewManager reviewManager;
-    public ReviewPanel(CategorizedCard card, ReviewManager reviewManager) {
+    public ReviewPanel(CategorizedCard card, int remain, ReviewManager reviewManager) {
         super(card);
         this.reviewManager = reviewManager;
         this.setFocusable(true);
         this.addKeyListener(this);
+        this.remainLabel = new JLabel(remain + "");
         setup();
     }
     private void setup() {
@@ -94,6 +95,15 @@ public class ReviewPanel extends CardContent implements ActionListener {
             });
         }
         middlePanel.add(forgotButton);
+
+        // remainLabel
+        {
+            remainLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
+            remainLabel.setBackground(Color.BLUE);
+            remainLabel.setSize(40, 30);
+            remainLabel.setLocation((middlePanel.getWidth()) >> 1, 15);
+        }
+        middlePanel.add(remainLabel);
         // frontPanel.setSize(frontPanel.getWidth(), (int) Math.round(frontPanel.getHeight() * 0.9));
         // frontPanel.setSize(backPanel.getWidth(), (int) Math.round(backPanel.getHeight()));
         setVisible(true);
@@ -161,6 +171,8 @@ public class ReviewPanel extends CardContent implements ActionListener {
     JPanel timePanel;
     JLabel timeLabel;
 
+    JLabel remainLabel;
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -190,5 +202,9 @@ public class ReviewPanel extends CardContent implements ActionListener {
             reviewManager.forget();
         }
         update();
+    }
+
+    public static void main(String[] args) {
+
     }
 }
