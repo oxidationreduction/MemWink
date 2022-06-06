@@ -18,11 +18,26 @@ import javax.swing.border.*;
 public class ShowStatics extends JPanel {
     public ShowStatics() {
         initComponents();
-        TodayReviewCardsNum.setText(Integer.toString(DataManager.getTodayReviewCardsNum()));
+        TodayRememberedCardsNum.setText(Integer.toString(DataManager.getTodayRememberedCardsNum()));
         TodayRemainCardsNum.setText(Integer.toString(DataManager.getTodayRemainCardsNum()));
-        TodayForgetRate.setText(String.format("%.2f",DataManager.getTodayForgetRate()));
+        TodayForgetRate.setText(String.format("%.2f",DataManager.getTodayForgetRate()*100));
         TomorrowNum.setText(Integer.toString(DataManager.getTomorrowCardsNum()));
-        Map1.add(new Graph(0,300,300,DataManager.getReviewCardsNumHistory()));
+        int x1 = DataManager.getRememberedCardsNumHistory().get(DataManager.getRememberedCardsNumHistory().size()-1) -DataManager.getRememberedCardsNumHistory().get(DataManager.getRememberedCardsNumHistory().size()-2);
+        if(x1<0) {
+            Map1num.setText(Integer.toString(x1));
+        }
+        else {
+            Map1num.setText("+"+ x1);
+        }
+        double x2 = DataManager.getForgetCardsNumHistory().get(DataManager.getForgetCardsNumHistory().size()-1) - DataManager.getForgetCardsNumHistory().get(DataManager.getForgetCardsNumHistory().size()-2);
+        x2 = x2*100;
+        if(x2<0) {
+            Map2num.setText(String.format("%.2f",x2)+"%");
+        }
+        else {
+            Map2num.setText("+"+String.format("%.2f",x2)+"%");
+        }
+        Map1.add(new Graph(0,300,300,DataManager.getRememberedCardsNumHistory()));
         Map2.add(new Graph(1,300,300,DataManager.getForgetCardsNumHistory()));
     }
 
@@ -46,7 +61,7 @@ public class ShowStatics extends JPanel {
         vSpacer10 = new JPanel(null);
         panel20 = new JPanel();
         label8 = new JLabel();
-        TodayReviewCardsNum = new JLabel();
+        TodayRememberedCardsNum = new JLabel();
         panel14 = new JPanel();
         panel21 = new JPanel();
         vSpacer11 = new JPanel(null);
@@ -87,7 +102,7 @@ public class ShowStatics extends JPanel {
         label19 = new JLabel();
         panel34 = new JPanel();
         label20 = new JLabel();
-        label21 = new JLabel();
+        Map1num = new JLabel();
         Map1 = new JPanel();
         panel31 = new JPanel();
         panel35 = new JPanel();
@@ -95,7 +110,7 @@ public class ShowStatics extends JPanel {
         label22 = new JLabel();
         panel37 = new JPanel();
         label23 = new JLabel();
-        label24 = new JLabel();
+        Map2num = new JLabel();
         Map2 = new JPanel();
         hSpacer1 = new JPanel(null);
         hSpacer2 = new JPanel(null);
@@ -180,11 +195,11 @@ public class ShowStatics extends JPanel {
                                 label8.setFont(label8.getFont().deriveFont(label8.getFont().getSize() + 12f));
                                 panel20.add(label8);
 
-                                //---- TodayReviewCardsNum ----
-                                TodayReviewCardsNum.setText("0");
-                                TodayReviewCardsNum.setHorizontalAlignment(SwingConstants.CENTER);
-                                TodayReviewCardsNum.setFont(TodayReviewCardsNum.getFont().deriveFont(TodayReviewCardsNum.getFont().getSize() + 20f));
-                                panel20.add(TodayReviewCardsNum);
+                                //---- TodayRememberedCardsNum ----
+                                TodayRememberedCardsNum.setText("0");
+                                TodayRememberedCardsNum.setHorizontalAlignment(SwingConstants.CENTER);
+                                TodayRememberedCardsNum.setFont(TodayRememberedCardsNum.getFont().deriveFont(TodayRememberedCardsNum.getFont().getSize() + 20f));
+                                panel20.add(TodayRememberedCardsNum);
                             }
                             panel19.add(panel20, BorderLayout.CENTER);
                         }
@@ -389,11 +404,11 @@ public class ShowStatics extends JPanel {
                             label20.setVerticalAlignment(SwingConstants.BOTTOM);
                             panel34.add(label20);
 
-                            //---- label21 ----
-                            label21.setText("+0");
-                            label21.setFont(label21.getFont().deriveFont(label21.getFont().getSize() + 5f));
-                            label21.setVerticalAlignment(SwingConstants.BOTTOM);
-                            panel34.add(label21);
+                            //---- Map1num ----
+                            Map1num.setText("+0");
+                            Map1num.setFont(Map1num.getFont().deriveFont(Map1num.getFont().getSize() + 5f));
+                            Map1num.setVerticalAlignment(SwingConstants.BOTTOM);
+                            panel34.add(Map1num);
                         }
                         panel32.add(panel34);
                     }
@@ -437,11 +452,11 @@ public class ShowStatics extends JPanel {
                             label23.setVerticalAlignment(SwingConstants.BOTTOM);
                             panel37.add(label23);
 
-                            //---- label24 ----
-                            label24.setText("+0%");
-                            label24.setFont(label24.getFont().deriveFont(label24.getFont().getSize() + 5f));
-                            label24.setVerticalAlignment(SwingConstants.BOTTOM);
-                            panel37.add(label24);
+                            //---- Map2num ----
+                            Map2num.setText("+0%");
+                            Map2num.setFont(Map2num.getFont().deriveFont(Map2num.getFont().getSize() + 5f));
+                            Map2num.setVerticalAlignment(SwingConstants.BOTTOM);
+                            panel37.add(Map2num);
                         }
                         panel35.add(panel37);
                     }
@@ -488,7 +503,7 @@ public class ShowStatics extends JPanel {
     private JPanel vSpacer10;
     private JPanel panel20;
     private JLabel label8;
-    private JLabel TodayReviewCardsNum;
+    private JLabel TodayRememberedCardsNum;
     private JPanel panel14;
     private JPanel panel21;
     private JPanel vSpacer11;
@@ -529,7 +544,7 @@ public class ShowStatics extends JPanel {
     private JLabel label19;
     private JPanel panel34;
     private JLabel label20;
-    private JLabel label21;
+    private JLabel Map1num;
     private JPanel Map1;
     private JPanel panel31;
     private JPanel panel35;
@@ -537,7 +552,7 @@ public class ShowStatics extends JPanel {
     private JLabel label22;
     private JPanel panel37;
     private JLabel label23;
-    private JLabel label24;
+    private JLabel Map2num;
     private JPanel Map2;
     private JPanel hSpacer1;
     private JPanel hSpacer2;

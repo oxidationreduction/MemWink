@@ -100,7 +100,7 @@ new FormModel {
 										"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 12, false )
 									} )
 									add( new FormComponent( "javax.swing.JLabel" ) {
-										name: "TodayReviewCardsNum"
+										name: "TodayRememberedCardsNum"
 										"text": "0"
 										"horizontalAlignment": 0
 										"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 20, false )
@@ -341,7 +341,7 @@ new FormModel {
 									"verticalAlignment": 3
 								} )
 								add( new FormComponent( "javax.swing.JLabel" ) {
-									name: "label21"
+									name: "Map1num"
 									"text": "+0"
 									"font": &SwingDerivedFont3 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
 									"verticalAlignment": 3
@@ -386,7 +386,7 @@ new FormModel {
 									"verticalAlignment": 3
 								} )
 								add( new FormComponent( "javax.swing.JLabel" ) {
-									name: "label24"
+									name: "Map2num"
 									"text": "+0%"
 									"font": #SwingDerivedFont3
 									"verticalAlignment": 3

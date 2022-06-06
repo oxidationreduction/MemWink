@@ -31,6 +31,17 @@ public class ShowCardBags extends JPanel {
             cardBagPane.label2.setText(cardBag.getName());
             this.panel1.add(cardBagPane);
         }
+        int x = DataManager.getCardBags().size()/4 +(DataManager.getCardBags().size()%4 != 0 ? 1:0);
+        if(x<4) {
+            panel1.setPreferredSize(new Dimension(700,400));
+        }
+        else if(x==4) {
+            panel1.setPreferredSize(new Dimension(700,600));
+        }
+        else {
+            panel1.setPreferredSize(new Dimension(700,600+140*(x-4)));
+        }
+
     }
 
     private void button1(ActionEvent e) {
@@ -79,11 +90,13 @@ public class ShowCardBags extends JPanel {
 
         //======== scrollPane1 ========
         {
+            scrollPane1.setMaximumSize(new Dimension(700, 32767));
 
             //======== panel1 ========
             {
-                panel1.setPreferredSize(new Dimension(700, 460));
-                panel1.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 15));
+                panel1.setPreferredSize(new Dimension(700, 400));
+                panel1.setMaximumSize(new Dimension(700, 32767));
+                panel1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 15));
             }
             scrollPane1.setViewportView(panel1);
         }

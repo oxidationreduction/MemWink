@@ -36,13 +36,15 @@ new FormModel {
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
+				"maximumSize": new java.awt.Dimension( 700, 32767 )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
 					"alignment": 0
-					"hgap": 15
+					"hgap": 10
 					"vgap": 15
 				} ) {
 					name: "panel1"
-					"preferredSize": new java.awt.Dimension( 700, 460 )
+					"preferredSize": new java.awt.Dimension( 700, 400 )
+					"maximumSize": new java.awt.Dimension( 700, 32767 )
 					auxiliary() {
 						"JavaCodeGenerator.variableModifiers": 1
 					}

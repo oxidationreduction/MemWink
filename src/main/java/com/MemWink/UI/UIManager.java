@@ -46,7 +46,7 @@ public class UIManager {
                 }
             }
         };
-        updateThread.start();
+        //updateThread.start();
     }
 
     /**
