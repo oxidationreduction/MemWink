@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.15" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.13" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -10,6 +10,7 @@ new FormModel {
 			"minimumSize": new java.awt.Dimension( 74, 73 )
 			"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
 			"background": sfield java.awt.Color lightGray
+			addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "thisMouseClicked", true ) )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "panel1"
 				"background": sfield java.awt.Color lightGray
@@ -35,9 +36,10 @@ new FormModel {
 					"horizontalAlignment": 2
 					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 8 )
 					"background": sfield java.awt.Color lightGray
-					"preferredSize": new java.awt.Dimension( 20, 20 )
+					"preferredSize": new java.awt.Dimension( 30, 30 )
 					"minimumSize": new java.awt.Dimension( 20, 20 )
 					"maximumSize": new java.awt.Dimension( 20, 20 )
+					"opaque": true
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "West"
 				} )

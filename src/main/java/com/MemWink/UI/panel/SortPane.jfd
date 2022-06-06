@@ -10,6 +10,7 @@ new FormModel {
 			"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
 			"preferredSize": new java.awt.Dimension( 150, 21 )
 			"background": sfield java.awt.Color lightGray
+			addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "thisMouseClicked", true ) )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "panel1"
 				"background": sfield java.awt.Color lightGray

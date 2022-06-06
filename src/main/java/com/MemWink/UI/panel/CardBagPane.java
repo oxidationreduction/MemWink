@@ -41,7 +41,7 @@ public class CardBagPane extends JPanel {
     private void thisMouseClicked(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ){
             UIManager.cardBag = cardBag;
-            ShowAllCards allCards = new ShowAllCards();
+            ShowAllCards allCards = new ShowAllCards(cardBag);
             MainFrame.getMainFrame().mainPanel.removeAll();
             MainFrame.getMainFrame().mainPanel.add(allCards);
             MainFrame.getMainFrame().mainPanel.updateUI();

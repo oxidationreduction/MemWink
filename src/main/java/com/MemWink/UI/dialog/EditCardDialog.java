@@ -2,6 +2,7 @@ package com.MemWink.UI.dialog;
 
 import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.UI.panel.CardContent;
+import com.MemWink.UI.panel.ShowAllCards;
 
 import javax.swing.*;
 import java.awt.*;
@@ -108,7 +109,12 @@ public class EditCardDialog extends JDialog {
                     dispose();
                     if (panel instanceof CardContent) {
                         ((CardContent) panel).update();
-                    } else {
+                    }
+                    else if(panel instanceof ShowAllCards){
+                        ((ShowAllCards) panel).cardBag1.addCard(card);
+                        ((ShowAllCards) panel).showcard(((ShowAllCards) panel).cardBag1.getCards());
+                    }
+                    else {
                         throw new RuntimeException("EditCardDialog needs modify");
                     }
 

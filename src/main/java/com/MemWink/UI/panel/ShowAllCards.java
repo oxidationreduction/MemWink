@@ -5,11 +5,16 @@
 package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.CardBag;
-import com.MemWink.UI.dialog.AddPane;
+import com.MemWink.Data.CardBag.CategorizedCard;
+import com.MemWink.Data.DataManager;
+import com.MemWink.UI.UIManager;
+import com.MemWink.UI.dialog.*;
 import com.MemWink.util.MemWinkUtil;
+import com.MemWink.util.constant.MemStateConstants;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
@@ -19,44 +24,58 @@ import javax.swing.border.*;
  * @author unknown
  */
 public class ShowAllCards extends JPanel {
-    public ShowAllCards() {
+    public ShowAllCards(CardBag cardBag) {
+        cardBag1=cardBag;
+        UIManager.showAllCards=this;
+        UIManager.cardBag=cardBag1;
         initComponents();
         init2();
-        StagenCount stagenCount1 = new StagenCount();
-        StagenCount stagenCount2 = new StagenCount();
-        StagenCount stagenCount3 = new StagenCount();
-        StagenCount stagenCount4 = new StagenCount();
-        stagenCount1.setLabel5("设置",15,15);
+        label1.setText(cardBag1.getName());
+        //右上角阶段分类
+        StagenCount stagenCount1 = new StagenCount("全部",cardBag1.getCards());
+        StagenCount stagenCount2 = new StagenCount("新卡",cardBag1.getNewCards());
+        StagenCount stagenCount3 = new StagenCount("记忆中",cardBag1.getCardsLearning());
+        StagenCount stagenCount4 = new StagenCount("已记住",cardBag1.getCardFinished());
+        stagenCount1.setLabel5("统计",20,20);
+        stagenCount2.setLabel5("统计",20,20);
+        stagenCount3.setLabel5("统计",20,20);
+        stagenCount4.setLabel5("统计",20,20);
         this.panel6.add(stagenCount1);
         this.panel6.add(stagenCount2);
         this.panel6.add(stagenCount3);
         this.panel6.add(stagenCount4);
-        SortPane sortPane1 = new SortPane();
-        SortPane sortPane2 = new SortPane();
-        SortPane sortPane3 = new SortPane();
-        SortPane sortPane4 = new SortPane();
-        SortPane sortPane5 = new SortPane();
-        this.panel8.add(sortPane1);
-        this.panel8.add(sortPane2);
-        this.panel8.add(sortPane3);
-        this.panel8.add(sortPane4);
-        this.panel8.add(sortPane5);
-
-
+        //右下角自我分类
+        for(String name:cardBag1.getCategories()){
+            SortPane sortPane = new SortPane(name,cardBag1.getCardsByCategory(name));
+            panel8.add(sortPane);
+        }
+        //待复习button
+        if(cardBag1.getReviewCardsNum()>0){
+            button3.setVisible(true);
+            button3.setText("待复习："+String.valueOf(cardBag1.getReviewCardsNum()));
+            button3.addActionListener(e -> button3(e));
+        }
+        //初始化卡片panel1
+        this.showcard(cardBag1.getCards());
     }
-    //添加菜单的两个监听
 
+    public void showcard(List<CategorizedCard> list){
+        this.panel1.removeAll();
+        for(CategorizedCard card:list){
+            this.panel1.add(new CardPane(card));
+        }
+        this.panel1.updateUI();
+    }
 
+    public JLabel gettable1(){
+        return label1;
+    }
+    //新建卡片事件
     private void menuItem1(ActionEvent e) {
-        JDialog jDialog = new JDialog();
-        jDialog.setVisible(true);
-        jDialog.setBounds(500,250,300,300);
-        Container container = jDialog.getContentPane();
-        container.setLayout(null);
-        Button button = new Button("123");
-        button.setVisible(true);
-        button.setBounds(0,0,100,100);
-        container.add(button);
+        CategorizedCard newcard = new CategorizedCard("请输入","请输入",true, MemStateConstants.newCard,true,null,UIManager.cardBag.getName());
+        EditCardDialog editCardDialog = new EditCardDialog(newcard,this);
+        editCardDialog.setVisible(true);
+        editCardDialog.setBounds(400,180,100,100);
     }
 
     private void button1(ActionEvent e) {
@@ -71,12 +90,66 @@ public class ShowAllCards extends JPanel {
         button1.setIcon(MemWinkUtil.getScaledIcon("设置",30,30));
     }
 
+    private void button3(ActionEvent e) {
+        ReviewManager reviewManager = new ReviewManager(UIManager.cardBag);
+        UIManager.mainPanel.removeAll();;
+        UIManager.mainPanel.add(reviewManager);
+        UIManager.mainPanel.updateUI();
+    }
+
+    private void menuItem4(ActionEvent e) {
+        UIManager.cardBag.updateSortLogic(0);
+        this.showcard(UIManager.cardBag.getCards());
+    }
+
+    private void menuItem8(ActionEvent e) {
+        UIManager.cardBag.updateSortLogic(1);
+        this.showcard(UIManager.cardBag.getCards());
+    }
+
+    private void menuItem9(ActionEvent e) {
+        UIManager.cardBag.updateSortLogic(2);
+        this.showcard(UIManager.cardBag.getCards());
+    }
+    //删除卡包
+    private void menuItem7(ActionEvent e) {
+        /*
+        DataManager.delCardBag(label1.getText());
+        UIManager.mainFrame.mainPanel.removeAll();
+        UIManager.mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
+        UIManager.mainFrame.mainPanel.updateUI();
+        */
+        makesure2 makesure2 = new makesure2();
+        makesure2.setVisible(true);
+        makesure2.setBounds(700,300,100,80);
+    }
+    //清除卡包内容
+    private void menuItem6(ActionEvent e) {
+        /*
+        UIManager.cardBag.removeAllCards();
+        this.showcard(UIManager.cardBag.getCards());
+         */
+        makesure1 makesure1 = new makesure1(this);
+        makesure1.setVisible(true);
+        makesure1.setBounds(700,300,100,80);
+    }
+
+    private void menuItem3(ActionEvent e) {
+        ChangeCardbag changeCardbag = new ChangeCardbag(cardBag1);
+        changeCardbag.setVisible(true);
+        JButton tmp = new JButton();
+        tmp.setLocation(300, 200);
+        add(tmp);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         popupMenu1 = new JPopupMenu();
         menuItem3 = new JMenuItem();
+        menu1 = new JMenu();
         menuItem4 = new JMenuItem();
-        menuItem5 = new JMenuItem();
+        menuItem8 = new JMenuItem();
+        menuItem9 = new JMenuItem();
         menuItem6 = new JMenuItem();
         menuItem7 = new JMenuItem();
         popupMenu2 = new JPopupMenu();
@@ -94,30 +167,46 @@ public class ShowAllCards extends JPanel {
         label1 = new JLabel();
         button1 = new JButton();
         panel5 = new JPanel();
-        label2 = new JLabel();
         button2 = new JButton();
+        button3 = new JButton();
 
         //======== popupMenu1 ========
         {
 
             //---- menuItem3 ----
             menuItem3.setText("\u5361\u5305\u8bbe\u7f6e");
+            menuItem3.addActionListener(e -> menuItem3(e));
             popupMenu1.add(menuItem3);
 
-            //---- menuItem4 ----
-            menuItem4.setText("\u6392\u5e8f\u65b9\u5f0f");
-            popupMenu1.add(menuItem4);
+            //======== menu1 ========
+            {
+                menu1.setText("\u6392\u5e8f\u65b9\u5f0f");
 
-            //---- menuItem5 ----
-            menuItem5.setText("\u9ed8\u8ba4\u663e\u793a\u5361\u7247");
-            popupMenu1.add(menuItem5);
+                //---- menuItem4 ----
+                menuItem4.setText("\u521b\u5efa\u65f6\u95f4");
+                menuItem4.addActionListener(e -> menuItem4(e));
+                menu1.add(menuItem4);
+
+                //---- menuItem8 ----
+                menuItem8.setText("\u6b63\u9762\u5185\u5bb9");
+                menuItem8.addActionListener(e -> menuItem8(e));
+                menu1.add(menuItem8);
+
+                //---- menuItem9 ----
+                menuItem9.setText("\u8bb0\u5fc6\u9636\u6bb5");
+                menuItem9.addActionListener(e -> menuItem9(e));
+                menu1.add(menuItem9);
+            }
+            popupMenu1.add(menu1);
 
             //---- menuItem6 ----
             menuItem6.setText("\u6e05\u9664\u5361\u5305\u5185\u5bb9");
+            menuItem6.addActionListener(e -> menuItem6(e));
             popupMenu1.add(menuItem6);
 
             //---- menuItem7 ----
             menuItem7.setText("\u5220\u9664\u5361\u5305");
+            menuItem7.addActionListener(e -> menuItem7(e));
             popupMenu1.add(menuItem7);
         }
 
@@ -205,27 +294,29 @@ public class ShowAllCards extends JPanel {
         {
             panel5.setLayout(new BorderLayout());
 
-            //---- label2 ----
-            label2.setText("\u5f85\u590d\u4e60\uff1a");
-            label2.setHorizontalAlignment(SwingConstants.RIGHT);
-            label2.setBorder(new EtchedBorder());
-            panel5.add(label2, BorderLayout.CENTER);
-
             //---- button2 ----
             button2.setText("+");
             button2.setPreferredSize(new Dimension(45, 45));
             button2.addActionListener(e -> button2(e));
             panel5.add(button2, BorderLayout.EAST);
+
+            //---- button3 ----
+            button3.setText("text");
+            button3.setVisible(false);
+            button3.addActionListener(e -> button3(e));
+            panel5.add(button3, BorderLayout.CENTER);
         }
         add(panel5, BorderLayout.PAGE_END);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
+    public CardBag cardBag1;
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPopupMenu popupMenu1;
     private JMenuItem menuItem3;
+    private JMenu menu1;
     private JMenuItem menuItem4;
-    private JMenuItem menuItem5;
+    private JMenuItem menuItem8;
+    private JMenuItem menuItem9;
     private JMenuItem menuItem6;
     private JMenuItem menuItem7;
     private JPopupMenu popupMenu2;
@@ -243,7 +334,7 @@ public class ShowAllCards extends JPanel {
     private JLabel label1;
     private JButton button1;
     private JPanel panel5;
-    private JLabel label2;
     private JButton button2;
+    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

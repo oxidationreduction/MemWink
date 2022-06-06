@@ -4,8 +4,14 @@
 
 package com.MemWink.UI.panel;
 
+import com.MemWink.Data.CardBag.CardBag;
+import com.MemWink.Data.CardBag.CategorizedCard;
+import com.MemWink.UI.UIManager;
+
 import java.awt.*;
+import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -23,8 +29,15 @@ public class SortPane extends JPanel {
         g.setClip(rect);
         super.paint(g);
     }
-    public SortPane() {
+    public SortPane(String name, List<CategorizedCard> list) {
+        this.list = list;
+        label1.setText(name);
+        label2.setText(String.valueOf(list.size()));
         initComponents();
+    }
+
+    private void thisMouseClicked(MouseEvent e) {
+        UIManager.showAllCards.showcard(list);
     }
 
     private void initComponents() {
@@ -42,6 +55,12 @@ public class SortPane extends JPanel {
         setBorder(null);
         setPreferredSize(new Dimension(150, 21));
         setBackground(Color.lightGray);
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                thisMouseClicked(e);
+            }
+        });
         setLayout(new BorderLayout());
 
         //======== panel1 ========
@@ -79,7 +98,7 @@ public class SortPane extends JPanel {
         add(panel2, BorderLayout.EAST);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
+    private List<CategorizedCard> list;
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPanel panel1;
     private JLabel label1;

@@ -133,9 +133,18 @@ public class Card implements Serializable, Cloneable {
      */
     public void updateCardBagName(String newBagName) {
         setCardBagName(newBagName);
+        Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).updateCard((CategorizedCard) this);
+    }
+    /**
+     * 将卡片复制到新卡包
+     * <p>注意：仅复制操作可用，若要在移动操作中使用，需要调用其他方法删除原卡</p>
+     * @param newBagName 新卡包的名字
+     */
+    public void moveToCardBag(String newBagName) {
+        setCardBagName(newBagName);
+        Objects.requireNonNull(DataManager.provideCardBag(cardBagName)).delCard((CategorizedCard) this);
         Objects.requireNonNull(DataManager.provideCardBag(newBagName)).addCard((CategorizedCard) this);
     }
-
     /**
      * 设置卡片记忆阶段
      * <p>操作结束后更新卡片的下次记忆时间 {@code rememberTime}

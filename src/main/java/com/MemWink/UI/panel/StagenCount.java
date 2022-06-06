@@ -4,12 +4,15 @@
 
 package com.MemWink.UI.panel;
 
+import java.awt.event.*;
+import com.MemWink.Data.CardBag.CategorizedCard;
+import com.MemWink.UI.UIManager;
 import com.MemWink.util.MemWinkUtil;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
+import java.util.List;
 import javax.swing.*;
-import javax.swing.border.*;
 
 /**
  * @author unknown
@@ -28,13 +31,19 @@ public class StagenCount extends JPanel {
     public void setLabel5(String filename,int a,int b){
         this.label5.setIcon(MemWinkUtil.getScaledIcon(filename,a,b));
     }
-    public StagenCount() {
+    public StagenCount(String name, List<CategorizedCard> list) {
+        this.list=list;
         initComponents();
+        label3.setText(String.valueOf(list.size()));
+        label4.setText(name);
+    }
+
+    private void thisMouseClicked(MouseEvent e) {
+            UIManager.showAllCards.showcard(list);
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - 刘洪宇
         panel1 = new JPanel();
         label3 = new JLabel();
         vSpacer3 = new JPanel(null);
@@ -52,12 +61,12 @@ public class StagenCount extends JPanel {
         setMinimumSize(new Dimension(74, 73));
         setBorder(null);
         setBackground(Color.lightGray);
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
-        border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER
-        , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
-        .BOLD ,12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
-        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r"
-        .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                thisMouseClicked(e);
+            }
+        });
         setLayout(new BorderLayout());
 
         //======== panel1 ========
@@ -82,9 +91,10 @@ public class StagenCount extends JPanel {
             label5.setHorizontalAlignment(SwingConstants.LEFT);
             label5.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 8));
             label5.setBackground(Color.lightGray);
-            label5.setPreferredSize(new Dimension(20, 20));
+            label5.setPreferredSize(new Dimension(30, 30));
             label5.setMinimumSize(new Dimension(20, 20));
             label5.setMaximumSize(new Dimension(20, 20));
+            label5.setOpaque(true);
             panel1.add(label5, BorderLayout.WEST);
         }
         add(panel1, BorderLayout.NORTH);
@@ -125,9 +135,8 @@ public class StagenCount extends JPanel {
         add(panel3, BorderLayout.CENTER);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
+    private List<CategorizedCard> list;
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - 刘洪宇
     private JPanel panel1;
     private JLabel label3;
     private JPanel vSpacer3;

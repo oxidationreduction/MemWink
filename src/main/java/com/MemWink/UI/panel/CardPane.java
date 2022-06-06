@@ -4,6 +4,7 @@
 
 package com.MemWink.UI.panel;
 
+import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.UI.component.RoundPanel;
 
 import java.awt.*;
@@ -17,8 +18,40 @@ import javax.swing.plaf.*;
  * @author unknown
  */
 public class CardPane extends RoundPanel {
-    public CardPane() {
+    public CardPane(CategorizedCard card) {
         initComponents();
+        label1.setText(card.getCategory());
+        label2.setText(card.getFrontString());
+        int stageflag = card.getMemState();
+        switch (stageflag){
+            case -2:
+                label3.setText("首次强化记忆");
+                break;
+            case -1:
+                label3.setText("二次强化记忆");
+                break;
+            case 0:
+                label3.setText("新卡");
+                break;
+            case 1:
+                label3.setText("阶段一");
+                break;
+            case 2:
+                label3.setText("阶段二");
+                break;
+            case 3:
+                label3.setText("阶段三");
+                break;
+            case 4:
+                label3.setText("阶段四");
+                break;
+            case 5:
+                label3.setText("阶段五");
+                break;
+            case 6:
+                label3.setText("已记住");
+                break;
+        }
     }
 
 
