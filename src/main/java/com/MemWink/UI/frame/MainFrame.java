@@ -6,6 +6,7 @@ package com.MemWink.UI.frame;
 
 import com.MemWink.UI.UIManager;
 import com.MemWink.UI.dialog.AddPane;
+import com.MemWink.UI.dialog.HelpDialog;
 import com.MemWink.UI.panel.ShowCardBags;
 import com.MemWink.UI.panel.ShowStatics;
 
@@ -60,6 +61,12 @@ public class MainFrame extends JFrame {
         JButton tmp = new JButton();
         tmp.setLocation(300, 200);
         add(tmp);
+    }
+
+    private void help(ActionEvent e) {
+        // TODO add your code here
+        HelpDialog helpDialog = new HelpDialog();
+        helpDialog.setVisible(true);
     }
 
 
@@ -213,7 +220,8 @@ public class MainFrame extends JFrame {
                 lowerPanel.setLayout(new BorderLayout());
 
                 //---- helpButton ----
-                helpButton.setText("text");
+                helpButton.setText("\u5e2e\u52a9");
+                helpButton.addActionListener(e -> help(e));
                 lowerPanel.add(helpButton, BorderLayout.SOUTH);
             }
             barPanel.add(lowerPanel);
