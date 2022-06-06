@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/6/5 20：42 绿勾">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ChangeCardbag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ChangeCardbag.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/makesure1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/makesure1.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/makesure2.java" afterDir="false" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/6/6 16：15 前端完善">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/FileChoose.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/FileChoose.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/EditCardDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/EditCardDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/SortPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/SortPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/SortPane.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/SortPane.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usrData/history/history" beforeDir="false" afterPath="$PROJECT_DIR$/usrData/history/history" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +179,8 @@
       <workItem from="1654475289378" duration="4641000" />
       <workItem from="1654481234188" duration="4361000" />
       <workItem from="1654497903698" duration="2475000" />
-      <workItem from="1654502711012" duration="441000" />
+      <workItem from="1654502711012" duration="769000" />
+      <workItem from="1654503698409" duration="4839000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1652529721584</created>
@@ -345,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654433128473</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="2022/6/6 16：15 前端完善">
+      <created>1654503351127</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1654503351127</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +377,8 @@
     <MESSAGE value="2022/6/1 23:24 设置和“+”button的重构" />
     <MESSAGE value="2022/6/3 15:02 设置和“+”button的重构" />
     <MESSAGE value="2022/6/5 20：42 绿勾" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022/6/5 20：42 绿勾" />
+    <MESSAGE value="2022/6/6 16：15 前端完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022/6/6 16：15 前端完善" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -391,7 +390,7 @@
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

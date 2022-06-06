@@ -24,8 +24,9 @@ import javax.swing.border.*;
  * @author unknown
  */
 public class ShowAllCards extends JPanel {
-    public ShowAllCards(CardBag cardBag) {
+    public ShowAllCards(CardBag cardBag,CardBagPane cardBagPane) {
         cardBag1=cardBag;
+        this.cardBagPane=cardBagPane;
         UIManager.showAllCards=this;
         UIManager.cardBag=cardBag1;
         initComponents();
@@ -92,9 +93,9 @@ public class ShowAllCards extends JPanel {
 
     private void button3(ActionEvent e) {
         ReviewManager reviewManager = new ReviewManager(UIManager.cardBag);
-        UIManager.mainPanel.removeAll();;
-        UIManager.mainPanel.add(reviewManager);
-        UIManager.mainPanel.updateUI();
+        UIManager.mainFrame.mainPanel.removeAll();;
+        UIManager.mainFrame.mainPanel.add(reviewManager);
+        UIManager.mainFrame.mainPanel.updateUI();
     }
 
     private void menuItem4(ActionEvent e) {
@@ -135,11 +136,14 @@ public class ShowAllCards extends JPanel {
     }
 
     private void menuItem3(ActionEvent e) {
-        ChangeCardbag changeCardbag = new ChangeCardbag(cardBag1);
-        changeCardbag.setVisible(true);
-        JButton tmp = new JButton();
-        tmp.setLocation(300, 200);
-        add(tmp);
+        ModifyDialog modifyDialog = new ModifyDialog(cardBagPane);
+        modifyDialog.setVisible(true);
+    }
+
+    private void menuItem2(ActionEvent e) {
+        FileChoose fileChoose = new FileChoose(cardBag1);
+        fileChoose.setVisible(true);
+        fileChoose.setBounds(400,200,600,400);
     }
 
     private void initComponents() {
@@ -220,6 +224,7 @@ public class ShowAllCards extends JPanel {
 
             //---- menuItem2 ----
             menuItem2.setText("\u5bfc\u5165csv");
+            menuItem2.addActionListener(e -> menuItem2(e));
             popupMenu2.add(menuItem2);
         }
 
@@ -309,6 +314,7 @@ public class ShowAllCards extends JPanel {
         add(panel5, BorderLayout.PAGE_END);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
+    public CardBagPane cardBagPane;
     public CardBag cardBag1;
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPopupMenu popupMenu1;
