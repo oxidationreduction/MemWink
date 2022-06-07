@@ -67,6 +67,13 @@ public class CardPane extends RoundPanel {
         UIManager.mainFrame.mainPanel.updateUI();
     }
 
+    /*private void thisMouseClicked(MouseEvent e) {
+        CardContent cardContent = new CardContent(card);
+        UIManager.mainFrame.mainPanel.removeAll();
+        UIManager.mainFrame.mainPanel.add(cardContent);
+        UIManager.mainFrame.mainPanel.updateUI();
+    }*/
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents

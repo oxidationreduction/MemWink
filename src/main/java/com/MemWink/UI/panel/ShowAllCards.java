@@ -32,9 +32,10 @@ public class ShowAllCards extends JPanel {
         UIManager.cardBag=cardBag1;
         initComponents();
         init2();
-        panel1.setPreferredSize(new Dimension(20,1000));
+
         panel5.setVisible(true);
         label1.setText(cardBag1.getName());
+
         //右上角阶段分类
         StagenCount stagenCount1 = new StagenCount("全部",cardBag1.getCards());
         StagenCount stagenCount2 = new StagenCount("新卡",cardBag1.getNewCards());
@@ -61,13 +62,32 @@ public class ShowAllCards extends JPanel {
         }
         //初始化卡片panel1
         this.showcard(cardBag1.getCards());
+        panel1.setPreferredSize(new Dimension(20,getrightheight(this.panel2.getSize(),cardBag1.getCards().size())));
     }
 
+    //panel1高度求解
+    public int getrightheight(Dimension dimension , int cardnum){
+        Double width = dimension.getWidth();
+        Double height = dimension.getHeight();
+        //a为每行的卡片数
+        double a =Math.floor(width/175);
+        //b为总卡片数
+        double b =cardnum;
+        //c为理论卡片行数
+        double c =Math.ceil(b/7);
+
+        int rightheight =(int) c*185;
+
+        return rightheight;
+    }
+
+    //更新卡片页面，需要list数据
     public void showcard(List<CategorizedCard> list){
         this.panel1.removeAll();
         for(CategorizedCard card:list){
             this.panel1.add(new CardPane(card));
         }
+        panel1.setPreferredSize(new Dimension(20,getrightheight(panel2.getSize(),cardBag1.getCards().size())));
         this.panel1.updateUI();
     }
 
@@ -162,8 +182,6 @@ public class ShowAllCards extends JPanel {
         popupMenu2 = new JPopupMenu();
         menuItem1 = new JMenuItem();
         menuItem2 = new JMenuItem();
-        scrollPane1 = new JScrollPane();
-        panel1 = new JPanel();
         panel3 = new JPanel();
         panel6 = new JPanel();
         panel7 = new JPanel();
@@ -176,6 +194,9 @@ public class ShowAllCards extends JPanel {
         panel5 = new JPanel();
         button2 = new JButton();
         button3 = new JButton();
+        panel2 = new JPanel();
+        scrollPane1 = new JScrollPane();
+        panel1 = new JPanel();
 
         //======== popupMenu1 ========
         {
@@ -233,21 +254,6 @@ public class ShowAllCards extends JPanel {
 
         //======== this ========
         setLayout(new BorderLayout());
-
-        //======== scrollPane1 ========
-        {
-            scrollPane1.setPreferredSize(new Dimension(20, 120));
-
-            //======== panel1 ========
-            {
-                panel1.setBorder(null);
-                panel1.setMaximumSize(new Dimension(16, 16));
-                panel1.setPreferredSize(new Dimension(20, 100));
-                panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-            }
-            scrollPane1.setViewportView(panel1);
-        }
-        add(scrollPane1, BorderLayout.CENTER);
 
         //======== panel3 ========
         {
@@ -318,6 +324,27 @@ public class ShowAllCards extends JPanel {
             panel5.add(button3, BorderLayout.CENTER);
         }
         add(panel5, BorderLayout.PAGE_END);
+
+        //======== panel2 ========
+        {
+            panel2.setLayout(new BorderLayout());
+
+            //======== scrollPane1 ========
+            {
+                scrollPane1.setPreferredSize(new Dimension(20, 120));
+
+                //======== panel1 ========
+                {
+                    panel1.setBorder(null);
+                    panel1.setMaximumSize(new Dimension(16, 16));
+                    panel1.setPreferredSize(new Dimension(20, 100));
+                    panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
+                }
+                scrollPane1.setViewportView(panel1);
+            }
+            panel2.add(scrollPane1, BorderLayout.CENTER);
+        }
+        add(panel2, BorderLayout.CENTER);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     public CardBagPane cardBagPane;
@@ -334,8 +361,6 @@ public class ShowAllCards extends JPanel {
     private JPopupMenu popupMenu2;
     private JMenuItem menuItem1;
     private JMenuItem menuItem2;
-    private JScrollPane scrollPane1;
-    public JPanel panel1;
     private JPanel panel3;
     private JPanel panel6;
     private JPanel panel7;
@@ -348,5 +373,8 @@ public class ShowAllCards extends JPanel {
     private JPanel panel5;
     private JButton button2;
     private JButton button3;
+    private JPanel panel2;
+    private JScrollPane scrollPane1;
+    public JPanel panel1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
