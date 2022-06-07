@@ -22,8 +22,9 @@ import javax.swing.plaf.*;
  * @author unknown
  */
 public class CardPane extends RoundPanel {
-    public CardPane(CategorizedCard card) {
+    public CardPane(CategorizedCard card,Color color) {
         initComponents();
+        this.setBackground(color);
         this.card = card;
         label1.setText(card.getCategory());
         label2.setText(card.getFrontString());

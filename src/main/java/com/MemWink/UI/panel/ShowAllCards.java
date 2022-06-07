@@ -62,19 +62,19 @@ public class ShowAllCards extends JPanel {
         }
         //初始化卡片panel1
         this.showcard(cardBag1.getCards());
-        panel1.setPreferredSize(new Dimension(20,getrightheight(this.panel2.getSize(),cardBag1.getCards().size())));
+        panel1.setPreferredSize(new Dimension(20,getrightheight(UIManager.mainFrame.mainPanel.getSize(),cardBag1.getCards().size())));
     }
 
     //panel1高度求解
     public int getrightheight(Dimension dimension , int cardnum){
-        Double width = dimension.getWidth();
+        Double width = dimension.getWidth()-60;
         Double height = dimension.getHeight();
         //a为每行的卡片数
         double a =Math.floor(width/175);
         //b为总卡片数
         double b =cardnum;
         //c为理论卡片行数
-        double c =Math.ceil(b/7);
+        double c =Math.ceil(b/a);
 
         int rightheight =(int) c*185;
 
@@ -85,9 +85,9 @@ public class ShowAllCards extends JPanel {
     public void showcard(List<CategorizedCard> list){
         this.panel1.removeAll();
         for(CategorizedCard card:list){
-            this.panel1.add(new CardPane(card));
+            this.panel1.add(new CardPane(card,cardBag1.getColor()));
         }
-        panel1.setPreferredSize(new Dimension(20,getrightheight(panel2.getSize(),cardBag1.getCards().size())));
+        panel1.setPreferredSize(new Dimension(20,getrightheight(UIManager.mainFrame.mainPanel.getSize(),cardBag1.getCards().size())+1));
         this.panel1.updateUI();
     }
 

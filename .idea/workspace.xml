@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2022_5_15_0_03____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_5_15_0_03_取消提交了变更_[变更]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_5_15_0_03_取消提交了变更_[变更]/测试" beforeDir="false" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/6/7 19:32 scrollpanel修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrData/history/history" beforeDir="false" afterPath="$PROJECT_DIR$/usrData/history/history" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +183,8 @@
       <workItem from="1654502711012" duration="769000" />
       <workItem from="1654503698409" duration="4992000" />
       <workItem from="1654509411054" duration="3359000" />
-      <workItem from="1654597593962" duration="3603000" />
+      <workItem from="1654597593962" duration="3772000" />
+      <workItem from="1654601827252" duration="426000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1652529721584</created>
@@ -359,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654508614754</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="2022/6/7 19:32 scrollpanel修改">
+      <created>1654601558904</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1654601558904</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +397,8 @@
     <MESSAGE value="2022/6/5 20：42 绿勾" />
     <MESSAGE value="2022/6/6 16：15 前端完善" />
     <MESSAGE value="2022/6/6 17:43 导入csv功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022/6/6 17:43 导入csv功能" />
+    <MESSAGE value="2022/6/7 19:32 scrollpanel修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022/6/7 19:32 scrollpanel修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
