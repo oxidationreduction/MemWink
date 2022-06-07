@@ -63,6 +63,7 @@ public class CardPane extends RoundPanel {
         CardContent cardContent = new CardContent(card);
         UIManager.mainFrame.mainPanel.removeAll();
         UIManager.mainFrame.mainPanel.add(cardContent);
+        ((CardContent) UIManager.mainFrame.mainPanel.getComponents()[0]).update();
         UIManager.mainFrame.mainPanel.updateUI();
     }
 

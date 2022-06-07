@@ -51,7 +51,7 @@ public class MoveCardDialog extends JDialog {
                 if (!cardBagList.getValueIsAdjusting()) {
                     String name = cardBagList.getSelectedValue();
                     if (name != null) {
-                        card.updateCardBagName(name);
+                        card.moveToCardBag(name);
                         MoveCardDialog.this.dispose();
                         System.out.println("卡片归属改为：" + name);
                     } else {
@@ -77,8 +77,8 @@ public class MoveCardDialog extends JDialog {
         add(mainPanel);
         setSize(250, 375);
         setLocation(
-                UIConstant.windowWidth / 2 - 125,
-                UIConstant.windowHeight / 2 - 150
+                (UIConstant.mainPanelWidth >> 1) - 125,
+                (UIConstant.mainPanelHeight >> 1) - 150
         );
         setVisible(true);
         setResizable(false);

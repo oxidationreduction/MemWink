@@ -34,6 +34,7 @@ public class EditCardDialog extends JDialog {
         setup();
     }
 
+    // TODO: 输入框显示不全
     /**
      * 更新外观
      */
@@ -112,6 +113,7 @@ public class EditCardDialog extends JDialog {
                 backTextArea.setLocation(5 + (getWidth() >> 1), 40);
                 backTextArea.setSize((getWidth() >> 1) - 5, getHeight() - 90);
                 backTextArea.setFont(new Font("微软雅黑", Font.PLAIN, 25));
+                backTextArea.setLineWrap(true);
             }
             mainPanel.add(backTextArea);
         }

@@ -21,10 +21,12 @@ public class ReviewPanel extends CardContent implements ActionListener {
         this.addKeyListener(this);
         this.remainLabel = new JLabel(remain + "");
         setup();
+        update();
     }
     private void setup() {
         isShowBack = false;
         isReview = true;
+        /*
         // timePanel
         {
             timePanel = new RoundedRectangle(110, 60, 10, Color.WHITE);
@@ -51,7 +53,7 @@ public class ReviewPanel extends CardContent implements ActionListener {
 
             timePanel.setVisible(card.getMemState() < 0 || card.getMemState() > MemStateConstants.stage_one);
         }
-        leftPanel.add(timePanel);
+        leftPanel.add(timePanel);*/
 
         // rememberedButton
         {
@@ -68,8 +70,10 @@ public class ReviewPanel extends CardContent implements ActionListener {
             rememberedButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    System.out.println("Remember before: " + card.getFrontString() + " " + card.getMemState());
                     card.remembered();
                     reviewManager.remembered();
+                    System.out.println("Remember after: " + card.getFrontString() + " " + card.getMemState());
                 }
             });
         }
@@ -89,8 +93,10 @@ public class ReviewPanel extends CardContent implements ActionListener {
             forgotButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    System.out.println("Forget before: " + card.getFrontString() + " " + card.getMemState());
                     card.forget();
                     reviewManager.forget();
+                    System.out.println("Forget after: " + card.getFrontString() + " " + card.getMemState());
                 }
             });
         }
@@ -114,12 +120,25 @@ public class ReviewPanel extends CardContent implements ActionListener {
     public void update() {
         super.update();
         forgotButton.setLocation(
-                backPanel.getX(), rightPanel.getHeight() - 55);
+                backPanel.getX(), middlePanel.getHeight() - 55);
         rememberedButton.setLocation(
-                frontPanel.getX() + frontPanel.getWidth() - 100, rightPanel.getHeight() - 55);
-        isShowBack = isTimeUp() || isShowBack;
+                frontPanel.getX() + frontPanel.getWidth() - 100, middlePanel.getHeight() - 55);
+        frontPanel.setSize(
+                (int) Math.round(middlePanel.getWidth() * 0.45),
+                middlePanel.getHeight() - 75
+        );
+        backPanel.setSize(
+                (int) Math.round(middlePanel.getWidth() * 0.45),
+                middlePanel.getHeight() - 75
+        );
+        hidedBackPanel.setSize(
+                (int) Math.round(middlePanel.getWidth() * 0.45),
+                middlePanel.getHeight() - 75
+        );
+        remainLabel.setLocation((middlePanel.getWidth() - remainLabel.getWidth()) >> 1, 15);
+        // isShowBack = isTimeUp() || isShowBack;
         if (isShowBack) {
-            timePanel.setVisible(false);
+            // timePanel.setVisible(false);
             hidedBackPanel.setVisible(false);
             backPanel.setVisible(true);
             rememberedButton.setText(getRememberedButtonText());
@@ -132,8 +151,8 @@ public class ReviewPanel extends CardContent implements ActionListener {
             backButton.setEnabled(true);
             timer.stop();
         } else {
-            timeLabel.setText((endTime.getTime() - new Date().getTime()) / 1000 + "");
-            timePanel.setVisible(card.getMemState() < 0 || card.getMemState() > MemStateConstants.stage_one);
+            // timeLabel.setText((endTime.getTime() - new Date().getTime()) / 1000 + "");
+            // timePanel.setVisible(card.getMemState() < 0 || card.getMemState() > MemStateConstants.stage_one);
             categoryButton.setEnabled(false);
             stageButton.setEnabled(false);
             historyButton.setEnabled(false);
@@ -141,15 +160,17 @@ public class ReviewPanel extends CardContent implements ActionListener {
             editButton.setEnabled(false);
             backButton.setEnabled(false);
         }
+        System.out.println("ReviewPanel Updated.");
     }
 
-    public boolean isTimeUp() {
+    /* public boolean isTimeUp() {
         if (card.getMemState() >= 0 && card.getMemState() < MemStateConstants.stage_two) {
             return false;
         } else {
             return new Date().after(endTime);
         }
     }
+    */
     public String getRememberedButtonText() {
         String tmp;
         try {
@@ -168,8 +189,8 @@ public class ReviewPanel extends CardContent implements ActionListener {
 
     JButton rememberedButton;
     JButton forgotButton;
-    JPanel timePanel;
-    JLabel timeLabel;
+    // JPanel timePanel;
+    // JLabel timeLabel;
 
     JLabel remainLabel;
 
@@ -202,9 +223,5 @@ public class ReviewPanel extends CardContent implements ActionListener {
             reviewManager.forget();
         }
         update();
-    }
-
-    public static void main(String[] args) {
-
     }
 }

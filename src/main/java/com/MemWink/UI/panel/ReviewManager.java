@@ -2,6 +2,7 @@ package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.CardBag.CategorizedCard;
+import com.MemWink.UI.UIManager;
 import com.MemWink.util.constant.MemStateConstants;
 import com.MemWink.Data.DataManager;
 import com.MemWink.util.constant.UIConstant;
@@ -44,6 +45,7 @@ public class ReviewManager extends JPanel {
      */
     public ReviewManager(CardBag cardBag) {
         this.cardBag = cardBag;
+        UIManager.cardBag = cardBag;
         rememberedNum = 0;
         forgotNum = 0;
         cards = null;
@@ -96,8 +98,8 @@ public class ReviewManager extends JPanel {
         setup();
         reviewPanel.update();
         setSize(new Dimension(
-                UIConstant.windowWidth - 95,
-                UIConstant.windowHeight - 100)
+                UIConstant.mainPanelWidth - 95,
+                UIConstant.mainPanelHeight - 100)
         );
     }
 
@@ -117,8 +119,13 @@ public class ReviewManager extends JPanel {
         for (int i = 0; i < 3; i++)
             DataManager.provideCardBag("C").addCard("Front\ncontent", "Back", true, MemStateConstants.newCard, false, null);
         JFrame frame = new JFrame();
-        frame.setLayout(null);
         frame.setSize(1280, 720);
+
+        JPanel mainPanel = new JPanel();
+        mainPanel.setPreferredSize(new Dimension(1280, 720));
+        frame.setLayout(new BorderLayout());
+        frame.add(mainPanel, BorderLayout.CENTER);
+
         ReviewManager tmp = new ReviewManager(DataManager.provideCardBag("C"));
         tmp.setLocation(50, 25);
         frame.add(tmp);
@@ -126,8 +133,8 @@ public class ReviewManager extends JPanel {
         frame.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
-                UIConstant.windowWidth = frame.getWidth();
-                UIConstant.windowHeight = frame.getHeight();
+                UIConstant.mainPanelWidth = frame.getWidth();
+                UIConstant.mainPanelHeight = frame.getHeight();
                 tmp.update();
             }
         });

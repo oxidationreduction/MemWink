@@ -11,7 +11,6 @@ import com.MemWink.UI.component.RoundedRectangle;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.List;
 import java.util.Set;
 
 public class CardContent extends JPanel implements KeyListener {
@@ -24,11 +23,15 @@ public class CardContent extends JPanel implements KeyListener {
         this.setFocusable(true);
         this.addKeyListener(this);
         setupUI();
+        if (!(this instanceof ReviewPanel)) {
+            update();
+        }
     }
 
     public void update() {
-        setSize(new Dimension(UIConstant.windowWidth - 95, UIConstant.windowHeight - 100));
-        leftPanel.setSize(110, UIConstant.windowHeight - 100);
+        setSize(new Dimension(UIConstant.mainPanelWidth, UIConstant.mainPanelHeight));
+        setLocation(0, 0);
+        leftPanel.setSize(110, UIConstant.mainPanelHeight - 100);
         middlePanel.setSize(
                 new Dimension(
                         this.getWidth() - 210,
@@ -61,7 +64,8 @@ public class CardContent extends JPanel implements KeyListener {
                     (int) Math.round(middlePanel.getWidth() * 0.45),
                     middlePanel.getHeight() - 75
             );
-            backButton.setText("保存布局");
+            if (isEditLayout)
+                backButton.setText("保存布局");
         } else {
             frontPanel.setSize(
                     (int) Math.round(middlePanel.getWidth() * 0.45),
@@ -106,7 +110,7 @@ public class CardContent extends JPanel implements KeyListener {
         System.out.println(frontHorizenalLeft.getLocation());
         System.out.println(frontHorizenalRight.getLocation());
 
-        rightPanel.setSize(110, UIConstant.windowHeight - 100);
+        rightPanel.setSize(110, UIConstant.mainPanelHeight - 100);
         rightPanel.setLocation(this.getWidth()-110, 0);
 
         backButton.setLocation(5, rightPanel.getHeight()-55);
@@ -120,6 +124,8 @@ public class CardContent extends JPanel implements KeyListener {
         backContentLabelsPanel.updateParentSize(backPanel.getSize());
         backContentLabelsPanel.updateContent(card.getBackList());
         super.updateUI();
+
+        System.out.println("CardContent Updated.");
     }
 
     public void categoryMenuUpdate() {
@@ -201,15 +207,15 @@ public class CardContent extends JPanel implements KeyListener {
     public void setupUI() {
         isShowBack = cardBag.getUiSetting().showBack && !isReview;
         setSize(new Dimension(
-                UIConstant.windowWidth - 95,
-                UIConstant.windowHeight - 180)
+                UIConstant.mainPanelWidth - 95,
+                UIConstant.mainPanelHeight - 180)
         );
         setLayout(null);
 
         // leftPanel
         {
             leftPanel = new JPanel();
-            leftPanel.setSize(110, UIConstant.windowHeight - 180);
+            leftPanel.setSize(110, UIConstant.mainPanelHeight - 180);
             leftPanel.setFocusable(false);
             leftPanel.setLayout(null);
 
@@ -749,7 +755,7 @@ public class CardContent extends JPanel implements KeyListener {
         // rightPanel
         {
             rightPanel = new JPanel();
-            rightPanel.setSize(110, UIConstant.windowHeight - 180);
+            rightPanel.setSize(110, UIConstant.mainPanelHeight - 180);
             rightPanel.setLayout(null);
             rightPanel.setFocusable(false);
 
@@ -1044,7 +1050,7 @@ public class CardContent extends JPanel implements KeyListener {
             {
                 backButton = new JButton("返回");
                 backButton.setSize(100, 45);
-                backButton.setLocation(5, rightPanel.getHeight()-50);
+                backButton.setLocation(5, rightPanel.getHeight());
                 backButton.setFocusable(false);
                 backButton.addActionListener(new ActionListener() {
                     @Override
@@ -1113,8 +1119,8 @@ public class CardContent extends JPanel implements KeyListener {
         frame.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
-                UIConstant.windowWidth = frame.getWidth();
-                UIConstant.windowHeight = frame.getHeight();
+                UIConstant.mainPanelWidth = frame.getWidth();
+                UIConstant.mainPanelHeight = frame.getHeight();
                 tmp.update();
             }
         });

@@ -277,7 +277,7 @@ public class Card implements Serializable, Cloneable {
         if (memState == MemStateConstants.newCard) {
             rememberTime = (Date) createTime.clone();
         } else if (memState == MemStateConstants.reinforce1) {
-            rememberTime = new Date(new Date().getTime() + 6000);
+            rememberTime = new Date(new Date().getTime() + 60000);
         } else if (memState == MemStateConstants.reinforce2) {
             rememberTime = new Date(new Date().getTime() + 600000);
         } else if (memState == MemStateConstants.stage_one || memState == MemStateConstants.stage_two) {

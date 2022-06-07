@@ -6,9 +6,8 @@ package com.MemWink.UI.frame;
 
 import com.MemWink.UI.UIManager;
 import com.MemWink.UI.dialog.AddPane;
-import com.MemWink.UI.dialog.HelpDialog;
-import com.MemWink.UI.panel.ShowCardBags;
-import com.MemWink.UI.panel.ShowStatics;
+import com.MemWink.UI.panel.*;
+import com.MemWink.util.constant.UIConstant;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -26,7 +25,8 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
         initComponents();
-        setSize(new Dimension(835, 625));
+
+        setSize(Toolkit.getDefaultToolkit().getScreenSize());
         int windowWidth = this.getWidth();                     //获得窗口宽
 
         int windowHeight = this.getHeight();                   //获得窗口高
@@ -40,6 +40,25 @@ public class MainFrame extends JFrame {
         int screenHeight = screenSize.height;                   //获取屏幕的高
 
         this.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);//设置窗口居中显示
+
+        UIConstant.mainPanelWidth = mainPanel.getWidth();
+        UIConstant.mainPanelHeight = mainPanel.getHeight();
+
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                UIConstant.mainPanelWidth = mainPanel.getWidth();
+                UIConstant.mainPanelHeight = mainPanel.getHeight();
+                System.out.println(UIConstant.mainPanelWidth + " * " + UIConstant.mainPanelHeight);
+                if (mainPanel.getComponents()[0] instanceof CardContent) {
+                    ((CardContent) mainPanel.getComponents()[0]).update();
+                }  else if (mainPanel.getComponents()[0] instanceof ReviewManager) {
+                    ((ReviewManager) mainPanel.getComponents()[0]).update();
+                }  else {
+                    System.out.println(mainPanel.getComponents()[0].getClass());
+                }
+            }
+        });
     }
 
     private void button2(ActionEvent e) {
@@ -63,15 +82,10 @@ public class MainFrame extends JFrame {
         add(tmp);
     }
 
-    private void help(ActionEvent e) {
-        // TODO add your code here
-        HelpDialog helpDialog = new HelpDialog();
-        helpDialog.setVisible(true);
-    }
-
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - 刘洪宇
         menuBar1 = new JMenuBar();
         fileMenu = new JMenu();
         menuItem1 = new JMenuItem();
@@ -174,6 +188,12 @@ public class MainFrame extends JFrame {
 
         //======== barPanel ========
         {
+            barPanel.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
+            .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax
+            . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
+            12 ) ,java . awt. Color .red ) ,barPanel. getBorder () ) ); barPanel. addPropertyChangeListener( new java. beans
+            .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e.
+            getPropertyName () ) )throw new RuntimeException( ) ;} } );
             barPanel.setLayout(new GridLayout(2, 1));
 
             //======== upperPanel ========
@@ -220,8 +240,7 @@ public class MainFrame extends JFrame {
                 lowerPanel.setLayout(new BorderLayout());
 
                 //---- helpButton ----
-                helpButton.setText("\u5e2e\u52a9");
-                helpButton.addActionListener(e -> help(e));
+                helpButton.setText("text");
                 lowerPanel.add(helpButton, BorderLayout.SOUTH);
             }
             barPanel.add(lowerPanel);
@@ -239,6 +258,7 @@ public class MainFrame extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - 刘洪宇
     public JMenuBar menuBar1;
     public JMenu fileMenu;
     public JMenuItem menuItem1;

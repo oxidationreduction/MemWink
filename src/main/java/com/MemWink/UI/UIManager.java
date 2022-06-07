@@ -1,6 +1,7 @@
 package com.MemWink.UI;
 
 import com.MemWink.Data.CardBag.CardBag;
+import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.Data.DataManager;
 import com.MemWink.UI.frame.MainFrame;
 import com.MemWink.UI.panel.*;
@@ -46,7 +47,7 @@ public class UIManager {
                 }
             }
         };
-        //updateThread.start();
+        // updateThread.start();
     }
 
     /**
@@ -56,27 +57,32 @@ public class UIManager {
     public static void update() throws InterruptedException {
         while (true) {
             Thread.sleep(5000);
-            Date start = new Date();
 
             for (CardBag i : DataManager.getCardBags()) {
                 if (i.getReviewCardsNum() > 0) {
                     Component[] components = mainFrame.mainPanel.getComponents();
-                    showCardBags = ShowCardBags.getShowCardBags();
+                    ShowCardBags.getShowCardBags();
                     // TODO：ShowAllCards构造器中应当有一个CardBag参数
                     // showAllCards = new ShowAllCards();
                     if (components[0] instanceof ShowCardBags) {
+                        System.out.println("ShowCardBags updated.");
                         mainFrame.mainPanel.removeAll();
                         mainFrame.mainPanel.add(showCardBags);
                     } else if (components[0] instanceof ShowAllCards) {
+                        System.out.println("ShowAllCards updated.");
                         mainFrame.mainPanel.removeAll();
                         mainFrame.mainPanel.add(showAllCards);
                     }
                     mainFrame.mainPanel.updateUI();
+                    break;
                 }
             }
-            Date end = new Date();
 
-            System.out.println(end.getTime() - start.getTime());
+            if (cardBag != null) {
+                for (CategorizedCard i : cardBag.getCards()) {
+                    System.out.println(i.getFrontString() + " " + i.getMemState());
+                }
+            }
         }
     }
 }
