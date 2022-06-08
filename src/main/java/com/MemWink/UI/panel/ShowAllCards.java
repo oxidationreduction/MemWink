@@ -182,6 +182,9 @@ public class ShowAllCards extends JPanel {
             String address = chooser.getSelectedFile().getPath();
             File file = new File(address);
             cardBag1.importCSV(file);
+            UIManager.mainFrame.mainPanel.removeAll();
+            UIManager.mainFrame.mainPanel.add(new ShowAllCards(cardBag1, cardBagPane));
+            UIManager.mainFrame.mainPanel.updateUI();
         }
     }
 
