@@ -109,14 +109,13 @@ public class MainFrame extends JFrame {
 
     private void help(ActionEvent e) {
         // TODO add your code here
-        //
         HelpDialog helpDialog = new HelpDialog();
         helpDialog.setVisible(true);
     }
 
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - 刘洪宇
         menuBar1 = new JMenuBar();
         fileMenu = new JMenu();
         menuItem1 = new JMenuItem();
@@ -219,12 +218,6 @@ public class MainFrame extends JFrame {
 
         //======== barPanel ========
         {
-            barPanel.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
-            .EmptyBorder ( 0, 0 ,0 , 0) ,  null , javax. swing .border . TitledBorder. CENTER ,javax
-            . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
-            12 ) ,java . awt. Color .red ) ,barPanel. getBorder () ) ); barPanel. addPropertyChangeListener( new java. beans
-            .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e.
-            getPropertyName () ) )throw new RuntimeException( ) ;} } );
             barPanel.setLayout(new GridLayout(2, 1));
 
             //======== upperPanel ========
@@ -271,7 +264,8 @@ public class MainFrame extends JFrame {
                 lowerPanel.setLayout(new BorderLayout());
 
                 //---- helpButton ----
-                helpButton.setText("text");
+                helpButton.setText("\u5e2e\u52a9");
+                helpButton.addActionListener(e -> help(e));
                 lowerPanel.add(helpButton, BorderLayout.SOUTH);
             }
             barPanel.add(lowerPanel);
@@ -289,7 +283,6 @@ public class MainFrame extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - 刘洪宇
     public JMenuBar menuBar1;
     public JMenu fileMenu;
     public JMenuItem menuItem1;
