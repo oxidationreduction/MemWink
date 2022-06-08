@@ -26,6 +26,7 @@ public class ShowCardBags extends JPanel {
 
     private ShowCardBags() {
         initComponents();
+        beautifyUI();
         for ( CardBag cardBag: DataManager.getCardBags()){
             CardBagPane cardBagPane = new CardBagPane(cardBag);
             cardBagPane.label2.setText(cardBag.getName());
@@ -42,6 +43,15 @@ public class ShowCardBags extends JPanel {
             panel1.setPreferredSize(new Dimension(700,600+140*(x-4)));
         }
 
+    }
+
+    /**
+     * 美化UI
+     * @author Liu Hongyu
+     * @since 2022-06-08
+     */
+    private void beautifyUI() {
+        label1.setFont(new Font("微软雅黑", Font.PLAIN, 60));
     }
 
     private void button1(ActionEvent e) {

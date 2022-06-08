@@ -7,7 +7,9 @@ package com.MemWink.UI.frame;
 import com.MemWink.UI.UIManager;
 import com.MemWink.UI.dialog.AddPane;
 import com.MemWink.UI.panel.*;
+import com.MemWink.util.MemWinkUtil;
 import com.MemWink.util.constant.UIConstant;
+import jdk.jshell.execution.Util;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -25,7 +27,7 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
         initComponents();
-
+        beautifyUI();
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
         int windowWidth = this.getWidth();                     //获得窗口宽
 
@@ -59,6 +61,28 @@ public class MainFrame extends JFrame {
                 }
             }
         });
+    }
+
+    /**
+     * 美化UI
+     * @author Liu Hongyu
+     * @since 2022-06-08
+     */
+    public void beautifyUI() {
+        upperPanel.setBackground(new Color(37, 174, 96));
+        functionPanel.setBackground(new Color(37, 174, 96));
+        lowerPanel.setBackground(new Color(37, 174, 96));
+
+        cardBagButton.setText(null);
+        cardBagButton.setSize(upperPanel.getWidth(), upperPanel.getWidth());
+        cardBagButton.setIcon(new ImageIcon("image/CardBag.png"));
+
+        staticticButton.setSize(cardBagButton.getSize());
+        staticticButton.setText(null);
+        staticticButton.setLocation(staticticButton.getX(), staticticButton.getY() + 5);
+        staticticButton.setIcon(MemWinkUtil.getScaledIcon("Statistic",
+                (int) Math.round(0.85 * staticticButton.getWidth()),
+                (int) Math.round(0.85 * staticticButton.getHeight())));
     }
 
     private void button2(ActionEvent e) {
@@ -189,7 +213,7 @@ public class MainFrame extends JFrame {
         //======== barPanel ========
         {
             barPanel.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
-            .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax
+            .EmptyBorder ( 0, 0 ,0 , 0) ,  null , javax. swing .border . TitledBorder. CENTER ,javax
             . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
             12 ) ,java . awt. Color .red ) ,barPanel. getBorder () ) ); barPanel. addPropertyChangeListener( new java. beans
             .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e.
