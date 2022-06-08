@@ -14,11 +14,15 @@ import com.MemWink.util.constant.MemStateConstants;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.DimensionUIResource;
+
+import static com.MemWink.UI.UIManager.cardBag;
 
 
 /**
@@ -29,7 +33,7 @@ public class ShowAllCards extends JPanel {
         cardBag1=cardBag;
         this.cardBagPane=cardBagPane;
         UIManager.showAllCards=this;
-        UIManager.cardBag=cardBag1;
+        UIManager.cardBag =cardBag1;
         initComponents();
         init2();
 
@@ -74,7 +78,7 @@ public class ShowAllCards extends JPanel {
         //b为总卡片数
         double b =cardnum;
         //c为理论卡片行数
-        double c =Math.ceil(b/a);
+        double c =Math.ceil(b/a) + 1;
 
         int rightheight =(int) c*185;
 
@@ -96,7 +100,7 @@ public class ShowAllCards extends JPanel {
     }
     //新建卡片事件
     private void menuItem1(ActionEvent e) {
-        CategorizedCard newcard = new CategorizedCard("请输入","请输入",true, MemStateConstants.newCard,true,null,UIManager.cardBag.getName());
+        CategorizedCard newcard = new CategorizedCard("请输入","请输入",true, MemStateConstants.newCard,true,null, cardBag.getName());
         EditCardDialog editCardDialog = new EditCardDialog(newcard,this);
         editCardDialog.setVisible(true);
         editCardDialog.setBounds(400,180,100,100);
@@ -115,25 +119,25 @@ public class ShowAllCards extends JPanel {
     }
 
     private void button3(ActionEvent e) {
-        ReviewManager reviewManager = new ReviewManager(UIManager.cardBag);
+        ReviewManager reviewManager = new ReviewManager(cardBag);
         UIManager.mainFrame.mainPanel.removeAll();;
         UIManager.mainFrame.mainPanel.add(reviewManager);
         UIManager.mainFrame.mainPanel.updateUI();
     }
 
     private void menuItem4(ActionEvent e) {
-        UIManager.cardBag.updateSortLogic(0);
-        this.showcard(UIManager.cardBag.getCards());
+        cardBag.updateSortLogic(0);
+        this.showcard(cardBag.getCards());
     }
 
     private void menuItem8(ActionEvent e) {
-        UIManager.cardBag.updateSortLogic(1);
-        this.showcard(UIManager.cardBag.getCards());
+        cardBag.updateSortLogic(1);
+        this.showcard(cardBag.getCards());
     }
 
     private void menuItem9(ActionEvent e) {
-        UIManager.cardBag.updateSortLogic(2);
-        this.showcard(UIManager.cardBag.getCards());
+        cardBag.updateSortLogic(2);
+        this.showcard(cardBag.getCards());
     }
     //删除卡包
     private void menuItem7(ActionEvent e) {
@@ -164,9 +168,21 @@ public class ShowAllCards extends JPanel {
     }
 
     private void menuItem2(ActionEvent e) {
+        /*
         FileChoose fileChoose = new FileChoose(cardBag1);
         fileChoose.setVisible(true);
         fileChoose.setBounds(400,200,600,400);
+
+         */
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("csv","csv");
+        chooser.setFileFilter(filter);
+        int flag = chooser.showOpenDialog(null);
+        if(flag == JFileChooser.APPROVE_OPTION){
+            String address = chooser.getSelectedFile().getPath();
+            File file = new File(address);
+            cardBag1.importCSV(file);
+        }
     }
 
     private void initComponents() {

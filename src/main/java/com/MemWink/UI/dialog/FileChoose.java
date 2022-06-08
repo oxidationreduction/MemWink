@@ -20,6 +20,7 @@ public class FileChoose extends JDialog {
     public FileChoose(CardBag cardBag) {
         initComponents();
         this.cardBag = cardBag;
+
         JFileChooser jFileChooser = new JFileChooser();
         this.add(jFileChooser,BorderLayout.CENTER);
         FileNameExtensionFilter filter = new FileNameExtensionFilter("csv","csv");
