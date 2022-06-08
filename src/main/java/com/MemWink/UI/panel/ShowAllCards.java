@@ -67,6 +67,8 @@ public class ShowAllCards extends JPanel {
         //初始化卡片panel1
         this.showcard(cardBag1.getCards());
         panel1.setPreferredSize(new Dimension(20,getrightheight(UIManager.mainFrame.mainPanel.getSize(),cardBag1.getCards().size())));
+
+        UIManager.showAllCards = this;
     }
 
     //panel1高度求解

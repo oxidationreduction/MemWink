@@ -579,8 +579,9 @@ public class CardBag implements Serializable {
                         && Objects.equals(i.get(2), "分类")) {
                     continue;
                 }
+                String category = Objects.equals(i.get(2), "") ? null : i.get(2);
                 this.addCard(i.get(0), i.get(1),
-                        true, MemStateConstants.newCard, false, i.get(2));
+                        true, MemStateConstants.newCard, false, category);
             } else {
                 throw new RuntimeException("Csv format error.");
             }

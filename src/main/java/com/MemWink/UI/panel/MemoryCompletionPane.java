@@ -33,7 +33,45 @@ public class MemoryCompletionPane extends JPanel {
      */
     public MemoryCompletionPane(int remember, int forget, int tomorrow) {
         initComponents();
+        setup(remember, forget, tomorrow);
+        beautifyUI();
+    }
 
+    /**
+     * 用于根据数据显示信息，初始化页面
+     * @author Liu Hongyu
+     * @since 2022-06-08
+     */
+    private void setup(int remember, int forget, int tomorrow) {
+        label3.setText((remember + forget) + "");
+        label9.setText(remember + "");
+        label12.setText(forget + "");
+        label15.setText(String.format("%.2f", (double) forget / (double) (remember + forget) * 100.0) + "%");
+        label6.setText(tomorrow + "");
+    }
+
+    /**
+     * 美化UI
+     * @author Liu Hongyu
+     * @since 2022-06-08
+     */
+    private void beautifyUI() {
+        label1.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+        label3.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+        label9.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+        label12.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+        label15.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+        label6.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+
+        label2.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        label8.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        label11.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        label14.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        label5.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        label4.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        label10.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        label13.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        label7.setFont(new Font("微软雅黑", Font.PLAIN, 60));
     }
 
     private void initComponents() {
@@ -627,4 +665,10 @@ public class MemoryCompletionPane extends JPanel {
     private JPanel hSpacer4;
     private JPanel hSpacer21;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame();
+        frame.add(new MemoryCompletionPane(1, 1, 1));
+        frame.setVisible(true);
+    }
 }

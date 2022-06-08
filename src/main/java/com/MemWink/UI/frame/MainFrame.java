@@ -10,7 +10,6 @@ import com.MemWink.UI.dialog.HelpDialog;
 import com.MemWink.UI.panel.*;
 import com.MemWink.util.MemWinkUtil;
 import com.MemWink.util.constant.UIConstant;
-import jdk.jshell.execution.Util;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -78,12 +77,12 @@ public class MainFrame extends JFrame {
         cardBagButton.setSize(upperPanel.getWidth(), upperPanel.getWidth());
         cardBagButton.setIcon(new ImageIcon("image/CardBag.png"));
 
-        staticticButton.setSize(cardBagButton.getSize());
-        staticticButton.setText(null);
-        staticticButton.setLocation(staticticButton.getX(), staticticButton.getY() + 5);
-        staticticButton.setIcon(MemWinkUtil.getScaledIcon("Statistic",
-                (int) Math.round(0.85 * staticticButton.getWidth()),
-                (int) Math.round(0.85 * staticticButton.getHeight())));
+        statisticButton.setSize(cardBagButton.getSize());
+        statisticButton.setText(null);
+        statisticButton.setLocation(statisticButton.getX(), statisticButton.getY() + 5);
+        statisticButton.setIcon(MemWinkUtil.getScaledIcon("Statistic",
+                (int) Math.round(0.85 * statisticButton.getWidth()),
+                (int) Math.round(0.85 * statisticButton.getHeight())));
     }
 
     private void button2(ActionEvent e) {
@@ -135,7 +134,7 @@ public class MainFrame extends JFrame {
         upperPanel = new JPanel();
         functionPanel = new JPanel();
         cardBagButton = new JButton();
-        staticticButton = new JButton();
+        statisticButton = new JButton();
         lowerPanel = new JPanel();
         helpButton = new JButton();
         mainPanel = new JPanel();
@@ -234,11 +233,11 @@ public class MainFrame extends JFrame {
                     functionPanel.add(cardBagButton);
                     cardBagButton.setBounds(0, 0, 65, 65);
 
-                    //---- staticticButton ----
-                    staticticButton.setText("\u7edf\u8ba1");
-                    staticticButton.addActionListener(e -> button3(e));
-                    functionPanel.add(staticticButton);
-                    staticticButton.setBounds(0, 70, 65, 65);
+                    //---- statisticButton ----
+                    statisticButton.setText("\u7edf\u8ba1");
+                    statisticButton.addActionListener(e -> button3(e));
+                    functionPanel.add(statisticButton);
+                    statisticButton.setBounds(0, 70, 65, 65);
 
                     {
                         // compute preferred size
@@ -302,7 +301,7 @@ public class MainFrame extends JFrame {
     public JPanel upperPanel;
     public JPanel functionPanel;
     public JButton cardBagButton;
-    public JButton staticticButton;
+    public JButton statisticButton;
     public JPanel lowerPanel;
     public JButton helpButton;
     public JPanel mainPanel;

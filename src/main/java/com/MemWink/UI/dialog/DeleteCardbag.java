@@ -26,7 +26,6 @@ public class DeleteCardbag extends JDialog {
     }
 
     private void yes(ActionEvent e) {
-        // TODO add your code here
         DataManager.delCardBag(cardBag.getName());
         UIManager.mainFrame.mainPanel.removeAll();
         UIManager.mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
@@ -35,7 +34,6 @@ public class DeleteCardbag extends JDialog {
     }
 
     private void no(ActionEvent e) {
-        // TODO add your code here
         this.dispose();
     }
 

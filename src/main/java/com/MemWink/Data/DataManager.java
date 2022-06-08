@@ -5,6 +5,7 @@ import com.MemWink.Data.History.Usage;
 import com.MemWink.util.constant.DataManagerStatus;
 import com.MemWink.util.constant.SystemUtil;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -247,6 +248,10 @@ public class DataManager {
         File file = new File("usrData/example.csv");
         addCardBag("欢迎使用MemWink", Color.ORANGE, 50);
         CardBag cardBag = provideCardBag("欢迎使用MemWink");
+        UISetting tmp = cardBag.getUiSetting();
+        tmp.backFontSize = 20;
+        tmp.backHorizenalAlignment = SwingConstants.CENTER;
+        cardBag.updateUISetting(tmp);
         cardBag.importCSV(file);
         System.out.println("example: " + cardBag.getTotalCardsNum() + " " + cardBag.getReviewCardsNum());
     }

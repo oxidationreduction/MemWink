@@ -2,6 +2,7 @@ package com.MemWink.UI.panel;
 
 import com.MemWink.Data.CardBag.*;
 import com.MemWink.Data.DataManager;
+import com.MemWink.UI.UIManager;
 import com.MemWink.UI.dialog.*;
 import com.MemWink.util.constant.MemStateConstants;
 import com.MemWink.util.MemWinkUtil;
@@ -1077,8 +1078,10 @@ public class CardContent extends JPanel implements KeyListener {
 
                             update();
                         } else {
-                            System.out.println("返回");
                             CardContent.this.setVisible(false);
+                            UIManager.mainFrame.mainPanel.removeAll();
+                            UIManager.mainFrame.mainPanel.add(UIManager.showAllCards);
+                            UIManager.mainFrame.mainPanel.updateUI();
                         }
                     }
                 });

@@ -57,13 +57,15 @@ public class ReviewManager extends JPanel {
      */
     private void setup() {
         cards = cardBag.getCardNeedReview();
-        setLayout(null);
+        setLayout(new BorderLayout());
 
         removeAll();
         int remain = cards.size();
         if (remain == 0) {
             System.out.println("No cards");
             memoryCompletionPane = new MemoryCompletionPane(rememberedNum, forgotNum, cardBag.getTomorrowNum());
+            add(memoryCompletionPane);
+            updateUI();
         } else {
             reviewPanel = new ReviewPanel(cards.get(0), remain, this);
             reviewPanel.setLocation(0, 0);

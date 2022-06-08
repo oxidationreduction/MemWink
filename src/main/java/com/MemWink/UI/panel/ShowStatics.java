@@ -51,6 +51,8 @@ public class ShowStatics extends JPanel {
 
     /**
      * 美化UI
+     * @author Liu Hongyu
+     * @since 2022-06-08
      */
     private void beautifyUI() {
         label1.setFont(new Font("微软雅黑", Font.PLAIN, 60));
@@ -79,6 +81,7 @@ public class ShowStatics extends JPanel {
      */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - Sun Yihan
         panel1 = new JPanel();
         label1 = new JLabel();
         vSpacer3 = new JPanel(null);
@@ -153,6 +156,12 @@ public class ShowStatics extends JPanel {
 
         //======== this ========
         setPreferredSize(new Dimension(775, 559));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
+        ( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border
+        . TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt
+        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
+        propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( )
+        ; }} );
         setLayout(new BorderLayout());
 
         //======== panel1 ========
@@ -521,6 +530,7 @@ public class ShowStatics extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - Sun Yihan
     private JPanel panel1;
     private JLabel label1;
     private JPanel vSpacer3;
