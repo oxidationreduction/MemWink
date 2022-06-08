@@ -58,6 +58,7 @@ public class ShowCardBags extends JPanel {
         label1 = new JLabel();
         panel5 = new JPanel();
         button1 = new JButton();
+        panel6 = new JPanel();
         scrollPane1 = new JScrollPane();
         panel1 = new JPanel();
 
@@ -88,19 +89,22 @@ public class ShowCardBags extends JPanel {
         }
         add(panel5, BorderLayout.SOUTH);
 
-        //======== scrollPane1 ========
+        //======== panel6 ========
         {
-            scrollPane1.setMaximumSize(new Dimension(700, 32767));
+            panel6.setLayout(new BorderLayout());
 
-            //======== panel1 ========
+            //======== scrollPane1 ========
             {
-                panel1.setPreferredSize(new Dimension(700, 400));
-                panel1.setMaximumSize(new Dimension(700, 32767));
-                panel1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 15));
+
+                //======== panel1 ========
+                {
+                    panel1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 15));
+                }
+                scrollPane1.setViewportView(panel1);
             }
-            scrollPane1.setViewportView(panel1);
+            panel6.add(scrollPane1, BorderLayout.CENTER);
         }
-        add(scrollPane1, BorderLayout.CENTER);
+        add(panel6, BorderLayout.CENTER);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -109,7 +113,8 @@ public class ShowCardBags extends JPanel {
     private JLabel label1;
     private JPanel panel5;
     private JButton button1;
-    private JScrollPane scrollPane1;
+    public JPanel panel6;
+    public JScrollPane scrollPane1;
     public JPanel panel1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

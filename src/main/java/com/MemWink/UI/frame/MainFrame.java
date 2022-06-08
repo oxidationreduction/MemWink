@@ -65,6 +65,7 @@ public class MainFrame extends JFrame {
 
     private void help(ActionEvent e) {
         // TODO add your code here
+        //
         HelpDialog helpDialog = new HelpDialog();
         helpDialog.setVisible(true);
     }
