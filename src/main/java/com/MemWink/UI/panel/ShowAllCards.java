@@ -14,11 +14,15 @@ import com.MemWink.util.constant.MemStateConstants;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.DimensionUIResource;
+
+import static com.MemWink.UI.UIManager.cardBag;
 
 
 /**
@@ -29,12 +33,13 @@ public class ShowAllCards extends JPanel {
         cardBag1=cardBag;
         this.cardBagPane=cardBagPane;
         UIManager.showAllCards=this;
-        UIManager.cardBag=cardBag1;
+        UIManager.cardBag =cardBag1;
         initComponents();
         init2();
-        panel1.setPreferredSize(new Dimension(20,1000));
+
         panel5.setVisible(true);
         label1.setText(cardBag1.getName());
+
         //右上角阶段分类
         StagenCount stagenCount1 = new StagenCount("全部",cardBag1.getCards());
         StagenCount stagenCount2 = new StagenCount("新卡",cardBag1.getNewCards());
@@ -61,13 +66,32 @@ public class ShowAllCards extends JPanel {
         }
         //初始化卡片panel1
         this.showcard(cardBag1.getCards());
+        panel1.setPreferredSize(new Dimension(20,getrightheight(UIManager.mainFrame.mainPanel.getSize(),cardBag1.getCards().size())));
     }
 
+    //panel1高度求解
+    public int getrightheight(Dimension dimension , int cardnum){
+        Double width = dimension.getWidth()-60;
+        Double height = dimension.getHeight();
+        //a为每行的卡片数
+        double a =Math.floor(width/175);
+        //b为总卡片数
+        double b =cardnum;
+        //c为理论卡片行数
+        double c =Math.ceil(b/a) + 1;
+
+        int rightheight =(int) c*185;
+
+        return rightheight;
+    }
+
+    //更新卡片页面，需要list数据
     public void showcard(List<CategorizedCard> list){
         this.panel1.removeAll();
         for(CategorizedCard card:list){
-            this.panel1.add(new CardPane(card));
+            this.panel1.add(new CardPane(card,cardBag1.getColor()));
         }
+        panel1.setPreferredSize(new Dimension(20,getrightheight(UIManager.mainFrame.mainPanel.getSize(),cardBag1.getCards().size())+1));
         this.panel1.updateUI();
     }
 
@@ -76,7 +100,7 @@ public class ShowAllCards extends JPanel {
     }
     //新建卡片事件
     private void menuItem1(ActionEvent e) {
-        CategorizedCard newcard = new CategorizedCard("请输入","请输入",true, MemStateConstants.newCard,true,null,UIManager.cardBag.getName());
+        CategorizedCard newcard = new CategorizedCard("请输入","请输入",true, MemStateConstants.newCard,true,null, cardBag.getName());
         EditCardDialog editCardDialog = new EditCardDialog(newcard,this);
         editCardDialog.setVisible(true);
         editCardDialog.setBounds(400,180,100,100);
@@ -95,25 +119,25 @@ public class ShowAllCards extends JPanel {
     }
 
     private void button3(ActionEvent e) {
-        ReviewManager reviewManager = new ReviewManager(UIManager.cardBag);
+        ReviewManager reviewManager = new ReviewManager(cardBag);
         UIManager.mainFrame.mainPanel.removeAll();;
         UIManager.mainFrame.mainPanel.add(reviewManager);
         UIManager.mainFrame.mainPanel.updateUI();
     }
 
     private void menuItem4(ActionEvent e) {
-        UIManager.cardBag.updateSortLogic(0);
-        this.showcard(UIManager.cardBag.getCards());
+        cardBag.updateSortLogic(0);
+        this.showcard(cardBag.getCards());
     }
 
     private void menuItem8(ActionEvent e) {
-        UIManager.cardBag.updateSortLogic(1);
-        this.showcard(UIManager.cardBag.getCards());
+        cardBag.updateSortLogic(1);
+        this.showcard(cardBag.getCards());
     }
 
     private void menuItem9(ActionEvent e) {
-        UIManager.cardBag.updateSortLogic(2);
-        this.showcard(UIManager.cardBag.getCards());
+        cardBag.updateSortLogic(2);
+        this.showcard(cardBag.getCards());
     }
     //删除卡包
     private void menuItem7(ActionEvent e) {
@@ -144,9 +168,24 @@ public class ShowAllCards extends JPanel {
     }
 
     private void menuItem2(ActionEvent e) {
+        /*
         FileChoose fileChoose = new FileChoose(cardBag1);
         fileChoose.setVisible(true);
         fileChoose.setBounds(400,200,600,400);
+
+         */
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("csv","csv");
+        chooser.setFileFilter(filter);
+        int flag = chooser.showOpenDialog(null);
+        if(flag == JFileChooser.APPROVE_OPTION){
+            String address = chooser.getSelectedFile().getPath();
+            File file = new File(address);
+            cardBag1.importCSV(file);
+            UIManager.mainFrame.mainPanel.removeAll();
+            UIManager.mainFrame.mainPanel.add(new ShowAllCards(cardBag1, cardBagPane));
+            UIManager.mainFrame.mainPanel.updateUI();
+        }
     }
 
     private void initComponents() {
@@ -162,8 +201,6 @@ public class ShowAllCards extends JPanel {
         popupMenu2 = new JPopupMenu();
         menuItem1 = new JMenuItem();
         menuItem2 = new JMenuItem();
-        scrollPane1 = new JScrollPane();
-        panel1 = new JPanel();
         panel3 = new JPanel();
         panel6 = new JPanel();
         panel7 = new JPanel();
@@ -176,6 +213,9 @@ public class ShowAllCards extends JPanel {
         panel5 = new JPanel();
         button2 = new JButton();
         button3 = new JButton();
+        panel2 = new JPanel();
+        scrollPane1 = new JScrollPane();
+        panel1 = new JPanel();
 
         //======== popupMenu1 ========
         {
@@ -233,21 +273,6 @@ public class ShowAllCards extends JPanel {
 
         //======== this ========
         setLayout(new BorderLayout());
-
-        //======== scrollPane1 ========
-        {
-            scrollPane1.setPreferredSize(new Dimension(20, 120));
-
-            //======== panel1 ========
-            {
-                panel1.setBorder(null);
-                panel1.setMaximumSize(new Dimension(16, 16));
-                panel1.setPreferredSize(new Dimension(20, 100));
-                panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-            }
-            scrollPane1.setViewportView(panel1);
-        }
-        add(scrollPane1, BorderLayout.CENTER);
 
         //======== panel3 ========
         {
@@ -318,6 +343,27 @@ public class ShowAllCards extends JPanel {
             panel5.add(button3, BorderLayout.CENTER);
         }
         add(panel5, BorderLayout.PAGE_END);
+
+        //======== panel2 ========
+        {
+            panel2.setLayout(new BorderLayout());
+
+            //======== scrollPane1 ========
+            {
+                scrollPane1.setPreferredSize(new Dimension(20, 120));
+
+                //======== panel1 ========
+                {
+                    panel1.setBorder(null);
+                    panel1.setMaximumSize(new Dimension(16, 16));
+                    panel1.setPreferredSize(new Dimension(20, 100));
+                    panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
+                }
+                scrollPane1.setViewportView(panel1);
+            }
+            panel2.add(scrollPane1, BorderLayout.CENTER);
+        }
+        add(panel2, BorderLayout.CENTER);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     public CardBagPane cardBagPane;
@@ -334,8 +380,6 @@ public class ShowAllCards extends JPanel {
     private JPopupMenu popupMenu2;
     private JMenuItem menuItem1;
     private JMenuItem menuItem2;
-    private JScrollPane scrollPane1;
-    public JPanel panel1;
     private JPanel panel3;
     private JPanel panel6;
     private JPanel panel7;
@@ -348,5 +392,8 @@ public class ShowAllCards extends JPanel {
     private JPanel panel5;
     private JButton button2;
     private JButton button3;
+    private JPanel panel2;
+    private JScrollPane scrollPane1;
+    public JPanel panel1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

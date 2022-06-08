@@ -22,8 +22,9 @@ import javax.swing.plaf.*;
  * @author unknown
  */
 public class CardPane extends RoundPanel {
-    public CardPane(CategorizedCard card) {
+    public CardPane(CategorizedCard card,Color color) {
         initComponents();
+        this.setBackground(color);
         this.card = card;
         label1.setText(card.getCategory());
         label2.setText(card.getFrontString());
@@ -63,8 +64,16 @@ public class CardPane extends RoundPanel {
         CardContent cardContent = new CardContent(card);
         UIManager.mainFrame.mainPanel.removeAll();
         UIManager.mainFrame.mainPanel.add(cardContent);
+        ((CardContent) UIManager.mainFrame.mainPanel.getComponents()[0]).update();
         UIManager.mainFrame.mainPanel.updateUI();
     }
+
+    /*private void thisMouseClicked(MouseEvent e) {
+        CardContent cardContent = new CardContent(card);
+        UIManager.mainFrame.mainPanel.removeAll();
+        UIManager.mainFrame.mainPanel.add(cardContent);
+        UIManager.mainFrame.mainPanel.updateUI();
+    }*/
 
 
     private void initComponents() {

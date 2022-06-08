@@ -18,6 +18,7 @@ import javax.swing.border.*;
 public class ShowStatics extends JPanel {
     public ShowStatics() {
         initComponents();
+        beautifyUI();
         TodayRememberedCardsNum.setText(Integer.toString(DataManager.getTodayRememberedCardsNum()));
         TodayRemainCardsNum.setText(Integer.toString(DataManager.getTodayRemainCardsNum()));
         TodayForgetRate.setText(String.format("%.2f",DataManager.getTodayForgetRate()*100));
@@ -39,6 +40,26 @@ public class ShowStatics extends JPanel {
         }
         Map1.add(new Graph(0,300,300,DataManager.getRememberedCardsNumHistory()));
         Map2.add(new Graph(1,300,300,DataManager.getForgetCardsNumHistory()));
+    }
+    private void beautifyUI() {
+        label1.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        label8.setFont(new Font("微软雅黑", Font.PLAIN, 55));
+        label11.setFont(new Font("微软雅黑", Font.PLAIN, 55));
+        label14.setFont(new Font("微软雅黑", Font.PLAIN, 55));
+        label17.setFont(new Font("微软雅黑", Font.PLAIN, 55));
+
+        label25.setFont(new Font("微软雅黑", Font.PLAIN, 55));
+        label26.setFont(new Font("微软雅黑", Font.PLAIN, 55));
+        label27.setFont(new Font("微软雅黑", Font.PLAIN, 55));
+        label28.setFont(new Font("微软雅黑", Font.PLAIN, 55));
+
+        TodayRememberedCardsNum.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+        TodayRemainCardsNum.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+        TodayForgetRate.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+        TomorrowNum.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+
+        label19.setText("学习卡片数趋势");
+        label22.setText("复习遗忘率趋势");
     }
 
     private void initComponents() {

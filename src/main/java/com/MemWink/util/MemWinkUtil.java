@@ -11,7 +11,7 @@ public class MemWinkUtil {
     }
     public static ImageIcon getScaledIcon(String fileName, int width, int height) {
         ImageIcon tmpIcon = new ImageIcon("image/" + fileName + ".png");
-        Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
+        Image tmpImage = tmpIcon.getImage().getScaledInstance(width, width, Image.SCALE_DEFAULT);
         return new ImageIcon(tmpImage);
     }
 }
