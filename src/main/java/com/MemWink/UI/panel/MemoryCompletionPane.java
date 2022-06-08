@@ -129,7 +129,6 @@ public class MemoryCompletionPane extends JPanel {
         hSpacer16 = new JPanel(null);
         vSpacer17 = new JPanel(null);
         vSpacer18 = new JPanel(null);
-        hSpacer17 = new JPanel(null);
         panel6 = new JPanel();
         panel21 = new JPanel();
         panel22 = new JPanel();
@@ -188,25 +187,24 @@ public class MemoryCompletionPane extends JPanel {
             panel2.setLayout(new BorderLayout());
 
             //---- vSpacer2 ----
-            vSpacer2.setPreferredSize(new Dimension(10, 60));
+            vSpacer2.setPreferredSize(new Dimension(10, 30));
             panel2.add(vSpacer2, BorderLayout.SOUTH);
 
             //---- button1 ----
             button1.setText("\u786e\u8ba4");
             button1.setBackground(new Color(0, 204, 51));
             button1.setForeground(new Color(238, 238, 238));
+            button1.setPreferredSize(new Dimension(78, 60));
+            button1.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 24));
             panel2.add(button1, BorderLayout.CENTER);
 
             //---- hSpacer1 ----
-            hSpacer1.setPreferredSize(new Dimension(300, 10));
+            hSpacer1.setPreferredSize(new Dimension(650, 10));
             panel2.add(hSpacer1, BorderLayout.EAST);
 
             //---- hSpacer2 ----
-            hSpacer2.setPreferredSize(new Dimension(300, 10));
+            hSpacer2.setPreferredSize(new Dimension(650, 10));
             panel2.add(hSpacer2, BorderLayout.WEST);
-
-            //---- vSpacer22 ----
-            vSpacer22.setPreferredSize(new Dimension(10, 60));
             panel2.add(vSpacer22, BorderLayout.NORTH);
         }
         add(panel2, BorderLayout.SOUTH);
@@ -250,11 +248,13 @@ public class MemoryCompletionPane extends JPanel {
 
                 //---- hSpacer6 ----
                 hSpacer6.setBackground(Color.lightGray);
+                hSpacer6.setPreferredSize(new Dimension(60, 10));
                 panel4.add(hSpacer6, BorderLayout.WEST);
 
                 //---- vSpacer4 ----
                 vSpacer4.setMinimumSize(new Dimension(12, 60));
                 vSpacer4.setBackground(Color.lightGray);
+                vSpacer4.setPreferredSize(new Dimension(20, 10));
                 panel4.add(vSpacer4, BorderLayout.SOUTH);
 
                 //======== panel9 ========
@@ -287,7 +287,7 @@ public class MemoryCompletionPane extends JPanel {
             //======== panel5 ========
             {
                 panel5.setBorder(null);
-                panel5.setLayout(new BorderLayout(20, 10));
+                panel5.setLayout(new GridLayout(1, 2, 5, 0));
 
                 //======== panel13 ========
                 {
@@ -329,6 +329,7 @@ public class MemoryCompletionPane extends JPanel {
 
                         //---- hSpacer12 ----
                         hSpacer12.setBackground(Color.lightGray);
+                        hSpacer12.setPreferredSize(new Dimension(60, 10));
                         panel14.add(hSpacer12, BorderLayout.WEST);
 
                         //---- vSpacer12 ----
@@ -361,7 +362,7 @@ public class MemoryCompletionPane extends JPanel {
                     }
                     panel13.add(panel14, BorderLayout.CENTER);
                 }
-                panel5.add(panel13, BorderLayout.WEST);
+                panel5.add(panel13);
 
                 //======== panel17 ========
                 {
@@ -404,6 +405,7 @@ public class MemoryCompletionPane extends JPanel {
 
                         //---- hSpacer15 ----
                         hSpacer15.setBackground(Color.lightGray);
+                        hSpacer15.setPreferredSize(new Dimension(60, 10));
                         panel18.add(hSpacer15, BorderLayout.WEST);
 
                         //---- vSpacer16 ----
@@ -436,8 +438,7 @@ public class MemoryCompletionPane extends JPanel {
                     }
                     panel17.add(panel18, BorderLayout.CENTER);
                 }
-                panel5.add(panel17, BorderLayout.EAST);
-                panel5.add(hSpacer17, BorderLayout.CENTER);
+                panel5.add(panel17);
             }
             panel3.add(panel5);
 
@@ -482,6 +483,7 @@ public class MemoryCompletionPane extends JPanel {
 
                     //---- hSpacer19 ----
                     hSpacer19.setBackground(Color.lightGray);
+                    hSpacer19.setPreferredSize(new Dimension(60, 10));
                     panel21.add(hSpacer19, BorderLayout.WEST);
 
                     //---- vSpacer20 ----
@@ -536,6 +538,7 @@ public class MemoryCompletionPane extends JPanel {
 
                     //---- hSpacer9 ----
                     hSpacer9.setBackground(Color.lightGray);
+                    hSpacer9.setPreferredSize(new Dimension(60, 10));
                     panel10.add(hSpacer9, BorderLayout.WEST);
 
                     //---- vSpacer8 ----
@@ -636,7 +639,6 @@ public class MemoryCompletionPane extends JPanel {
     private JPanel hSpacer16;
     private JPanel vSpacer17;
     private JPanel vSpacer18;
-    private JPanel hSpacer17;
     private JPanel panel6;
     private JPanel panel21;
     private JPanel panel22;
