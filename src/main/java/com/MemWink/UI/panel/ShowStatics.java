@@ -13,9 +13,16 @@ import javax.swing.GroupLayout;
 import javax.swing.border.*;
 
 /**
- * @author unknown
+ * 数据展示主页面
+ * <p>所有用户的相关数据会被展示到该页面上</p>
+ * @author Feng Weilun
  */
 public class ShowStatics extends JPanel {
+    /**
+     * 构造器
+     * <p>因此面板不涉及用户动作监听故可被直接构造</p>
+     * <p>每次构造时都会根据数据中心的最新数据来进行页面绘制</p>
+     */
     public ShowStatics() {
         initComponents();
         beautifyUI();
@@ -41,6 +48,10 @@ public class ShowStatics extends JPanel {
         Map1.add(new Graph(0,300,300,DataManager.getRememberedCardsNumHistory()));
         Map2.add(new Graph(1,300,300,DataManager.getForgetCardsNumHistory()));
     }
+
+    /**
+     * 美化UI
+     */
     private void beautifyUI() {
         label1.setFont(new Font("微软雅黑", Font.PLAIN, 60));
         label8.setFont(new Font("微软雅黑", Font.PLAIN, 55));
@@ -62,6 +73,10 @@ public class ShowStatics extends JPanel {
         label22.setText("复习遗忘率趋势");
     }
 
+    /**
+     * 初始化数据页面
+     * <p>在相应jfd文件中绘制好后由插件自动生成代码</p>
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();

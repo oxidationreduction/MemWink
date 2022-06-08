@@ -16,16 +16,41 @@ import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 
 /**
- * @author unknown
+ * 卡包UI面板
+ * <p>将此面板添加到卡包面板上配套使用</p>
+ * @author Feng Weilun
  */
 public class CardBagPaneTop extends JPanel {
+    /**
+     * 属于该卡包UI的卡包信息
+     */
     private CardBag cardBag;
+
+    /**
+     * 卡包UI页面内部类
+     * <p>该内部类实现ActionListener接口</p>
+     * <p>实现记忆卡片选项的监听器</p>
+     * <p>该内部类仅在类内使用，故设计为private</p>
+     */
     private class ButtonListener implements ActionListener {
+        /**
+         * 属于卡包UI的卡包信息
+         */
         private CardBag cardBag;
 
+        /**
+         * 构造器
+         * @param cardBag 属于卡包UI的卡包信息
+         */
         private ButtonListener(CardBag cardBag) {
             this.cardBag = cardBag;
         }
+
+        /**
+         * 重写actionPerformed方法，实现ActionListener接口
+         * <p>当此按钮被按下时，调用卡片复习页面</p>
+         * @param e 活动事件
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             UIManager.mainFrame.mainPanel.removeAll();
@@ -34,6 +59,11 @@ public class CardBagPaneTop extends JPanel {
         }
     }
 
+    /**
+     * 重写方法paint
+     * <p>将此卡包UI面板绘制成圆角，美化UI</p>
+     * @param g 画笔
+     */
     @Override
     public void paint(Graphics g) {
         int fieldX = 0;
@@ -45,7 +75,13 @@ public class CardBagPaneTop extends JPanel {
         super.paint(g);
     }
 
-
+    /**
+     * 构造器
+     * <p>该构造器在展示卡包页面时调用</p>
+     * <p>根据卡包信息来绘制相应的卡包UI</p>
+     * <p>根据卡包内部卡片的复习情况来决定是否出现复习卡片的按钮</p>
+     * @param cardBag 属于卡包UI的卡包信息
+     */
     public CardBagPaneTop(CardBag cardBag) {
         initComponents();
         this.cardBag = cardBag;
@@ -62,10 +98,19 @@ public class CardBagPaneTop extends JPanel {
         }
     }
 
+    /**
+     * 构造器
+     * <p>此构造器仅在修改卡包页面调用</p>
+     * <p>无需考虑卡包内部卡片信息</p>
+     */
     public CardBagPaneTop() {
         initComponents();
     }
 
+    /**
+     * 初始化卡包UI
+     * <p>由相应的jfd文件绘制完成后自动生成代码</p>
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         TotalCardsNum = new JLabel();
