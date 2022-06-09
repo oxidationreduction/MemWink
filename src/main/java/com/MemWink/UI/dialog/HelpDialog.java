@@ -14,18 +14,33 @@ import javax.swing.*;
 import javax.swing.GroupLayout;
 
 /**
- * @author unknown
+ * 添加帮助卡包确认弹窗
+ * <p>当点击帮助按钮时该弹窗被呼出</p>
+ * @author Feng Weilun
  */
 public class HelpDialog extends JDialog {
+    /**
+     * 无参构造器
+     */
     public HelpDialog() {
         initComponents();
     }
 
+    /**
+     * 取消按钮监听器
+     * <p>此按钮被按下时取消添加帮助卡包</p>
+     * @param e 按钮按下事件
+     */
     private void no(ActionEvent e) {
         // TODO add your code here
         this.dispose();
     }
 
+    /**
+     * 确认按钮监听器
+     * <p>此按钮被按下时添加帮助卡包，并将其显示到屏幕上</p>
+     * @param e 按钮按下事件
+     */
     private void yes(ActionEvent e) {
         // TODO add your code here
         DataManager.importExampleCardBag();
@@ -35,6 +50,10 @@ public class HelpDialog extends JDialog {
         this.dispose();
     }
 
+    /**
+     * 初始化代码
+     * <p>由相应的jfd文件绘制完成后，插件自动生成</p>
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         label1 = new JLabel();

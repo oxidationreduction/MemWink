@@ -15,16 +15,30 @@ import javax.swing.*;
 import javax.swing.GroupLayout;
 
 /**
- * @author unknown
+ * 删除卡包确认弹窗
+ * <p>当卡包被右键并选中删除按钮时呼出该弹窗</p>
+ * @author Feng Weilun
  */
 public class DeleteCardbag extends JDialog {
+    /**
+     * 要删除的卡包信息
+     */
     private CardBag cardBag;
 
+    /**
+     * 单参数构造器
+     * @param cardBag 要删除的卡包信息
+     */
     public DeleteCardbag(CardBag cardBag) {
         this.cardBag = cardBag;
         initComponents();
     }
 
+    /**
+     * 确认删除按钮监听器
+     * <p>当此按钮被按下时删除该卡包信息并将其从屏幕上移除</p>
+     * @param e 按钮按下事件
+     */
     private void yes(ActionEvent e) {
         DataManager.delCardBag(cardBag.getName());
         UIManager.mainFrame.mainPanel.removeAll();
@@ -33,10 +47,19 @@ public class DeleteCardbag extends JDialog {
         this.dispose();
     }
 
+    /**
+     * 取消删除按钮监听器
+     * <p>当此按钮被按下时不进行删除操作</p>
+     * @param e 按钮按下事件
+     */
     private void no(ActionEvent e) {
         this.dispose();
     }
 
+    /**
+     * 初始化代码
+     * <p>由相应的jfd文件绘制完成后，插件自动生成</p>
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         label1 = new JLabel();

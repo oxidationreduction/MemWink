@@ -16,16 +16,30 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * @author unknown
+ * 程序主页面
+ * @author Feng Weilun
  */
 public class MainFrame extends JFrame {
+    /**
+     * 静态类属性
+     * <p>单例模式，仅存在一个该类实例对象</p>
+     */
     private static MainFrame mainFrame = new MainFrame();
 
+    /**
+     * 单例模式方法
+     * <p>用于获得唯一的主页面</p>
+     * @return 主页面
+     */
     public static MainFrame getMainFrame() {
         return mainFrame;
     }
 
-    public MainFrame() {
+    /**
+     * 无参数构造器
+     * <p>单例模式构造器，故设计为private</p>
+     */
+    private MainFrame() {
         initComponents();
         beautifyUI();
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
@@ -85,6 +99,11 @@ public class MainFrame extends JFrame {
                 (int) Math.round(0.85 * statisticButton.getHeight())));
     }
 
+    /**
+     * 卡包按钮监听器
+     * <p>按下该按钮会刷新卡包页面并将其显示在屏幕中</p>
+     * @param e 按钮按下事件
+     */
     private void button2(ActionEvent e) {
         UIManager.cardBag = null;
         mainPanel.removeAll();
@@ -92,6 +111,11 @@ public class MainFrame extends JFrame {
         mainPanel.updateUI();
     }
 
+    /**
+     * 统计按钮监听器
+     * <p>按下该按钮会刷新统计页面并将其显示在屏幕中</p>
+     * @param e 按钮按下事件
+     */
     private void button3(ActionEvent e) {
         mainPanel.removeAll();
         mainPanel.add(new ShowStatics());
@@ -106,13 +130,21 @@ public class MainFrame extends JFrame {
         add(tmp);
     }
 
+    /**
+     * 帮助按钮监听器
+     * <p>按下该按钮会呼出帮助卡包添加确认弹窗</p>
+     * @param e 按钮按下事件
+     */
     private void help(ActionEvent e) {
         // TODO add your code here
         HelpDialog helpDialog = new HelpDialog();
         helpDialog.setVisible(true);
     }
 
-
+    /**
+     * 初始化代码
+     * <p>由相应的jfd文件绘制完成后，插件自动生成</p>
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         menuBar1 = new JMenuBar();

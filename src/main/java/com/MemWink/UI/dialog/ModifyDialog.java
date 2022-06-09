@@ -18,12 +18,24 @@ import javax.swing.GroupLayout;
 import javax.swing.event.*;
 
 /**
- * @author unknown
+ * 修改卡包弹窗
+ * <p>当卡包被右键并选中修改选项时呼出此弹窗</p>
+ * @author Feng Weilun
  */
 public class ModifyDialog extends JDialog {
+    /**
+     * 呼出该弹窗的卡包面板
+     */
     private CardBagPane cardBagPane;
+    /**
+     * 呼出该弹窗的卡包名字
+     */
     private String oldName;
 
+    /**
+     * 单参数构造器
+     * @param cardBagPane 呼出该弹窗的卡包面板
+     */
     public ModifyDialog(CardBagPane cardBagPane) {
         this.cardBagPane = cardBagPane;
         this.oldName = cardBagPane.label2.getText();
@@ -53,6 +65,12 @@ public class ModifyDialog extends JDialog {
         }
     }
 
+    /**
+     * 保存按钮监听器
+     * <p>当参数均合法时修改卡包信息</p>
+     * <p>无法修改时即卡包新名字已经存在，将名字变为红色以提示用户</p>
+     * @param e 鼠标事件
+     */
     private void saveMouseClicked(MouseEvent e) {
         // TODO add your code here
         if ( save.getForeground() == Color.black ){
@@ -70,6 +88,13 @@ public class ModifyDialog extends JDialog {
         }
     }
 
+    /**
+     * 为卡包名输入框添加监听器
+     * <p>可随着输入文本的不同随时调整上方显示的卡包样式</p>
+     * <p>方便用户观察卡包的样式</p>
+     * <p>当此输入框和名字输入框的输入均合法才可保存新卡包</p>
+     * @param e 文本框事件
+     */
     private void textField1CaretUpdate(CaretEvent e) {
         // TODO add your code here
         label.setText(textField1.getText());
@@ -81,6 +106,12 @@ public class ModifyDialog extends JDialog {
         }
     }
 
+    /**
+     * 为卡片数量输入框添加监听器
+     * <p>用到正则表达式来检查是否是合法的数字</p>
+     * <p>当此输入框和名字输入框的输入均合法才可保存新卡包</p>
+     * @param e 文本框事件
+     */
     private void textField2CaretUpdate(CaretEvent e) {
         // TODO add your code here
         if ( textField2.getText().matches("\\d+") && Integer.parseInt(textField2.getText()) > 0 && !label.getText().equals("") ){
@@ -91,6 +122,10 @@ public class ModifyDialog extends JDialog {
         }
     }
 
+    /**
+     * 初始化代码
+     * <p>由相应的jfd文件绘制完成后，插件自动生成</p>
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         colorPane = new JPanel();
@@ -214,15 +249,41 @@ public class ModifyDialog extends JDialog {
     private JLabel label3;
     private JTextField textField2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-
+    /**
+     * 用于在此弹窗中展示的卡包样式
+     */
     private CardBagPaneTop top;
-    private Color addColor = Color.blue;
+    /**
+     * 此时被选中的颜色
+     * <p>默认颜色取决于呼出该弹窗的卡包颜色</p>
+     */
+    private Color addColor;
+    /**
+     * 储存颜色按钮的线性表
+     * <p>默认有6个不同的颜色</p>
+     */
     private LinkedList<colorButton1> buttons = new LinkedList<>();
 
+    /**
+     * 私有类
+     * <p>专属于此弹窗的颜色按钮</p>
+     */
     private class colorButton1 extends JButton {
+        /**
+         * 该按钮的颜色
+         */
         private Color color;
+        /**
+         * 该按钮目前是否被选中
+         * <p>同一时间仅有一个按钮被选中</p>
+         */
         private boolean selected = false;
 
+        /**
+         * 单参数构造器
+         * <p>根据参数的颜色构造一个按钮</p>
+         * @param color 该按钮的颜色
+         */
         public colorButton1(Color color) {
             this.color = color;
             this.setBackground(color);
@@ -231,13 +292,32 @@ public class ModifyDialog extends JDialog {
         }
     }
 
+    /**
+     * 私有类
+     * <p>实现了ActionListener接口</p>
+     * <p>与私有的颜色按钮类相配套的按钮监听器</p>
+     */
     private class ButtonListener1 implements ActionListener{
+        /**
+         * 该监听器监听的按钮
+         */
         private colorButton1 button;
 
+        /**
+         * 单参数构造器
+         * @param button 该监听器监听的按钮
+         */
         public ButtonListener1(colorButton1 button) {
             this.button = button;
         }
 
+        /**
+         * 重写ActionListener接口的actionPerformed方法
+         * <p>设置专属的按钮行为</p>
+         * <p>卡包颜色会随着不同按钮的按下而改变</p>
+         * <p>同一时间仅有一个按钮会被选中</p>
+         * @param e 按钮按下行为
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             if ( !button.selected ){
