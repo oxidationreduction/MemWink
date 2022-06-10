@@ -45,10 +45,10 @@ public class ShowAllCards extends JPanel {
         StagenCount stagenCount2 = new StagenCount("新卡",cardBag1.getNewCards());
         StagenCount stagenCount3 = new StagenCount("记忆中",cardBag1.getCardsLearning());
         StagenCount stagenCount4 = new StagenCount("已记住",cardBag1.getCardFinished());
-        stagenCount1.setLabel5("统计",20,20);
-        stagenCount2.setLabel5("统计",20,20);
-        stagenCount3.setLabel5("统计",20,20);
-        stagenCount4.setLabel5("统计",20,20);
+        stagenCount1.setLabel5("全部",30,30);
+        stagenCount2.setLabel5("新卡",30,30);
+        stagenCount3.setLabel5("学习中",30,30);
+        stagenCount4.setLabel5("已完成",30,30);
         this.panel6.add(stagenCount1);
         this.panel6.add(stagenCount2);
         this.panel6.add(stagenCount3);

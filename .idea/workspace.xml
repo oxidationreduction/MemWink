@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="接着美化">
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="2022/6/8 21：20 记忆完成界面优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.jfd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,14 +33,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.base/java/text/DecimalFormat.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.base/java/util/Date.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.base/java/util/List.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.desktop/java/awt/Component.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib/src.zip!/java.desktop/javax/swing/JButton.java" root0="SKIP_INSPECTION" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -60,14 +54,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/liuhongyu/Documents/大二下/面向对象/mem-wink&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/usrData" />
@@ -100,7 +86,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.MemWink.Main" />
-      <module name="mem-wink" />
+      <module name="java大作业" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.MemWink.*" />
