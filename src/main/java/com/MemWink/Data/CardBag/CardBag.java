@@ -369,6 +369,22 @@ public class CardBag implements Serializable {
     }
 
     /**
+     * 用于统计今天还需学习本卡包内的多少张卡
+     * @return 本卡包内本日内还需学习的卡片的数量
+     */
+    public int getTodayRemainNum() {
+        Date tomorrow = new Date(new Date().getTime() + 24*60*60000);
+        tomorrow = new Date(tomorrow.getYear(), tomorrow.getMonth(), tomorrow.getDay());
+        int ans = 0;
+        for (CategorizedCard i : cards) {
+            if (i.needReview() && i.getRememberTime().before(tomorrow)) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    /**
      * 获取卡包内明天需要复习的卡片的数量
      * @return 明天要复习的卡片数量
      */
@@ -571,7 +587,8 @@ public class CardBag implements Serializable {
         List<CsvRow> rows = CsvUtil.getReader().read(file).getRows();
         for (CsvRow i : rows) {
             if (i.size() == 2) {
-                this.addCard(i.get(0), i.get(1),
+                if (!Objects.equals(i.get(0), "") && !Objects.equals(i.get(1), ""))
+                    this.addCard(i.get(0), i.get(1),
                         true, MemStateConstants.newCard, false, null);
             } else if (i.size() == 3) {
                 if (Objects.equals(i.get(0), "正面")
@@ -579,9 +596,11 @@ public class CardBag implements Serializable {
                         && Objects.equals(i.get(2), "分类")) {
                     continue;
                 }
-                String category = Objects.equals(i.get(2), "") ? null : i.get(2);
-                this.addCard(i.get(0), i.get(1),
-                        true, MemStateConstants.newCard, false, category);
+                if (!Objects.equals(i.get(0), "") && !Objects.equals(i.get(1), "")) {
+                    String category = Objects.equals(i.get(2), "") ? null : i.get(2);
+                    this.addCard(i.get(0), i.get(1),
+                            true, MemStateConstants.newCard, false, category);
+                }
             } else {
                 throw new RuntimeException("Csv format error.");
             }

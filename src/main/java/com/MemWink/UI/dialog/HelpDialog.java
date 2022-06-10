@@ -32,7 +32,6 @@ public class HelpDialog extends JDialog {
      * @param e 按钮按下事件
      */
     private void no(ActionEvent e) {
-        // TODO add your code here
         this.dispose();
     }
 
@@ -42,7 +41,6 @@ public class HelpDialog extends JDialog {
      * @param e 按钮按下事件
      */
     private void yes(ActionEvent e) {
-        // TODO add your code here
         DataManager.importExampleCardBag();
         UIManager.mainFrame.mainPanel.removeAll();
         UIManager.mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());

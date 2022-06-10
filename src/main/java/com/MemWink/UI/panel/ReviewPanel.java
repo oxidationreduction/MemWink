@@ -61,7 +61,7 @@ public class ReviewPanel extends CardContent implements ActionListener {
             rememberedButton.setHorizontalTextPosition(SwingConstants.RIGHT);
             rememberedButton.setVerticalTextPosition(SwingConstants.CENTER);
             rememberedButton.setFont(new Font("微软雅黑", Font.PLAIN, 12));
-            rememberedButton.setIcon(MemWinkUtil.getScaledIcon("绿勾", 12, 12));
+            rememberedButton.setIcon(MemWinkUtil.getScaledIcon("绿勾", 20, 20));
             // rememberedButton.setBackground(Color.GREEN);
             // rememberedButton.setForeground(Color.WHITE);
             rememberedButton.setSize(100, 45);
@@ -85,7 +85,7 @@ public class ReviewPanel extends CardContent implements ActionListener {
             forgotButton.setVerticalTextPosition(SwingConstants.CENTER);
             forgotButton.setHorizontalTextPosition(SwingConstants.RIGHT);
             forgotButton.setFont(new Font("微软雅黑", Font.PLAIN, 12));
-            forgotButton.setIcon(MemWinkUtil.getScaledIcon("红叉", 6, 6));
+            forgotButton.setIcon(MemWinkUtil.getScaledIcon("红叉", 20, 20));
             forgotButton.setIconTextGap(5);
             forgotButton.setSize(100, 45);
             forgotButton.setLocation(

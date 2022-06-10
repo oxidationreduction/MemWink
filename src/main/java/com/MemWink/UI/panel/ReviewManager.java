@@ -63,7 +63,7 @@ public class ReviewManager extends JPanel {
         int remain = cards.size();
         if (remain == 0) {
             System.out.println("No cards");
-            memoryCompletionPane = new MemoryCompletionPane(rememberedNum, forgotNum, cardBag.getTomorrowNum());
+            memoryCompletionPane = new MemoryCompletionPane(rememberedNum, forgotNum, cardBag.getTodayRemainNum());
             add(memoryCompletionPane);
             updateUI();
         } else {

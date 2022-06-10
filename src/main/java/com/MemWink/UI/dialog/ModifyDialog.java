@@ -72,7 +72,6 @@ public class ModifyDialog extends JDialog {
      * @param e 鼠标事件
      */
     private void saveMouseClicked(MouseEvent e) {
-        // TODO add your code here
         if ( save.getForeground() == Color.black ){
             if (DataManager.changeCardBagName(oldName,textField1.getText())==0) {
                 DataManager.updateColor(textField1.getText(),addColor);
@@ -96,7 +95,6 @@ public class ModifyDialog extends JDialog {
      * @param e 文本框事件
      */
     private void textField1CaretUpdate(CaretEvent e) {
-        // TODO add your code here
         label.setText(textField1.getText());
         if ( textField2.getText().matches("\\d+") && Integer.parseInt(textField2.getText()) > 0 && !label.getText().equals("") ){
             save.setForeground(Color.black);
@@ -113,7 +111,6 @@ public class ModifyDialog extends JDialog {
      * @param e 文本框事件
      */
     private void textField2CaretUpdate(CaretEvent e) {
-        // TODO add your code here
         if ( textField2.getText().matches("\\d+") && Integer.parseInt(textField2.getText()) > 0 && !label.getText().equals("") ){
             save.setForeground(Color.black);
         }

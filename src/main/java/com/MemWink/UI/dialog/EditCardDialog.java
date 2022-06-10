@@ -34,7 +34,6 @@ public class EditCardDialog extends JDialog {
         setup();
     }
 
-    // TODO: 输入框显示不全
     /**
      * 更新外观
      */

@@ -31,7 +31,7 @@ public class CardBagPane extends JPanel {
     public CardBagPane(CardBag cardBag) {
         initComponents();
         this.cardBag = cardBag;
-        this.cardBagPaneTop = new CardBagPaneTop(cardBag);
+        this.cardBagPaneTop = new CardBagPaneTop(cardBag, this);
         this.add(cardBagPaneTop,BorderLayout.CENTER);
         menu.add(item1);
         this.item1.addActionListener(new item1Listener(this));
@@ -45,6 +45,11 @@ public class CardBagPane extends JPanel {
                 }
             }
         });
+        beautifyUI();
+    }
+
+    private void beautifyUI() {
+        // TODO: color
     }
 
     /**

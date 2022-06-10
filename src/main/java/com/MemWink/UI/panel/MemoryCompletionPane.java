@@ -8,6 +8,8 @@ import com.MemWink.UI.component.RoundButton;
 import com.MemWink.UI.component.RoundPanel;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
 import javax.swing.border.*;
@@ -48,6 +50,19 @@ public class MemoryCompletionPane extends JPanel {
         label12.setText(forget + "");
         label15.setText(String.format("%.2f", (double) forget / (double) (remember + forget) * 100.0) + "%");
         label6.setText(tomorrow + "");
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                com.MemWink.UI.UIManager.mainFrame.mainPanel.removeAll();
+                ShowAllCards showAllCards = new ShowAllCards(
+                        com.MemWink.UI.UIManager.showAllCards.cardBag1,
+                        com.MemWink.UI.UIManager.showAllCards.cardBagPane);
+                com.MemWink.UI.UIManager.mainFrame.mainPanel.add(showAllCards);
+                com.MemWink.UI.UIManager.showAllCards = showAllCards;
+                com.MemWink.UI.UIManager.mainFrame.mainPanel.updateUI();
+            }
+        });
     }
 
     /**
@@ -76,6 +91,7 @@ public class MemoryCompletionPane extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - Sun Yihan
         panel1 = new JPanel();
         vSpacer1 = new JPanel(null);
         label1 = new JLabel();
@@ -158,6 +174,13 @@ public class MemoryCompletionPane extends JPanel {
         hSpacer21 = new JPanel(null);
 
         //======== this ========
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new
+        javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax
+        . swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java
+        . awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt
+        . Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .
+        PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r" .
+        equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(new BorderLayout());
 
         //======== panel1 ========
@@ -586,6 +609,7 @@ public class MemoryCompletionPane extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - Sun Yihan
     private JPanel panel1;
     private JPanel vSpacer1;
     private JLabel label1;

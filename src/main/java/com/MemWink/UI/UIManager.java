@@ -10,27 +10,57 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Date;
 
+/**
+ * 用户界面管理中心
+ * <p>存储界面元素，管理界面更新</>
+ * @author Liu Hongyu
+ * @since 2022-05-18
+ */
 public class UIManager {
+    /**
+     * 外观主框架
+     */
     public static MainFrame mainFrame;
 
+    /**
+     * 内部主面板
+     */
     public static JPanel mainPanel;
 
+    /**
+     * 卡包列表
+     */
     public static ShowCardBags showCardBags;
 
+    /**
+     * 卡片列表
+     */
     public static ShowAllCards showAllCards;
 
+    /**
+     * 卡片详情
+     */
     public static CardContent cardContent;
 
+    /**
+     * 复习界面
+     */
     public static ReviewManager reviewManager;
 
+    /**
+     * 统计界面
+     */
     public static ShowStatics showStatics;
 
+    /**
+     * 当前活跃卡包
+     */
     public static CardBag cardBag = null;
 
+    /**
+     * 构造器
+     */
     private UIManager() {
-
-    }
-    public static void init() {
         mainFrame = MainFrame.getMainFrame();
 
         mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
@@ -51,6 +81,13 @@ public class UIManager {
     }
 
     /**
+     * 用户界面初始化
+     */
+    public static void init() {
+        new UIManager();
+    }
+
+    /**
      * 页面更新线程需要执行的语句
      * @throws InterruptedException 线程异常
      */
@@ -62,7 +99,6 @@ public class UIManager {
                 if (i.getReviewCardsNum() > 0) {
                     Component[] components = mainFrame.mainPanel.getComponents();
                     ShowCardBags.getShowCardBags();
-                    // TODO：ShowAllCards构造器中应当有一个CardBag参数
                     // showAllCards = new ShowAllCards();
                     if (components[0] instanceof ShowCardBags) {
                         System.out.println("ShowCardBags updated.");

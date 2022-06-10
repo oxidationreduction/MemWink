@@ -57,7 +57,7 @@ public class DataManager {
             ObjectInputStream tool = new ObjectInputStream(fileInputStream);
             cardBagNames = (List<String>) tool.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            importExampleCardBag();
+            // importExampleCardBag();
             saveCardBagName();
         }
 

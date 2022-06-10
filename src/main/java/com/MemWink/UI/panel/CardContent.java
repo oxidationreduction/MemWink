@@ -29,6 +29,10 @@ public class CardContent extends JPanel implements KeyListener {
         }
     }
 
+    private void beautifyUI() {
+        // TODO: font color
+    }
+
     public void update() {
         setSize(new Dimension(UIConstant.mainPanelWidth, UIConstant.mainPanelHeight));
         setLocation(0, 0);
@@ -362,7 +366,7 @@ public class CardContent extends JPanel implements KeyListener {
             {
                 {
                     frontVerticalTop = new JButton();
-                    frontVerticalTop.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    frontVerticalTop.setIcon(MemWinkUtil.getScaledIcon("上对齐", 30, 30));
                     frontVerticalTop.setSize(35, 35);
                     frontVerticalTop.setLocation(
                             (leftPanel.getWidth() >> 1) - 15,
@@ -384,7 +388,7 @@ public class CardContent extends JPanel implements KeyListener {
 
                 {
                     frontVerticalCenter = new JButton();
-                    frontVerticalCenter.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    frontVerticalCenter.setIcon(MemWinkUtil.getScaledIcon("垂直居中", 30, 30));
                     frontVerticalCenter.setSize(35, 35);
                     frontVerticalCenter.setLocation(
                             (leftPanel.getWidth() >> 1) - 15,
@@ -406,7 +410,7 @@ public class CardContent extends JPanel implements KeyListener {
 
                 {
                     frontVerticalBottom = new JButton();
-                    frontVerticalBottom.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    frontVerticalBottom.setIcon(MemWinkUtil.getScaledIcon("下对齐", 30, 30));
                     frontVerticalBottom.setSize(35, 35);
                     frontVerticalBottom.setLocation(
                             (leftPanel.getWidth() >> 1) - 15,
@@ -430,9 +434,10 @@ public class CardContent extends JPanel implements KeyListener {
             // frontFontSizeButtons
             {
                 {
-                    frontFontSizeAddButton = new JButton();
-                    frontFontSizeAddButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    frontFontSizeAddButton = new JButton("T");
+                    // frontFontSizeAddButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
                     frontFontSizeAddButton.setSize(35, 35);
+                    frontFontSizeAddButton.setFont(new Font("微软雅黑", Font.BOLD, 28));
                     frontFontSizeAddButton.setLocation(
                             (leftPanel.getWidth() >> 1) - 15,
                             (leftPanel.getHeight() >> 1) + 100
@@ -452,8 +457,9 @@ public class CardContent extends JPanel implements KeyListener {
                 }
 
                 {
-                    frontFontSizeMinusButton = new JButton();
-                    frontFontSizeMinusButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    frontFontSizeMinusButton = new JButton("T");
+                    // frontFontSizeMinusButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    frontFontSizeMinusButton.setFont(new Font("微软雅黑", Font.PLAIN, 15));
                     frontFontSizeMinusButton.setSize(35, 35);
                     frontFontSizeMinusButton.setLocation(
                             (leftPanel.getWidth() >> 1) - 15,
@@ -530,7 +536,7 @@ public class CardContent extends JPanel implements KeyListener {
             {
                 {
                     frontHorizenalLeft = new JButton();
-                    frontHorizenalLeft.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    frontHorizenalLeft.setIcon(MemWinkUtil.getScaledIcon("左对齐", 30, 30));
                     frontHorizenalLeft.setSize(35, 35);
                     frontHorizenalLeft.setLocation(
                             (frontPanel.getWidth() >> 1) - 50,
@@ -552,7 +558,7 @@ public class CardContent extends JPanel implements KeyListener {
 
                 {
                     frontHorizenalCenter = new JButton();
-                    frontHorizenalCenter.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    frontHorizenalCenter.setIcon(MemWinkUtil.getScaledIcon("水平居中", 30, 30));
                     frontHorizenalCenter.setSize(35, 35);
                     frontHorizenalCenter.setLocation(
                             (frontPanel.getWidth() >> 1) - 8,
@@ -574,7 +580,7 @@ public class CardContent extends JPanel implements KeyListener {
 
                 {
                     frontHorizenalRight = new JButton();
-                    frontHorizenalRight.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    frontHorizenalRight.setIcon(MemWinkUtil.getScaledIcon("右对齐", 30, 30));
                     frontHorizenalRight.setSize(35, 35);
                     frontHorizenalRight.setLocation(
                             (frontPanel.getWidth() >> 1) + 34,
@@ -630,10 +636,7 @@ public class CardContent extends JPanel implements KeyListener {
             {
                 {
                     backHorizenalLeft = new JButton();
-                    ImageIcon tmpIcon = new ImageIcon("image/设置.png");
-                    Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
-                    tmpIcon = new ImageIcon(tmpImage);
-                    backHorizenalLeft.setIcon(tmpIcon);
+                    backHorizenalLeft.setIcon(MemWinkUtil.getScaledIcon("左对齐", 30, 30));
                     backHorizenalLeft.setSize(35, 35);
                     backHorizenalLeft.setLocation(
                             middlePanel.getWidth() - (backPanel.getWidth() >> 1) - 50,
@@ -655,10 +658,7 @@ public class CardContent extends JPanel implements KeyListener {
 
                 {
                     backHorizenalCenter = new JButton();
-                    ImageIcon tmpIcon = new ImageIcon("image/设置.png");
-                    Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
-                    tmpIcon = new ImageIcon(tmpImage);
-                    backHorizenalCenter.setIcon(tmpIcon);
+                    backHorizenalCenter.setIcon(MemWinkUtil.getScaledIcon("水平居中", 30, 30));
                     backHorizenalCenter.setSize(35, 35);
                     backHorizenalCenter.setLocation(
                             middlePanel.getWidth() - (backPanel.getWidth() >> 1) - 8,
@@ -680,10 +680,7 @@ public class CardContent extends JPanel implements KeyListener {
 
                 {
                     backHorizenalRight = new JButton();
-                    ImageIcon tmpIcon = new ImageIcon("image/设置.png");
-                    Image tmpImage = tmpIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
-                    tmpIcon = new ImageIcon(tmpImage);
-                    backHorizenalRight.setIcon(tmpIcon);
+                    backHorizenalRight.setIcon(MemWinkUtil.getScaledIcon("右对齐", 30, 30));
                     backHorizenalRight.setSize(35, 35);
                     backHorizenalRight.setLocation(
                             middlePanel.getWidth() - (backPanel.getWidth() >> 1) + 34,
@@ -776,7 +773,7 @@ public class CardContent extends JPanel implements KeyListener {
                     {
                         JMenuItem layoutSetting = new JMenuItem();
                         layoutSetting.setText("调整布局");
-                        layoutSetting.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
+                        // layoutSetting.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
                         layoutSetting.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
@@ -815,10 +812,10 @@ public class CardContent extends JPanel implements KeyListener {
 
                         if (cardBag.getUiSetting().showBack) {
                             showBack.setText("默认隐藏背面");
-                            showBack.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
+                            // showBack.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
                         } else {
                             showBack.setText("直接显示背面");
-                            showBack.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
+                            // showBack.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
                         }
 
 
@@ -849,7 +846,7 @@ public class CardContent extends JPanel implements KeyListener {
                         JMenuItem duplicate = new JMenuItem();
 
                         duplicate.setText("复制卡片到…");
-                        duplicate.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
+                        // duplicate.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
 
                         duplicate.addActionListener(new ActionListener() {
                             @Override
@@ -872,7 +869,7 @@ public class CardContent extends JPanel implements KeyListener {
                         JMenuItem move = new JMenuItem();
 
                         move.setText("移动卡片到…");
-                        move.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
+                        // move.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
 
                         move.addActionListener(new ActionListener() {
                             @Override
@@ -891,7 +888,7 @@ public class CardContent extends JPanel implements KeyListener {
                         JMenuItem delete = new JMenuItem();
 
                         delete.setText("删除卡片");
-                        delete.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
+                        // delete.setIcon(MemWinkUtil.getScaledIcon("手动修改", 30, 30));
 
                         delete.addActionListener(new ActionListener() {
                             @Override
@@ -935,7 +932,7 @@ public class CardContent extends JPanel implements KeyListener {
             {
                 {
                     backVerticalTop = new JButton();
-                    backVerticalTop.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    backVerticalTop.setIcon(MemWinkUtil.getScaledIcon("上对齐", 30, 30));
                     backVerticalTop.setSize(35, 35);
                     backVerticalTop.setLocation(
                             (rightPanel.getWidth() >> 1) + 15,
@@ -957,7 +954,7 @@ public class CardContent extends JPanel implements KeyListener {
 
                 {
                     backVerticalCenter = new JButton();
-                    backVerticalCenter.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));;
+                    backVerticalCenter.setIcon(MemWinkUtil.getScaledIcon("垂直居中", 30, 30));;
                     backVerticalCenter.setSize(35, 35);
                     backVerticalCenter.setLocation(
                             (rightPanel.getWidth() >> 1) + 15,
@@ -979,7 +976,7 @@ public class CardContent extends JPanel implements KeyListener {
 
                 {
                     backVerticalBottom = new JButton();
-                    backVerticalBottom.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));;
+                    backVerticalBottom.setIcon(MemWinkUtil.getScaledIcon("下对齐", 30, 30));;
                     backVerticalBottom.setSize(35, 35);
                     backVerticalBottom.setLocation(
                             (rightPanel.getWidth() >> 1) + 15,
@@ -1003,8 +1000,9 @@ public class CardContent extends JPanel implements KeyListener {
             // backFontSizeButtons
             {
                 {
-                    backFontSizeAddButton = new JButton();
-                    backFontSizeAddButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    backFontSizeAddButton = new JButton("T");
+                    backFontSizeAddButton.setFont(new Font("微软雅黑", Font.BOLD, 28));
+                    // backFontSizeAddButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
                     backFontSizeAddButton.setSize(35, 35);
                     backFontSizeAddButton.setLocation(
                             (rightPanel.getWidth() >> 1) + 15,
@@ -1025,8 +1023,9 @@ public class CardContent extends JPanel implements KeyListener {
                 }
 
                 {
-                    backFontSizeMinusButton = new JButton();
-                    backFontSizeMinusButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    backFontSizeMinusButton = new JButton("T");
+                    // backFontSizeMinusButton.setIcon(MemWinkUtil.getScaledIcon("设置", 30, 30));
+                    backFontSizeMinusButton.setFont(new Font("微软雅黑", Font.PLAIN, 15));
                     backFontSizeMinusButton.setSize(35, 35);
                     backFontSizeMinusButton.setLocation(
                             (rightPanel.getWidth() >> 1) + 15,
@@ -1080,6 +1079,10 @@ public class CardContent extends JPanel implements KeyListener {
                         } else {
                             CardContent.this.setVisible(false);
                             UIManager.mainFrame.mainPanel.removeAll();
+                            UIManager.showAllCards = new ShowAllCards(
+                                    UIManager.showAllCards.cardBag1,
+                                    UIManager.showAllCards.cardBagPane
+                            );
                             UIManager.mainFrame.mainPanel.add(UIManager.showAllCards);
                             UIManager.mainFrame.mainPanel.updateUI();
                         }
@@ -1189,7 +1192,5 @@ public class CardContent extends JPanel implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
+    public void keyReleased(KeyEvent e) {}
 }

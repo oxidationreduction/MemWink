@@ -55,7 +55,12 @@ public class ShowAllCards extends JPanel {
         this.panel6.add(stagenCount4);
         //右下角自我分类
         for(String name:cardBag1.getCategories()){
-            SortPane sortPane = new SortPane(name,cardBag1.getCardsByCategory(name));
+            SortPane sortPane;
+            if (name == null || name.equals("")) {
+                sortPane = new SortPane("未分类", cardBag1.getCardsByCategory("未分类"));
+            } else {
+                sortPane = new SortPane(name, cardBag1.getCardsByCategory(name));
+            }
             panel8.add(sortPane);
         }
         //待复习button
@@ -68,7 +73,15 @@ public class ShowAllCards extends JPanel {
         this.showcard(cardBag1.getCards());
         panel1.setPreferredSize(new Dimension(20,getrightheight(UIManager.mainFrame.mainPanel.getSize(),cardBag1.getCards().size())));
 
+        beautifyUI();
         UIManager.showAllCards = this;
+    }
+
+    private void beautifyUI() {
+        // TODO: Make panel wider.
+        label1.setFont(new Font("微软雅黑", Font.PLAIN, 45));
+        label3.setFont(new Font("微软雅黑", Font.PLAIN, 20));
+        button1.setSize(button1.getHeight(), button1.getHeight());
     }
 
     //panel1高度求解

@@ -27,6 +27,11 @@ public class StagenCount extends JPanel {
         RoundRectangle2D rect = new RoundRectangle2D.Double(fieldX, fieldY, fieldWeight, fieldHeight, 20, 20);
         g.setClip(rect);
         super.paint(g);
+        beautifyUI();
+    }
+
+    private void beautifyUI() {
+        // TODO: finish this function
     }
     public void setLabel5(String filename,int a,int b){
         this.label5.setIcon(MemWinkUtil.getScaledIcon(filename,a,b));

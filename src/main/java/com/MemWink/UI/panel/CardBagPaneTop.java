@@ -27,6 +27,11 @@ public class CardBagPaneTop extends JPanel {
     private CardBag cardBag;
 
     /**
+     * 附属的卡包面板
+     */
+    private CardBagPane pane;
+
+    /**
      * 卡包UI页面内部类
      * <p>该内部类实现ActionListener接口</p>
      * <p>实现记忆卡片选项的监听器</p>
@@ -48,12 +53,13 @@ public class CardBagPaneTop extends JPanel {
 
         /**
          * 重写actionPerformed方法，实现ActionListener接口
-         * <p>当此按钮被按下时，调用卡片复习页面</p>
+         * <p>当此按钮被按下时，更新卡片列表页面并调用卡片复习页面</p>
          * @param e 活动事件
          */
         @Override
         public void actionPerformed(ActionEvent e) {
             UIManager.mainFrame.mainPanel.removeAll();
+            UIManager.showAllCards = new ShowAllCards(cardBag, pane);
             UIManager.mainFrame.mainPanel.add(new ReviewManager(cardBag));
             UIManager.mainFrame.mainPanel.updateUI();
         }
@@ -82,9 +88,10 @@ public class CardBagPaneTop extends JPanel {
      * <p>根据卡包内部卡片的复习情况来决定是否出现复习卡片的按钮</p>
      * @param cardBag 属于卡包UI的卡包信息
      */
-    public CardBagPaneTop(CardBag cardBag) {
+    public CardBagPaneTop(CardBag cardBag, CardBagPane pane) {
         initComponents();
         this.cardBag = cardBag;
+        this.pane = pane;
         this.setBackground(cardBag.getColor());
         this.TotalCardsNum.setText(Integer.toString(cardBag.getTotalCardsNum()));
         panel.setBackground(cardBag.getColor());

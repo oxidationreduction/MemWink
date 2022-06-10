@@ -10,6 +10,8 @@ import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.UI.component.RoundPanel;
 import com.MemWink.UI.UIManager;
+import com.MemWink.util.MemWinkUtil;
+import com.MemWink.util.constant.MemStateConstants;
 
 import java.awt.*;
 import javax.swing.*;
@@ -22,41 +24,25 @@ import javax.swing.plaf.*;
  * @author unknown
  */
 public class CardPane extends RoundPanel {
-    public CardPane(CategorizedCard card,Color color) {
+    public CardPane(CategorizedCard card, Color color) {
         initComponents();
         this.setBackground(color);
         this.card = card;
-        label1.setText(card.getCategory());
+        label1.setText(" " + card.getCategory());
         label2.setText(card.getFrontString());
-        int stageflag = card.getMemState();
-        switch (stageflag){
-            case -2:
-                label3.setText("首次强化记忆");
-                break;
-            case -1:
-                label3.setText("二次强化记忆");
-                break;
-            case 0:
-                label3.setText("新卡");
-                break;
-            case 1:
-                label3.setText("阶段一");
-                break;
-            case 2:
-                label3.setText("阶段二");
-                break;
-            case 3:
-                label3.setText("阶段三");
-                break;
-            case 4:
-                label3.setText("阶段四");
-                break;
-            case 5:
-                label3.setText("阶段五");
-                break;
-            case 6:
-                label3.setText("已记住");
-                break;
+        label3.setText(MemStateConstants.getStageLabel(card.getMemState()) + " ");
+        beautifyUI();
+    }
+
+    public void beautifyUI() {
+        label1.setFont(new Font("微软雅黑", Font.PLAIN, 12));
+        label2.setFont(new Font("微软雅黑", Font.PLAIN, 20));
+        label3.setFont(new Font("微软雅黑", Font.PLAIN, 12));
+
+        if (!MemWinkUtil.isBrightColor(card.getCardBagColor())) {
+            label1.setForeground(Color.WHITE);
+            label2.setForeground(Color.WHITE);
+            label3.setForeground(Color.WHITE);
         }
     }
 
