@@ -27,11 +27,14 @@ public class StagenCount extends JPanel {
         RoundRectangle2D rect = new RoundRectangle2D.Double(fieldX, fieldY, fieldWeight, fieldHeight, 20, 20);
         g.setClip(rect);
         super.paint(g);
-        beautifyUI();
     }
 
     private void beautifyUI() {
-        // TODO: finish this function
+        label3.setFont(new Font("微软雅黑", Font.PLAIN, 12));
+        label4.setFont(new Font("微软雅黑", Font.PLAIN, 12));
+        label5.setText(null);
+        label5.setIcon(MemWinkUtil.getScaledIcon("新卡", 20, 20));
+        updateUI();
     }
     public void setLabel5(String filename,int a,int b){
         this.label5.setIcon(MemWinkUtil.getScaledIcon(filename,a,b));
@@ -39,8 +42,9 @@ public class StagenCount extends JPanel {
     public StagenCount(String name, List<CategorizedCard> list) {
         this.list=list;
         initComponents();
-        label3.setText(String.valueOf(list.size()));
+        label3.setText(String.valueOf(list.size()) + " ");
         label4.setText(name);
+        beautifyUI();
     }
 
     private void thisMouseClicked(MouseEvent e) {
@@ -49,6 +53,7 @@ public class StagenCount extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - Sun Yihan
         panel1 = new JPanel();
         label3 = new JLabel();
         vSpacer3 = new JPanel(null);
@@ -72,6 +77,13 @@ public class StagenCount extends JPanel {
                 thisMouseClicked(e);
             }
         });
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new
+        javax.swing.border.EmptyBorder(0,0,0,0), null,javax
+        .swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java
+        .awt.Font("Dialo\u0067",java.awt.Font.BOLD,12),java.awt
+        .Color.red), getBorder())); addPropertyChangeListener(new java.beans.
+        PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("borde\u0072".
+        equals(e.getPropertyName()))throw new RuntimeException();}});
         setLayout(new BorderLayout());
 
         //======== panel1 ========
@@ -142,6 +154,7 @@ public class StagenCount extends JPanel {
     }
     private List<CategorizedCard> list;
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - Sun Yihan
     private JPanel panel1;
     private JLabel label3;
     private JPanel vSpacer3;

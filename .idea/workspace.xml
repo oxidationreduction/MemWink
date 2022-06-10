@@ -4,38 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="健全并美化复习相关界面">
-      <change afterPath="$PROJECT_DIR$/image/上对齐.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/下对齐.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/全部.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/右对齐.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/垂直居中.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/学习中.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/左对齐.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/已完成.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/新卡.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/水平居中.png" afterDir="false" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="接着美化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/卡包.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/卡包.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/红叉.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/红叉.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/绿勾.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/绿勾.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/EditCardDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/EditCardDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/HelpDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/HelpDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPaneTop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPaneTop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/MemoryCompletionPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/MemoryCompletionPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/util/MemWinkUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/MemWinkUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrData/history/history" beforeDir="false" afterPath="$PROJECT_DIR$/usrData/history/history" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -488,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654692440551</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="接着美化">
+      <created>1654837666104</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1654837666104</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,7 +484,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2022/5/23 16：03 主页面基本绘制" />
     <MESSAGE value="2022/5/28 18：53 测试" />
     <MESSAGE value="2022/5/28 20：14 修改添加卡包的逻辑并优化统计界面" />
     <MESSAGE value="增加卡片查看页面，初步添加功能" />
@@ -531,7 +508,8 @@
     <MESSAGE value="解决导入csv时页面刷新的问题" />
     <MESSAGE value="初步美化" />
     <MESSAGE value="健全并美化复习相关界面" />
-    <option name="LAST_COMMIT_MESSAGE" value="健全并美化复习相关界面" />
+    <MESSAGE value="接着美化" />
+    <option name="LAST_COMMIT_MESSAGE" value="接着美化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
