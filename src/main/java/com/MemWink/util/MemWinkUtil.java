@@ -2,7 +2,9 @@ package com.MemWink.util;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 工具类
@@ -29,7 +31,7 @@ public class MemWinkUtil {
      */
     public static ImageIcon getScaledIcon(String fileName, int width, int height) {
         ImageIcon tmpIcon = new ImageIcon("image/" + fileName + ".png");
-        Image tmpImage = tmpIcon.getImage().getScaledInstance(width, width, Image.SCALE_DEFAULT);
+        Image tmpImage = tmpIcon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT);
         return new ImageIcon(tmpImage);
     }
 
@@ -39,6 +41,6 @@ public class MemWinkUtil {
      * @return true-是亮色；false-是暗色
      */
     public static boolean isBrightColor(Color color) {
-        return true;
+        return color.equals(Color.orange) || color.equals(Color.yellow) || color.equals(Color.green);
     }
 }

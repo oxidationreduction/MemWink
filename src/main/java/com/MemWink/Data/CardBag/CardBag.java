@@ -373,11 +373,15 @@ public class CardBag implements Serializable {
      * @return 本卡包内本日内还需学习的卡片的数量
      */
     public int getTodayRemainNum() {
-        Date tomorrow = new Date(new Date().getTime() + 24*60*60000);
-        tomorrow = new Date(tomorrow.getYear(), tomorrow.getMonth(), tomorrow.getDay());
+        Date tomorrow = new Date(new Date().getTime() + 86400000);
+        tomorrow = new Date(tomorrow.getYear(), tomorrow.getMonth(), tomorrow.getDate());
         int ans = 0;
+        System.out.println("now: " + new Date());
+        System.out.println("tomorrow: " + tomorrow);
         for (CategorizedCard i : cards) {
-            if (i.needReview() && i.getRememberTime().before(tomorrow)) {
+            System.out.println(i.getFrontString() + ", next: " + i.getRememberTime());
+            if (i.getRememberTime().after(new Date())
+                    && i.getRememberTime().before(tomorrow)) {
                 ans++;
             }
         }

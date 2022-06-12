@@ -525,7 +525,8 @@ public class CardContent extends JPanel implements KeyListener {
                             cardBag.getUiSetting().frontHorizenalAlignment,
                             cardBag.getUiSetting().frontVerticalAlignment,
                             frontPanel.getSize(),
-                            cardBag.getUiSetting().frontFontSize
+                            cardBag.getUiSetting().frontFontSize,
+                            cardBag.getColor()
                     );
                     frontContentLabelsPanel.updateVerticalAlignment(cardBag.getUiSetting().frontVerticalAlignment);
                 }
@@ -626,7 +627,8 @@ public class CardContent extends JPanel implements KeyListener {
                             cardBag.getUiSetting().backHorizenalAlignment,
                             cardBag.getUiSetting().backVerticalAlignment,
                             backPanel.getSize(),
-                            cardBag.getUiSetting().backFontSize
+                            cardBag.getUiSetting().backFontSize,
+                            cardBag.getColor()
                     );
                     backPanel.add(backContentLabelsPanel);
                 }
@@ -734,9 +736,10 @@ public class CardContent extends JPanel implements KeyListener {
                         isShowBack = true;
                         hidedBackPanel.setVisible(false);
                         backPanel.setVisible(true);
-                        update();
                         hidedBackPanel.setFocusable(false);
                         CardContent.this.requestFocus();
+                        update();
+                        updateUI();
                     }
                 });
                 hidedBackPanel.setFocusable(false);
@@ -1108,6 +1111,16 @@ public class CardContent extends JPanel implements KeyListener {
         this.add(middlePanel);
         this.add(rightPanel);
         this.setVisible(true);
+    }
+
+    public void showBackContent() {
+        isShowBack = true;
+        hidedBackPanel.setVisible(false);
+        backPanel.setVisible(true);
+        hidedBackPanel.setFocusable(false);
+        CardContent.this.requestFocus();
+        update();
+        updateUI();
     }
 
     public static void main(String[] args) {

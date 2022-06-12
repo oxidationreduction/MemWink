@@ -13,6 +13,10 @@ import java.util.Date;
 public class ReviewPanel extends CardContent implements ActionListener {
     private Timer timer = new Timer(2000, this);
     private Date endTime = new Date();
+
+    private RoundedRectangle timePanel;
+    private Thread countdown;
+    private JLabel timeLabel;
     private ReviewManager reviewManager;
     public ReviewPanel(CategorizedCard card, int remain, ReviewManager reviewManager) {
         super(card);
@@ -22,22 +26,60 @@ public class ReviewPanel extends CardContent implements ActionListener {
         this.remainLabel = new JLabel(remain + "");
         setup();
         update();
+        countdown = new Thread() {
+            @Override
+            public void run() {
+                updateTimeLabel();
+            }
+        };
+        countdown.start();
+    }
+
+    private void updateTimeLabel() {
+        int time;
+        if (card.getMemState() < 0 || card.getMemState() >= MemStateConstants.stage_four) {
+            time = 4;
+        } else if (card.getMemState() == MemStateConstants.stage_three) {
+            time = 6;
+        } else if (card.getMemState() == MemStateConstants.stage_two) {
+            time = 8;
+        } else if (card.getMemState() == MemStateConstants.stage_one) {
+            time = 10;
+        } else {
+            return;
+        }
+        timeLabel.setText(time + "");
+        while (time > -1) {
+            try {
+                Thread.sleep(999);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            timeLabel.setText(time + "");
+            timePanel.updateUI();
+            updateUI();
+            time--;
+        }
+        showBackContent();
+        updateUI();
     }
     private void setup() {
         isShowBack = false;
         isReview = true;
-        /*
+
         // timePanel
         {
             timePanel = new RoundedRectangle(110, 60, 10, Color.WHITE);
             timePanel.setLocation(0, (frontPanel.getHeight() >> 2) - 30);
+            timePanel.setLayout(null);
             // timeLabel
             {
-                timeLabel = new JLabel((endTime.getTime() - new Date().getTime()) / 1000 + "");
+                timeLabel = new JLabel();
                 timeLabel.setForeground(Color.BLACK);
-                timeLabel.setSize(90, 50);
+                timeLabel.setSize(80, 50);
+                timeLabel.setFont(new Font("微软雅黑", Font.PLAIN, 50));
                 timeLabel.setLocation(0, 5);
-                timeLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+                timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 timeLabel.setVisible(card.getMemState() < 0 || card.getMemState() >= MemStateConstants.stage_two);
             }
             timePanel.add(timeLabel);
@@ -46,14 +88,14 @@ public class ReviewPanel extends CardContent implements ActionListener {
             {
                 JLabel secondLabel = new JLabel("秒");
                 secondLabel.setSize(20, 20);
-                secondLabel.setLocation(90, 40);
+                secondLabel.setLocation(80, 35);
                 secondLabel.setFont(new Font("微软雅黑", Font.PLAIN, 18));
                 timePanel.add(secondLabel);
             }
 
-            timePanel.setVisible(card.getMemState() < 0 || card.getMemState() > MemStateConstants.stage_one);
+            timePanel.setVisible(card.getMemState() != MemStateConstants.newCard);
         }
-        leftPanel.add(timePanel);*/
+        leftPanel.add(timePanel);
 
         // rememberedButton
         {

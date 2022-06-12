@@ -66,6 +66,9 @@ public class MainFrame extends JFrame {
                 UIConstant.mainPanelWidth = mainPanel.getWidth();
                 UIConstant.mainPanelHeight = mainPanel.getHeight();
                 System.out.println(UIConstant.mainPanelWidth + " * " + UIConstant.mainPanelHeight);
+                if (mainPanel.getComponents().length == 0) {
+                    return;
+                }
                 if (mainPanel.getComponents()[0] instanceof CardContent) {
                     ((CardContent) mainPanel.getComponents()[0]).update();
                 }  else if (mainPanel.getComponents()[0] instanceof ReviewManager) {

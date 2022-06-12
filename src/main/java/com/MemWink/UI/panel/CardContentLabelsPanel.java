@@ -1,5 +1,7 @@
 package com.MemWink.UI.panel;
 
+import com.MemWink.util.MemWinkUtil;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -12,6 +14,7 @@ public class CardContentLabelsPanel extends JPanel {
     private int fontSize;
     private String verticalAlignment;
     private Dimension parentSize;
+    private Color color;
 
     public CardContentLabelsPanel(
             List<String> content,
@@ -19,14 +22,16 @@ public class CardContentLabelsPanel extends JPanel {
             int horizonalAlignment,
             String verticalAlignment,
             Dimension parentSize,
-            int fontSize) {
+            int fontSize,
+            Color color) {
         this.content = content;
         setSize(width, (fontSize + 5) * content.size());
         this.horizonalAlignment = horizonalAlignment;
-        updateFontSize(fontSize);
         this.parentSize = parentSize;
+        this.color = color;
         updateVerticalAlignment(verticalAlignment);
         setup();
+        updateFontSize(fontSize);
     }
 
     public void update() {
@@ -60,7 +65,8 @@ public class CardContentLabelsPanel extends JPanel {
             JLabel tmp = new JLabel(i);
             {
                 tmp.setFont(font);
-                tmp.setForeground(Color.WHITE);
+                tmp.setForeground(
+                        MemWinkUtil.isBrightColor(color) ? Color.BLACK : Color.WHITE);
                 tmp.setHorizontalAlignment(horizonalAlignment);
                 tmp.setSize(getWidth(), fontSize + 5);
                 tmp.setLocation(0, num * tmp.getHeight());
