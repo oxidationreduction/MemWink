@@ -30,14 +30,28 @@ public class ShowStatics extends JPanel {
         TodayRemainCardsNum.setText(Integer.toString(DataManager.getTodayRemainCardsNum()));
         TodayForgetRate.setText(String.format("%.2f",DataManager.getTodayForgetRate()*100));
         TomorrowNum.setText(Integer.toString(DataManager.getTomorrowCardsNum()));
-        int x1 = DataManager.getRememberedCardsNumHistory().get(DataManager.getRememberedCardsNumHistory().size()-1) -DataManager.getRememberedCardsNumHistory().get(DataManager.getRememberedCardsNumHistory().size()-2);
+        int x1;
+        double x2;
+        try {
+            x1 = DataManager.getRememberedCardsNumHistory()
+                    .get(DataManager.getRememberedCardsNumHistory().size()-1)
+                    -DataManager.getRememberedCardsNumHistory()
+                    .get(DataManager.getRememberedCardsNumHistory().size()-2);
+        } catch (IndexOutOfBoundsException e) {
+            x1 = 0;
+        }
         if(x1<0) {
             Map1num.setText(Integer.toString(x1));
         }
         else {
             Map1num.setText("+"+ x1);
         }
-        double x2 = DataManager.getForgetCardsNumHistory().get(DataManager.getForgetCardsNumHistory().size()-1) - DataManager.getForgetCardsNumHistory().get(DataManager.getForgetCardsNumHistory().size()-2);
+        try {
+            x2 = DataManager.getForgetCardsNumHistory().get(DataManager.getForgetCardsNumHistory().size()-1) - DataManager.getForgetCardsNumHistory().get(DataManager.getForgetCardsNumHistory().size()-2);
+        } catch (IndexOutOfBoundsException e) {
+            x2 = 0;
+        }
+
         x2 = x2*100;
         if(x2<0) {
             Map2num.setText(String.format("%.2f",x2)+"%");

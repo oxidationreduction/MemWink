@@ -14,10 +14,27 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Set;
 
+/**
+ * 卡片详情显示页面
+ * <p>同时可以编辑卡片相关信息</p>
+ * @author Liu Hongyu
+ * @since 2022-05-28
+ */
 public class CardContent extends JPanel implements KeyListener {
+    /**
+     * 卡片所属卡包
+     */
     protected CardBag cardBag;
+
+    /**
+     * 卡片
+     */
     protected CategorizedCard card;
 
+    /**
+     * 构造器
+     * @param card 正在查看的卡片
+     */
     public CardContent(CategorizedCard card) {
         this.card = card;
         this.cardBag = DataManager.provideCardBag(card.getCardBagName());
@@ -29,10 +46,9 @@ public class CardContent extends JPanel implements KeyListener {
         }
     }
 
-    private void beautifyUI() {
-        // TODO: font color
-    }
-
+    /**
+     * 页面更新
+     */
     public void update() {
         setSize(new Dimension(UIConstant.mainPanelWidth, UIConstant.mainPanelHeight));
         setLocation(0, 0);
@@ -133,6 +149,9 @@ public class CardContent extends JPanel implements KeyListener {
         System.out.println("CardContent Updated.");
     }
 
+    /**
+     * 更新点击分类按钮后的弹出菜单
+     */
     public void categoryMenuUpdate() {
         categoryButton.setText(card.getCategory());
         categoryMenu = new JPopupMenu();
@@ -209,6 +228,9 @@ public class CardContent extends JPanel implements KeyListener {
         });
     }
 
+    /**
+     * 界面初始化
+     */
     public void setupUI() {
         isShowBack = cardBag.getUiSetting().showBack && !isReview;
         setSize(new Dimension(
@@ -1113,6 +1135,9 @@ public class CardContent extends JPanel implements KeyListener {
         this.setVisible(true);
     }
 
+    /**
+     * 显示背面内容
+     */
     public void showBackContent() {
         isShowBack = true;
         hidedBackPanel.setVisible(false);
@@ -1121,6 +1146,9 @@ public class CardContent extends JPanel implements KeyListener {
         CardContent.this.requestFocus();
         update();
         updateUI();
+        if (this instanceof ReviewPanel) {
+            ((ReviewPanel) this).countdown.stop();
+        }
     }
 
     public static void main(String[] args) {
@@ -1146,10 +1174,6 @@ public class CardContent extends JPanel implements KeyListener {
         frame.setVisible(true);
     }
 
-    public void updateReview(boolean review) {
-        isReview = review;
-        update();
-    }
 
     CardContentLabelsPanel frontContentLabelsPanel;
     CardContentLabelsPanel backContentLabelsPanel;
@@ -1157,7 +1181,7 @@ public class CardContent extends JPanel implements KeyListener {
     JButton frontFontSizeMinusButton;
     JButton backFontSizeAddButton;
     JButton backFontSizeMinusButton;
-     boolean isEditLayout = false;
+    boolean isEditLayout = false;
     protected boolean isReview = false;
     protected boolean isShowBack;
     protected JPanel leftPanel;
@@ -1194,6 +1218,10 @@ public class CardContent extends JPanel implements KeyListener {
 
     }
 
+    /**
+     * 键盘监听，按向上键即可翻页
+     * @param e the event to be processed
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {

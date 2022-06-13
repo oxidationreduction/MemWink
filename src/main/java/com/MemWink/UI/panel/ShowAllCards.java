@@ -78,7 +78,6 @@ public class ShowAllCards extends JPanel {
     }
 
     private void beautifyUI() {
-        // TODO: Make panel wider.
         label1.setFont(new Font("微软雅黑", Font.PLAIN, 45));
         label3.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         button1.setSize(button1.getHeight(), button1.getHeight());

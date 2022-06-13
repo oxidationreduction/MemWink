@@ -10,14 +10,39 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Date;
 
+/**
+ * 复习页面
+ * <p>用于复习时使用</p>
+ * @author Liu Hongyu
+ * @since 2022-05-31
+ */
 public class ReviewPanel extends CardContent implements ActionListener {
-    private Timer timer = new Timer(2000, this);
-    private Date endTime = new Date();
-
+    /**
+     * 倒计时面板
+     */
     private RoundedRectangle timePanel;
-    private Thread countdown;
+
+    /**
+     * 倒计时时间
+     */
     private JLabel timeLabel;
+
+    /**
+     * 倒计时面板更新线程
+     */
+    protected Thread countdown;
+
+    /**
+     * 所属的复习管理器
+     */
     private ReviewManager reviewManager;
+
+    /**
+     * 构造器
+     * @param card 正在复习的卡片
+     * @param remain 剩余的卡片数量
+     * @param reviewManager 所属的复习管理器
+     */
     public ReviewPanel(CategorizedCard card, int remain, ReviewManager reviewManager) {
         super(card);
         this.reviewManager = reviewManager;
@@ -35,6 +60,9 @@ public class ReviewPanel extends CardContent implements ActionListener {
         countdown.start();
     }
 
+    /**
+     * 更新倒计时面板
+     */
     private void updateTimeLabel() {
         int time;
         if (card.getMemState() < 0 || card.getMemState() >= MemStateConstants.stage_four) {
@@ -63,6 +91,10 @@ public class ReviewPanel extends CardContent implements ActionListener {
         showBackContent();
         updateUI();
     }
+
+    /**
+     * 初始化界面
+     */
     private void setup() {
         isShowBack = false;
         isReview = true;
@@ -158,6 +190,9 @@ public class ReviewPanel extends CardContent implements ActionListener {
         update();
     }
 
+    /**
+     * 页面更新
+     */
     @Override
     public void update() {
         super.update();
@@ -191,7 +226,6 @@ public class ReviewPanel extends CardContent implements ActionListener {
             settingButton.setEnabled(true);
             editButton.setEnabled(true);
             backButton.setEnabled(true);
-            timer.stop();
         } else {
             // timeLabel.setText((endTime.getTime() - new Date().getTime()) / 1000 + "");
             // timePanel.setVisible(card.getMemState() < 0 || card.getMemState() > MemStateConstants.stage_one);
@@ -213,6 +247,11 @@ public class ReviewPanel extends CardContent implements ActionListener {
         }
     }
     */
+
+    /**
+     * 获取应当在"记住了"按钮上显示的文字（下次复习时间）
+     * @return 一个字符串，表示如果卡片本次记忆中被记住了，下一次应当记忆的时间
+     */
     public String getRememberedButtonText() {
         String tmp;
         try {
@@ -231,25 +270,11 @@ public class ReviewPanel extends CardContent implements ActionListener {
 
     JButton rememberedButton;
     JButton forgotButton;
-    // JPanel timePanel;
-    // JLabel timeLabel;
-
     JLabel remainLabel;
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // update();
-        if (card.getMemState() == MemStateConstants.stage_two) {
-            endTime.setTime(new Date().getTime() + 20000);
-        } else if (card.getMemState() == MemStateConstants.stage_three) {
-            endTime.setTime(new Date().getTime() + 15000);
-        } else if (card.getMemState() < 0 || card.getMemState() == MemStateConstants.stage_four) {
-            endTime.setTime(new Date().getTime() + 10000);
-        } else if (card.getMemState() == MemStateConstants.stage_five) {
-            endTime.setTime(new Date().getTime() + 5000);
-        }
-        timer.start();
     }
 
     @Override

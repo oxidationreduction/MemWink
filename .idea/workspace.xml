@@ -4,21 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="美化StagenCount">
-      <change afterPath="$PROJECT_DIR$/AppIcon.png" afterDir="false" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="增加复习倒计时功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/AddPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/AddPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/frame/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/frame/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/History/Usage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/History/Usage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContentLabelsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContentLabelsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/MemoryCompletionPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/MemoryCompletionPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/MemoryCompletionPane.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/MemoryCompletionPane.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/StagenCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/util/MemWinkUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/util/MemWinkUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrData/history/history" beforeDir="false" afterPath="$PROJECT_DIR$/usrData/history/history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usrData/history/history" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +94,7 @@
       <recent name="com.MemWink" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Main">
+  <component name="RunManager" selected="应用程序.MemoryCompletionPane">
     <configuration name="CardContent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.MemWink.UI.panel.CardContent" />
       <module name="mem-wink" />
@@ -165,9 +164,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.MemoryCompletionPane" />
         <item itemvalue="应用程序.Main" />
         <item itemvalue="应用程序.CardContent" />
-        <item itemvalue="应用程序.MemoryCompletionPane" />
         <item itemvalue="应用程序.FileSelector" />
         <item itemvalue="应用程序.ReviewManager" />
       </list>
@@ -486,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654838378804</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="增加复习倒计时功能">
+      <created>1655025849593</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1655025849593</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +510,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2022/5/28 20：14 修改添加卡包的逻辑并优化统计界面" />
     <MESSAGE value="增加卡片查看页面，初步添加功能" />
     <MESSAGE value="0" />
     <MESSAGE value="更新CardBag，增加UISetting变量；&#10;健全CardContent功能。" />
@@ -529,7 +534,8 @@
     <MESSAGE value="健全并美化复习相关界面" />
     <MESSAGE value="接着美化" />
     <MESSAGE value="美化StagenCount" />
-    <option name="LAST_COMMIT_MESSAGE" value="美化StagenCount" />
+    <MESSAGE value="增加复习倒计时功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加复习倒计时功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -540,14 +546,9 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java</url>
-          <line>384</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardPane.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewPanel.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

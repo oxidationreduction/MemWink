@@ -13,13 +13,14 @@ import com.MemWink.UI.panel.ShowCardBags;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.LinkedList;
+import java.util.Objects;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.event.*;
 
 /**
  * 修改卡包弹窗
- * <p>当卡包被右键并选中修改选项时呼出此弹窗</p>
+ * <p>当卡包被右键并选中修改选项，或在卡包详情页修改卡包信息时呼出此弹窗</p>
  * @author Feng Weilun
  */
 public class ModifyDialog extends JDialog {
@@ -63,6 +64,8 @@ public class ModifyDialog extends JDialog {
         for ( colorButton1 temp: buttons){
             colorPane.add(temp);
         }
+        textField1.setText(oldName);
+        textField2.setText(cardBagPane.cardBag.getDailyNewCardNum() + "");
     }
 
     /**
@@ -73,7 +76,7 @@ public class ModifyDialog extends JDialog {
      */
     private void saveMouseClicked(MouseEvent e) {
         if ( save.getForeground() == Color.black ){
-            if (DataManager.changeCardBagName(oldName,textField1.getText())==0) {
+            if (Objects.equals(oldName, textField1.getText()) || DataManager.changeCardBagName(oldName,textField1.getText())==0) {
                 DataManager.updateColor(textField1.getText(),addColor);
                 DataManager.updateDailyNewCardNum(textField1.getText(),Integer.parseInt(textField2.getText()));
                 com.MemWink.UI.UIManager.mainFrame.mainPanel.removeAll();

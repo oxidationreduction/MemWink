@@ -6,6 +6,7 @@ package com.MemWink.UI.panel;
 
 import com.MemWink.UI.component.RoundButton;
 import com.MemWink.UI.component.RoundPanel;
+import com.MemWink.util.MemWinkUtil;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,7 +20,7 @@ import javax.swing.plaf.*;
  * @author unknown
  */
 public class MemoryCompletionPane extends JPanel {
-
+    private Color color;
     public MemoryCompletionPane() {
         initComponents();
     }
@@ -33,7 +34,8 @@ public class MemoryCompletionPane extends JPanel {
      * @author Liu Hongyu
      * @since 2022-06-06
      */
-    public MemoryCompletionPane(int remember, int forget, int tomorrow) {
+    public MemoryCompletionPane(int remember, int forget, int tomorrow, Color color) {
+        this.color = color;
         initComponents();
         setup(remember, forget, tomorrow);
         beautifyUI();
@@ -71,22 +73,59 @@ public class MemoryCompletionPane extends JPanel {
      * @since 2022-06-08
      */
     private void beautifyUI() {
-        label1.setFont(new Font("微软雅黑", Font.PLAIN, 100));
-        label3.setFont(new Font("微软雅黑", Font.PLAIN, 100));
-        label9.setFont(new Font("微软雅黑", Font.PLAIN, 100));
-        label12.setFont(new Font("微软雅黑", Font.PLAIN, 100));
-        label15.setFont(new Font("微软雅黑", Font.PLAIN, 100));
-        label6.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+        // font size
+        {
+            label1.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+            label3.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+            label9.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+            label12.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+            label15.setFont(new Font("微软雅黑", Font.PLAIN, 100));
+            label6.setFont(new Font("微软雅黑", Font.PLAIN, 100));
 
-        label2.setFont(new Font("微软雅黑", Font.PLAIN, 60));
-        label8.setFont(new Font("微软雅黑", Font.PLAIN, 60));
-        label11.setFont(new Font("微软雅黑", Font.PLAIN, 60));
-        label14.setFont(new Font("微软雅黑", Font.PLAIN, 60));
-        label5.setFont(new Font("微软雅黑", Font.PLAIN, 60));
-        label4.setFont(new Font("微软雅黑", Font.PLAIN, 60));
-        label10.setFont(new Font("微软雅黑", Font.PLAIN, 60));
-        label13.setFont(new Font("微软雅黑", Font.PLAIN, 60));
-        label7.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+            label2.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+            label8.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+            label11.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+            label14.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+            label5.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+            label4.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+            label10.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+            label13.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+            label7.setFont(new Font("微软雅黑", Font.PLAIN, 60));
+        }
+
+        /*
+        // font color
+        {
+            Color fontColor = MemWinkUtil.isBrightColor(color) ? Color.BLACK : Color.WHITE;
+            label1.setForeground(fontColor);
+            label2.setForeground(fontColor);
+            label3.setForeground(fontColor);
+            label4.setForeground(fontColor);
+            label5.setForeground(fontColor);
+            label6.setForeground(fontColor);
+            label7.setForeground(fontColor);
+            label8.setForeground(fontColor);
+            label9.setForeground(fontColor);
+            label10.setForeground(fontColor);
+            label11.setForeground(fontColor);
+            label12.setForeground(fontColor);
+            label13.setForeground(fontColor);
+            label14.setForeground(fontColor);
+            label15.setForeground(fontColor);
+        }
+
+        // panel color
+        {
+            panel4.setBackground(color);
+            panel5.setBackground(color);
+            panel13.setBackground(color);
+            panel17.setBackground(color);
+            panel18.setBackground(color);
+            panel19.setBackground(color);
+            panel20.setBackground(color);
+            panel21.setBackground(color);
+            panel22.setBackground(color);
+        }*/
     }
 
     private void initComponents() {
@@ -174,12 +213,13 @@ public class MemoryCompletionPane extends JPanel {
         hSpacer21 = new JPanel(null);
 
         //======== this ========
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
-        ( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing. border
-        . TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
-        propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
-        ; }} );
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new
+        javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax
+        . swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java
+        . awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt
+        . Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .
+        PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r" .
+        equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(new BorderLayout());
 
         //======== panel1 ========
@@ -214,10 +254,10 @@ public class MemoryCompletionPane extends JPanel {
 
             //---- button1 ----
             button1.setText("\u786e\u8ba4");
-            button1.setBackground(new Color(0, 204, 51));
-            button1.setForeground(new Color(238, 238, 238));
+            button1.setBackground(null);
             button1.setPreferredSize(new Dimension(78, 60));
             button1.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 24));
+            button1.setForeground(Color.black);
             panel2.add(button1, BorderLayout.CENTER);
 
             //---- hSpacer1 ----
@@ -238,7 +278,7 @@ public class MemoryCompletionPane extends JPanel {
             //======== panel4 ========
             {
                 panel4.setBorder(null);
-                panel4.setBackground(Color.lightGray);
+                panel4.setBackground(Color.orange);
                 panel4.setLayout(new BorderLayout());
 
                 //======== panel8 ========
@@ -693,7 +733,7 @@ public class MemoryCompletionPane extends JPanel {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        frame.add(new MemoryCompletionPane(1, 1, 1));
+        frame.add(new MemoryCompletionPane(1, 1, 1, Color.ORANGE));
         frame.setVisible(true);
     }
 }
