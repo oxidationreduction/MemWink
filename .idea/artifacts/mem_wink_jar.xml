@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="mem-wink:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/mem_wink_jar</output-path>
+    <root id="archive" name="mem-wink.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="mem-wink" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/cn/hutool/hutool-all/5.8.0/hutool-all-5.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.5.3/jfreechart-1.5.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/sourceforge/javacsv/javacsv/2.0/javacsv-2.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: cn.hutool:hutool-all:5.8.0" />
+      <element id="library" level="project" name="Maven: org.jfree:jfreechart:1.5.3" />
+      <element id="library" level="project" name="Maven: net.sourceforge.javacsv:javacsv:2.0" />
+    </root>
+  </artifact>
+</component>

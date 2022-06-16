@@ -7,6 +7,7 @@ import com.MemWink.util.constant.SortLogicConstant;
 
 import java.awt.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.*;
 
@@ -376,10 +377,10 @@ public class CardBag implements Serializable {
         Date tomorrow = new Date(new Date().getTime() + 86400000);
         tomorrow = new Date(tomorrow.getYear(), tomorrow.getMonth(), tomorrow.getDate());
         int ans = 0;
-        System.out.println("now: " + new Date());
-        System.out.println("tomorrow: " + tomorrow);
+        // System.out.println("now: " + new Date());
+        // System.out.println("tomorrow: " + tomorrow);
         for (CategorizedCard i : cards) {
-            System.out.println(i.getFrontString() + ", next: " + i.getRememberTime());
+            // System.out.println(i.getFrontString() + ", next: " + i.getRememberTime());
             if (i.getRememberTime().after(new Date())
                     && i.getRememberTime().before(tomorrow)) {
                 ans++;
@@ -399,7 +400,7 @@ public class CardBag implements Serializable {
             Date rememberTime = i.getRememberTime();
             if (tomorrow.getYear() == rememberTime.getYear()
                     && tomorrow.getMonth() == rememberTime.getMonth()
-                    && tomorrow.getDay() == rememberTime.getDay()) {
+                    && tomorrow.getDate() == rememberTime.getDate()) {
                 ans++;
             }
         }
@@ -610,6 +611,17 @@ public class CardBag implements Serializable {
             }
         }
         saveCardBag(this);
+    }
+
+    public void exportCSV() throws IOException {
+        File file = new File("usrData/" + name + ".csv");
+        OutputStreamWriter ow = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
+        ow.write("正面,背面,分类\r\n");
+        for (CategorizedCard i : cards) {
+            ow.write(i.getFrontString() + "," + i.getBackString() + "," + i.getCategory() + "\r\n");
+        }
+        ow.flush();
+        ow.close();
     }
 
     /**

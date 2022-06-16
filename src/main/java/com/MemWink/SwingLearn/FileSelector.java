@@ -19,7 +19,7 @@ public class FileSelector {
 			imgarr = imageUtils.getImageArray(buffimg);
 			imageUtils.drawImage(buffimg, gr);
             */
-            System.out.println(address);
+            // System.out.println(address);
         }
     }
 }

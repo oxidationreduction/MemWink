@@ -97,7 +97,7 @@ public class ShowCardBags extends JPanel {
         //======== this ========
         setPreferredSize(new Dimension(775, 559));
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax.
-        swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border
+        swing. border. EmptyBorder( 0, 0, 0, 0) , null, javax. swing. border
         . TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog"
         ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder
         ( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java

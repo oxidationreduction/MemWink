@@ -15,11 +15,11 @@ public class MoveCardDialog extends JDialog {
     private CategorizedCard card;
     private String operation;
     public MoveCardDialog(CategorizedCard card, String operation) {
-        System.out.print("卡片归属移动对话框 ");
+        // System.out.print("卡片归属移动对话框 ");
         this.card = card;
         this.operation = operation;
         setup();
-        System.out.println("UI设置结束");
+        // System.out.println("UI设置结束");
     }
 
     private void setup() {
@@ -53,7 +53,7 @@ public class MoveCardDialog extends JDialog {
                     if (name != null) {
                         card.moveToCardBag(name);
                         MoveCardDialog.this.dispose();
-                        System.out.println("卡片归属改为：" + name);
+                        // System.out.println("卡片归属改为：" + name);
                     } else {
                         JLabel warningLabel = new JLabel("请选择卡包");
                         warningLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
@@ -62,7 +62,7 @@ public class MoveCardDialog extends JDialog {
                         warningLabel.setSize(120, 25);
                         mainPanel.add(warningLabel);
                         MoveCardDialog.this.repaint();
-                        System.out.println("显示警示标签");
+                        // System.out.println("显示警示标签");
                     }
                 }
             }

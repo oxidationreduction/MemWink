@@ -108,11 +108,17 @@ public class EditCardDialog extends JDialog {
             mainPanel.add(backLabel);
 
             {
-                backTextArea = new JTextArea(card.getBackString());
-                backTextArea.setLocation(5 + (getWidth() >> 1), 40);
-                backTextArea.setSize((getWidth() >> 1) - 5, getHeight() - 90);
-                backTextArea.setFont(new Font("微软雅黑", Font.PLAIN, 25));
-                backTextArea.setLineWrap(true);
+                backScrollPane = new JScrollPane();
+                backScrollPane.setSize((getWidth() >> 1) - 5, getHeight() - 120);
+                backScrollPane.setLocation(5 + (getWidth() >> 1), 40);
+                backScrollPane.setLayout(new ScrollPaneLayout());
+
+                {
+                    backTextArea = new JTextArea(card.getBackString());
+                    backTextArea.setFont(new Font("微软雅黑", Font.PLAIN, 25));
+                    backTextArea.setLineWrap(true);
+                }
+                backScrollPane.add(backTextArea);
             }
             mainPanel.add(backTextArea);
         }
@@ -143,7 +149,7 @@ public class EditCardDialog extends JDialog {
                         throw new RuntimeException("EditCardDialog needs modify");
                     }
 
-                    System.out.println("更改卡片内容，正面：" + card.getFrontString() + "， 背面：" + card.getBackString());
+                    // System.out.println("更改卡片内容，正面：" + card.getFrontString() + "， 背面：" + card.getBackString());
                 }
             });
             confirm.setVisible(true);
@@ -167,4 +173,6 @@ public class EditCardDialog extends JDialog {
     private JLabel backLabel;
     private JTextArea backTextArea;
     private JButton confirm;
+    private JScrollPane frontScrollPane;
+    private JScrollPane backScrollPane;
 }

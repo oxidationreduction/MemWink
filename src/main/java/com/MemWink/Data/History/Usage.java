@@ -77,7 +77,7 @@ public class Usage implements Serializable {
      */
     public void addForgetCardsNumHistory() {
         Date tmp = new Date();
-        if (lastUse.getTime() < new Date(tmp.getYear(), tmp.getMonth(), tmp.getDay()).getTime()) {
+        if (lastUse.getTime() < new Date(tmp.getYear(), tmp.getMonth(), tmp.getDate()).getTime()) {
             forgetCardsNumHistory.add(1);
             reviewCardsNumHistory.add(1);
             rememberedCardsNumHistory.add(0);

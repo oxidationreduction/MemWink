@@ -8,6 +8,7 @@ import com.MemWink.Data.CardBag.Card;
 import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.UI.UIManager;
 import com.MemWink.UI.component.RoundButton;
+import com.MemWink.util.MemWinkUtil;
 
 import java.awt.event.*;
 import javax.swing.*;
@@ -96,13 +97,20 @@ public class CardBagPaneTop extends JPanel {
         this.TotalCardsNum.setText(Integer.toString(cardBag.getTotalCardsNum()));
         panel.setBackground(cardBag.getColor());
         if(cardBag.getReviewCardsNum()>0) {
-            RoundButton button = new RoundButton();
-            button.setFont(new Font("微软雅黑", Font.PLAIN, 9));
+            RoundButton button = new RoundButton(50, 20);
+            button.setFont(new Font("微软雅黑", Font.PLAIN, 12));
             button.setText("待复习:" + cardBag.getReviewCardsNum());
             button.setBackground(Color.white);
             button.addActionListener(new ButtonListener(cardBag));
             panel.add(button);
         }
+        beautifyUI();
+    }
+
+    private void beautifyUI() {
+        TotalCardsNum.setForeground(
+                MemWinkUtil.isBrightColor(cardBag.getColor()) ? Color.BLACK : Color.WHITE
+        );
     }
 
     /**
@@ -120,10 +128,17 @@ public class CardBagPaneTop extends JPanel {
      */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - Sun Yihan
         TotalCardsNum = new JLabel();
         panel = new JPanel();
 
         //======== this ========
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
+        . EmptyBorder( 0, 0, 0, 0) , null, javax. swing. border. TitledBorder. CENTER, javax
+        . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,
+        12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans
+        . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .
+        getPropertyName () )) throw new RuntimeException( ); }} );
 
         //---- TotalCardsNum ----
         TotalCardsNum.setText("0");
@@ -138,27 +153,28 @@ public class CardBagPaneTop extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup()
                 .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(177, Short.MAX_VALUE)
+                    .addContainerGap(174, Short.MAX_VALUE)
                     .addComponent(TotalCardsNum)
                     .addContainerGap())
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(107, Short.MAX_VALUE))
+                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(TotalCardsNum)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-                    .addGap(14, 14, 14))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - Sun Yihan
     public JLabel TotalCardsNum;
     public JPanel panel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

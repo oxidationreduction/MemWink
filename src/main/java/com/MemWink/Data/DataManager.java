@@ -253,7 +253,7 @@ public class DataManager {
         tmp.backHorizenalAlignment = SwingConstants.CENTER;
         cardBag.updateUISetting(tmp);
         cardBag.importCSV(file);
-        System.out.println("example: " + cardBag.getTotalCardsNum() + " " + cardBag.getReviewCardsNum());
+        // System.out.println("example: " + cardBag.getTotalCardsNum() + " " + cardBag.getReviewCardsNum());
     }
 
     /**

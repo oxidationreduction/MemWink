@@ -38,7 +38,7 @@ public class DeleteConfirmDialog extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 DeleteConfirmDialog.this.dispose();
-                System.out.println("取消删除");
+                // System.out.println("取消删除");
             }
         });
 
@@ -51,7 +51,7 @@ public class DeleteConfirmDialog extends JDialog {
                 Objects.requireNonNull(DataManager.provideCardBag(card.getCardBagName())).delCard(card);
                 DeleteConfirmDialog.this.dispose();
                 panel.setVisible(false);
-                System.out.println("仍然删除");
+                // System.out.println("仍然删除");
             }
         });
 

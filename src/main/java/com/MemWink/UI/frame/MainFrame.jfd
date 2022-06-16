@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.14.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.15" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -32,7 +32,7 @@ new FormModel {
 							"width": 65
 						} )
 						add( new FormComponent( "javax.swing.JButton" ) {
-							name: "staticticButton"
+							name: "statisticButton"
 							"text": "统计"
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
 						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
@@ -62,66 +62,6 @@ new FormModel {
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
 			} )
-			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
-				name: "menuBar1"
-				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
-					name: "fileMenu"
-					"text": "文件"
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem1"
-						"text": "新建卡包"
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem1", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem2"
-						"text": "导入卡包"
-					} )
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem3"
-						"text": "删除卡包"
-					} )
-				} )
-				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
-					name: "cardMenu"
-					"text": "卡片"
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem4"
-						"text": "新建卡片"
-					} )
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem5"
-						"text": "删除卡片"
-					} )
-				} )
-				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
-					name: "editMenu"
-					"text": "编辑"
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem6"
-						"text": "修改记忆阶段"
-					} )
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem7"
-						"text": "修改分类"
-					} )
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem8"
-						"text": "进入编辑页面"
-					} )
-				} )
-				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
-					name: "helpMenu"
-					"text": "帮助"
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem9"
-						"text": "导入示例卡包"
-					} )
-					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem10"
-						"text": "关于"
-					} )
-				} )
-			}
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 15, 0 )
 			"size": new java.awt.Dimension( 835, 625 )

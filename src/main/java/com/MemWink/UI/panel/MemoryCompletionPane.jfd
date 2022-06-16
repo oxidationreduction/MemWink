@@ -80,13 +80,14 @@ new FormModel {
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 					name: "panel4"
 					"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
-					"background": sfield java.awt.Color orange
+					"background": sfield java.awt.Color lightGray
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 						name: "panel8"
 						"background": sfield java.awt.Color lightGray
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "label2"
 							"text": "本次学习"
+							"background": sfield java.awt.Color lightGray
 						}, new FormLayoutConstraints( class java.lang.String ) {
 							"value": "Center"
 						} )
@@ -106,14 +107,6 @@ new FormModel {
 						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "North"
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label3"
-						"text": "number"
-						"font": new java.awt.Font( "Microsoft YaHei UI", 0, 30 )
-						"background": sfield java.awt.Color lightGray
-					}, new FormLayoutConstraints( class java.lang.String ) {
-						"value": "Center"
 					} )
 					add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
 						name: "hSpacer6"
@@ -162,6 +155,14 @@ new FormModel {
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "East"
 					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label3"
+						"text": "number"
+						"font": new java.awt.Font( "Microsoft YaHei UI", 0, 30 )
+						"background": sfield java.awt.Color lightGray
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 					"columns": 2
@@ -206,7 +207,6 @@ new FormModel {
 								name: "label9"
 								"text": "number"
 								"font": new java.awt.Font( "Microsoft YaHei UI", 0, 12 )
-								"background": sfield java.awt.Color lightGray
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "Center"
 							} )

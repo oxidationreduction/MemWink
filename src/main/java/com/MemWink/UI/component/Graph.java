@@ -50,8 +50,8 @@ public class Graph extends JPanel {
         double maxVal = getMaxVal();
 
         int n = data.size();
-        if (n < 7) {
-            g.drawString("连续使用7天以上以显示趋势", getWidth()/2-120, getHeight()/2);
+        if (n < 3) {
+            g.drawString("连续使用3天以上以显示趋势", getWidth()/2-120, getHeight()/2);
             return;
         }
 
@@ -67,10 +67,10 @@ public class Graph extends JPanel {
         }
         g.setColor(Color.GRAY);
         g.setStroke(new BasicStroke(1));
-        g.drawLine(20, getHeight() - 20, getWidth()-30, getHeight() - 20);
+        g.drawLine(20, getHeight() - 25, getWidth()-30, getHeight() - 25);
 
         g.drawString(getTopLabel(), getWidth() - 50, 20);
-        g.drawString("0", getWidth() - 25, getHeight()-15);
+        g.drawString("0", getWidth() - 25, getHeight()-20);
         g.drawString((n-1) + "天前", 20, getHeight()-5);
         g.drawString("今天", getWidth()-60, getHeight()-5);
     }

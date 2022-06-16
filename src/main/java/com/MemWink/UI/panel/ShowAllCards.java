@@ -177,7 +177,7 @@ public class ShowAllCards extends JPanel {
     }
 
     private void menuItem3(ActionEvent e) {
-        ModifyDialog modifyDialog = new ModifyDialog(cardBagPane);
+        ModifyDialog modifyDialog = new ModifyDialog(cardBag, true);
         modifyDialog.setVisible(true);
     }
 

@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="mem-wink:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="增加复习倒计时功能">
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="美化、错误修正和注释添加">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/mem_wink_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/CardBag/CardBag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/History/Usage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/History/Usage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/FileSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/SwingLearn/FileSelector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/CardbagLookup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/CardbagLookup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/RoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/RoundButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/RoundedRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/component/RoundedRectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/AddPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/AddPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ChangeCardbag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ChangeCardbag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/DeleteConfirmDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/DeleteConfirmDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/EditCardDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/EditCardDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/HistoryDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/HistoryDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/ModifyDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/MoveCardDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/MoveCardDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/makesure1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/makesure1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/makesure1.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/dialog/makesure1.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/frame/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/frame/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/frame/MainFrame.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/frame/MainFrame.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPaneTop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPaneTop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPaneTop.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardBagPaneTop.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContentLabelsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/CardContentLabelsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/MemoryCompletionPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/MemoryCompletionPane.java" afterDir="false" />
@@ -16,8 +46,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowCardBags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowCardBags.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usrData/history/history" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usrData/example.csv" beforeDir="false" afterPath="$PROJECT_DIR$/usrData/example.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +106,11 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/liuhongyu/Documents/大二下/面向对象/mem-wink&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
@@ -94,7 +129,12 @@
       <recent name="com.MemWink" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.MemoryCompletionPane">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="RunManager" selected="应用程序.Main">
     <configuration name="CardContent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.MemWink.UI.panel.CardContent" />
       <module name="mem-wink" />
@@ -164,8 +204,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.MemoryCompletionPane" />
         <item itemvalue="应用程序.Main" />
+        <item itemvalue="应用程序.MemoryCompletionPane" />
         <item itemvalue="应用程序.CardContent" />
         <item itemvalue="应用程序.FileSelector" />
         <item itemvalue="应用程序.ReviewManager" />
@@ -492,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655025849593</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="美化、错误修正和注释添加">
+      <created>1655141744226</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1655141744226</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加卡片查看页面，初步添加功能" />
     <MESSAGE value="0" />
     <MESSAGE value="更新CardBag，增加UISetting变量；&#10;健全CardContent功能。" />
     <MESSAGE value="完成CardContent功能开发；&#10;修改卡片正反面内容Card.front, Card.back的保存方式；&#10;新建多个对话框，包括&quot;卡片编辑&quot;EditCardDialog对话框，此对话框可用于新建卡片。" />
@@ -535,7 +581,8 @@
     <MESSAGE value="接着美化" />
     <MESSAGE value="美化StagenCount" />
     <MESSAGE value="增加复习倒计时功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加复习倒计时功能" />
+    <MESSAGE value="美化、错误修正和注释添加" />
+    <option name="LAST_COMMIT_MESSAGE" value="美化、错误修正和注释添加" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -549,6 +596,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ReviewPanel.java</url>
           <line>66</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/MemWink/Data/History/Usage.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -45,7 +45,7 @@ public class RoundedRectangle extends JPanel {
                 Color.ORANGE
         );
         tmpPanel.setLocation((int) Math.round(tmp.getWidth() * 0.2), (int) Math.round(tmp.getHeight() * 0.25));
-        System.out.println(Math.round(tmp.getWidth() * 0.2) + " " + (int) Math.round(tmp.getHeight() * 0.25));
+        // System.out.println(Math.round(tmp.getWidth() * 0.2) + " " + (int) Math.round(tmp.getHeight() * 0.25));
         tmp.add(tmpPanel);
         tmp.addComponentListener(new ComponentAdapter() {
             @Override
@@ -54,9 +54,7 @@ public class RoundedRectangle extends JPanel {
                 tmpPanel.setSize((int) Math.round(tmp.getWidth() * 0.6), (int) Math.round(tmp.getHeight() * 0.6));
                 tmpPanel.setArc(Math.round(tmp.getWidth() * 0.05));
                 tmpPanel.updateUI();
-                System.out.println(
-                        tmp.getWidth() + " * " + tmp.getHeight() + ", "
-                                + tmpPanel.getWidth() + " * " + tmpPanel.getHeight());
+                // System.out.println(tmp.getWidth() + " * " + tmp.getHeight() + ", " + tmpPanel.getWidth() + " * " + tmpPanel.getHeight());
             }
         });
         tmp.setVisible(true);

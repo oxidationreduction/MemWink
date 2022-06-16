@@ -144,10 +144,10 @@ public class ReviewPanel extends CardContent implements ActionListener {
             rememberedButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("Remember before: " + card.getFrontString() + " " + card.getMemState());
+                    // System.out.println("Remember before: " + card.getFrontString() + " " + card.getMemState());
                     card.remembered();
                     reviewManager.remembered();
-                    System.out.println("Remember after: " + card.getFrontString() + " " + card.getMemState());
+                    // System.out.println("Remember after: " + card.getFrontString() + " " + card.getMemState());
                 }
             });
         }
@@ -167,10 +167,10 @@ public class ReviewPanel extends CardContent implements ActionListener {
             forgotButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("Forget before: " + card.getFrontString() + " " + card.getMemState());
+                    // System.out.println("Forget before: " + card.getFrontString() + " " + card.getMemState());
                     card.forget();
                     reviewManager.forget();
-                    System.out.println("Forget after: " + card.getFrontString() + " " + card.getMemState());
+                    // System.out.println("Forget after: " + card.getFrontString() + " " + card.getMemState());
                 }
             });
         }
@@ -236,7 +236,7 @@ public class ReviewPanel extends CardContent implements ActionListener {
             editButton.setEnabled(false);
             backButton.setEnabled(false);
         }
-        System.out.println("ReviewPanel Updated.");
+        // System.out.println("ReviewPanel Updated.");
     }
 
     /* public boolean isTimeUp() {

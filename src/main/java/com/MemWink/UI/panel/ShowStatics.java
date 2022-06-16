@@ -8,6 +8,9 @@ import com.MemWink.Data.DataManager;
 import com.MemWink.UI.component.Graph;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
@@ -26,7 +29,7 @@ public class ShowStatics extends JPanel {
     public ShowStatics() {
         initComponents();
         beautifyUI();
-        TodayRememberedCardsNum.setText(Integer.toString(DataManager.getTodayRememberedCardsNum()));
+        TodayRememberedCardsNum.setText(Integer.toString(DataManager.getTodayReviewCardsNum()));
         TodayRemainCardsNum.setText(Integer.toString(DataManager.getTodayRemainCardsNum()));
         TodayForgetRate.setText(String.format("%.2f",DataManager.getTodayForgetRate()*100));
         TomorrowNum.setText(Integer.toString(DataManager.getTomorrowCardsNum()));
@@ -59,7 +62,12 @@ public class ShowStatics extends JPanel {
         else {
             Map2num.setText("+"+String.format("%.2f",x2)+"%");
         }
-        Map1.add(new Graph(0,300,300,DataManager.getRememberedCardsNumHistory()));
+        int[] list = new int[]{27, 45, 39, 16, 28, 25, 23, 41};
+        List<Integer> test1 = new ArrayList<>();
+        for (int i : list) {
+            test1.add(i);
+        }
+        Map1.add(new Graph(0,300,300,test1));
         Map2.add(new Graph(1,300,300,DataManager.getForgetCardsNumHistory()));
     }
 
@@ -171,7 +179,7 @@ public class ShowStatics extends JPanel {
         //======== this ========
         setPreferredSize(new Dimension(775, 559));
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
-        ( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border
+        ( 0, 0, 0, 0) , null, javax. swing. border. TitledBorder. CENTER, javax. swing. border
         . TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt
         . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
         propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( )

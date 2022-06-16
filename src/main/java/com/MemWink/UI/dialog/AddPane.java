@@ -43,7 +43,7 @@ public class AddPane extends JDialog {
         example.add(top,BorderLayout.CENTER);
         colorButton button = new colorButton(Color.blue);
         button.selected = true;
-        button.setBorder(BorderFactory.createLineBorder(Color.black));
+        // button.setBorder(BorderFactory.createLineBorder(Color.black));
         buttons.add(button);
         buttons.add(new colorButton(Color.black));
         buttons.add(new colorButton(Color.orange));
@@ -135,7 +135,7 @@ public class AddPane extends JDialog {
         //======== colorPane ========
         {
             colorPane.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
-            0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
+            0,0,0,0), null,javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
             .BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.
             red),colorPane. getBorder()));colorPane. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
             beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
@@ -281,7 +281,8 @@ public class AddPane extends JDialog {
         public colorButton(Color color) {
             this.color = color;
             this.setBackground(color);
-            this.setBorder(BorderFactory.createLineBorder(this.color));
+            this.setOpaque(true);
+            this.setBorderPainted(false);
             this.addActionListener(new AddPane.ButtonListener(this));
         }
     }
@@ -322,9 +323,7 @@ public class AddPane extends JDialog {
                     }
                 }
                 temp.selected = false;
-                temp.setBorder(BorderFactory.createLineBorder(temp.color));
                 button.selected = true;
-                button.setBorder(BorderFactory.createLineBorder(Color.black));
                 top.setBackground(button.color);
                 top.panel.setBackground(button.color);
                 addColor = button.color;

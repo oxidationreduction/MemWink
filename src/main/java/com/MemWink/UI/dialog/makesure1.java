@@ -31,6 +31,7 @@ public class makesure1 extends JDialog {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - Sun Yihan
         panel1 = new JPanel();
         label1 = new JLabel();
         panel2 = new JPanel();
@@ -40,10 +41,15 @@ public class makesure1 extends JDialog {
 
         //======== this ========
         var contentPane = getContentPane();
-        contentPane.setLayout(new BorderLayout());
 
         //======== panel1 ========
         {
+            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.
+            border.EmptyBorder(0,0,0,0), null,javax.swing.border.TitledBorder.CENTER
+            ,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font
+            .BOLD,12),java.awt.Color.red),panel1. getBorder()));panel1. addPropertyChangeListener(
+            new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order"
+            .equals(e.getPropertyName()))throw new RuntimeException();}});
             panel1.setLayout(new BorderLayout());
 
             //---- label1 ----
@@ -51,7 +57,6 @@ public class makesure1 extends JDialog {
             label1.setHorizontalAlignment(SwingConstants.CENTER);
             panel1.add(label1, BorderLayout.CENTER);
         }
-        contentPane.add(panel1, BorderLayout.NORTH);
 
         //======== panel2 ========
         {
@@ -62,7 +67,6 @@ public class makesure1 extends JDialog {
             button1.addActionListener(e -> button1(e));
             panel2.add(button1, BorderLayout.CENTER);
         }
-        contentPane.add(panel2, BorderLayout.WEST);
 
         //======== panel3 ========
         {
@@ -73,13 +77,32 @@ public class makesure1 extends JDialog {
             button2.addActionListener(e -> button2(e));
             panel3.add(button2, BorderLayout.CENTER);
         }
-        contentPane.add(panel3, BorderLayout.EAST);
+
+        GroupLayout contentPaneLayout = new GroupLayout(contentPane);
+        contentPane.setLayout(contentPaneLayout);
+        contentPaneLayout.setHorizontalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addComponent(panel1, GroupLayout.PREFERRED_SIZE, 396, GroupLayout.PREFERRED_SIZE)
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(200, 200, 200)
+                    .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        );
+        contentPaneLayout.setVerticalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(panel2, GroupLayout.PREFERRED_SIZE, 248, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panel3, GroupLayout.PREFERRED_SIZE, 248, GroupLayout.PREFERRED_SIZE)))
+        );
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     private ShowAllCards showAllCards;
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - Sun Yihan
     private JPanel panel1;
     private JLabel label1;
     private JPanel panel2;

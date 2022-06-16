@@ -99,17 +99,13 @@ public class UIManager {
                 if (i.getReviewCardsNum() > 0) {
                     Component[] components = mainFrame.mainPanel.getComponents();
                     ShowCardBags.getShowCardBags();
-                    if (showAllCards != null)
+                    if (cardBag != null && showAllCards != null)
                         showAllCards = new ShowAllCards(showAllCards.cardBag1, showAllCards.cardBagPane);
 
                     if (components[0] instanceof ShowCardBags) {
-                        System.out.println("ShowCardBags updated.");
+                        // System.out.println("ShowCardBags updated.");
                         mainFrame.mainPanel.removeAll();
                         mainFrame.mainPanel.add(showCardBags);
-                    } else if (components[0] instanceof ShowAllCards) {
-                        System.out.println("ShowAllCards updated.");
-                        mainFrame.mainPanel.removeAll();
-                        mainFrame.mainPanel.add(showAllCards);
                     }
                     mainFrame.mainPanel.updateUI();
                     break;
@@ -118,7 +114,7 @@ public class UIManager {
 
             if (cardBag != null) {
                 for (CategorizedCard i : cardBag.getCards()) {
-                    System.out.println(i.getFrontString() + " " + i.getMemState());
+                    // System.out.println(i.getFrontString() + " " + i.getMemState());
                 }
             }
         }

@@ -85,7 +85,7 @@ public class ChangeCardbag extends JDialog {
 
     private void saveMouseClicked(MouseEvent e) {
         /*if (isModify) {
-            System.out.println(oldName);
+            // System.out.println(oldName);
             DataManager.updateName(oldName, textField1.getName());
             DataManager.updateDailyNewCardNum(textField1.getName(), Integer.parseInt(textField2.getText()));
             DataManager.updateColor(textField1.getName(), addColor);

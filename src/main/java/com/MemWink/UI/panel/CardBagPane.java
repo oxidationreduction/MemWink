@@ -149,7 +149,7 @@ public class CardBagPane extends JPanel {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
-            ModifyDialog modifyDialog = new ModifyDialog(panel);
+            ModifyDialog modifyDialog = new ModifyDialog(cardBag, false);
             modifyDialog.setVisible(true);
         }
     }

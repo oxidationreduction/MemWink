@@ -65,7 +65,7 @@ public class HistoryDialog extends JDialog {
         }
 
         historyList.setSize(280, 45 * num + 45);
-        System.out.println(historyList.getSize());
+        // System.out.println(historyList.getSize());
         historyPane = new JScrollPane(historyList);
         add(historyPane);
         setVisible(true);

@@ -4,10 +4,12 @@
 
 package com.MemWink.UI.dialog;
 
+import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.DataManager;
 import com.MemWink.UI.UIManager;
 import com.MemWink.UI.panel.CardBagPane;
 import com.MemWink.UI.panel.CardBagPaneTop;
+import com.MemWink.UI.panel.ShowAllCards;
 import com.MemWink.UI.panel.ShowCardBags;
 
 import java.awt.*;
@@ -27,25 +29,28 @@ public class ModifyDialog extends JDialog {
     /**
      * 呼出该弹窗的卡包面板
      */
-    private CardBagPane cardBagPane;
+    private CardBag cardBag;
     /**
      * 呼出该弹窗的卡包名字
      */
     private String oldName;
+    private boolean isShowAllCards;
 
     /**
      * 单参数构造器
-     * @param cardBagPane 呼出该弹窗的卡包面板
+     * @param cardBag 呼出该弹窗的卡包
+     * @param isShowAllCards 呼出该弹窗的面板是否为ShowAllCards
      */
-    public ModifyDialog(CardBagPane cardBagPane) {
-        this.cardBagPane = cardBagPane;
-        this.oldName = cardBagPane.label2.getText();
+    public ModifyDialog(CardBag cardBag, boolean isShowAllCards) {
+        this.cardBag = cardBag;
+        this.isShowAllCards = isShowAllCards;
+        this.oldName = cardBag.getName();
         initComponents();
         save.setForeground(Color.black);
-        label.setText(cardBagPane.label2.getText());
+        label.setText(cardBag.getName());
         top = new CardBagPaneTop();
-        top.setBackground(cardBagPane.cardBagPaneTop.getBackground());
-        top.panel.setBackground(cardBagPane.cardBagPaneTop.getBackground());
+        top.setBackground(cardBag.getColor());
+        top.panel.setBackground(cardBag.getColor());
         example.add(top,BorderLayout.CENTER);
         buttons.add(new colorButton1(Color.blue));
         buttons.add(new colorButton1(Color.black));
@@ -54,9 +59,8 @@ public class ModifyDialog extends JDialog {
         buttons.add(new colorButton1(Color.yellow));
         buttons.add(new colorButton1(Color.green));
         for ( colorButton1 button1:buttons){
-            if ( button1.color.equals(cardBagPane.cardBagPaneTop.getBackground()) ) {
+            if ( button1.color.equals(cardBag.getColor()) ) {
                 button1.selected = true;
-                button1.setBorder(BorderFactory.createLineBorder(Color.black));
                 addColor = button1.color;
             }
         }
@@ -65,7 +69,7 @@ public class ModifyDialog extends JDialog {
             colorPane.add(temp);
         }
         textField1.setText(oldName);
-        textField2.setText(cardBagPane.cardBag.getDailyNewCardNum() + "");
+        textField2.setText(cardBag.getDailyNewCardNum() + "");
     }
 
     /**
@@ -80,7 +84,13 @@ public class ModifyDialog extends JDialog {
                 DataManager.updateColor(textField1.getText(),addColor);
                 DataManager.updateDailyNewCardNum(textField1.getText(),Integer.parseInt(textField2.getText()));
                 com.MemWink.UI.UIManager.mainFrame.mainPanel.removeAll();
-                com.MemWink.UI.UIManager.mainFrame.mainPanel.add(ShowCardBags.getShowCardBags());
+                if (isShowAllCards) {
+                    UIManager.showAllCards = new ShowAllCards(cardBag, new CardBagPane(cardBag));
+                    com.MemWink.UI.UIManager.mainFrame.mainPanel.add(UIManager.showAllCards);
+                } else {
+                    UIManager.showCardBags = ShowCardBags.getShowCardBags();
+                    UIManager.mainFrame.mainPanel.add(UIManager.showCardBags);
+                }
                 UIManager.mainFrame.mainPanel.updateUI();
                 this.dispose();
             }
@@ -287,7 +297,8 @@ public class ModifyDialog extends JDialog {
         public colorButton1(Color color) {
             this.color = color;
             this.setBackground(color);
-            this.setBorder(BorderFactory.createLineBorder(this.color));
+            this.setOpaque(true);
+            this.setBorderPainted(false);
             this.addActionListener(new ButtonListener1(this));
         }
     }
@@ -328,9 +339,7 @@ public class ModifyDialog extends JDialog {
                     }
                 }
                 temp.selected = false;
-                temp.setBorder(BorderFactory.createLineBorder(temp.color));
                 button.selected = true;
-                button.setBorder(BorderFactory.createLineBorder(Color.black));
                 top.setBackground(button.color);
                 top.panel.setBackground(button.color);
                 addColor = button.color;

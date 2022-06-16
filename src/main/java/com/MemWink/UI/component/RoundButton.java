@@ -5,6 +5,10 @@ import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 
 public class RoundButton extends JButton {
+
+    public RoundButton(int width, int height) {
+        setSize(width, 30);
+    }
     @Override
     public void paint(Graphics g) {
         int fieldX = 0;

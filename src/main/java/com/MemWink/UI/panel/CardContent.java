@@ -128,8 +128,8 @@ public class CardContent extends JPanel implements KeyListener {
                 middlePanel.getHeight() - 50
         );
 
-        System.out.println(frontHorizenalLeft.getLocation());
-        System.out.println(frontHorizenalRight.getLocation());
+        // System.out.println(frontHorizenalLeft.getLocation());
+        // System.out.println(frontHorizenalRight.getLocation());
 
         rightPanel.setSize(110, UIConstant.mainPanelHeight - 100);
         rightPanel.setLocation(this.getWidth()-110, 0);
@@ -146,7 +146,7 @@ public class CardContent extends JPanel implements KeyListener {
         backContentLabelsPanel.updateContent(card.getBackList());
         super.updateUI();
 
-        System.out.println("CardContent Updated.");
+        // System.out.println("CardContent Updated.");
     }
 
     /**
@@ -198,7 +198,7 @@ public class CardContent extends JPanel implements KeyListener {
             item.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("添加新分类，应打开添加分类面板");
+                    // System.out.println("添加新分类，应打开添加分类面板");
                     new AddCategoryDialog(card, CardContent.this);
                 }
             });
@@ -212,7 +212,7 @@ public class CardContent extends JPanel implements KeyListener {
             item.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("删除分类，应打开删除分类面板");
+                    // System.out.println("删除分类，应打开删除分类面板");
                     new DeleteCategoryDialog(cardBag, CardContent.this);
                 }
             });
@@ -295,7 +295,7 @@ public class CardContent extends JPanel implements KeyListener {
                     item.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            System.out.println("添加新分类，应打开添加分类面板");
+                            // System.out.println("添加新分类，应打开添加分类面板");
                             new AddCategoryDialog(card, CardContent.this);
                         }
                     });
@@ -309,7 +309,7 @@ public class CardContent extends JPanel implements KeyListener {
                     item.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            System.out.println("删除分类，应打开删除分类面板");
+                            // System.out.println("删除分类，应打开删除分类面板");
                             new DeleteCategoryDialog(cardBag, CardContent.this);
                         }
                     });
@@ -803,7 +803,7 @@ public class CardContent extends JPanel implements KeyListener {
                             @Override
                             public void actionPerformed(ActionEvent e) {
                                 isEditLayout = true;
-                                System.out.println("进入布局编辑状态" + isEditLayout);
+                                // System.out.println("进入布局编辑状态" + isEditLayout);
                                 hidedBackPanel.setVisible(false);
                                 backPanel.setVisible(true);
                                 updateUI();
@@ -847,7 +847,7 @@ public class CardContent extends JPanel implements KeyListener {
                         showBack.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                System.out.println("设置" + showBack.getText());
+                                // System.out.println("设置" + showBack.getText());
                                 UISetting tmp = cardBag.getUiSetting();
                                 tmp.showBack = !cardBag.getUiSetting().showBack;
                                 cardBag.updateUISetting(tmp);
@@ -876,7 +876,7 @@ public class CardContent extends JPanel implements KeyListener {
                         duplicate.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                System.out.print(duplicate.getText());
+                                // System.out.print(duplicate.getText());
                                 try {
                                     new MoveCardDialog(card.cloneItem(), "复制")
                                             .setLocationRelativeTo(CardContent.this);
@@ -899,7 +899,7 @@ public class CardContent extends JPanel implements KeyListener {
                         move.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                System.out.print(move.getText());
+                                // System.out.print(move.getText());
                                 new MoveCardDialog(card, "移动")
                                         .setLocationRelativeTo(CardContent.this);
                             }
@@ -930,7 +930,7 @@ public class CardContent extends JPanel implements KeyListener {
                     settingButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            System.out.println("显示记忆阶段面板");
+                            // System.out.println("显示记忆阶段面板");
                             settingMenu.show(settingButton, -150, 5);
                         }
                     });
@@ -1081,7 +1081,7 @@ public class CardContent extends JPanel implements KeyListener {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         if (isEditLayout) {
-                            System.out.println("退出布局编辑模式");
+                            // System.out.println("退出布局编辑模式");
                             isEditLayout = false;
                             frontHorizenalLeft.setVisible(false);
                             frontHorizenalCenter.setVisible(false);

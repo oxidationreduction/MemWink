@@ -13,6 +13,7 @@ import com.MemWink.util.constant.UIConstant;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import javax.swing.*;
 
 /**
@@ -65,7 +66,7 @@ public class MainFrame extends JFrame {
             public void componentResized(ComponentEvent e) {
                 UIConstant.mainPanelWidth = mainPanel.getWidth();
                 UIConstant.mainPanelHeight = mainPanel.getHeight();
-                System.out.println(UIConstant.mainPanelWidth + " * " + UIConstant.mainPanelHeight);
+                // System.out.println(UIConstant.mainPanelWidth + " * " + UIConstant.mainPanelHeight);
                 if (mainPanel.getComponents().length == 0) {
                     return;
                 }
@@ -74,7 +75,7 @@ public class MainFrame extends JFrame {
                 }  else if (mainPanel.getComponents()[0] instanceof ReviewManager) {
                     ((ReviewManager) mainPanel.getComponents()[0]).update();
                 }  else {
-                    System.out.println(mainPanel.getComponents()[0].getClass());
+                    // System.out.println(mainPanel.getComponents()[0].getClass());
                 }
             }
         });
@@ -150,21 +151,7 @@ public class MainFrame extends JFrame {
      */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        menuBar1 = new JMenuBar();
-        fileMenu = new JMenu();
-        menuItem1 = new JMenuItem();
-        menuItem2 = new JMenuItem();
-        menuItem3 = new JMenuItem();
-        cardMenu = new JMenu();
-        menuItem4 = new JMenuItem();
-        menuItem5 = new JMenuItem();
-        editMenu = new JMenu();
-        menuItem6 = new JMenuItem();
-        menuItem7 = new JMenuItem();
-        menuItem8 = new JMenuItem();
-        helpMenu = new JMenu();
-        menuItem9 = new JMenuItem();
-        menuItem10 = new JMenuItem();
+        // Generated using JFormDesigner Evaluation license - Sun Yihan
         barPanel = new JPanel();
         upperPanel = new JPanel();
         functionPanel = new JPanel();
@@ -180,78 +167,15 @@ public class MainFrame extends JFrame {
         var contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
-        //======== menuBar1 ========
-        {
-
-            //======== fileMenu ========
-            {
-                fileMenu.setText("\u6587\u4ef6");
-
-                //---- menuItem1 ----
-                menuItem1.setText("\u65b0\u5efa\u5361\u5305");
-                menuItem1.addActionListener(e -> menuItem1(e));
-                fileMenu.add(menuItem1);
-
-                //---- menuItem2 ----
-                menuItem2.setText("\u5bfc\u5165\u5361\u5305");
-                fileMenu.add(menuItem2);
-
-                //---- menuItem3 ----
-                menuItem3.setText("\u5220\u9664\u5361\u5305");
-                fileMenu.add(menuItem3);
-            }
-            menuBar1.add(fileMenu);
-
-            //======== cardMenu ========
-            {
-                cardMenu.setText("\u5361\u7247");
-
-                //---- menuItem4 ----
-                menuItem4.setText("\u65b0\u5efa\u5361\u7247");
-                cardMenu.add(menuItem4);
-
-                //---- menuItem5 ----
-                menuItem5.setText("\u5220\u9664\u5361\u7247");
-                cardMenu.add(menuItem5);
-            }
-            menuBar1.add(cardMenu);
-
-            //======== editMenu ========
-            {
-                editMenu.setText("\u7f16\u8f91");
-
-                //---- menuItem6 ----
-                menuItem6.setText("\u4fee\u6539\u8bb0\u5fc6\u9636\u6bb5");
-                editMenu.add(menuItem6);
-
-                //---- menuItem7 ----
-                menuItem7.setText("\u4fee\u6539\u5206\u7c7b");
-                editMenu.add(menuItem7);
-
-                //---- menuItem8 ----
-                menuItem8.setText("\u8fdb\u5165\u7f16\u8f91\u9875\u9762");
-                editMenu.add(menuItem8);
-            }
-            menuBar1.add(editMenu);
-
-            //======== helpMenu ========
-            {
-                helpMenu.setText("\u5e2e\u52a9");
-
-                //---- menuItem9 ----
-                menuItem9.setText("\u5bfc\u5165\u793a\u4f8b\u5361\u5305");
-                helpMenu.add(menuItem9);
-
-                //---- menuItem10 ----
-                menuItem10.setText("\u5173\u4e8e");
-                helpMenu.add(menuItem10);
-            }
-            menuBar1.add(helpMenu);
-        }
-        setJMenuBar(menuBar1);
-
         //======== barPanel ========
         {
+            barPanel.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new
+            javax.swing.border.EmptyBorder(0,0,0,0), null,javax
+            .swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java
+            .awt.Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt
+            .Color.red),barPanel. getBorder()));barPanel. addPropertyChangeListener(new java.beans.
+            PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".
+            equals(e.getPropertyName()))throw new RuntimeException();}});
             barPanel.setLayout(new GridLayout(2, 1));
 
             //======== upperPanel ========
@@ -317,21 +241,7 @@ public class MainFrame extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    public JMenuBar menuBar1;
-    public JMenu fileMenu;
-    public JMenuItem menuItem1;
-    public JMenuItem menuItem2;
-    public JMenuItem menuItem3;
-    public JMenu cardMenu;
-    public JMenuItem menuItem4;
-    public JMenuItem menuItem5;
-    public JMenu editMenu;
-    public JMenuItem menuItem6;
-    public JMenuItem menuItem7;
-    public JMenuItem menuItem8;
-    public JMenu helpMenu;
-    public JMenuItem menuItem9;
-    public JMenuItem menuItem10;
+    // Generated using JFormDesigner Evaluation license - Sun Yihan
     public JPanel barPanel;
     public JPanel upperPanel;
     public JPanel functionPanel;

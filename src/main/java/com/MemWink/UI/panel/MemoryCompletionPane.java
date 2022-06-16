@@ -147,7 +147,6 @@ public class MemoryCompletionPane extends JPanel {
         label2 = new JLabel();
         hSpacer5 = new JPanel(null);
         vSpacer3 = new JPanel(null);
-        label3 = new JLabel();
         hSpacer6 = new JPanel(null);
         vSpacer4 = new JPanel(null);
         panel9 = new JPanel();
@@ -155,6 +154,7 @@ public class MemoryCompletionPane extends JPanel {
         hSpacer7 = new JPanel(null);
         vSpacer5 = new JPanel(null);
         vSpacer6 = new JPanel(null);
+        label3 = new JLabel();
         panel5 = new JPanel();
         panel13 = new JPanel();
         panel14 = new JPanel();
@@ -213,13 +213,12 @@ public class MemoryCompletionPane extends JPanel {
         hSpacer21 = new JPanel(null);
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new
-        javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax
-        . swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java
-        . awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt
-        . Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .
-        PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r" .
-        equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder
+        (0,0,0,0), null,javax.swing.border.TitledBorder.CENTER,javax.swing.border
+        .TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt
+        .Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void
+        propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException()
+        ;}});
         setLayout(new BorderLayout());
 
         //======== panel1 ========
@@ -278,7 +277,7 @@ public class MemoryCompletionPane extends JPanel {
             //======== panel4 ========
             {
                 panel4.setBorder(null);
-                panel4.setBackground(Color.orange);
+                panel4.setBackground(Color.lightGray);
                 panel4.setLayout(new BorderLayout());
 
                 //======== panel8 ========
@@ -288,6 +287,7 @@ public class MemoryCompletionPane extends JPanel {
 
                     //---- label2 ----
                     label2.setText("\u672c\u6b21\u5b66\u4e60");
+                    label2.setBackground(Color.lightGray);
                     panel8.add(label2, BorderLayout.CENTER);
 
                     //---- hSpacer5 ----
@@ -301,12 +301,6 @@ public class MemoryCompletionPane extends JPanel {
                     panel8.add(vSpacer3, BorderLayout.NORTH);
                 }
                 panel4.add(panel8, BorderLayout.NORTH);
-
-                //---- label3 ----
-                label3.setText("number");
-                label3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 30));
-                label3.setBackground(Color.lightGray);
-                panel4.add(label3, BorderLayout.CENTER);
 
                 //---- hSpacer6 ----
                 hSpacer6.setBackground(Color.lightGray);
@@ -343,6 +337,12 @@ public class MemoryCompletionPane extends JPanel {
                     panel9.add(vSpacer6, BorderLayout.NORTH);
                 }
                 panel4.add(panel9, BorderLayout.EAST);
+
+                //---- label3 ----
+                label3.setText("number");
+                label3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 30));
+                label3.setBackground(Color.lightGray);
+                panel4.add(label3, BorderLayout.CENTER);
             }
             panel3.add(panel4);
 
@@ -386,7 +386,6 @@ public class MemoryCompletionPane extends JPanel {
                         //---- label9 ----
                         label9.setText("number");
                         label9.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 12));
-                        label9.setBackground(Color.lightGray);
                         panel14.add(label9, BorderLayout.CENTER);
 
                         //---- hSpacer12 ----
@@ -665,7 +664,6 @@ public class MemoryCompletionPane extends JPanel {
     private JLabel label2;
     private JPanel hSpacer5;
     private JPanel vSpacer3;
-    private JLabel label3;
     private JPanel hSpacer6;
     private JPanel vSpacer4;
     private JPanel panel9;
@@ -673,6 +671,7 @@ public class MemoryCompletionPane extends JPanel {
     private JPanel hSpacer7;
     private JPanel vSpacer5;
     private JPanel vSpacer6;
+    private JLabel label3;
     private JPanel panel5;
     private JPanel panel13;
     private JPanel panel14;

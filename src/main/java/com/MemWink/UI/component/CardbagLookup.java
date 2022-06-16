@@ -31,7 +31,7 @@ public class CardbagLookup extends JPanel {
     private MouseListener pressCardGrid = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {
-            System.out.println("Open cards grid.");
+            // System.out.println("Open cards grid.");
         }
 
         @Override
@@ -66,7 +66,7 @@ public class CardbagLookup extends JPanel {
         this.reviewButton = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("记忆(" + reviewNum + ") in " + name);
+                // System.out.println("记忆(" + reviewNum + ") in " + name);
             }
         });
         this.reviewButton.setLabel("记忆(" + reviewNum + ")");
@@ -92,7 +92,7 @@ public class CardbagLookup extends JPanel {
         JButton cardBagButton = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(name);
+                // System.out.println(name);
             }
         });
 

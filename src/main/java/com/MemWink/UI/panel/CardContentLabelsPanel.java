@@ -172,7 +172,7 @@ public class CardContentLabelsPanel extends JPanel {
             setLocation(20, (parentSize.height >> 1) - (this.getHeight() >> 1));
         } else {
             setLocation(20, parentSize.height - this.getHeight() - 20);
-            System.out.println("New Location: " + getLocation());
+            // System.out.println("New Location: " + getLocation());
         }
 
         update();
