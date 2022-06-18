@@ -99,9 +99,6 @@ public class UIManager {
                 if (i.getReviewCardsNum() > 0) {
                     Component[] components = mainFrame.mainPanel.getComponents();
                     ShowCardBags.getShowCardBags();
-                    if (cardBag != null && showAllCards != null)
-                        showAllCards = new ShowAllCards(showAllCards.cardBag1, showAllCards.cardBagPane);
-
                     if (components[0] instanceof ShowCardBags) {
                         // System.out.println("ShowCardBags updated.");
                         mainFrame.mainPanel.removeAll();

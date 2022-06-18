@@ -12,19 +12,47 @@ MemWink是一款基于Java Swing开发的记忆工具软件，应用艾宾浩斯
 
 > Java 17
 
-### 目录说明
+### 主要目录说明
 
 > AppIcon.iconsets : 应用程序图标
 
 > image : 应用程序所需图片
 
+> screenshot: 截图
+
 > src/main/java/com.MemWink：源代码
-
 >> Data：数据管理系统
+>>> CardBag：卡片和卡包
 
->> UI：
+>>> History：用户使用历史数据
+
+>>> DataManager.java：数据管理中心
+
+>> UI：用户界面管理程序
+
+>>> component：界面基本组件
+
+>>> dialog：对话框
+
+>>> frame：程序窗口框架
+
+>>> panel：功能面板
+
+>>> UIManager.java：用户界面管理中心
+
+>> util：程序工具
+
+>>> constant：程序运行时要用的常量
+
+>>> MemWinkUtil.java：可执行静态工具集合
 
 > usrData：用户数据文件
+
+>> cardbags：卡包数据文件
+
+>> history：历史记录数据文件
+
+>> example.csv：示例卡包源文件
 
 ## 安装包
 

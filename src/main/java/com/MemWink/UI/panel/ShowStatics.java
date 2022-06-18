@@ -55,7 +55,6 @@ public class ShowStatics extends JPanel {
             x2 = 0;
         }
 
-        x2 = x2*100;
         if(x2<0) {
             Map2num.setText(String.format("%.2f",x2)+"%");
         }

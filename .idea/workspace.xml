@@ -10,13 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="美化和错误修正">
-      <change afterPath="$PROJECT_DIR$/image/help.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/修改卡片内容.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/修改学习阶段.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/分类.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/卡包列表.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/卡片列表.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/卡片详情显示背面.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/卡片详情设置.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/卡片详情隐藏背面.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/统计.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/记忆.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/记忆完成.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/调整布局.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/History/Usage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/Data/History/Usage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/frame/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/frame/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +98,7 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/screenshot" />
       <recent name="$PROJECT_DIR$/image" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/usrData" />
@@ -514,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655353640530</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="美化和错误修正">
+      <created>1655525203583</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1655525203583</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

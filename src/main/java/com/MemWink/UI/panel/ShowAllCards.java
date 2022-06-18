@@ -103,6 +103,7 @@ public class ShowAllCards extends JPanel {
 
     //更新卡片页面，需要list数据
     public void showcard(List<CategorizedCard> list){
+        System.out.println("hello");
         this.panel1.removeAll();
         for(CategorizedCard card:list){
             this.panel1.add(new CardPane(card,cardBag1.getColor()));
@@ -322,7 +323,7 @@ public class ShowAllCards extends JPanel {
 
         //======== this ========
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax.
-        swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border
+        swing. border. EmptyBorder( 0, 0, 0, 0) , null, javax. swing. border
         . TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog"
         ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder
         ( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){  public void propertyChange (java
