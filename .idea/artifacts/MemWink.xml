@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jpackage" build-on-make="true" name="MemWink">
+  <artifact type="jpackage" name="MemWink">
     <output-path>$PROJECT_DIR$/out/artifacts/MemWink</output-path>
     <properties id="jpackage-properties">
       <options>

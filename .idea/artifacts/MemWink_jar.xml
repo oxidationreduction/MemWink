@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="MemWink:jar">
+  <artifact type="jar" name="MemWink:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/MemWink_jar</output-path>
     <root id="archive" name="MemWink.jar">
       <element id="directory" name="META-INF">
