@@ -1,0 +1,25 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		auxiliary() {
+			"JavaCodeGenerator.defaultVariableModifiers": 1
+		}
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"preferredSize": new java.awt.Dimension( 170, 130 )
+			addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "thisMouseClicked", true ) )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "text"
+				"horizontalAlignment": 0
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "South"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 290, 90 )
+			"size": new java.awt.Dimension( 190, 145 )
+		} )
+	}
+}

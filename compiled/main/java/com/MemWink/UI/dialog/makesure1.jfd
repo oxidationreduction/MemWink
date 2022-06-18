@@ -1,0 +1,46 @@
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.15" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp panel1:::p:396:p, seq {comp panel2:::p::p, space :200:200:p, comp panel3:::p::p}}"
+			"$verticalGroup": "par l {seq {comp panel1:::p::p, par l {comp panel2:::p:248:p, comp panel3:::p:248:p}}}"
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel1"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "是否要清除卡包内容"
+					"horizontalAlignment": 0
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel2"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"text": "是"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", true ) )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel3"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
+					"text": "否"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2", true ) )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

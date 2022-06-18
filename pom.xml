@@ -4,10 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.MemWink</groupId>
     <artifactId>MemWink</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+
+    <name>MemWink</name>
+    <url>https://gitee.com/dreamBuilding/mem-wink</url>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -25,7 +28,7 @@
             <plugin>
                 <groupId>io.github.fvarrui</groupId>
                 <artifactId>javapackager</artifactId>
-                <version>1.5.1</version>
+                <version>1.6.5</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -34,8 +37,29 @@
                         </goals>
                         <configuration>
                             <!-- mandatory -->
-                            <mainClass>com.MemWink.Main</mainClass>
+                            <mainClass>Main</mainClass>
                             <!-- optional -->
+                            <bundleJre>true</bundleJre>
+                            <generateInstaller>true</generateInstaller>
+                            <administratorRequired>false</administratorRequired>
+                            <platform>mac</platform>
+                            <additionalResources>
+                                <additionalResource>image/</additionalResource>
+                                <additionalResource>usrData/</additionalResource>
+                            </additionalResources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>bundling-for-mac</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                        <configuration>
+                            <platform>mac</platform>
+                            <createTarball>true</createTarball>
+                            <mainClass>com.MemWink.Main</mainClass>
+                            <!--                                                <jdkPath>X:\\path\to\linux\jdk</jdkPath>-->
                         </configuration>
                     </execution>
                 </executions>

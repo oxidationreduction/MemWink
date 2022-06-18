@@ -1,0 +1,33 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.14.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {space ::114:x, comp label1:::p::p, space :p:111:p}, seq l {space :p:48:p, comp yes:::p:90:p, space ::122:x, comp no:::p:90:p, space :p:48:p}}"
+			"$verticalGroup": "par l {seq l {space :p:84:p, comp label1:::p::p, space ::75:x, par l:::p {comp yes::::44:x, comp no::::44:x}, space :p:36:p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "是否添加帮助卡包"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 10, false )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "yes"
+				"text": "是"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "yes", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "no"
+				"text": "否"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "no", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 210, 125 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

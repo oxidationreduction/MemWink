@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="jpackage" build-on-make="true" name="MemWink">
+    <output-path>$PROJECT_DIR$/out/artifacts/MemWink</output-path>
+    <properties id="jpackage-properties">
+      <options>
+        <option name="version" value="1.0" />
+        <option name="copyright" value="Liu Hongyu, Feng Weilun, Wu Yuchuan" />
+        <option name="description" value="" />
+        <option name="vendor" value="" />
+        <option name="mainClass" value="com.MemWink.Main" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="MemWink.jar">
+        <element id="module-output" name="MemWink" />
+      </element>
+      <element id="library" level="project" name="Maven: cn.hutool:hutool-all:5.8.0" />
+      <element id="library" level="project" name="Maven: org.jfree:jfreechart:1.5.3" />
+      <element id="library" level="project" name="Maven: net.sourceforge.javacsv:javacsv:2.0" />
+      <element id="dir-copy" path="$PROJECT_DIR$/image" />
+      <element id="dir-copy" path="$PROJECT_DIR$/usrData" />
+    </root>
+  </artifact>
+</component>

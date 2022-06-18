@@ -1,0 +1,168 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPopupMenu", new FormLayoutManager( class javax.swing.JPopupMenu ) ) {
+			name: "popupMenu1"
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem3"
+				"text": "卡包设置"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem3", true ) )
+			} )
+			add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+				name: "menu1"
+				"text": "排序方式"
+				add( new FormComponent( "javax.swing.JMenuItem" ) {
+					name: "menuItem4"
+					"text": "创建时间"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem4", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JMenuItem" ) {
+					name: "menuItem8"
+					"text": "正面内容"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem8", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JMenuItem" ) {
+					name: "menuItem9"
+					"text": "记忆阶段"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem9", true ) )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem6"
+				"text": "清除卡包内容"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem6", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem7"
+				"text": "删除卡包"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem7", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 561 )
+		} )
+		add( new FormContainer( "javax.swing.JPopupMenu", new FormLayoutManager( class javax.swing.JPopupMenu ) ) {
+			name: "popupMenu2"
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem1"
+				"text": "新建卡片"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem1", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem2"
+				"text": "导入csv"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem2", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 684 )
+		} )
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel3"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+					"columns": 2
+					"rows": 2
+					"hgap": 18
+					"vgap": 18
+				} ) {
+					name: "panel6"
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "First"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "panel7"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label3"
+						"text": "分类"
+						"horizontalTextPosition": 4
+						"horizontalAlignment": 4
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "First"
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane2"
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+							"hgap": 0
+						} ) {
+							name: "panel8"
+							"preferredSize": new java.awt.Dimension( 40, 10 )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "After"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel4"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "卡包名"
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 14, false )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "West"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"preferredSize": new java.awt.Dimension( 45, 45 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", true ) )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "East"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "First"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel5"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
+					"text": "+"
+					"preferredSize": new java.awt.Dimension( 45, 45 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2", true ) )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "East"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button3"
+					"text": "text"
+					"visible": false
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3", true ) )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Last"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel2"
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane1"
+					"preferredSize": new java.awt.Dimension( 20, 120 )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+						"alignment": 0
+					} ) {
+						name: "panel1"
+						"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+						"maximumSize": new java.awt.Dimension( 16, 16 )
+						"preferredSize": new java.awt.Dimension( 20, 100 )
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 785, 545 )
+		} )
+	}
+}

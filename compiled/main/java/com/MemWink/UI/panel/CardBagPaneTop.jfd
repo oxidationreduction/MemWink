@@ -1,0 +1,31 @@
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.15" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {space ::174:x, comp TotalCardsNum:::p::p, space :::p}, seq l {space :::p, comp panel:::p:87:p, space ::97:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp TotalCardsNum:::p::p, space ::53:x, comp panel:::p:35:p, space :::p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "TotalCardsNum"
+				"text": "0"
+				auxiliary() {
+					"JavaCodeGenerator.variableModifiers": 1
+				}
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+				"columns": 1
+			} ) {
+				name: "panel"
+				auxiliary() {
+					"JavaCodeGenerator.variableModifiers": 1
+				}
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 260, 135 )
+			"size": new java.awt.Dimension( 190, 120 )
+		} )
+	}
+}
