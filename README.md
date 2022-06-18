@@ -61,7 +61,13 @@ MemWink是一款基于Java Swing开发的记忆工具软件，应用艾宾浩斯
 ## 使用说明
 
 ### 卡包
-- 卡包浏览器
+- 卡包列表
+
+<p align="center">
+  <a href="https://gitee.com/dreamBuilding/mem-wink/blob/dev/screenshot/卡包列表.png">
+   <img alt="WeSync" src="https://gitee.com/dreamBuilding/mem-wink/blob/dev/screenshot/卡包列表.png">
+  </a>
+</p>
 
 MemWink的默认首页，打开后首先进入的是卡包浏览器，所有的卡包呈圆角矩形，排列在页面的网格中
 

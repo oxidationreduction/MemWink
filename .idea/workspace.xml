@@ -9,24 +9,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="美化和错误修正">
-      <change afterPath="$PROJECT_DIR$/screenshot/修改卡片内容.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/修改学习阶段.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/分类.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/卡包列表.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/卡片列表.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/卡片详情显示背面.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/卡片详情设置.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/卡片详情隐藏背面.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/统计.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/记忆.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/记忆完成.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/调整布局.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="257a271b-db27-41bd-aa73-8fbc9e4d5fb6" name="变更" comment="添加截图">
+      <change afterPath="$PROJECT_DIR$/screenshot/card_content_hide.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/card_content_setting.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/card_content_show.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/cardbags.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/cards.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/categories.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/content_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/layout_adjust.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/memory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/memory_complete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/stage_change.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/statistic.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowAllCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MemWink/UI/panel/ShowStatics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/修改卡片内容.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/修改学习阶段.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/分类.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/卡包列表.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/卡片列表.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/卡片详情显示背面.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/卡片详情设置.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/卡片详情隐藏背面.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/统计.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/记忆.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/记忆完成.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/调整布局.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,18 +88,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/liuhongyu/Documents/大二下/面向对象/mem-wink&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/liuhongyu/Documents/大二下/面向对象/mem-wink",
+    "project.structure.last.edited": "工件",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/usrData" />
@@ -532,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655525203583</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="添加截图">
+      <created>1655527519594</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1655527519594</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +566,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="更新CardBag，增加UISetting变量；&#10;健全CardContent功能。" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="完成CardContent功能开发；&#10;修改卡片正反面内容Card.front, Card.back的保存方式；&#10;新建多个对话框，包括&quot;卡片编辑&quot;EditCardDialog对话框，此对话框可用于新建卡片。" />
     <MESSAGE value="开始添加复习功能" />
     <MESSAGE value="复习页面基本功能开发结束，等待复习结束页面开发完成。&#10;源码结构重组。" />
@@ -575,7 +591,8 @@
     <MESSAGE value="增加复习倒计时功能" />
     <MESSAGE value="美化、错误修正和注释添加" />
     <MESSAGE value="美化和错误修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="美化和错误修正" />
+    <MESSAGE value="添加截图" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加截图" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
