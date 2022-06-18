@@ -246,7 +246,9 @@ public class DataManager {
      */
     public static void importExampleCardBag() {
         File file = new File("usrData/example.csv");
-        addCardBag("欢迎使用MemWink", Color.ORANGE, 50);
+        if (addCardBag("欢迎使用MemWink", Color.ORANGE, 23) == DataManagerStatus.DUPLICATE_CARD_BAG_NAME) {
+            return;
+        }
         CardBag cardBag = provideCardBag("欢迎使用MemWink");
         UISetting tmp = cardBag.getUiSetting();
         tmp.backFontSize = 20;

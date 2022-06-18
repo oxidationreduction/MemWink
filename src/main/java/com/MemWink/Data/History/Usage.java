@@ -132,3 +132,6 @@ public class Usage implements Serializable {
         return forgetRateHistory;
     }
 }
+
+// TODO：抽取一个添加新一天的数据的方法，无论运行以上哪种方法，都要先运行这一方法以更新数据列表，查看是否需要新add一项，同时去掉remember和forget中的判断语句
+

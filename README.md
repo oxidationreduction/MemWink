@@ -8,27 +8,27 @@ MemWink是一款基于Java Swing开发的记忆工具软件，应用艾宾浩斯
 更多项目详细信息，请访问[Gitee仓库](https://gitee.com/dreamBuilding/mem-wink)或
 
 ## 软件架构
-### 软件包说明
+### 环境依赖
 
-Main.java：程序入口
+> Java 17
 
-- Data：运行时存储并管理用户数据，包括卡片、卡包和记忆历史，由DataManager管理
+### 目录说明
 
-- UI：用户界面相关，包括小组件、对话框、面板和框架，由UIManager管理
+> AppIcon.iconsets : 应用程序图标
 
-- util：工具包，包括各种常量和小工具
+> image : 应用程序所需图片
 
-### 目录说明：
+> src/main/java/com.MemWink：源代码
 
-- image：用于存储图标/贴图等
-- src/main：源码
-- usrData：用于存储用户数据，包括卡包和记忆历史
+>> Data：数据管理系统
+
+>> UI：
+
+> usrData：用户数据文件
 
 ## 安装包
 
-#### Windows版：
 #### Mac版(Intel)：
-#### Mac版(ARM)：
 
 ## 使用说明
 

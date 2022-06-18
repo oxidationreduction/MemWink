@@ -101,6 +101,10 @@ public class MainFrame extends JFrame {
         statisticButton.setIcon(MemWinkUtil.getScaledIcon("Statistic",
                 (int) Math.round(0.85 * statisticButton.getWidth()),
                 (int) Math.round(0.85 * statisticButton.getHeight())));
+
+        helpButton.setText(null);
+        helpButton.setSize(60, 60);
+        helpButton.setIcon(MemWinkUtil.getScaledIcon("help", 60, 60));
     }
 
     /**
@@ -140,7 +144,6 @@ public class MainFrame extends JFrame {
      * @param e 按钮按下事件
      */
     private void help(ActionEvent e) {
-        // TODO add your code here
         HelpDialog helpDialog = new HelpDialog();
         helpDialog.setVisible(true);
     }

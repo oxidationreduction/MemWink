@@ -4,6 +4,7 @@
 
 package com.MemWink.UI.panel;
 
+import java.awt.event.*;
 import com.MemWink.Data.CardBag.CardBag;
 import com.MemWink.Data.CardBag.CategorizedCard;
 import com.MemWink.Data.DataManager;
@@ -66,6 +67,7 @@ public class ShowAllCards extends JPanel {
         //待复习button
         if(cardBag1.getReviewCardsNum()>0){
             button3.setVisible(true);
+            button3.setFont(new Font("微软雅黑", Font.PLAIN, 15));
             button3.setText("待复习："+String.valueOf(cardBag1.getReviewCardsNum()));
             button3.addActionListener(e -> button3(e));
         }
@@ -204,6 +206,7 @@ public class ShowAllCards extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - Sun Yihan
         popupMenu1 = new JPopupMenu();
         menuItem3 = new JMenuItem();
         menu1 = new JMenu();
@@ -236,7 +239,11 @@ public class ShowAllCards extends JPanel {
 
             //---- menuItem3 ----
             menuItem3.setText("\u5361\u5305\u8bbe\u7f6e");
-            menuItem3.addActionListener(e -> menuItem3(e));
+            menuItem3.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    menuItem3(e);
+                }
+            });
             popupMenu1.add(menuItem3);
 
             //======== menu1 ========
@@ -245,29 +252,49 @@ public class ShowAllCards extends JPanel {
 
                 //---- menuItem4 ----
                 menuItem4.setText("\u521b\u5efa\u65f6\u95f4");
-                menuItem4.addActionListener(e -> menuItem4(e));
+                menuItem4.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        menuItem4(e);
+                    }
+                });
                 menu1.add(menuItem4);
 
                 //---- menuItem8 ----
                 menuItem8.setText("\u6b63\u9762\u5185\u5bb9");
-                menuItem8.addActionListener(e -> menuItem8(e));
+                menuItem8.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        menuItem8(e);
+                    }
+                });
                 menu1.add(menuItem8);
 
                 //---- menuItem9 ----
                 menuItem9.setText("\u8bb0\u5fc6\u9636\u6bb5");
-                menuItem9.addActionListener(e -> menuItem9(e));
+                menuItem9.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        menuItem9(e);
+                    }
+                });
                 menu1.add(menuItem9);
             }
             popupMenu1.add(menu1);
 
             //---- menuItem6 ----
             menuItem6.setText("\u6e05\u9664\u5361\u5305\u5185\u5bb9");
-            menuItem6.addActionListener(e -> menuItem6(e));
+            menuItem6.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    menuItem6(e);
+                }
+            });
             popupMenu1.add(menuItem6);
 
             //---- menuItem7 ----
             menuItem7.setText("\u5220\u9664\u5361\u5305");
-            menuItem7.addActionListener(e -> menuItem7(e));
+            menuItem7.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    menuItem7(e);
+                }
+            });
             popupMenu1.add(menuItem7);
         }
 
@@ -276,16 +303,31 @@ public class ShowAllCards extends JPanel {
 
             //---- menuItem1 ----
             menuItem1.setText("\u65b0\u5efa\u5361\u7247");
-            menuItem1.addActionListener(e -> menuItem1(e));
+            menuItem1.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    menuItem1(e);
+                }
+            });
             popupMenu2.add(menuItem1);
 
             //---- menuItem2 ----
             menuItem2.setText("\u5bfc\u5165csv");
-            menuItem2.addActionListener(e -> menuItem2(e));
+            menuItem2.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    menuItem2(e);
+                }
+            });
             popupMenu2.add(menuItem2);
         }
 
         //======== this ========
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax.
+        swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border
+        . TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog"
+        ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder
+        ( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){  public void propertyChange (java
+        .beans .PropertyChangeEvent e) {if ("bor\u0064er" .equals (e .getPropertyName () )) throw new RuntimeException
+        ( ); }} );
         setLayout(new BorderLayout());
 
         //======== panel3 ========
@@ -335,7 +377,11 @@ public class ShowAllCards extends JPanel {
 
             //---- button1 ----
             button1.setPreferredSize(new Dimension(45, 45));
-            button1.addActionListener(e -> button1(e));
+            button1.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    button1(e);
+                }
+            });
             panel4.add(button1, BorderLayout.EAST);
         }
         add(panel4, BorderLayout.PAGE_START);
@@ -347,13 +393,21 @@ public class ShowAllCards extends JPanel {
             //---- button2 ----
             button2.setText("+");
             button2.setPreferredSize(new Dimension(45, 45));
-            button2.addActionListener(e -> button2(e));
+            button2.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    button2(e);
+                }
+            });
             panel5.add(button2, BorderLayout.EAST);
 
             //---- button3 ----
             button3.setText("text");
             button3.setVisible(false);
-            button3.addActionListener(e -> button3(e));
+            button3.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    button3(e);
+                }
+            });
             panel5.add(button3, BorderLayout.CENTER);
         }
         add(panel5, BorderLayout.PAGE_END);
@@ -383,6 +437,7 @@ public class ShowAllCards extends JPanel {
     public CardBagPane cardBagPane;
     public CardBag cardBag1;
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - Sun Yihan
     private JPopupMenu popupMenu1;
     private JMenuItem menuItem3;
     private JMenu menu1;
