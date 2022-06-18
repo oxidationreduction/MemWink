@@ -120,7 +120,7 @@ MemWink是一款基于Java Swing开发的记忆工具软件，应用艾宾浩斯
 
 <p align="center">
   <a href="https://gitee.com/dreamBuilding/mem-wink/raw/dev/screenshot/card_content_hide.png">
-   <img alt="WeSync" src="https://gitee.com/dreamBuilding/mem-wink/raw/dev/screenshot/card_contrent_hide.png"width="731"height="500">
+   <img alt="WeSync" src="https://gitee.com/dreamBuilding/mem-wink/raw/dev/screenshot/card_content_hide.png"width="731"height="500">
   </a>
 </p>
 
